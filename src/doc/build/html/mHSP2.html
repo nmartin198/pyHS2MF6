@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2. mHSP2 &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.2.1. Main Block" href="mHSP2_main.html" />
+    <link rel="prev" title="4.1.4. Coupled Mode Logging" href="pyHS2MF6_logger.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="pyHS2MF6_logger.html" title="4.1.4. Coupled Mode Logging"
+             accesskey="P">previous</a> |
+          <a href="mHSP2_main.html" title="4.2.1. Main Block"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mhsp2">
+<span id="id1"></span><h1><span class="section-number">4.2. </span>mHSP2<a class="headerlink" href="#mhsp2" title="Permalink to this headline">¶</a></h1>
+<p><strong>mHSP2</strong> is the port of <a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a>
+created specifically for coupled simulation with MODFLOW 6. <em>HSPsquared</em>
+is a HSPF variant which was rewritten in pure Python. <strong>mHSP2</strong> only
+provides the water movement and storage capabilities of <em>HSPsquared</em>.</p>
+<p>The main difference between <strong>mHSP2</strong> and <em>HSPsquared</em> is that <strong>mHSP2</strong>
+was created with the simulation time loop as the main simulation loop to
+facilitate dynamic coupling to MODFLOW 6. HSPF-variants traditionally use
+an operating module instance loop that is executed in routing order as
+the main simulation loop. This approach requires that the time
+simulation loop be executed for each operating module instance.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_main.html">4.2.1. Main Block</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_main.html#module-locaMain">4.2.1.1. locaMain.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_hrchhyd.html">4.2.2. RCHRES Water Movement and Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_hrchhyd.html#module-locaHrchhyd">4.2.2.1. locaHrchhyd.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_hyperwat.html">4.2.3. PERLND Water Movement and Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_hyperwat.html#module-locaHyperwat">4.2.3.1. locaHyperwat.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_himpwat.html">4.2.4. IMPLND Water Movement and Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_himpwat.html#module-locaHimpwat">4.2.4.1. locaHimpwat.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_coupling.html">4.2.5. Coupling Specific Methods and Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_coupling.html#module-locaCoupling">4.2.5.1. locaCoupling.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_HDF5.html">4.2.6. HDF5 File Methods and Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_HDF5.html#module-locaHSP2HDF5">4.2.6.1. locaHSP2HDF5.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mHSP2_logger.html">4.2.7. mHSP2 Log File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2_logger.html#module-locaLogger">4.2.7.1. locaLogger.py</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="pyHS2MF6_logger.html" title="4.1.4. Coupled Mode Logging"
+              >previous</a> |
+            <a href="mHSP2_main.html" title="4.2.1. Main Block"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/mHSP2.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

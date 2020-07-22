@@ -1,0 +1,20 @@
+BEGIN options
+  SAVE_FLOWS
+  NEWTON
+END options
+
+BEGIN packages
+  UZF6  DC_MF6.uzf  uzf
+  IC6  DC_MF6.ic  ic
+  gnc6  DC_MF6.gnc  gnc
+  disv6  DC_MF6.disv  disv
+  sto6  DC_MF6.sto  sto
+  npf6  DC_MF6.npf  npf
+  ghb6  DC_MF6.ghb  ghb
+  chd6  DC_MF6.chd  chd
+  drn6  DC_MF6.drn  drn
+  OC6  DC_MF6.oc  oc
+  RIV6  DC_MF6.riv  riv
+  RCH6  DC_MF6.rch  rch
+END packages
+

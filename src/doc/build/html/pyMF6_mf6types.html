@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.2.2. Extended MODFLOW 6 Types &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="4.3.2.1. Module f2pwrap in f2pWrappers.f90" href="pyMF6_f2pwrap.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="pyMF6_f2pwrap.html" title="4.3.2.1. Module f2pwrap in f2pWrappers.f90"
+             accesskey="P">previous</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="extended-modflow-6-types">
+<span id="pymf6-m6exts-f"></span><h1><span class="section-number">4.3.2.2. </span>Extended MODFLOW 6 Types<a class="headerlink" href="#extended-modflow-6-types" title="Permalink to this headline">¶</a></h1>
+<p>The type extensions involve little new code. Mostly this functionality
+is implemented by making copies of existing MODFLOW 6 modules and
+renaming the modules, types, and subroutines to avoid issues with
+having the same names for types and subroutines that use different
+types.</p>
+<p>Documentation and comments are only provided for the modified portions
+of these four modules.</p>
+<div class="section" id="cphsimulationcreatemodule-in-cp-simulationcreate-f90">
+<span id="pymf6-cphsimulationcreatemodule-f"></span><h2><span class="section-number">4.3.2.2.1. </span><strong>cphSimulationCreateModule</strong> in cp_SimulationCreate.f90<a class="headerlink" href="#cphsimulationcreatemodule-in-cp-simulationcreate-f90" title="Permalink to this headline">¶</a></h2>
+<p>Copy of MODFLOW 6, v.6.1.1 SimulationCreateModule that has been slightly
+extended to provde for coupled mode simulation with HSPF. There are really
+only three modifications or extensions to this module.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><dl class="simple">
+<dt>simulation_cr() replaced cphsimulation_cr() so that this module provides</dt><dd><p>a unique name for simulation object creation</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>simulation_da() replaced by cphsimulation_da() so that this module</dt><dd><p>provides a unique name for simulation object deallocation</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>cphgwf_cr() from cphGwfModule is used in models_create() so that extended</dt><dd><p>type GWF models are created and used for coupled simulation.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Module</strong> <a class="reference internal" href="#f/cphSimulationCreateModule" title="f/cphSimulationCreateModule: Provides a modified simulation creation module that utilizes the new type extensions"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphSimulationCreateModule</span></code></a></p>
+<span class="target" id="f/cphSimulationCreateModule"></span><dl class="subroutine">
+<dt id="f/cphSimulationCreateModule/cphsimulation_cr">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">cphsimulation_cr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_cr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the simulation name file and initializes the models and exchanges.
+Only the name has changed and no functionality altered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_f2pwrap.html#f/f2pwrap/cphsetup" title="f/f2pwrap/cphsetup"><code class="xref f f-subr docutils literal notranslate"><span class="pre">f2pwrap/cphsetup()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>getunit in InputOutputModule</cite></p></li>
+<li><p><cite>sim_message in GenericUtilitiesModule</cite></p></li>
+<li><p><cite>write_simulation_header in</cite> <a class="reference internal" href="#f/cphSimulationCreateModule" title="f/cphSimulationCreateModule: Provides a modified simulation creation module that utilizes the new type extensions"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphSimulationCreateModule</span></code></a></p></li>
+<li><p><cite>read_simulation_namefile in</cite> <a class="reference internal" href="#f/cphSimulationCreateModule" title="f/cphSimulationCreateModule: Provides a modified simulation creation module that utilizes the new type extensions"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphSimulationCreateModule</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphSimulationCreateModule/cphsimulation_da">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">cphsimulation_da</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_da" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocates simulation variables. Only the name is changed and no
+functionality altered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_f2pwrap.html#f/f2pwrap/cphdeallocall" title="f/f2pwrap/cphdeallocall"><code class="xref f f-subr docutils literal notranslate"><span class="pre">f2pwrap/cphdeallocall()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphSimulationCreateModule/models_create">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">models_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/models_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create model objects for the simulation. Only modification is to use
+cphgwf_cr from cphGwfModule for groundwater flow model (GWF) creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><cite>read_simulation_namefile in cphSimlationCreateModule</cite></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/cphgwf_cr" title="f/cphGwfModule/cphgwf_cr"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/cphgwf_cr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="cphgwfmodule-in-cp-gwf3-f90">
+<span id="pymf6-cphgwfmodule-f"></span><h2><span class="section-number">4.3.2.2.2. </span><strong>cphGwfModule</strong> in cp_gwf3.f90<a class="headerlink" href="#cphgwfmodule-in-cp-gwf3-f90" title="Permalink to this headline">¶</a></h2>
+<p>Copy of MODFLOW 6, v.6.1.1 GwfModule that has been slightly extended
+to provde for coupled mode simulation with HSPF. There are really
+only five modifications or extensions.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><dl class="simple">
+<dt>GwfModelType replaced cphGwfModelType so that the types can</dt><dd><p>coexist in pyMF6</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>gwf_cr() replaced by cphgwf_cr() to ensure that this version of</dt><dd><p>create is only called for coupled</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>package_create() subroutine has been extended to create</dt><dd><p><a class="reference internal" href="#f/cphUzfModule/cphUzfType" title="f/cphUzfModule/cphUzfType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphUzfModule/cphUzfType</span></code></a> UZF packages and
+<a class="reference internal" href="#f/cphDrnModule/cphDrnType" title="f/cphDrnModule/cphDrnType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphDrnModule/cphDrnType</span></code></a> DRN packages.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Added gwf_chprp() for groundwater model read and prepare. The</dt><dd><p>original gwf_rp is maintained. gwf_chprp provides for passing in
+of the array of UZF infiltration to the model from an external process.
+It also calls the modified UZF type that is customized to deal with
+receiving this array each simulation day.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added cphsurfdis() to extract simulated groundwater discharges to</dt><dd><p>the surface for the just simulated time step. This includes DRN
+package discharge, UZF seepage to surface, and UZF rejected
+infiltration.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Module</strong> <a class="reference internal" href="#f/cphGwfModule" title="f/cphGwfModule: Provides a modified GWF type that can receive and send arrays to external processes"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphGwfModule</span></code></a></p>
+<span class="target" id="f/cphGwfModule"></span><dl class="type">
+<dt id="f/cphGwfModule/cphGwfModelType">
+<em class="property">type  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphGwfModelType</code><a class="headerlink" href="#f/cphGwfModule/cphGwfModelType" title="Permalink to this definition">¶</a></dt>
+<dd><p>GWF model type that extended to provide for receiving an array of
+infiltration at the start of each simulation day and returning an
+array of groundwater discharge to the surface at the end of each
+simulation day.</p>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphGwfModule/cphgwf_cr">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphgwf_cr</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">id</em>, <em class="sig-param">modelname</em>, <em class="sig-param">smr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphgwf_cr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new groundwater flow model object and add it to the internal
+list of models. Also assign the values for this model object. This
+routine is unchanged, just renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (*)<em> [</em><em>character</em><em>,</em><em>in</em><em>]</em> :: name file</p></li>
+<li><p><strong>id</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: model identifier</p></li>
+<li><p><strong>modelname</strong> (*)<em> [</em><em>character</em><em>,</em><em>in</em><em>]</em> :: model name string</p></li>
+<li><p><strong>smr</strong><em> [</em><em>logical</em><em>,</em><em>in</em><em>]</em> :: is a single model run?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/package_create" title="f/cphGwfModule/package_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">package_create()</span></code></a></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/cphSimulationCreateModule/models_create" title="f/cphSimulationCreateModule/models_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphSimulationCreateModule/models_create()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphGwfModule/package_create">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">package_create</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">filtyp</em>, <em class="sig-param">ipakid</em>, <em class="sig-param">ipaknum</em>, <em class="sig-param">pakname</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/package_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create boundary condition packages for the GWF model. Uses the same
+parameters and is unchanged except for creation of
+<a class="reference internal" href="#f/cphUzfModule/cphUzfType" title="f/cphUzfModule/cphUzfType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphUzfModule/cphUzfType</span></code></a> and <a class="reference internal" href="#f/cphDrnModule/cphDrnType" title="f/cphDrnModule/cphDrnType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphDrnModule/cphDrnType</span></code></a>
+packages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference internal" href="#f/cphUzfModule/cphuzf_create" title="f/cphUzfModule/cphuzf_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphUzfModule/cphuzf_create()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#f/cphDrnModule/cphdrn_create" title="f/cphDrnModule/cphdrn_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphDrnModule/cphdrn_create()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/cphgwf_cr" title="f/cphGwfModule/cphgwf_cr"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphgwf_cr()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphGwfModule/gwf_chprp">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">gwf_chprp</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">cpinalen</em>, <em class="sig-param">cpinarr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/gwf_chprp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modified GroundWater Flow Model (GWF) read and prepare which calls
+package read and prepare routines. Main modification is to receive
+an array from HSPF and a length for this array and then pass the
+array to the modified UZF package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>this</strong><em> [</em><a class="reference internal" href="#f/cphGwfModule/cphGwfModelType" title="f/cphGwfModule/cphGwfModelType"><em>cphGwfModelType</em></a><em>,</em><em>in</em><em>]</em> :: self</p></li>
+<li><p><strong>cpinalen</strong><em> [</em><em>integer</em><em>,</em><em>optional, in</em><em>]</em> :: length of the cpinarr array, NUZFCELLS</p></li>
+<li><p><strong>cpinarr</strong> (cpinalen)<em> [</em><em>float</em><em>,</em><em>optional, in</em><em>]</em> :: array of fixed infiltration rates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphUzfModule/cphuzf_rp" title="f/cphUzfModule/cphuzf_rp"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphUzfModule/cphuzf_rp()</span></code></a></p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_f2pwrap.html#f/f2pwrap/cphinnertimeloop" title="f/f2pwrap/cphinnertimeloop"><code class="xref f f-subr docutils literal notranslate"><span class="pre">f2pwrap/cphinnertimeloop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphGwfModule/cphsurfdis">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphsurfdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphsurfdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract all simulated discharges to the ground surface and compile
+these to an array representing a layer surface. This array is returned
+to the calling program for passing to an external process. The array
+is calculated from DRN discharge, UZF seepage, and UZF rejected
+infiltration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>this</strong><em> [</em><a class="reference internal" href="#f/cphGwfModule/cphGwfModelType" title="f/cphGwfModule/cphGwfModelType"><em>cphGwfModelType</em></a><em>,</em><em>in</em><em>]</em> :: self</p></li>
+<li><p><strong>surf2d</strong> (2, numnodes2d)<em> [</em><em>float</em><em>,</em><em>inout</em><em>]</em> :: <p>array of cell discharge values</p>
+<ol class="arabic simple">
+<li><p>UZF groundwater discharge and DRN discharge</p></li>
+<li><p>UZF rejected infiltration</p></li>
+</ol>
+</p></li>
+<li><p><strong>numnodes2d</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: number of cells in a layer, NCPL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference internal" href="#f/cphUzfModule/cphuzf_exsdis" title="f/cphUzfModule/cphuzf_exsdis"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphUzfModule/cphuzf_exsdis()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#f/cphDrnModule/cphdrn_exsdis" title="f/cphDrnModule/cphdrn_exsdis"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphDrnModule/cphdrn_exsdis()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_f2pwrap.html#f/f2pwrap/cphinnertimeloop" title="f/f2pwrap/cphinnertimeloop"><code class="xref f f-subr docutils literal notranslate"><span class="pre">f2pwrap/cphinnertimeloop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="cphuzfmodule-in-cp-gwf3uzf8-f90">
+<span id="pymf6-cphuzfmodule-f"></span><h2><span class="section-number">4.3.2.2.3. </span><strong>cphUzfModule</strong> in cp_gwf3uzf8.f90<a class="headerlink" href="#cphuzfmodule-in-cp-gwf3uzf8-f90" title="Permalink to this headline">¶</a></h2>
+<p>Copy of MODFLOW 6, v.6.1.1 UzfModule that has been slightly extended to
+provde for coupled mode simulation with HSPF. There are really only
+four modifications or extensions.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>UzfType replaced cphUzfType so that the types can coexist in pyMF6</p></li>
+<li><dl class="simple">
+<dt>uzf_create() replaced by cphuzf_create() to ensure that this version</dt><dd><p>of create is only called for coupled</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added cphuzf_rp for package read and prepare. The original uzf_rp is</dt><dd><p>maintained. cphuzf_rp provides for passing in of the array of UZF
+infiltration to the model from an external process. These
+infiltration values are then written into the time series inputs
+for the current day.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added cphuzf_exsdis() to extract simulated groundwater discharges to</dt><dd><p>the surface for the just simulated time step. This includes UZF
+seepage to surface and UZF rejected infiltration.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Module</strong> <a class="reference internal" href="#f/cphUzfModule" title="f/cphUzfModule: Provides a modified UZF package that can receive infiltration from HSPF and send groundwater discharge to HSPF"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphUzfModule</span></code></a></p>
+<span class="target" id="f/cphUzfModule"></span><dl class="type">
+<dt id="f/cphUzfModule/cphUzfType">
+<em class="property">type  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphUzfType</code><a class="headerlink" href="#f/cphUzfModule/cphUzfType" title="Permalink to this definition">¶</a></dt>
+<dd><p>UZF package type that extended to provide for receiving an array of
+infiltration at the start of each simulation day and returning an
+array of groundwater discharge to the surface at the end of each
+simulation day.</p>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphUzfModule/cphuzf_create">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_create</code><span class="sig-paren">(</span><em class="sig-param">packobj</em>, <em class="sig-param">id</em>, <em class="sig-param">ibcnum</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em>, <em class="sig-param">namemodel</em>, <em class="sig-param">pakname</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new UZF boundary forcing package for the GWF model at the start
+of the simulation. The subroutine is unchanged, including parameters, but is
+extended to use the coupled model UZF type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/cphGwfModule/package_create" title="f/cphGwfModule/package_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/package_create()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphUzfModule/cphuzf_rp">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_rp</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">cpinalen</em>, <em class="sig-param">cpinarr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_rp" title="Permalink to this definition">¶</a></dt>
+<dd><p>New subroutine based on uzf_rp that puts the infiltration from HSPF
+into the sinf values location so that will be incorporated into the
+time step solution for the current day. Does this every simulation day.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>this</strong><em> [</em><a class="reference internal" href="#f/cphUzfModule/cphUzfType" title="f/cphUzfModule/cphUzfType"><em>cphUzfType</em></a><em>,</em><em>in</em><em>]</em> :: self</p></li>
+<li><p><strong>cpinalen</strong><em> [</em><em>integer</em><em>,</em><em>optional, in</em><em>]</em> :: length of the cpinarr array, NUZFCELLS</p></li>
+<li><p><strong>cpinarr</strong> (cpinalen)<em> [</em><em>float</em><em>,</em><em>optional, in</em><em>]</em> :: array of fixed infiltration rates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/gwf_chprp" title="f/cphGwfModule/gwf_chprp"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/gwf_chprp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphUzfModule/cphuzf_exsdis">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_exsdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_exsdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>New subroutine for coupling to HSPF. It provides an extension to
+extract surface discharges. Both groundwater seepage discharge and
+rejected infiltration are collated from the UZF solution for the current
+time step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>this</strong><em> [</em><a class="reference internal" href="#f/cphUzfModule/cphUzfType" title="f/cphUzfModule/cphUzfType"><em>cphUzfType</em></a><em>,</em><em>in</em><em>]</em> :: self</p></li>
+<li><p><strong>surf2d</strong> (2, numnodes2d)<em> [</em><em>float</em><em>,</em><em>inout</em><em>]</em> :: <p>array of cell discharge values</p>
+<ol class="arabic simple">
+<li><p>UZF groundwater discharge and DRN discharge</p></li>
+<li><p>UZF rejected infiltration</p></li>
+</ol>
+</p></li>
+<li><p><strong>numnodes2d</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: number of cells in a layer, NCPL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/cphsurfdis" title="f/cphGwfModule/cphsurfdis"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/cphsurfdis()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="cphdrnmodule-in-cp-gwf3drn8-f90">
+<span id="pymf6-cphdrnmodule-f"></span><h2><span class="section-number">4.3.2.2.4. </span><strong>cphDrnModule</strong> in cp_gwf3drn8.f90<a class="headerlink" href="#cphdrnmodule-in-cp-gwf3drn8-f90" title="Permalink to this headline">¶</a></h2>
+<p>Copy of MODFLOW 6, v.6.1.1 DRN Module that has been slightly extended
+to provide for coupled mode simulation with HSPF. There are really only
+three modifications or extensions.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>DrnType replaced cphDrnType so that the types can coexist in pyMF6</p></li>
+<li><dl class="simple">
+<dt>drn_create() replaced by cphdrn_create() to ensure that this version</dt><dd><p>of create is only called for coupled</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added cphdrn_exsdis() to extract simulated groundwater discharges to</dt><dd><p>the surface for the just simulated time step.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Module</strong> <a class="reference internal" href="#f/cphDrnModule" title="f/cphDrnModule: Provides a modified DRN package that send groundwater discharge to HSPF"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphDrnModule</span></code></a></p>
+<span class="target" id="f/cphDrnModule"></span><dl class="type">
+<dt id="f/cphDrnModule/cphDrnType">
+<em class="property">type  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphDrnType</code><a class="headerlink" href="#f/cphDrnModule/cphDrnType" title="Permalink to this definition">¶</a></dt>
+<dd><p>DRN package type that extended to provide for returning an
+array of groundwater discharge to the surface at the end of each
+simulation day.</p>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphDrnModule/cphdrn_create">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphdrn_create</code><span class="sig-paren">(</span><em class="sig-param">packobj</em>, <em class="sig-param">id</em>, <em class="sig-param">ibcnum</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em>, <em class="sig-param">namemodel</em>, <em class="sig-param">pakname</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new DRN boundary forcing package for the GWF model at the start
+of the simulation. The subroutine is unchanged, including parameters, but is
+extended to use the coupled model DRN type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/cphGwfModule/package_create" title="f/cphGwfModule/package_create"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/package_create()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/cphDrnModule/cphdrn_exsdis">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphdrn_exsdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_exsdis" title="Permalink to this definition">¶</a></dt>
+<dd><p>New subroutine for coupling to HSPF. It provides an extension to
+extract surface discharges. DRN package discharge is added to the
+array that returned to the external process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>this</strong><em> [</em><a class="reference internal" href="#f/cphDrnModule/cphDrnType" title="f/cphDrnModule/cphDrnType"><em>cphDrnType</em></a><em>,</em><em>in</em><em>]</em> :: self</p></li>
+<li><p><strong>surf2d</strong> (2, numnodes2d)<em> [</em><em>float</em><em>,</em><em>inout</em><em>]</em> :: <p>array of cell discharge values</p>
+<ol class="arabic simple">
+<li><p>UZF groundwater discharge and DRN discharge</p></li>
+<li><p>UZF rejected infiltration</p></li>
+</ol>
+</p></li>
+<li><p><strong>numnodes2d</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: number of cells in a layer, NCPL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/cphGwfModule/cphsurfdis" title="f/cphGwfModule/cphsurfdis"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphGwfModule/cphsurfdis()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="pyMF6_f2pwrap.html" title="4.3.2.1. Module f2pwrap in f2pWrappers.f90"
+              >previous</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/pyMF6_mf6types.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

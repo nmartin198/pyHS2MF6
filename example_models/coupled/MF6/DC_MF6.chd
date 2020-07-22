@@ -1,0 +1,17 @@
+BEGIN options
+  BOUNDNAMES
+  SAVE_FLOWS
+  OBS6  FILEIN  DC_MF6.chd.obs
+END options
+
+BEGIN dimensions
+  MAXBOUND  4
+END dimensions
+
+BEGIN period  1
+  6 12268     391.00000000  southchd
+  6 12271     391.00000000  southchd
+  6 12272     391.00000000  southchd
+  6 12283     391.00000000  southchd
+END period  1
+

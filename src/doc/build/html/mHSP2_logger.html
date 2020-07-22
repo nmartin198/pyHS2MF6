@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2.7. mHSP2 Log File &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.3. pyMF6" href="pyMF6.html" />
+    <link rel="prev" title="4.2.6. HDF5 File Methods and Data Structures" href="mHSP2_HDF5.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="mHSP2_HDF5.html" title="4.2.6. HDF5 File Methods and Data Structures"
+             accesskey="P">previous</a> |
+          <a href="pyMF6.html" title="4.3. pyMF6"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mhsp2-log-file">
+<span id="mhsp2-logger"></span><h1><span class="section-number">4.2.7. </span>mHSP2 Log File<a class="headerlink" href="#mhsp2-log-file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-locaLogger">
+<span id="localogger-py"></span><span id="mhsp2-localogger-py"></span><h2><span class="section-number">4.2.7.1. </span>locaLogger.py<a class="headerlink" href="#module-locaLogger" title="Permalink to this headline">¶</a></h2>
+<p>mHSP2 custom logger leveraging Python logging</p>
+<p>Provides specification and configuration of Python’s logging API to use for
+debugging and informational purposes. This module is for mHSP2.</p>
+<dl class="py data">
+<dt id="locaLogger.END_MSG">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">END_MSG</code><em class="property"> = 'Only standard units (acres, feet, inches) are supported.\nEven if you set the units to 2, which is suppossed to denote metric, \nstandard units and conversions are hard-coded into HSPsquared and into\nthis revised version.\n\nList of Outputs with Units:\n\nPERLND\n\nAGWET: AET from active groundwater, inches/day\nAGWI: Active groundwater inflow, inches/day\nAGWO: Active groundwater outflow, inches/day\nAGWS: Active groundwater storage, inches\nBASET: AET from baseflow, inches/day\nCEPE: AET from interception storage, inches/day\nCEPS: Interception storage, inches\nGWVS: Index to available groundwater slope, inches\nIFWI: Interflow inflow, inches/day\nIFWO: Interflow outflow, inches/day\nIFWS: Interflow storage, inches\nIGWI: Inflow to inactive groundwater, inches/day\nINFFAC: Factor to account for frozen ground Not currently implemented \n        and always set to 1\nINFIL: Infiltration to soil, inches/day\nLZET: Lower soil zone AET, inches/day\nLZI: Lower soil zone inflow, inches/day\nLZS: Lower soil zone storage, inches\nPERC: Percolation from upper to lower soil zones, inches/day\nRPARM: Maximum ET opportunity, inches/day\nSURI: Surface storage inflow, inches/day\nSURO: Surface storage outflow, inches/day\nSURS: Surface storage, inches\nTAET: Total PERLND AET, inches/day\nTGWS: Total groundwater storage, should be equal to active groundwater\n      storage prior to ET, inches/day\nUZET: Upper soil zone AET, inches/day\nUZI: Upper soil zone inflow, inches/day\nUZS: Upper soil zone storage, inches\nPERO: Total outflow from pervious land, inches/day\nPERS: Total water stored in pervious land, inches\nSUPY: Moisture supplied to the land segment by precipitation, inches/day\nPET: Potential evapotranspiration, inches/day\nPETADJ: Adjusted PET for temperature restrictions, inches/day\n\nIMPLND\n\nIMPEV: Total simulated ET for impervious, inches/day\nIMPS: Total water stored in impervious lands, inches\nPET: Potential evapotranspiration, inches/day\nPETADJ: Adjusted PET from air temperature limits, inches/day\nRETS: Retention storage, inches\nSUPY: Moisture supplied to the land segment by precipitation, inches/day\nSURI: Surface storage inflow, inches/day\nSURO: Surface storage outflow, inches/day\nSURS: Surface storage, inches\n\nRCHRES\n\nAVDEP: Average depth in ft\nAVVEL: Average velocity in ft/s\nDEP: Depth in feet in RCHRES\nHRAD: Hydraulic radius in ft\nIVOL: Inflow to RCHRES, acre-feet per day\nO1: Rate of outflow through exit 1, ft3/s\nO2: Rate of outflow through exit 2, ft3/s\nO3: Rate of outflow through exit 3, ft3/s\nO4: Rate of outflow through exit 4, ft3/s\nO5: Rate of outflow through exit 5, ft3/s\nOVOL1: Volume of outflow through exit 1, af/day\nOVOL2: Volume of outflow through exit 2, af/day\nOVOL3: Volume of outflow through exit 3, af/day\nOVOL4: Volume of outflow through exit 4, af/day\nOVOL5: Volume of outflow through exit 5, af/day\nPRSUPY: Volume of water contributed by precipitation to the \n        surface, af/day\nRO: Total rate of outflow from RCHRES, ft3/s\nROVOL: Total volume of outflow from RCHRES, af/day\nSAREA: Surface area of RCHRES in acres\nSTAGE: Stage of RCHRES = DEP + STCOR, ft\nTAU: Bed shear stress\nTWID: Stream top width, ft\nUSTAR: Shear velocity ft/s\nVOL: Volume of water in the RCHRES, af\nVOLEV: Volume of water lost by evaporation, af/day\n'</em><a class="headerlink" href="#locaLogger.END_MSG" title="Permalink to this definition">¶</a></dt>
+<dd><p>mHSP2 wrap-up user message.</p>
+<p>Provides implemented outputs from the program along with required units.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.FH">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">FH</code><em class="property"> = None</em><a class="headerlink" href="#locaLogger.FH" title="Permalink to this definition">¶</a></dt>
+<dd><p>File handler</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.FORMATTER">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">FORMATTER</code><em class="property"> = &lt;logging.Formatter object&gt;</em><a class="headerlink" href="#locaLogger.FORMATTER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom formatter</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.LOGNAME">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">LOGNAME</code><em class="property"> = 'mHSP2_Log.txt'</em><a class="headerlink" href="#locaLogger.LOGNAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log file name</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.LOGR">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">LOGR</code><em class="property"> = &lt;Logger mHSP2 (DEBUG)&gt;</em><a class="headerlink" href="#locaLogger.LOGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom logging object</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.LOG_LEVEL">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">LOG_LEVEL</code><em class="property"> = 10</em><a class="headerlink" href="#locaLogger.LOG_LEVEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.START_MSG">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">START_MSG</code><em class="property"> = &quot;Only standard units (acres, feet, inches) are supported.\nEven if you set the units to 2, which is suppossed to denote metric, \nstandard units and conversions are hard-coded into HSPsquared and into\nthis revised version.\n\nList of Inputs with Expected Units:\n\nPERLND\n\nLZSN: Lower soil zone nominal storage depth in inches\nINFILT: Index to infiltration capacity of the soil, inches/day\nLSUR: Length of the assumed overland flow plane in feet\nSLSUR: Slope of the assumed overland flow plane, ft/ft\nKVARY: Parameter that affects behavior of groundwater recession flow\n       Purpose is to allow recession flow to be non-exponential in its\n       decay time. Units are 1/in\nAGWRC: Basic groundwater recession rate if KVARY is 0 and there is\n       no inflow to groundwater. Defined as the rate of flow today \n       divided by the rate of flow yesterday. Units are 1/day\nPETMAX: Air temperature below which ET will be arbitrarily reduced\n       Only used if CSNOFG == 1. Units are degrees Fahrenheit.\nPETMIN: Air temperature below which ET will be set to zero\n        Only used if CSNOFG == 1. Units are degrees Fahrenheit.\nINFEXP: Exponent in infiltration equation, dimensionless.\nINFILD: Ratio between maximum and mean infiltration capacities, \n        dimensionless\nDEEPFR: Fraction of groundwater inflow which will enter deep and \n        inactive groundwater. Lost from the HSPF system.\nBASETP: Fraction of remaining potential ET which can be satisfied \n        from baseflow or groundwater outflow\nAGWETP: Fraction of remaining potential ET which can be satistifed \n        from active groundwater storage if enough is available.\nCEPSC: Interception storage capacity in inches.\nUZSN: Upper zone nominal storage in inches\nNSUR: Manning's n for the assumed overland flow plane use \n        English/Standard units versions from tables.\nINTFW: Interflow inflow parameter, dimensionless.\nIRC: Interflow recession parameter; Under zero inflow, the ratio \n     of todays interflow outflow rate to yesterday's rate. Units \n     are 1/day\nLZETP: Lower zone ET parameter; index to the density of deep-rooted \n       vegetation, dimensionless.\nFZG: Parameter that adjusts for the effect of ice in the snow pack on\n     infiltration when IFFCFG is 1. It is not used if IFFCFG is 2. Units\n     are 1/inch\nFZGL: Lower limit of INFFAC as adjusted by ice in the snow pack when \n      IFFCFG is 1. If IFFCFG is 2, FZGL is the value of INFFAC when \n      the lower layer temperature is at or below freezing. Dimensionless \n      parameter\nCEPS: Initial interception storage in inches\nSURS: Initial surface or overland flow storage in inches\nUZS: Initial upper zone storage in inches\nIFWS: Initial interflow storage in inches\nLZS: Initial lower zone storage in inches\nAGWS: Initial active groundwater storage in inches\nGWVS: Initial index to groundwater slope in inches\nAGWLI: Active groundwater lateral inflow external time series, inches/day\nIFWLI: Interflow lateral inflow external time series, inches/day\nLZLI: Lower soil zone lateral inflow external time series, inches/day\nSURLI: Surface storage lateral inflow external time series, inches/day\nUZLI: Upper soil zone lateral inflow external time series, inches/day\n\nIMPLND:\n\nLSUR: Length of the assumed overland flow plane in feet\nNSUR: Manning's n for the assumed overland flow plane use \n      English/Standard units versions from tables.\nRETSC: Retention, or interception, storage capacity of the surface \n      in inches\nSLSUR: Slope of the assumed overland flow plane, ft/ft\nPETMAX: Air temperature below which ET will be arbitrarily reduced\n        Only used if CSNOFG == 1. Units are degrees Fahrenheit.\nPETMIN: Air temperature below which ET will be set to zero\n        Only used if CSNOFG == 1. Units are degrees Fahrenheit.\nRETS: Initial retention, or interception, storage in inches\nSURS: Initial surface or overland flow storage in inches\nSURLI: Surface storage lateral inflow external time series, inches/day\n\nRCHRES:\n\nFTABNO: FTABLE id for each RCHRES, dimensionless\nLEN: Length for each RCHRES in miles\nDELTH: Drop in water elevation from upstream to downstream, in feet\nSTCOR: Correction to RCHRES depth to calculate stage, in feet\nKS: Weighting factor for hydraulic routing\nDB50: Sediment median grain diameter; specified in inches in inputs \n      and converted to feet for calcs\nVOL: Initial volume of water in the RCHRES, in acre-ft\nEXIVOL: External time series inflow, acre-feet per day\nPREC: Input time series of precipitation to RCHRES, inches per day\nPOTEV: Input time series of potential evaporation from reservoir \n       surface, inches per day\n&quot;</em><a class="headerlink" href="#locaLogger.START_MSG" title="Permalink to this definition">¶</a></dt>
+<dd><p>mHSP2 start up user message.</p>
+<p>Provides implemented inputs to the program along with required units.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaLogger.START_TIME">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">START_TIME</code><em class="property"> = None</em><a class="headerlink" href="#locaLogger.START_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSP2 model start time</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaLogger.loggerEnd">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">loggerEnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaLogger.loggerEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>End the mHSP2 logger</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaLogger.loggerStart">
+<code class="sig-prename descclassname">locaLogger.</code><code class="sig-name descname">loggerStart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">LFPath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaLogger.loggerStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the logger to use with mHSP2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>LFPath</strong> (<em>str</em>) – FQDN path for the log file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="mHSP2_HDF5.html" title="4.2.6. HDF5 File Methods and Data Structures"
+              >previous</a> |
+            <a href="pyMF6.html" title="4.3. pyMF6"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/mHSP2_logger.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

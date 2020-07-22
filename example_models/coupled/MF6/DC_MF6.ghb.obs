@@ -1,0 +1,10 @@
+BEGIN options
+END options
+
+BEGIN continuous  FILEOUT  ghb_obs.bsv
+  east  ghb  east_ghb
+  north  ghb  north_ghb
+  west  ghb  west_ghb
+  path  ghb  dshighkpath
+END continuous  FILEOUT  ghb_obs.bsv
+

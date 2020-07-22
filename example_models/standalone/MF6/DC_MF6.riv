@@ -1,0 +1,1076 @@
+BEGIN options
+  BOUNDNAMES
+  SAVE_FLOWS
+  TS6  FILEIN  r1_stage_1.ts
+  TS6  FILEIN  r1_stage_2.ts
+  TS6  FILEIN  r1_stage_3.ts
+  TS6  FILEIN  r1_stage_4.ts
+  TS6  FILEIN  r1_stage_5.ts
+  TS6  FILEIN  r1_stage_6.ts
+  TS6  FILEIN  r1_stage_7.ts
+  TS6  FILEIN  r1_stage_8.ts
+  TS6  FILEIN  r1_stage_9.ts
+  TS6  FILEIN  r1_stage_10.ts
+  TS6  FILEIN  r1_stage_11.ts
+  TS6  FILEIN  r1_stage_12.ts
+  TS6  FILEIN  r1_stage_13.ts
+  TS6  FILEIN  r1_stage_14.ts
+  TS6  FILEIN  r1_stage_15.ts
+  TS6  FILEIN  r1_stage_16.ts
+  TS6  FILEIN  r1_stage_17.ts
+  TS6  FILEIN  r1_stage_18.ts
+  TS6  FILEIN  r1_stage_19.ts
+  TS6  FILEIN  r1_stage_20.ts
+  TS6  FILEIN  r1_stage_21.ts
+  TS6  FILEIN  r1_stage_22.ts
+  TS6  FILEIN  r1_stage_23.ts
+  TS6  FILEIN  r1_stage_24.ts
+  TS6  FILEIN  r1_stage_25.ts
+  TS6  FILEIN  r1_stage_26.ts
+  TS6  FILEIN  r1_stage_27.ts
+  TS6  FILEIN  r1_stage_28.ts
+  TS6  FILEIN  r1_stage_29.ts
+  TS6  FILEIN  r1_stage_30.ts
+  TS6  FILEIN  r1_stage_31.ts
+  TS6  FILEIN  r1_stage_32.ts
+  TS6  FILEIN  r1_stage_33.ts
+  TS6  FILEIN  r1_stage_34.ts
+  TS6  FILEIN  r1_stage_35.ts
+  TS6  FILEIN  r1_stage_36.ts
+  TS6  FILEIN  r1_stage_37.ts
+  TS6  FILEIN  r1_stage_38.ts
+  TS6  FILEIN  r1_stage_39.ts
+  TS6  FILEIN  r1_stage_40.ts
+  TS6  FILEIN  r1_stage_41.ts
+  TS6  FILEIN  r1_stage_42.ts
+  TS6  FILEIN  r1_stage_43.ts
+  TS6  FILEIN  r1_stage_44.ts
+  TS6  FILEIN  r1_stage_45.ts
+  TS6  FILEIN  r1_stage_46.ts
+  TS6  FILEIN  r1_stage_47.ts
+  TS6  FILEIN  r1_stage_48.ts
+  TS6  FILEIN  r1_stage_49.ts
+  TS6  FILEIN  r1_stage_50.ts
+  TS6  FILEIN  r1_stage_51.ts
+  TS6  FILEIN  r1_stage_52.ts
+  TS6  FILEIN  r1_stage_53.ts
+  TS6  FILEIN  r1_stage_54.ts
+  TS6  FILEIN  r1_stage_55.ts
+  TS6  FILEIN  r1_stage_56.ts
+  TS6  FILEIN  r1_stage_57.ts
+  TS6  FILEIN  r1_stage_58.ts
+  TS6  FILEIN  r1_stage_59.ts
+  TS6  FILEIN  r1_stage_60.ts
+  TS6  FILEIN  r1_stage_61.ts
+  TS6  FILEIN  r1_stage_62.ts
+  TS6  FILEIN  r1_stage_63.ts
+  TS6  FILEIN  r1_stage_64.ts
+  TS6  FILEIN  r1_stage_65.ts
+  TS6  FILEIN  r1_stage_66.ts
+  TS6  FILEIN  r1_stage_67.ts
+  TS6  FILEIN  r1_stage_68.ts
+  TS6  FILEIN  r1_stage_69.ts
+  TS6  FILEIN  r1_stage_70.ts
+  TS6  FILEIN  r1_stage_71.ts
+  TS6  FILEIN  r1_stage_72.ts
+  TS6  FILEIN  r1_stage_73.ts
+  TS6  FILEIN  r1_stage_74.ts
+  TS6  FILEIN  r1_stage_75.ts
+  TS6  FILEIN  r1_stage_76.ts
+  TS6  FILEIN  r1_stage_77.ts
+  TS6  FILEIN  r1_stage_78.ts
+  TS6  FILEIN  r1_stage_79.ts
+  TS6  FILEIN  r1_stage_80.ts
+  TS6  FILEIN  r1_stage_81.ts
+  TS6  FILEIN  r1_stage_82.ts
+  TS6  FILEIN  r1_stage_83.ts
+  TS6  FILEIN  r1_stage_84.ts
+  TS6  FILEIN  r1_stage_85.ts
+  TS6  FILEIN  r1_stage_86.ts
+  TS6  FILEIN  r1_stage_87.ts
+  TS6  FILEIN  r1_stage_88.ts
+  TS6  FILEIN  r1_stage_89.ts
+  TS6  FILEIN  r1_stage_90.ts
+  TS6  FILEIN  r1_stage_91.ts
+  TS6  FILEIN  r1_stage_92.ts
+  TS6  FILEIN  r1_stage_93.ts
+  TS6  FILEIN  r1_stage_94.ts
+  TS6  FILEIN  r1_stage_95.ts
+  TS6  FILEIN  r1_stage_96.ts
+  TS6  FILEIN  r1_stage_97.ts
+  TS6  FILEIN  r1_stage_98.ts
+  TS6  FILEIN  r1_stage_99.ts
+  TS6  FILEIN  r1_stage_100.ts
+  TS6  FILEIN  r1_stage_101.ts
+  TS6  FILEIN  r1_stage_102.ts
+  TS6  FILEIN  r1_stage_103.ts
+  TS6  FILEIN  r2_stage_1.ts
+  TS6  FILEIN  r2_stage_2.ts
+  TS6  FILEIN  r2_stage_3.ts
+  TS6  FILEIN  r2_stage_4.ts
+  TS6  FILEIN  r2_stage_5.ts
+  TS6  FILEIN  r2_stage_6.ts
+  TS6  FILEIN  r2_stage_7.ts
+  TS6  FILEIN  r2_stage_8.ts
+  TS6  FILEIN  r2_stage_9.ts
+  TS6  FILEIN  r2_stage_10.ts
+  TS6  FILEIN  r2_stage_11.ts
+  TS6  FILEIN  r2_stage_12.ts
+  TS6  FILEIN  r2_stage_13.ts
+  TS6  FILEIN  r2_stage_14.ts
+  TS6  FILEIN  r2_stage_15.ts
+  TS6  FILEIN  r2_stage_16.ts
+  TS6  FILEIN  r2_stage_17.ts
+  TS6  FILEIN  r2_stage_18.ts
+  TS6  FILEIN  r2_stage_19.ts
+  TS6  FILEIN  r2_stage_20.ts
+  TS6  FILEIN  r2_stage_21.ts
+  TS6  FILEIN  r2_stage_22.ts
+  TS6  FILEIN  r2_stage_23.ts
+  TS6  FILEIN  r2_stage_24.ts
+  TS6  FILEIN  r2_stage_25.ts
+  TS6  FILEIN  r2_stage_26.ts
+  TS6  FILEIN  r2_stage_27.ts
+  TS6  FILEIN  r2_stage_28.ts
+  TS6  FILEIN  r2_stage_29.ts
+  TS6  FILEIN  r2_stage_30.ts
+  TS6  FILEIN  r2_stage_31.ts
+  TS6  FILEIN  r2_stage_32.ts
+  TS6  FILEIN  r2_stage_33.ts
+  TS6  FILEIN  r2_stage_34.ts
+  TS6  FILEIN  r2_stage_35.ts
+  TS6  FILEIN  r2_stage_36.ts
+  TS6  FILEIN  r2_stage_37.ts
+  TS6  FILEIN  r2_stage_38.ts
+  TS6  FILEIN  r2_stage_39.ts
+  TS6  FILEIN  r2_stage_40.ts
+  TS6  FILEIN  r2_stage_41.ts
+  TS6  FILEIN  r2_stage_42.ts
+  TS6  FILEIN  r2_stage_43.ts
+  TS6  FILEIN  r2_stage_44.ts
+  TS6  FILEIN  r2_stage_45.ts
+  TS6  FILEIN  r2_stage_46.ts
+  TS6  FILEIN  r2_stage_47.ts
+  TS6  FILEIN  r2_stage_48.ts
+  TS6  FILEIN  r2_stage_49.ts
+  TS6  FILEIN  r2_stage_50.ts
+  TS6  FILEIN  r2_stage_51.ts
+  TS6  FILEIN  r2_stage_52.ts
+  TS6  FILEIN  r2_stage_53.ts
+  TS6  FILEIN  r2_stage_54.ts
+  TS6  FILEIN  r2_stage_55.ts
+  TS6  FILEIN  r2_stage_56.ts
+  TS6  FILEIN  r2_stage_57.ts
+  TS6  FILEIN  r2_stage_58.ts
+  TS6  FILEIN  r2_stage_59.ts
+  TS6  FILEIN  r2_stage_60.ts
+  TS6  FILEIN  r2_stage_61.ts
+  TS6  FILEIN  r2_stage_62.ts
+  TS6  FILEIN  r2_stage_63.ts
+  TS6  FILEIN  r2_stage_64.ts
+  TS6  FILEIN  r2_stage_65.ts
+  TS6  FILEIN  r2_stage_66.ts
+  TS6  FILEIN  r2_stage_67.ts
+  TS6  FILEIN  r2_stage_68.ts
+  TS6  FILEIN  r2_stage_69.ts
+  TS6  FILEIN  r2_stage_70.ts
+  TS6  FILEIN  r2_stage_71.ts
+  TS6  FILEIN  r2_stage_72.ts
+  TS6  FILEIN  r2_stage_73.ts
+  TS6  FILEIN  r2_stage_74.ts
+  TS6  FILEIN  r2_stage_75.ts
+  TS6  FILEIN  r2_stage_76.ts
+  TS6  FILEIN  r2_stage_77.ts
+  TS6  FILEIN  r2_stage_78.ts
+  TS6  FILEIN  r2_stage_79.ts
+  TS6  FILEIN  r2_stage_80.ts
+  TS6  FILEIN  r2_stage_81.ts
+  TS6  FILEIN  r2_stage_82.ts
+  TS6  FILEIN  r2_stage_83.ts
+  TS6  FILEIN  r2_stage_84.ts
+  TS6  FILEIN  r2_stage_85.ts
+  TS6  FILEIN  r2_stage_86.ts
+  TS6  FILEIN  r2_stage_87.ts
+  TS6  FILEIN  r2_stage_88.ts
+  TS6  FILEIN  r2_stage_89.ts
+  TS6  FILEIN  r2_stage_90.ts
+  TS6  FILEIN  r2_stage_91.ts
+  TS6  FILEIN  r2_stage_92.ts
+  TS6  FILEIN  r2_stage_93.ts
+  TS6  FILEIN  r2_stage_94.ts
+  TS6  FILEIN  r2_stage_95.ts
+  TS6  FILEIN  r2_stage_96.ts
+  TS6  FILEIN  r2_stage_97.ts
+  TS6  FILEIN  r2_stage_98.ts
+  TS6  FILEIN  r2_stage_99.ts
+  TS6  FILEIN  r2_stage_100.ts
+  TS6  FILEIN  r2_stage_101.ts
+  TS6  FILEIN  r2_stage_102.ts
+  TS6  FILEIN  r2_stage_103.ts
+  TS6  FILEIN  r2_stage_104.ts
+  TS6  FILEIN  r2_stage_105.ts
+  TS6  FILEIN  r2_stage_106.ts
+  TS6  FILEIN  r2_stage_107.ts
+  TS6  FILEIN  r2_stage_108.ts
+  TS6  FILEIN  r2_stage_109.ts
+  TS6  FILEIN  r2_stage_110.ts
+  TS6  FILEIN  r2_stage_111.ts
+  TS6  FILEIN  r2_stage_112.ts
+  TS6  FILEIN  r2_stage_113.ts
+  TS6  FILEIN  r2_stage_114.ts
+  TS6  FILEIN  r2_stage_115.ts
+  TS6  FILEIN  r2_stage_116.ts
+  TS6  FILEIN  r2_stage_117.ts
+  TS6  FILEIN  r2_stage_118.ts
+  TS6  FILEIN  r2_stage_119.ts
+  TS6  FILEIN  r2_stage_120.ts
+  TS6  FILEIN  r2_stage_121.ts
+  TS6  FILEIN  r2_stage_122.ts
+  TS6  FILEIN  r2_stage_123.ts
+  TS6  FILEIN  r2_stage_124.ts
+  TS6  FILEIN  r2_stage_125.ts
+  TS6  FILEIN  r2_stage_126.ts
+  TS6  FILEIN  r2_stage_127.ts
+  TS6  FILEIN  r2_stage_128.ts
+  TS6  FILEIN  r2_stage_129.ts
+  TS6  FILEIN  r2_stage_130.ts
+  TS6  FILEIN  r2_stage_131.ts
+  TS6  FILEIN  r2_stage_132.ts
+  TS6  FILEIN  r2_stage_133.ts
+  TS6  FILEIN  r2_stage_134.ts
+  TS6  FILEIN  r2_stage_135.ts
+  TS6  FILEIN  r2_stage_136.ts
+  TS6  FILEIN  r2_stage_137.ts
+  TS6  FILEIN  r2_stage_138.ts
+  TS6  FILEIN  r2_stage_139.ts
+  TS6  FILEIN  r2_stage_140.ts
+  TS6  FILEIN  r2_stage_141.ts
+  TS6  FILEIN  r2_stage_142.ts
+  TS6  FILEIN  r2_stage_143.ts
+  TS6  FILEIN  r2_stage_144.ts
+  TS6  FILEIN  r2_stage_145.ts
+  TS6  FILEIN  r3_stage_1.ts
+  TS6  FILEIN  r3_stage_2.ts
+  TS6  FILEIN  r3_stage_3.ts
+  TS6  FILEIN  r3_stage_4.ts
+  TS6  FILEIN  r3_stage_5.ts
+  TS6  FILEIN  r3_stage_6.ts
+  TS6  FILEIN  r3_stage_7.ts
+  TS6  FILEIN  r3_stage_8.ts
+  TS6  FILEIN  r3_stage_9.ts
+  TS6  FILEIN  r3_stage_10.ts
+  TS6  FILEIN  r3_stage_11.ts
+  TS6  FILEIN  r3_stage_12.ts
+  TS6  FILEIN  r3_stage_13.ts
+  TS6  FILEIN  r3_stage_14.ts
+  TS6  FILEIN  r3_stage_15.ts
+  TS6  FILEIN  r3_stage_16.ts
+  TS6  FILEIN  r3_stage_17.ts
+  TS6  FILEIN  r3_stage_18.ts
+  TS6  FILEIN  r3_stage_19.ts
+  TS6  FILEIN  r3_stage_20.ts
+  TS6  FILEIN  r3_stage_21.ts
+  TS6  FILEIN  r3_stage_22.ts
+  TS6  FILEIN  r3_stage_23.ts
+  TS6  FILEIN  r3_stage_24.ts
+  TS6  FILEIN  r3_stage_25.ts
+  TS6  FILEIN  r3_stage_26.ts
+  TS6  FILEIN  r3_stage_27.ts
+  TS6  FILEIN  r3_stage_28.ts
+  TS6  FILEIN  r3_stage_29.ts
+  TS6  FILEIN  r3_stage_30.ts
+  TS6  FILEIN  r3_stage_31.ts
+  TS6  FILEIN  r3_stage_32.ts
+  TS6  FILEIN  r3_stage_33.ts
+  TS6  FILEIN  r3_stage_34.ts
+  TS6  FILEIN  r3_stage_35.ts
+  TS6  FILEIN  r3_stage_36.ts
+  TS6  FILEIN  r3_stage_37.ts
+  TS6  FILEIN  r3_stage_38.ts
+  TS6  FILEIN  r3_stage_39.ts
+  TS6  FILEIN  r3_stage_40.ts
+  TS6  FILEIN  r3_stage_41.ts
+  TS6  FILEIN  r3_stage_42.ts
+  TS6  FILEIN  r3_stage_43.ts
+  TS6  FILEIN  r3_stage_44.ts
+  TS6  FILEIN  r3_stage_45.ts
+  TS6  FILEIN  r3_stage_46.ts
+  TS6  FILEIN  r3_stage_47.ts
+  TS6  FILEIN  r3_stage_48.ts
+  TS6  FILEIN  r3_stage_49.ts
+  TS6  FILEIN  r3_stage_50.ts
+  TS6  FILEIN  r3_stage_51.ts
+  TS6  FILEIN  r3_stage_52.ts
+  TS6  FILEIN  r3_stage_53.ts
+  TS6  FILEIN  r3_stage_54.ts
+  TS6  FILEIN  r3_stage_55.ts
+  TS6  FILEIN  r3_stage_56.ts
+  TS6  FILEIN  r3_stage_57.ts
+  TS6  FILEIN  r3_stage_58.ts
+  TS6  FILEIN  r3_stage_59.ts
+  TS6  FILEIN  r3_stage_60.ts
+  TS6  FILEIN  r4_stage_1.ts
+  TS6  FILEIN  r4_stage_2.ts
+  TS6  FILEIN  r4_stage_3.ts
+  TS6  FILEIN  r4_stage_4.ts
+  TS6  FILEIN  r4_stage_5.ts
+  TS6  FILEIN  r4_stage_6.ts
+  TS6  FILEIN  r4_stage_7.ts
+  TS6  FILEIN  r4_stage_8.ts
+  TS6  FILEIN  r4_stage_9.ts
+  TS6  FILEIN  r4_stage_10.ts
+  TS6  FILEIN  r4_stage_11.ts
+  TS6  FILEIN  r4_stage_12.ts
+  TS6  FILEIN  r4_stage_13.ts
+  TS6  FILEIN  r4_stage_14.ts
+  TS6  FILEIN  r4_stage_15.ts
+  TS6  FILEIN  r4_stage_16.ts
+  TS6  FILEIN  r4_stage_17.ts
+  TS6  FILEIN  r4_stage_18.ts
+  TS6  FILEIN  r4_stage_19.ts
+  TS6  FILEIN  r4_stage_20.ts
+  TS6  FILEIN  r4_stage_21.ts
+  TS6  FILEIN  r4_stage_22.ts
+  TS6  FILEIN  r4_stage_23.ts
+  TS6  FILEIN  r4_stage_24.ts
+  TS6  FILEIN  r4_stage_25.ts
+  TS6  FILEIN  r4_stage_26.ts
+  TS6  FILEIN  r4_stage_27.ts
+  TS6  FILEIN  r4_stage_28.ts
+  TS6  FILEIN  r4_stage_29.ts
+  TS6  FILEIN  r4_stage_30.ts
+  TS6  FILEIN  r4_stage_31.ts
+  TS6  FILEIN  r4_stage_32.ts
+  TS6  FILEIN  r4_stage_33.ts
+  TS6  FILEIN  r4_stage_34.ts
+  TS6  FILEIN  r4_stage_35.ts
+  TS6  FILEIN  r4_stage_36.ts
+  TS6  FILEIN  r4_stage_37.ts
+  TS6  FILEIN  r4_stage_38.ts
+  TS6  FILEIN  r4_stage_39.ts
+  TS6  FILEIN  r4_stage_40.ts
+  TS6  FILEIN  r4_stage_41.ts
+  TS6  FILEIN  r4_stage_42.ts
+  TS6  FILEIN  r4_stage_43.ts
+  TS6  FILEIN  r4_stage_44.ts
+  TS6  FILEIN  r4_stage_45.ts
+  TS6  FILEIN  r4_stage_46.ts
+  TS6  FILEIN  r4_stage_47.ts
+  TS6  FILEIN  r4_stage_48.ts
+  TS6  FILEIN  r4_stage_49.ts
+  TS6  FILEIN  r4_stage_50.ts
+  TS6  FILEIN  r4_stage_51.ts
+  TS6  FILEIN  r4_stage_52.ts
+  TS6  FILEIN  r4_stage_53.ts
+  TS6  FILEIN  r4_stage_54.ts
+  TS6  FILEIN  r4_stage_55.ts
+  TS6  FILEIN  r4_stage_56.ts
+  TS6  FILEIN  r4_stage_57.ts
+  TS6  FILEIN  r4_stage_58.ts
+  TS6  FILEIN  r4_stage_59.ts
+  TS6  FILEIN  r4_stage_60.ts
+  TS6  FILEIN  r4_stage_61.ts
+  TS6  FILEIN  r4_stage_62.ts
+  TS6  FILEIN  r4_stage_63.ts
+  TS6  FILEIN  r4_stage_64.ts
+  TS6  FILEIN  r4_stage_65.ts
+  TS6  FILEIN  r4_stage_66.ts
+  TS6  FILEIN  r4_stage_67.ts
+  TS6  FILEIN  r4_stage_68.ts
+  TS6  FILEIN  r4_stage_69.ts
+  TS6  FILEIN  r4_stage_70.ts
+  TS6  FILEIN  r4_stage_71.ts
+  TS6  FILEIN  r4_stage_72.ts
+  TS6  FILEIN  r4_stage_73.ts
+  TS6  FILEIN  r4_stage_74.ts
+  TS6  FILEIN  r4_stage_75.ts
+  TS6  FILEIN  r4_stage_76.ts
+  TS6  FILEIN  r4_stage_77.ts
+  TS6  FILEIN  r4_stage_78.ts
+  TS6  FILEIN  r4_stage_79.ts
+  TS6  FILEIN  r4_stage_80.ts
+  TS6  FILEIN  r4_stage_81.ts
+  TS6  FILEIN  r4_stage_82.ts
+  TS6  FILEIN  r4_stage_83.ts
+  TS6  FILEIN  r4_stage_84.ts
+  TS6  FILEIN  r4_stage_85.ts
+  TS6  FILEIN  r4_stage_86.ts
+  TS6  FILEIN  r4_stage_87.ts
+  TS6  FILEIN  r4_stage_88.ts
+  TS6  FILEIN  r4_stage_89.ts
+  TS6  FILEIN  r4_stage_90.ts
+  TS6  FILEIN  r4_stage_91.ts
+  TS6  FILEIN  r4_stage_92.ts
+  TS6  FILEIN  r4_stage_93.ts
+  TS6  FILEIN  r4_stage_94.ts
+  TS6  FILEIN  r4_stage_95.ts
+  TS6  FILEIN  r4_stage_96.ts
+  TS6  FILEIN  r4_stage_97.ts
+  TS6  FILEIN  r4_stage_98.ts
+  TS6  FILEIN  r4_stage_99.ts
+  TS6  FILEIN  r4_stage_100.ts
+  TS6  FILEIN  r4_stage_101.ts
+  TS6  FILEIN  r4_stage_102.ts
+  TS6  FILEIN  r4_stage_103.ts
+  TS6  FILEIN  r4_stage_104.ts
+  TS6  FILEIN  r4_stage_105.ts
+  TS6  FILEIN  r4_stage_106.ts
+  TS6  FILEIN  r4_stage_107.ts
+  TS6  FILEIN  r4_stage_108.ts
+  TS6  FILEIN  r4_stage_109.ts
+  TS6  FILEIN  r4_stage_110.ts
+  TS6  FILEIN  r4_stage_111.ts
+  TS6  FILEIN  r4_stage_112.ts
+  TS6  FILEIN  r4_stage_113.ts
+  TS6  FILEIN  r4_stage_114.ts
+  TS6  FILEIN  r4_stage_115.ts
+  TS6  FILEIN  r4_stage_116.ts
+  TS6  FILEIN  r4_stage_117.ts
+  TS6  FILEIN  r4_stage_118.ts
+  TS6  FILEIN  r4_stage_119.ts
+  TS6  FILEIN  r4_stage_120.ts
+  TS6  FILEIN  r4_stage_121.ts
+  TS6  FILEIN  r4_stage_122.ts
+  TS6  FILEIN  r4_stage_123.ts
+  TS6  FILEIN  r4_stage_124.ts
+  TS6  FILEIN  r4_stage_125.ts
+  TS6  FILEIN  r4_stage_126.ts
+  TS6  FILEIN  r4_stage_127.ts
+  TS6  FILEIN  r4_stage_128.ts
+  TS6  FILEIN  r4_stage_129.ts
+  TS6  FILEIN  r4_stage_130.ts
+  TS6  FILEIN  r4_stage_131.ts
+  TS6  FILEIN  r4_stage_132.ts
+  TS6  FILEIN  r4_stage_133.ts
+  TS6  FILEIN  r4_stage_134.ts
+  TS6  FILEIN  r4_stage_135.ts
+  TS6  FILEIN  r4_stage_136.ts
+  TS6  FILEIN  r4_stage_137.ts
+  TS6  FILEIN  r4_stage_138.ts
+  TS6  FILEIN  r4_stage_139.ts
+  TS6  FILEIN  r4_stage_140.ts
+  TS6  FILEIN  r4_stage_141.ts
+  TS6  FILEIN  r4_stage_142.ts
+  TS6  FILEIN  r4_stage_143.ts
+  TS6  FILEIN  r4_stage_144.ts
+  TS6  FILEIN  r4_stage_145.ts
+  TS6  FILEIN  r4_stage_146.ts
+  TS6  FILEIN  r4_stage_147.ts
+  TS6  FILEIN  r4_stage_148.ts
+  TS6  FILEIN  r4_stage_149.ts
+  TS6  FILEIN  r4_stage_150.ts
+  TS6  FILEIN  r4_stage_151.ts
+  TS6  FILEIN  r4_stage_152.ts
+  OBS6  FILEIN  DC_MF6.riv.obs
+END options
+
+BEGIN dimensions
+  MAXBOUND  603
+END dimensions
+
+BEGIN period  1
+  6 9628     411.78373663       0.01354167     411.38373663  devils_river
+  6 9643     414.47319964       0.01354167     414.07319964  devils_river
+  6 10632     412.72470751       0.01354167     412.32470751  devils_river
+  6 10633     411.28895359       0.01354167     410.88895359  devils_river
+  6 10634     414.21370876       0.01354167     413.81370876  devils_river
+  6 10636     410.95335435       0.01354167     410.55335435  devils_river
+  6 10637     411.83233534       0.01354167     411.43233534  devils_river
+  6 10640     413.06500107       0.01354167     412.66500107  devils_river
+  6 10641     412.96073437       0.01354167     412.56073437  devils_river
+  6 10644     412.53898023       0.01354167     412.13898023  devils_river
+  6 10645     412.08827917       0.01354167     411.68827917  devils_river
+  6 10648     411.48800036       0.01354167     411.08800036  devils_river
+  6 10649     410.16668532       0.01354167     409.76668532  devils_river
+  6 10652     408.29958871       0.01354167     407.89958871  devils_river
+  6 10653     407.93393637       0.01354167     407.53393637  devils_river
+  6 10656     407.08612847       0.01354167     406.68612847  devils_river
+  6 10657     407.12239142       0.01354167     406.72239142  devils_river
+  6 10660     407.28088385       0.01354167     406.88088385  devils_river
+  6 10661     407.26898451       0.01354167     406.86898451  devils_river
+  6 10670     409.68742576       0.00677083     409.28742576  devils_river
+  6 10671     409.67719520       0.00677083     409.27719520  devils_river
+  6 10672     408.83847424       0.00677083     408.43847424  devils_river
+  6 10673     408.40994701       0.00677083     408.00994701  devils_river
+  6 10682     408.37214486       0.00677083     407.97214486  devils_river
+  6 10683     409.06037036       0.00677083     408.66037036  devils_river
+  6 10684     407.12109247       0.00677083     406.72109247  devils_river
+  6 10685     406.74487004       0.00677083     406.34487004  devils_river
+  6 10686     409.22225172       0.00677083     408.82225172  devils_river
+  6 10688     406.68007874       0.00677083     406.28007874  devils_river
+  6 10689     406.12370588       0.00677083     405.72370588  devils_river
+  6 10701     406.09674505       0.00677083     405.69674505  devils_river
+  6 10702     406.09123095       0.00677083     405.69123095  devils_river
+  6 10705     407.93654649       0.00677083     407.53654649  devils_river
+  6 10723     409.10722838       0.00677083     408.70722839  devils_river
+  6 10724     408.05966329       0.00677083     407.65966329  devils_river
+  6 10727     406.87600876       0.00677083     406.47600876  devils_river
+  6 10728     407.02995950       0.00677083     406.62995950  devils_river
+  6 10730     407.98617468       0.00677083     407.58617468  devils_river
+  6 10735     413.96339667       0.00677083     413.56339667  devils_river
+  6 10737     406.80648155       0.00677083     406.40648155  devils_river
+  6 10738     410.57165680       0.00677083     410.17165680  devils_river
+  6 10743     408.57454053       0.00677083     408.17454053  devils_river
+  6 10744     406.08804272       0.00677083     405.68804272  devils_river
+  6 10747     407.48997654       0.00677083     407.08997654  devils_river
+  6 10749     405.51011113       0.00677083     405.11011114  devils_river
+  6 10750     408.81353070       0.00677083     408.41353070  devils_river
+  6 10754     408.40136223       0.00677083     408.00136223  devils_river
+  6 10755     404.73871182       0.00677083     404.33871182  devils_river
+  6 10757     406.59525702       0.00677083     406.19525702  devils_river
+  6 10893     409.15463904       0.00677083     408.75463904  devils_river
+  6 10895     405.00341938       0.00677083     404.60341938  devils_river
+  6 10896     419.20026809       0.00677083     418.80026809  devils_river
+  6 10901     405.59696123       0.00677083     405.19696123  devils_river
+  6 10902     405.38826368       0.00677083     404.98826368  devils_river
+  6 10903     406.80504980       0.00677083     406.40504980  devils_river
+  6 10904     404.90423080       0.00677083     404.50423080  devils_river
+  6 10926     405.42604569       0.00677083     405.02604569  devils_river
+  6 10928     406.57066292       0.00677083     406.17066292  devils_river
+  6 10929     404.49513732       0.00677083     404.09513732  devils_river
+  6 10931     404.54733826       0.00677083     404.14733826  devils_river
+  6 10934     407.51926084       0.00677083     407.11926084  devils_river
+  6 10937     404.93149097       0.00677083     404.53149097  devils_river
+  6 10939     405.89299411       0.00677083     405.49299411  devils_river
+  6 10940     404.52426751       0.00677083     404.12426751  devils_river
+  6 11518     406.77529987       0.00677083     406.37529987  devils_river
+  6 11519     404.54359533       0.00677083     404.14359533  devils_river
+  6 11521     405.43406213       0.00677083     405.03406213  devils_river
+  6 11523     406.85667821       0.00677083     406.45667821  devils_river
+  6 11525     407.66955373       0.00677083     407.26955373  devils_river
+  6 11528     404.68256844       0.00677083     404.28256844  devils_river
+  6 11534     404.58805845       0.00677083     404.18805845  devils_river
+  6 11536     405.53793897       0.00677083     405.13793897  devils_river
+  6 11537     405.62578840       0.00677083     405.22578840  devils_river
+  6 11546     406.14843044       0.00677083     405.74843044  devils_river
+  6 11547     405.10111351       0.00677083     404.70111351  devils_river
+  6 11548     407.13669162       0.00677083     406.73669162  devils_river
+  6 11549     404.77902487       0.00677083     404.37902487  devils_river
+  6 11552     405.69852358       0.00677083     405.29852358  devils_river
+  6 11555     405.83870241       0.00677083     405.43870241  devils_river
+  6 11557     406.84295927       0.00677083     406.44295927  devils_river
+  6 11558     404.86456611       0.00677083     404.46456611  devils_river
+  6 11560     404.64190591       0.00677083     404.24190591  devils_river
+  6 11629     405.59752082       0.00677083     405.19752082  devils_river
+  6 11630     404.71375395       0.00677083     404.31375395  devils_river
+  6 11631     406.10721079       0.00677083     405.70721079  devils_river
+  6 11632     404.59481066       0.00677083     404.19481066  devils_river
+  6 11636     404.57624409       0.00677083     404.17624409  devils_river
+  6 11638     405.38698820       0.00677083     404.98698820  devils_river
+  6 11641     406.30493877       0.00677083     405.90493877  devils_river
+  6 11643     406.75841481       0.00677083     406.35841481  devils_river
+  6 11645     407.29338857       0.00677083     406.89338857  devils_river
+  6 11647     407.46058707       0.00677083     407.06058707  devils_river
+  6 11658     405.31187459       0.00677083     404.91187459  devils_river
+  6 11680     405.34783265       0.00677083     404.94783265  devils_river
+  6 11682     404.77229090       0.00677083     404.37229090  devils_river
+  6 11688     405.97177168       0.00677083     405.57177168  devils_river
+  6 11690     405.57735536       0.00677083     405.17735536  devils_river
+  6 12251     408.00393233       0.00677083     407.60393233  devils_river
+  6 12253     407.83275016       0.00677083     407.43275016  devils_river
+  6 12255     407.43324034       0.00677083     407.03324034  devils_river
+  6 12256     406.99211749       0.00677083     406.59211749  devils_river
+  6 12257     405.21525940       0.00677083     404.81525941  devils_river
+  6 12259     404.61772417       0.00677083     404.21772417  devils_river
+  6 12265     404.13153314       0.00677083     403.73153314  devils_river
+  6 12267     404.04252593       0.00677083     403.64252593  devils_river
+  3 869  r1_stage_1     100.00000000     562.47644043  reach_1
+  3 866  r1_stage_2     100.00000000     563.03094482  reach_1
+  3 853  r1_stage_3     100.00000000     563.81634521  reach_1
+  3 854  r1_stage_4     100.00000000     563.29589844  reach_1
+  3 1265  r1_stage_5     100.00000000     559.06793213  reach_1
+  3 1259  r1_stage_6     100.00000000     560.07879639  reach_1
+  3 1257  r1_stage_7     100.00000000     561.66326904  reach_1
+  3 1256  r1_stage_8     100.00000000     572.22009277  reach_1
+  3 875  r1_stage_9     100.00000000     561.85223389  reach_1
+  3 874  r1_stage_10     100.00000000     561.44445801  reach_1
+  3 873  r1_stage_11     100.00000000     561.43914795  reach_1
+  3 868  r1_stage_12     100.00000000     561.79974365  reach_1
+  3 1252  r1_stage_13     100.00000000     565.17340088  reach_1
+  3 1233  r1_stage_14     100.00000000     555.25054932  reach_1
+  3 1237  r1_stage_15     100.00000000     554.88806152  reach_1
+  3 1249  r1_stage_16     100.00000000     561.17694092  reach_1
+  3 1246  r1_stage_17     100.00000000     557.17913818  reach_1
+  3 1247  r1_stage_18     100.00000000     559.63659668  reach_1
+  3 1276  r1_stage_19     100.00000000     558.32568359  reach_1
+  3 1245  r1_stage_20     100.00000000     558.65679932  reach_1
+  3 1266  r1_stage_21     100.00000000     558.95092773  reach_1
+  3 1267  r1_stage_22     100.00000000     559.41387939  reach_1
+  3 1619  r1_stage_23     100.00000000     554.42340088  reach_1
+  3 1620  r1_stage_24     100.00000000     554.26037598  reach_1
+  3 1617  r1_stage_25     100.00000000     553.44012451  reach_1
+  3 1621  r1_stage_26     100.00000000     554.85723877  reach_1
+  3 1235  r1_stage_27     100.00000000     554.70184326  reach_1
+  3 1203  r1_stage_28     100.00000000     554.15808105  reach_1
+  3 1234  r1_stage_29     100.00000000     554.76141357  reach_1
+  3 1248  r1_stage_30     100.00000000     556.70367432  reach_1
+  3 1236  r1_stage_31     100.00000000     555.02148438  reach_1
+  3 1641  r1_stage_32     100.00000000     552.48571777  reach_1
+  3 1599  r1_stage_33     100.00000000     547.58905029  reach_1
+  3 1600  r1_stage_34     100.00000000     548.81524658  reach_1
+  3 1635  r1_stage_35     100.00000000     551.92413330  reach_1
+  3 1638  r1_stage_36     100.00000000     553.26617432  reach_1
+  3 1639  r1_stage_37     100.00000000     562.43450928  reach_1
+  3 1648  r1_stage_38     100.00000000     553.51232910  reach_1
+  3 1637  r1_stage_39     100.00000000     552.65643311  reach_1
+  3 1626  r1_stage_40     100.00000000     552.84997559  reach_1
+  3 1625  r1_stage_41     100.00000000     554.67034912  reach_1
+  3 1624  r1_stage_42     100.00000000     554.50775146  reach_1
+  3 2010  r1_stage_43     100.00000000     544.41271973  reach_1
+  3 2007  r1_stage_44     100.00000000     545.24603271  reach_1
+  3 2051  r1_stage_45     100.00000000     546.76013184  reach_1
+  3 2045  r1_stage_46     100.00000000     545.24945068  reach_1
+  3 2050  r1_stage_47     100.00000000     551.11712646  reach_1
+  3 2049  r1_stage_48     100.00000000     546.12011719  reach_1
+  3 2046  r1_stage_49     100.00000000     546.08862305  reach_1
+  3 2059  r1_stage_50     100.00000000     546.64758301  reach_1
+  3 2048  r1_stage_51     100.00000000     548.91491699  reach_1
+  3 2060  r1_stage_52     100.00000000     550.07525635  reach_1
+  3 1601  r1_stage_53     100.00000000     549.60662842  reach_1
+  3 1598  r1_stage_54     100.00000000     547.74438477  reach_1
+  3 1640  r1_stage_55     100.00000000     548.89221191  reach_1
+  3 2023  r1_stage_56     100.00000000     542.12854004  reach_1
+  3 2017  r1_stage_57     100.00000000     542.73522949  reach_1
+  3 2015  r1_stage_58     100.00000000     548.15393066  reach_1
+  3 2018  r1_stage_59     100.00000000     542.55090332  reach_1
+  3 1997  r1_stage_60     100.00000000     544.32452393  reach_1
+  3 1996  r1_stage_61     100.00000000     549.63836670  reach_1
+  3 2008  r1_stage_62     100.00000000     542.99859619  reach_1
+  3 2009  r1_stage_63     100.00000000     543.54040527  reach_1
+  3 2011  r1_stage_64     100.00000000     544.61108398  reach_1
+  3 2430  r1_stage_65     100.00000000     537.69635010  reach_1
+  3 2408  r1_stage_66     100.00000000     542.47711182  reach_1
+  3 2409  r1_stage_67     100.00000000     538.21795654  reach_1
+  3 2407  r1_stage_68     100.00000000     538.35009766  reach_1
+  3 2401  r1_stage_69     100.00000000     544.25805664  reach_1
+  3 2404  r1_stage_70     100.00000000     539.75494385  reach_1
+  3 2402  r1_stage_71     100.00000000     541.23248291  reach_1
+  3 2403  r1_stage_72     100.00000000     540.71594238  reach_1
+  3 2024  r1_stage_73     100.00000000     541.12542725  reach_1
+  3 2025  r1_stage_74     100.00000000     542.46374512  reach_1
+  3 1981  r1_stage_75     100.00000000     543.22918701  reach_1
+  3 2831  r1_stage_76     100.00000000     536.43121338  reach_1
+  3 2825  r1_stage_77     100.00000000     536.56109619  reach_1
+  3 2823  r1_stage_78     100.00000000     536.70355225  reach_1
+  3 2440  r1_stage_79     100.00000000     536.60046387  reach_1
+  3 2438  r1_stage_80     100.00000000     536.63232422  reach_1
+  3 2432  r1_stage_81     100.00000000     536.55889893  reach_1
+  3 2822  r1_stage_82     100.00000000     536.18054199  reach_1
+  3 2833  r1_stage_83     100.00000000     536.57250977  reach_1
+  3 2842  r1_stage_84     100.00000000     535.67834473  reach_1
+  3 2843  r1_stage_85     100.00000000     535.87963867  reach_1
+  3 2840  r1_stage_86     100.00000000     544.14349365  reach_1
+  3 2821  r1_stage_87     100.00000000     538.36474609  reach_1
+  3 3273  r1_stage_88     100.00000000     542.03344727  reach_1
+  4 3237  r1_stage_89     100.00000000     530.32501221  reach_1
+  3 3226  r1_stage_90     100.00000000     530.43994141  reach_1
+  3 3268  r1_stage_91     100.00000000     538.52484131  reach_1
+  3 3238  r1_stage_92     100.00000000     531.97961426  reach_1
+  3 3267  r1_stage_93     100.00000000     533.86926270  reach_1
+  4 3223  r1_stage_94     100.00000000     530.38195801  reach_1
+  4 3219  r1_stage_95     100.00000000     529.15716553  reach_1
+  4 3220  r1_stage_96     100.00000000     530.15411377  reach_1
+  3 3266  r1_stage_97     100.00000000     533.69909668  reach_1
+  3 3224  r1_stage_98     100.00000000     531.67889404  reach_1
+  3 2850  r1_stage_99     100.00000000     533.61206055  reach_1
+  3 2848  r1_stage_100     100.00000000     533.44458008  reach_1
+  3 3244  r1_stage_101     100.00000000     534.90765381  reach_1
+  3 3248  r1_stage_102     100.00000000     535.91687012  reach_1
+  3 3247  r1_stage_103     100.00000000     534.93273926  reach_1
+  4 3173  r2_stage_1     100.00000000     524.36486816  reach_2
+  4 3177  r2_stage_2     100.00000000     529.99261475  reach_2
+  4 3174  r2_stage_3     100.00000000     525.00866699  reach_2
+  3 3178  r2_stage_4     100.00000000     533.05389404  reach_2
+  4 3176  r2_stage_5     100.00000000     527.59686279  reach_2
+  4 3604  r2_stage_6     100.00000000     522.84228516  reach_2
+  4 3602  r2_stage_7     100.00000000     522.84472656  reach_2
+  4 3214  r2_stage_8     100.00000000     523.97448730  reach_2
+  4 3213  r2_stage_9     100.00000000     523.14447021  reach_2
+  4 3211  r2_stage_10     100.00000000     523.16296387  reach_2
+  3 3200  r2_stage_11     100.00000000     537.61517334  reach_2
+  3 3194  r2_stage_12     100.00000000     537.11596680  reach_2
+  4 3192  r2_stage_13     100.00000000     528.94262695  reach_2
+  4 3170  r2_stage_14     100.00000000     527.90454102  reach_2
+  4 3168  r2_stage_15     100.00000000     523.86511230  reach_2
+  4 3179  r2_stage_16     100.00000000     525.02813721  reach_2
+  4 3954  r2_stage_17     100.00000000     516.03649902  reach_2
+  4 3952  r2_stage_18     100.00000000     516.53948975  reach_2
+  4 3953  r2_stage_19     100.00000000     518.73529053  reach_2
+  4 3947  r2_stage_20     100.00000000     516.30535889  reach_2
+  4 3978  r2_stage_21     100.00000000     519.62023926  reach_2
+  4 3976  r2_stage_22     100.00000000     516.75421143  reach_2
+  4 3627  r2_stage_23     100.00000000     518.75427246  reach_2
+  4 3628  r2_stage_24     100.00000000     517.37432861  reach_2
+  3 3630  r2_stage_25     100.00000000     536.62524414  reach_2
+  4 3626  r2_stage_26     100.00000000     518.91436768  reach_2
+  4 3629  r2_stage_27     100.00000000     517.92303467  reach_2
+  4 3624  r2_stage_28     100.00000000     518.93652344  reach_2
+  4 3635  r2_stage_29     100.00000000     523.26007080  reach_2
+  4 3634  r2_stage_30     100.00000000     522.09020996  reach_2
+  4 3633  r2_stage_31     100.00000000     521.98254395  reach_2
+  4 3612  r2_stage_32     100.00000000     521.32330322  reach_2
+  4 3610  r2_stage_33     100.00000000     521.86553955  reach_2
+  4 3613  r2_stage_34     100.00000000     521.42108154  reach_2
+  4 4790  r2_stage_35     100.00000000     499.96798706  reach_2
+  4 4385  r2_stage_36     100.00000000     511.47796631  reach_2
+  4 4358  r2_stage_37     100.00000000     511.90802002  reach_2
+  4 4366  r2_stage_38     100.00000000     514.50244141  reach_2
+  4 4356  r2_stage_39     100.00000000     515.05438232  reach_2
+  4 4352  r2_stage_40     100.00000000     513.43994141  reach_2
+  4 4355  r2_stage_41     100.00000000     512.51763916  reach_2
+  4 4346  r2_stage_42     100.00000000     512.67547607  reach_2
+  4 4343  r2_stage_43     100.00000000     514.28308105  reach_2
+  4 4344  r2_stage_44     100.00000000     515.72418213  reach_2
+  4 4006  r2_stage_45     100.00000000     514.87103271  reach_2
+  4 3975  r2_stage_46     100.00000000     515.52154541  reach_2
+  4 3973  r2_stage_47     100.00000000     515.34960938  reach_2
+  4 3967  r2_stage_48     100.00000000     518.58508301  reach_2
+  4 3966  r2_stage_49     100.00000000     516.51800537  reach_2
+  4 3964  r2_stage_50     100.00000000     515.95373535  reach_2
+  4 4903  r2_stage_51     100.00000000     499.90585327  reach_2
+  4 4859  r2_stage_52     100.00000000     497.04605103  reach_2
+  4 4860  r2_stage_53     100.00000000     496.90637207  reach_2
+  4 5039  r2_stage_54     100.00000000     507.74511719  reach_2
+  4 5042  r2_stage_55     100.00000000     509.13104248  reach_2
+  4 5040  r2_stage_56     100.00000000     508.91207886  reach_2
+  4 4396  r2_stage_57     100.00000000     509.62438965  reach_2
+  4 4399  r2_stage_58     100.00000000     510.39361572  reach_2
+  4 4394  r2_stage_59     100.00000000     510.12716675  reach_2
+  4 4388  r2_stage_60     100.00000000     512.62823486  reach_2
+  4 4996  r2_stage_61     100.00000000     506.30029297  reach_2
+  4 4995  r2_stage_62     100.00000000     499.82348633  reach_2
+  4 5046  r2_stage_63     100.00000000     505.73748779  reach_2
+  4 5035  r2_stage_64     100.00000000     505.84622192  reach_2
+  4 4989  r2_stage_65     100.00000000     505.08749390  reach_2
+  4 4990  r2_stage_66     100.00000000     504.94061279  reach_2
+  4 5030  r2_stage_67     100.00000000     505.20962524  reach_2
+  4 4986  r2_stage_68     100.00000000     505.80340576  reach_2
+  4 5031  r2_stage_69     100.00000000     505.84848022  reach_2
+  4 5034  r2_stage_70     100.00000000     506.01187134  reach_2
+  4 4974  r2_stage_71     100.00000000     519.85125732  reach_2
+  4 4985  r2_stage_72     100.00000000     505.30456543  reach_2
+  4 4987  r2_stage_73     100.00000000     506.29217529  reach_2
+  4 4984  r2_stage_74     100.00000000     504.72476196  reach_2
+  4 4387  r2_stage_75     100.00000000     511.53195190  reach_2
+  4 4780  r2_stage_76     100.00000000     477.42874146  reach_2
+  4 4789  r2_stage_77     100.00000000     495.93954468  reach_2
+  4 4778  r2_stage_78     100.00000000     490.01919556  reach_2
+  4 4955  r2_stage_79     100.00000000     511.01394653  reach_2
+  4 4958  r2_stage_80     100.00000000     502.56686401  reach_2
+  4 4959  r2_stage_81     100.00000000     500.22283936  reach_2
+  4 4948  r2_stage_82     100.00000000     500.83273315  reach_2
+  4 4949  r2_stage_83     100.00000000     501.24899292  reach_2
+  4 4993  r2_stage_84     100.00000000     497.23873901  reach_2
+  4 4953  r2_stage_85     100.00000000     500.58523560  reach_2
+  4 4946  r2_stage_86     100.00000000     500.46902466  reach_2
+  4 4935  r2_stage_87     100.00000000     498.19042969  reach_2
+  4 4934  r2_stage_88     100.00000000     518.87078857  reach_2
+  4 4915  r2_stage_89     100.00000000     496.56600952  reach_2
+  4 4912  r2_stage_90     100.00000000     499.56329346  reach_2
+  4 4909  r2_stage_91     100.00000000     498.13629150  reach_2
+  4 4910  r2_stage_92     100.00000000     498.49127197  reach_2
+  4 5513  r2_stage_93     100.00000000     483.79040527  reach_2
+  4 5574  r2_stage_94     100.00000000     494.47573853  reach_2
+  4 5511  r2_stage_95     100.00000000     481.53033447  reach_2
+  4 4832  r2_stage_96     100.00000000     478.29565430  reach_2
+  4 4884  r2_stage_97     100.00000000     515.20776367  reach_2
+  4 4895  r2_stage_98     100.00000000     495.75430298  reach_2
+  4 4833  r2_stage_99     100.00000000     483.46057129  reach_2
+  4 4882  r2_stage_100     100.00000000     495.75341797  reach_2
+  4 4830  r2_stage_101     100.00000000     488.26074219  reach_2
+  4 4876  r2_stage_102     100.00000000     494.80169678  reach_2
+  4 4827  r2_stage_103     100.00000000     478.71600342  reach_2
+  4 4874  r2_stage_104     100.00000000     496.24511719  reach_2
+  4 4825  r2_stage_105     100.00000000     481.19369507  reach_2
+  4 4826  r2_stage_106     100.00000000     482.13598633  reach_2
+  4 4863  r2_stage_107     100.00000000     494.57568359  reach_2
+  4 4804  r2_stage_108     100.00000000     478.43267822  reach_2
+  4 4852  r2_stage_109     100.00000000     505.81646729  reach_2
+  4 4861  r2_stage_110     100.00000000     495.33898926  reach_2
+  4 4802  r2_stage_111     100.00000000     479.58615112  reach_2
+  4 4795  r2_stage_112     100.00000000     479.46105957  reach_2
+  4 4856  r2_stage_113     100.00000000     496.01605225  reach_2
+  4 4855  r2_stage_114     100.00000000     510.66433716  reach_2
+  4 4796  r2_stage_115     100.00000000     478.17959595  reach_2
+  4 4792  r2_stage_116     100.00000000     480.04696655  reach_2
+  4 5044  r2_stage_117     100.00000000     506.82849121  reach_2
+  4 5045  r2_stage_118     100.00000000     507.46298218  reach_2
+  4 4994  r2_stage_119     100.00000000     499.44537354  reach_2
+  4 4992  r2_stage_120     100.00000000     506.38357544  reach_2
+  4 5544  r2_stage_121     100.00000000     501.97283936  reach_2
+  4 5542  r2_stage_122     100.00000000     483.75305176  reach_2
+  4 5520  r2_stage_123     100.00000000     482.95977783  reach_2
+  4 5518  r2_stage_124     100.00000000     481.33605957  reach_2
+  4 5512  r2_stage_125     100.00000000     488.74746704  reach_2
+  4 6168  r2_stage_126     100.00000000     488.27902222  reach_2
+  4 6131  r2_stage_127     100.00000000     496.62420654  reach_2
+  4 5604  r2_stage_128     100.00000000     487.83987427  reach_2
+  4 5600  r2_stage_129     100.00000000     488.16860962  reach_2
+  4 5557  r2_stage_130     100.00000000     488.00888062  reach_2
+  4 5556  r2_stage_131     100.00000000     486.18472290  reach_2
+  4 5601  r2_stage_132     100.00000000     487.75207520  reach_2
+  4 5554  r2_stage_133     100.00000000     489.19854736  reach_2
+  4 5602  r2_stage_134     100.00000000     488.81332397  reach_2
+  4 5603  r2_stage_135     100.00000000     487.80395508  reach_2
+  4 5551  r2_stage_136     100.00000000     485.80212402  reach_2
+  4 5614  r2_stage_137     100.00000000     489.50881958  reach_2
+  4 5545  r2_stage_138     100.00000000     487.61578369  reach_2
+  4 5608  r2_stage_139     100.00000000     489.48281860  reach_2
+  4 5582  r2_stage_140     100.00000000     493.08700562  reach_2
+  4 5576  r2_stage_141     100.00000000     493.15206909  reach_2
+  4 5609  r2_stage_142     100.00000000     492.22644043  reach_2
+  4 5607  r2_stage_143     100.00000000     491.82626343  reach_2
+  4 5585  r2_stage_144     100.00000000     493.03927612  reach_2
+  4 5583  r2_stage_145     100.00000000     494.80895996  reach_2
+  4 4815  r3_stage_1       1.00000000     472.47006226  reach_3
+  4 4813  r3_stage_2       1.00000000     474.89141846  reach_3
+  4 4807  r3_stage_3       1.00000000     475.01797485  reach_3
+  4 4805  r3_stage_4       1.00000000     472.99508667  reach_3
+  4 4783  r3_stage_5       1.00000000     472.91851807  reach_3
+  4 4781  r3_stage_6       1.00000000     515.81677246  reach_3
+  4 4782  r3_stage_7       1.00000000     472.93447876  reach_3
+  4 4776  r3_stage_8       1.00000000     489.52700806  reach_3
+  4 4779  r3_stage_9       1.00000000     473.42907715  reach_3
+  4 6074  r3_stage_10       1.00000000     473.62991333  reach_3
+  5 6075  r3_stage_11       1.00000000     465.38351440  reach_3
+  5 6069  r3_stage_12       1.00000000     466.79330444  reach_3
+  5 6068  r3_stage_13       1.00000000     465.05218506  reach_3
+  5 6067  r3_stage_14       1.00000000     465.93862915  reach_3
+  5 5493  r3_stage_15       1.00000000     465.80816650  reach_3
+  4 5491  r3_stage_16       1.00000000     470.79824829  reach_3
+  5 5534  r3_stage_17       1.00000000     468.69229126  reach_3
+  5 5528  r3_stage_18       1.00000000     468.60626221  reach_3
+  4 5527  r3_stage_19       1.00000000     475.59344482  reach_3
+  4 5526  r3_stage_20       1.00000000     475.47326660  reach_3
+  5 5505  r3_stage_21       1.00000000     468.62225342  reach_3
+  5 5503  r3_stage_22       1.00000000     469.13592529  reach_3
+  4 5496  r3_stage_23       1.00000000     478.39080811  reach_3
+  4 5497  r3_stage_24       1.00000000     470.95083618  reach_3
+  4 5494  r3_stage_25       1.00000000     471.91204834  reach_3
+  5 6694  r3_stage_26       1.00000000     459.80154419  reach_3
+  5 6675  r3_stage_27       1.00000000     457.31411743  reach_3
+  5 6673  r3_stage_28       1.00000000     456.33425903  reach_3
+  5 6667  r3_stage_29       1.00000000     458.41665649  reach_3
+  5 6665  r3_stage_30       1.00000000     460.06314087  reach_3
+  5 6153  r3_stage_31       1.00000000     463.88504028  reach_3
+  5 6154  r3_stage_32       1.00000000     460.56469727  reach_3
+  5 6151  r3_stage_33       1.00000000     463.23794556  reach_3
+  5 6147  r3_stage_34       1.00000000     466.23068237  reach_3
+  5 6148  r3_stage_35       1.00000000     459.67587280  reach_3
+  5 6141  r3_stage_36       1.00000000     461.07025146  reach_3
+  4 6099  r3_stage_37       1.00000000     475.95608521  reach_3
+  5 6139  r3_stage_38       1.00000000     464.59191895  reach_3
+  5 6077  r3_stage_39       1.00000000     462.79052734  reach_3
+  5 7167  r3_stage_40       1.00000000     453.22872925  reach_3
+  5 7154  r3_stage_41       1.00000000     455.13662720  reach_3
+  5 7165  r3_stage_42       1.00000000     457.31707764  reach_3
+  5 7153  r3_stage_43       1.00000000     453.81121826  reach_3
+  5 7134  r3_stage_44       1.00000000     457.19836426  reach_3
+  5 7131  r3_stage_45       1.00000000     455.42556763  reach_3
+  5 7129  r3_stage_46       1.00000000     457.57299805  reach_3
+  5 7128  r3_stage_47       1.00000000     456.26913452  reach_3
+  5 7123  r3_stage_48       1.00000000     457.90765381  reach_3
+  5 7122  r3_stage_49       1.00000000     458.13290405  reach_3
+  5 7121  r3_stage_50       1.00000000     455.62307739  reach_3
+  5 6703  r3_stage_51       1.00000000     461.86001587  reach_3
+  5 6700  r3_stage_52       1.00000000     457.39993286  reach_3
+  5 6701  r3_stage_53       1.00000000     455.55664062  reach_3
+  4 6696  r3_stage_54       1.00000000     488.69375610  reach_3
+  5 6695  r3_stage_55       1.00000000     460.13491821  reach_3
+  5 7203  r3_stage_56       1.00000000     453.13211060  reach_3
+  5 7177  r3_stage_57       1.00000000     455.15216064  reach_3
+  5 7178  r3_stage_58       1.00000000     454.22467041  reach_3
+  5 7171  r3_stage_59       1.00000000     456.46524048  reach_3
+  5 7168  r3_stage_60       1.00000000     455.42822266  reach_3
+  5 8183  r4_stage_1       1.00000000     449.01629639  reach_4
+  5 8184  r4_stage_2       1.00000000     449.91625977  reach_4
+  5 8162  r4_stage_3       1.00000000     449.19543457  reach_4
+  5 8165  r4_stage_4       1.00000000     449.75811768  reach_4
+  5 8163  r4_stage_5       1.00000000     450.69555664  reach_4
+  5 8157  r4_stage_6       1.00000000     451.01211548  reach_4
+  5 8158  r4_stage_7       1.00000000     450.51712036  reach_4
+  5 8103  r4_stage_8       1.00000000     445.93536377  reach_4
+  5 8092  r4_stage_9       1.00000000     446.78720093  reach_4
+  5 8104  r4_stage_10       1.00000000     447.56759644  reach_4
+  5 8021  r4_stage_11       1.00000000     447.10943604  reach_4
+  5 8018  r4_stage_12       1.00000000     447.59756470  reach_4
+  5 8020  r4_stage_13       1.00000000     448.13183594  reach_4
+  5 8019  r4_stage_14       1.00000000     449.51992798  reach_4
+  5 8014  r4_stage_15       1.00000000     450.20172119  reach_4
+  5 8185  r4_stage_16       1.00000000     448.66674805  reach_4
+  5 7869  r4_stage_17       1.00000000     441.09408569  reach_4
+  5 7804  r4_stage_18       1.00000000     438.78204346  reach_4
+  5 7808  r4_stage_19       1.00000000     439.52041626  reach_4
+  5 7807  r4_stage_20       1.00000000     439.03909302  reach_4
+  5 7793  r4_stage_21       1.00000000     436.76266479  reach_4
+  5 7790  r4_stage_22       1.00000000     437.64181519  reach_4
+  5 8049  r4_stage_23       1.00000000     444.23837280  reach_4
+  5 8051  r4_stage_24       1.00000000     448.23385620  reach_4
+  5 8052  r4_stage_25       1.00000000     444.99798584  reach_4
+  5 8095  r4_stage_26       1.00000000     444.26354980  reach_4
+  5 8089  r4_stage_27       1.00000000     448.38360596  reach_4
+  5 8090  r4_stage_28       1.00000000     445.67355347  reach_4
+  5 8094  r4_stage_29       1.00000000     445.75213623  reach_4
+  5 8093  r4_stage_30       1.00000000     444.80487061  reach_4
+  5 7896  r4_stage_31       1.00000000     442.03082275  reach_4
+  5 8060  r4_stage_32       1.00000000     442.77432251  reach_4
+  5 8059  r4_stage_33       1.00000000     442.30480957  reach_4
+  5 7892  r4_stage_34       1.00000000     443.09204102  reach_4
+  5 8056  r4_stage_35       1.00000000     442.26727295  reach_4
+  5 7895  r4_stage_36       1.00000000     442.46997070  reach_4
+  5 8071  r4_stage_37       1.00000000     443.65054321  reach_4
+  5 8055  r4_stage_38       1.00000000     442.10095215  reach_4
+  5 8053  r4_stage_39       1.00000000     443.69299316  reach_4
+  5 8050  r4_stage_40       1.00000000     443.49566650  reach_4
+  5 7870  r4_stage_41       1.00000000     441.56622314  reach_4
+  5 7806  r4_stage_42       1.00000000     441.26837158  reach_4
+  5 7805  r4_stage_43       1.00000000     438.56045532  reach_4
+  5 7858  r4_stage_44       1.00000000     440.45147705  reach_4
+  5 7857  r4_stage_45       1.00000000     439.64477539  reach_4
+  5 7853  r4_stage_46       1.00000000     439.71667480  reach_4
+  5 7810  r4_stage_47       1.00000000     440.67257690  reach_4
+  5 7854  r4_stage_48       1.00000000     439.48376465  reach_4
+  5 7794  r4_stage_49       1.00000000     436.44296265  reach_4
+  5 8819  r4_stage_50       1.00000000     431.89749146  reach_4
+  6 8816  r4_stage_51       1.00000000     429.20288086  reach_4
+  6 8814  r4_stage_52       1.00000000     428.61492920  reach_4
+  6 8808  r4_stage_53       1.00000000     429.33200073  reach_4
+  5 8806  r4_stage_54       1.00000000     431.94073486  reach_4
+  6 7669  r4_stage_55       1.00000000     429.51672363  reach_4
+  5 7670  r4_stage_56       1.00000000     435.29318237  reach_4
+  5 7667  r4_stage_57       1.00000000     430.28225708  reach_4
+  5 7662  r4_stage_58       1.00000000     436.79211426  reach_4
+  5 7661  r4_stage_59       1.00000000     438.63696289  reach_4
+  5 7812  r4_stage_60       1.00000000     441.46749878  reach_4
+  5 7660  r4_stage_61       1.00000000     430.24819946  reach_4
+  5 7663  r4_stage_62       1.00000000     431.20129395  reach_4
+  5 7664  r4_stage_63       1.00000000     436.23489380  reach_4
+  5 7811  r4_stage_64       1.00000000     439.49295044  reach_4
+  6 9066  r4_stage_65       1.00000000     429.58270264  reach_4
+  6 9063  r4_stage_66       1.00000000     429.33523560  reach_4
+  6 9061  r4_stage_67       1.00000000     428.43887329  reach_4
+  6 9055  r4_stage_68       1.00000000     429.58822632  reach_4
+  6 9054  r4_stage_69       1.00000000     428.47534180  reach_4
+  6 9052  r4_stage_70       1.00000000     429.00729370  reach_4
+  6 8852  r4_stage_71       1.00000000     428.35711670  reach_4
+  5 8978  r4_stage_72       1.00000000     430.46322632  reach_4
+  5 8849  r4_stage_73       1.00000000     430.24819946  reach_4
+  6 8850  r4_stage_74       1.00000000     430.00878906  reach_4
+  6 8843  r4_stage_75       1.00000000     428.07855225  reach_4
+  6 8841  r4_stage_76       1.00000000     429.64517212  reach_4
+  6 10092  r4_stage_77       1.00000000     427.02328491  reach_4
+  5 10081  r4_stage_78       1.00000000     432.41259766  reach_4
+  6 9099  r4_stage_79       1.00000000     427.46591187  reach_4
+  6 9097  r4_stage_80       1.00000000     427.52532959  reach_4
+  6 9091  r4_stage_81       1.00000000     430.05096436  reach_4
+  6 9090  r4_stage_82       1.00000000     429.49758911  reach_4
+  6 9088  r4_stage_83       1.00000000     427.93972778  reach_4
+  6 10121  r4_stage_84       1.00000000     423.59191895  reach_4
+  6 10132  r4_stage_85       1.00000000     424.29248047  reach_4
+  6 10126  r4_stage_86       1.00000000     424.94577026  reach_4
+  6 10127  r4_stage_87       1.00000000     423.50347900  reach_4
+  6 10125  r4_stage_88       1.00000000     426.26251221  reach_4
+  6 10103  r4_stage_89       1.00000000     426.52468872  reach_4
+  6 10101  r4_stage_90       1.00000000     427.31625366  reach_4
+  6 10100  r4_stage_91       1.00000000     429.22946167  reach_4
+  6 10094  r4_stage_92       1.00000000     425.61010742  reach_4
+  6 10024  r4_stage_93       1.00000000     423.38494873  reach_4
+  6 10019  r4_stage_94       1.00000000     423.91790771  reach_4
+  6 10030  r4_stage_95       1.00000000     424.84295654  reach_4
+  6 10018  r4_stage_96       1.00000000     424.69955444  reach_4
+  6 10028  r4_stage_97       1.00000000     425.28976440  reach_4
+  6 10032  r4_stage_98       1.00000000     423.85787964  reach_4
+  6 10033  r4_stage_99       1.00000000     423.84207153  reach_4
+  6 10029  r4_stage_100       1.00000000     424.19088745  reach_4
+  6 10119  r4_stage_101       1.00000000     424.21737671  reach_4
+  6 10118  r4_stage_102       1.00000000     424.14410400  reach_4
+  6 9947  r4_stage_103       1.00000000     425.15982056  reach_4
+  6 10122  r4_stage_104       1.00000000     427.31463623  reach_4
+  6 10120  r4_stage_105       1.00000000     425.35458374  reach_4
+  6 10022  r4_stage_106       1.00000000     423.26553345  reach_4
+  6 10023  r4_stage_107       1.00000000     424.57669067  reach_4
+  6 10021  r4_stage_108       1.00000000     424.89178467  reach_4
+  6 10783  r4_stage_109       1.00000000     417.03573608  reach_4
+  6 10782  r4_stage_110       1.00000000     418.80639648  reach_4
+  6 10785  r4_stage_111       1.00000000     421.02203369  reach_4
+  6 10011  r4_stage_112       1.00000000     424.39147949  reach_4
+  6 10010  r4_stage_113       1.00000000     421.50808716  reach_4
+  6 10009  r4_stage_114       1.00000000     419.72396851  reach_4
+  6 10003  r4_stage_115       1.00000000     421.26876831  reach_4
+  6 10046  r4_stage_116       1.00000000     424.56719971  reach_4
+  6 10044  r4_stage_117       1.00000000     422.15798950  reach_4
+  6 10871  r4_stage_118       1.00000000     413.08148193  reach_4
+  6 10826  r4_stage_119       1.00000000     413.83392334  reach_4
+  6 10869  r4_stage_120       1.00000000     414.35247803  reach_4
+  6 10819  r4_stage_121       1.00000000     414.41107178  reach_4
+  6 10820  r4_stage_122       1.00000000     416.62359619  reach_4
+  6 10814  r4_stage_123       1.00000000     415.37927246  reach_4
+  6 10817  r4_stage_124       1.00000000     417.98989868  reach_4
+  6 10792  r4_stage_125       1.00000000     417.72393799  reach_4
+  6 10791  r4_stage_126       1.00000000     418.27160645  reach_4
+  6 10789  r4_stage_127       1.00000000     416.60650635  reach_4
+  6 10784  r4_stage_128       1.00000000     418.67291260  reach_4
+  6 11096  r4_stage_129       1.00000000     413.79083252  reach_4
+  6 10985  r4_stage_130       1.00000000     412.08444214  reach_4
+  6 10986  r4_stage_131       1.00000000     414.21615601  reach_4
+  6 10975  r4_stage_132       1.00000000     411.41583252  reach_4
+  6 10976  r4_stage_133       1.00000000     412.37905884  reach_4
+  6 10979  r4_stage_134       1.00000000     414.65106201  reach_4
+  6 10973  r4_stage_135       1.00000000     413.34347534  reach_4
+  6 10961  r4_stage_136       1.00000000     411.53945923  reach_4
+  6 10962  r4_stage_137       1.00000000     411.63311768  reach_4
+  6 10875  r4_stage_138       1.00000000     413.59909058  reach_4
+  6 10872  r4_stage_139       1.00000000     412.47958374  reach_4
+  6 11124  r4_stage_140       1.00000000     412.09710693  reach_4
+  6 11121  r4_stage_141       1.00000000     415.88156128  reach_4
+  6 11119  r4_stage_142       1.00000000     413.27572632  reach_4
+  6 11118  r4_stage_143       1.00000000     412.48742676  reach_4
+  6 10988  r4_stage_144       1.00000000     412.13296509  reach_4
+  6 11131  r4_stage_145       1.00000000     411.75607300  reach_4
+  6 11125  r4_stage_146       1.00000000     413.45291138  reach_4
+  5 8156  r4_stage_147       1.00000000     450.64129639  reach_4
+  5 7217  r4_stage_148       1.00000000     450.90084839  reach_4
+  5 7212  r4_stage_149       1.00000000     451.22955322  reach_4
+  5 7210  r4_stage_150       1.00000000     451.16516113  reach_4
+  5 7215  r4_stage_151       1.00000000     451.40481567  reach_4
+  5 7204  r4_stage_152       1.00000000     451.42874146  reach_4
+  6 11743     407.78030396       0.03141985     406.78030396  reach_5
+  6 11741     407.54702759       0.03136157     406.54702759  reach_5
+  6 11735     407.55831909       0.03279126     406.55831909  reach_5
+  6 11733     409.49395752       0.02502419     408.49395752  reach_5
+  6 11732     409.65991211       0.01389835     408.65991211  reach_5
+  6 11148     410.80862427       0.02448633     409.80862427  reach_5
+  6 11144     414.62893677       0.00213515     413.62893677  reach_5
+  6 11145     409.93597412       0.03697189     408.93597412  reach_5
+  6 11142     412.67605591       0.03451466     411.67605591  reach_5
+  6 11864     406.28240967       0.02026179     405.28240967  reach_5
+  6 11853     406.88595581       0.03172945     405.88595581  reach_5
+  6 11858     408.83374023       0.01622626     407.83374023  reach_5
+  6 11859     406.64434814       0.03875241     405.64434814  reach_5
+  6 11860     410.71414185       0.03574196     409.71414185  reach_5
+  6 11857     409.36203003       0.00122062     408.36203003  reach_5
+  6 11774     408.01229858       0.03371741     407.01229858  reach_5
+  6 11773     408.43014526       0.01439026     407.43014526  reach_5
+  6 11772     410.78784180       0.01727256     409.78784180  reach_5
+  6 11767     407.68194580       0.03344481     406.68194580  reach_5
+  6 11765     407.32269287       0.03154701     406.32269287  reach_5
+  6 12266     405.79425049       0.00515321     404.79425049  reach_5
+  6 12260     405.25863647       0.01915635     404.25863647  reach_5
+  6 12263     405.86544800       0.02576929     404.86544800  reach_5
+  6 12262     405.98733521       0.03599787     404.98733521  reach_5
+  6 12261     406.71777344       0.01391517     405.71777344  reach_5
+  6 11695     408.35937500       0.00508917     407.35937500  reach_5
+  6 11707     407.42318726       0.01587139     406.42318726  reach_5
+  6 11706     405.08139038       0.03767460     404.08139038  reach_5
+  6 11709     412.55850220       0.00310660     411.55850220  reach_5
+  6 11708     405.63723755       0.03667199     404.63723755  reach_5
+  6 11705     406.32910156       0.02002753     405.32910156  reach_5
+  6 11874     408.54879761       0.01955233     407.54879761  reach_5
+  6 11703     405.16336060       0.03585127     404.16336060  reach_5
+  6 11873     405.30966187       0.03830947     404.30966187  reach_5
+  6 11876     414.27291870       0.00180107     413.27291870  reach_5
+  6 11872     405.84149170       0.01654835     404.84149170  reach_5
+  6 11854     405.23953247       0.03820620     404.23953247  reach_5
+  6 11855     416.58325195       0.01066245     415.58325195  reach_5
+END period  1
+

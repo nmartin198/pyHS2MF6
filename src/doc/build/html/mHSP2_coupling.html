@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2.5. Coupling Specific Methods and Data Structures &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.2.6. HDF5 File Methods and Data Structures" href="mHSP2_HDF5.html" />
+    <link rel="prev" title="4.2.4. IMPLND Water Movement and Storage" href="mHSP2_himpwat.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="mHSP2_himpwat.html" title="4.2.4. IMPLND Water Movement and Storage"
+             accesskey="P">previous</a> |
+          <a href="mHSP2_HDF5.html" title="4.2.6. HDF5 File Methods and Data Structures"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="coupling-specific-methods-and-data-structures">
+<span id="mhsp2-coupling"></span><h1><span class="section-number">4.2.5. </span>Coupling Specific Methods and Data Structures<a class="headerlink" href="#coupling-specific-methods-and-data-structures" title="Permalink to this headline">¶</a></h1>
+<p>Module that contains the coupling specific methods and data structures.
+These are mostly complement new items relative to <em>HSPsquared</em>.</p>
+<div class="section" id="module-locaCoupling">
+<span id="locacoupling-py"></span><span id="mhsp2-locacoupling-py"></span><h2><span class="section-number">4.2.5.1. </span>locaCoupling.py<a class="headerlink" href="#module-locaCoupling" title="Permalink to this headline">¶</a></h2>
+<p>Methods and data set respository specifically for coupling.</p>
+<p>Repository for global-level variables that introduced as part of coupling
+HSP2 and MODFLOW 6. Also contains functions specifically related to
+coupling.</p>
+<p><strong>Note</strong> queue communications and handling are by necessity in the main
+block or module for each process.</p>
+<dl class="py data">
+<dt id="locaCoupling.GWILZONE">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWILZONE</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWILZONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>MODFLOW discharge assigned to the lower zone in inches.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWIOVOL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIOVOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>MODFLOW discharge that becomes runoff and goes directly to a RCHRES in
+acre-ft.</p>
+<p>Includes spring discharge from DRN boundaries in MODFLOW 6</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWITOTAL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total inflow from MODFLOW discharge to HSPF in af/day.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWITOTPL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTPL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTPL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total inflow from MODFLOW discharge in af/day by pervious HRU</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWITOTRR">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTRR</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTRR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total inflow from MODFLOW discharge in af/day by RCHRES.</p>
+<p>Does not include runoff from MODFLOW discharge to pervious lands.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWIUATOTAL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIUATOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIUATOTAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total inflow from MODFLOW discharge that is outside of HSPF
+area in af/day.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWIUZONE">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIUZONE</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIUZONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>MODFLOW discharge assigned to the upper zone in inches.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWIVOL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIVOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume of water coming into each RCHRES directly from MODFLOW 6 in af/day.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWOTOTAL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWOTOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWOTOTAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total outflow to MODFLOW UZF in af/day</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.GWOVOL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWOVOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume of water sent to MODFLOW 6 as losses to groundwater for each
+RCHRES in af/day.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.IGWOVOL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">IGWOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.IGWOVOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume of water sent to MODFLOW 6 as inflow to inactive groundwater
+for each PERLND in af/day.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.NUM_CPL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_CPL</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_CPL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of MODFLOW 6 cells in a layer.</p>
+<p>Provides the array size for receiving from MODFLOW 6</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.NUM_SPRINGS">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_SPRINGS</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_SPRINGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of spring locations that are represented by MODFLOW 6 drain
+cells in the model.</p>
+<p>Used to route discharge to ground surface appropriately.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.NUM_UZF">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_UZF</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_UZF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of UZF MODFLOW 6 cells in the model.</p>
+<p>Provides the array size for passing discharges to MODFLOW 6</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.PL_GW_MAPPING">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">PL_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.PL_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of mappings for PERLND areas to GW model cells.</p>
+<p>Keys are TargID, e.g. ‘P001’, and values are a list that is
+enumerated below.</p>
+<ol class="arabic simple" start="0">
+<li><dl class="simple">
+<dt>(list): sub-list with np.arrays with dimension NCPL as items</dt><dd><ol class="arabic simple" start="0">
+<li><p>(np.array): Cell ID, 2D 1-based</p></li>
+<li><p>(np.array): weighting factor</p></li>
+<li><p>(np.array): cell area within the target ID</p></li>
+<li><p>(np.array): Layer index for top active, 1-based</p></li>
+<li><p>(np.array): UZF index, 1-based</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>(list): np.arrays with dimension NUZF as items</dt><dd><ol class="arabic simple" start="0">
+<li><p>(np.array): UZF index, 1-based</p></li>
+<li><p>(np.array): weighting factor</p></li>
+<li><p>(np.array): cell area within the target ID</p></li>
+<li><p>(np.array): Layer index for top active, 1-based</p></li>
+<li><p>(np.array): Cell ID, 2D 1-based</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.RR_GW_MAPPING">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">RR_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.RR_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of mappings for RCHRES segments to GW model cells.</p>
+<p>Keys are TargID, e.g. ‘R001’, and values are a list whose members
+are enumerated below.</p>
+<ol class="arabic simple" start="0">
+<li><p>(int): groundwater exit index</p></li>
+<li><dl class="simple">
+<dt>(list): sub-list enumerated below</dt><dd><ol class="arabic simple" start="0">
+<li><dl class="simple">
+<dt>(list): another sublist with np.arrays with dimension NCPL as items</dt><dd><ol class="arabic simple" start="0">
+<li><p>(np.array): Cell ID, 2D 1-based</p></li>
+<li><p>(np.array): weighting factor</p></li>
+<li><p>(np.array): cell area within the target ID</p></li>
+<li><p>(np.array): Layer index for top active, 1-based</p></li>
+<li><p>(np.array): UZF index, 1-based</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>(list): sublist np.arrays with dimension NUZF as items</dt><dd><ol class="arabic simple" start="0">
+<li><p>(np.array): UZF index, 1-based</p></li>
+<li><p>(np.array): weighting factor</p></li>
+<li><p>(np.array): cell area within the target ID</p></li>
+<li><p>(np.array): Layer index for top active, 1-based</p></li>
+<li><p>(np.array): Cell ID, 2D 1-based</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaCoupling.SP_GW_MAPPING">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">SP_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.SP_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of mappings for defined springs in the area
+covered by the HSPF model.</p>
+<p>Keys are a spring index and values are a list of descriptive values.</p>
+<ol class="arabic simple" start="0">
+<li><p>(str): target ID for this spring</p></li>
+<li><p>(int): 2D cell ID, 1-based</p></li>
+<li><p>(int): top active layer for spring location</p></li>
+<li><p>(float): cell surface area</p></li>
+<li><p>(str): spring name or label</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.adjustPervWStorage">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">adjustPervWStorage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">totVolafd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.adjustPervWStorage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust the pervious water storage to account for groundwater
+discharged to the land surface in MODFLOW 6.</p>
+<p>The adjustment is implemented between time steps and so the
+adjustment results in addition to the lower zone and upper zone
+storages. The additions can only result in lower zone and upper
+zone storage that is less than or equal to the nominal storage
+capacity. If the additions, exceed what can be applied to
+lower and upper zone storage, the excess is routed to the
+appropriate stream segment or RCHRES target.</p>
+<p><strong>Note</strong> that we need the current storage for the soil zones from
+time step iI - 1 as this is called at the beginning of the
+HSPF time loop, prior to the iI calculations.</p>
+<p>This should never be called for iI == 0. In the current formulation
+this is prevented by the if statement in locaMain, time loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – current simulation day index, 0-based</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – current PERLND target</p></li>
+<li><p><strong>totVolafd</strong> (<em>float</em>) – total volume in acre-ft per day to add
+to the specified PERLND target</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.calcSendArray">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">calcSendArray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.calcSendArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the numpy array to send to MODFLOW 6.</p>
+<p>This array is 1D and has size/length == NUM_UZF. It provides
+the specified inflow/recharge rate for that day (day == iI) in
+m/day for the UZF package. It is calculated by adding
+first the RCHRES mappings to each cell and then the
+PERLND mappings for each cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iI</strong> (<em>int</em>) – current day, 0-based in the simulation</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>NUZF array of m/day inflow to UZF surface for</dt><dd><p>each cell</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getGWIOVOLbyTargTS">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getGWIOVOLbyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIOVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the excess groundwater discharge from MODFLOW 6 that is routed
+to stream segments.</p>
+<p>This value returned in acre-ft/day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – current simulation day index, 0-based</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – current PERLND target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>oVolAF, outflow volume in acre-feet/day to streams</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getGWIVOLbyTargTS">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getGWIVOLbyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for groundwater inflow to RCHRES by target ID and
+by time step index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – index of current simulation day</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – ID for recarray columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ivol, inflow volume in acre-ft per day</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getIGWIbyTS">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getIGWIbyTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getIGWIbyTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get inflow to inactive groundwater (IGWI) to pass to MODFLOW 6.</p>
+<p>Inflow to inactivate groundwater is stored in inches per
+interval. Convert this to acre-ft per day before returning</p>
+<p>IGWI is the DEEPFR percentage of the inflow to groundwater
+from the Lower Zone. Inflow to groundwater is the total
+percolation from Upper Zone to Lower Zone plus the
+infiltraton from the surface directly to the Lower Zone
+less the calculated Lower Zone inflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – current simulation day index, 0-based</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – current PERLND target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>oVol, outflow to UZF in acre-ft/day</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getNUM_CPL">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getNUM_CPL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_CPL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the module level global NUM_CPL</p>
+<p>Requires that mapSetup has already been called</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>NUM_CPL, number of MODFLOW 6 cells per layer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getNUM_UZF">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getNUM_UZF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_UZF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the module level global NUM_UZF</p>
+<p>Requires that mapSetup has already been called</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>NUM_UZF, number of MODFLOW 6 cells per layer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.getOVOLbyExitandTime">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getOVOLbyExitandTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">gwExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getOVOLbyExitandTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the calculated OVOL for day, iI, and exit, gwExit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – index of current simulation day</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – ID for recarray columns</p></li>
+<li><p><strong>gwExit</strong> (<em>int</em>) – gw discharge exit</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>exOvol, exit outflow volume in acre-ft per day</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.mapSetup">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">mapSetup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tDict</span></em>, <em class="sig-param"><span class="n">ncpl</span></em>, <em class="sig-param"><span class="n">nuzf</span></em>, <em class="sig-param"><span class="n">rr_file</span></em>, <em class="sig-param"><span class="n">pl_file</span></em>, <em class="sig-param"><span class="n">sp_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.mapSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create our mapping setup and check the passed information.</p>
+<p>Mapping files are passed in as paths to pickle files that contain
+a mapping dictionary. There are three mapping dictionaries.</p>
+<p>1. <strong>RCHRES</strong> dictionary, in rr_file, has keys that are the HSPF target
+Id, i.e., ‘R001’. The values are a list, L, with 3 items.</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(int): HSPF RCHRES exit that goes to groundwater. Must be &gt; 1 and &lt;= 5.</p></li>
+<li><p>(float): total UZF cell area in this target ID</p></li>
+</ol>
+<p>2. (pd.DataFrame): DataFrame that describes the UZF cell
+specifications within this target ID. The DataFrame index is the 2D
+Cell ID, 1-based. The DataFrame has four columns.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“iuzno” (int): UZF cell ID, 1-based</p></li>
+<li><p>“TopActive” (int): the top active layer for this model cell, 1-based</p></li>
+<li><dl class="simple">
+<dt>“SArea_m2” (float): surface area of this cell within the HSPF target</dt><dd><p>ID in m2</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“Weight” (float): dimensionless weight for allocating flows from HSPF</dt><dd><p>to this cell. Should be &gt; 0 and &lt;= 100.0</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>2. <strong>PERLND</strong> dictionrary, in pl_file, is similar to the RCHRES dictionary.
+The dictionary keys are the HSPF target Id, i.e., ‘P001’. The values
+are a list, L, with 2 items.</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(float): total UZF cell area in this target ID</p></li>
+</ol>
+<p>1. (pd.DataFrame): DataFrame that describes the UZF cell specifications
+within this target ID. The DataFrame index is the 2D Cell ID, 1-based.
+The DataFrame has four columns.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“iuzno” (int): UZF cell ID, 1-based</p></li>
+<li><dl class="simple">
+<dt>“TopActive” (int): the top active layer for this model cell,</dt><dd><p>1-based</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“SArea_m2” (float): surface area of this cell within the HSPF</dt><dd><p>target ID in m2</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“Weight” (float): dimensionless weight for allocating flows from</dt><dd><p>HSPF to this cell. Should be &gt; 0 and &lt;= 100.0</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>3. <strong>SPRING</strong> dictionary, in sp_file, provides locations of the springs within
+the HSPF model that could be discharging to the ground surface. The
+dictionary keys are the labels/names for the springs as represented in
+the .drn and .drn.obs files. The values are lists, described below.</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(str): target ID for the HSPF location</p></li>
+<li><p>(int): 2D cell Id, 1-based, for the cell where the drain is placed</p></li>
+<li><dl class="simple">
+<dt>(int): top active layer, 1-based, for the cell where the drain</dt><dd><p>is placed</p>
+</dd>
+</dl>
+</li>
+<li><p>(float): surface area for the cell where the drain is located</p></li>
+</ol>
+</div></blockquote>
+<p>The main outcome of this function is to fill in the module-level global
+mapping dictionaries (RR_GW_MAPPING, PL_GW_MAPPING, SP_GW_MAPPING).
+These dictionaries have targID as keys and a list for values.</p>
+<ol class="arabic">
+<li><dl>
+<dt><strong>RR_GW_MAPPING</strong> is a dictionary with Targ ID for keys and a list</dt><dd><p>for values.</p>
+<ol class="arabic" start="0">
+<li><p>(int): groundwater exit index</p></li>
+<li><p>(list): sub-list holding another sub-list of arrays</p>
+<blockquote>
+<div><ol class="arabic" start="0">
+<li><p>(list): with numpy.arrays with dimension NCPL as items</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(numpy.array): Cell ID, 2D 1-based</p></li>
+<li><p>(numpy.array): weighting factor</p></li>
+<li><p>(numpy.array): cell area within the target ID</p></li>
+<li><p>(numpy.array): Layer index for top active, 1-based</p></li>
+<li><p>(numpy.array): UZF index, 1-based</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>(list): numpy.arrays with dimension NUZF as items</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(numpy.array): UZF index, 1-based</p></li>
+<li><p>(numpy.array): weighting factor</p></li>
+<li><p>(numpy.array): cell area within the target ID</p></li>
+<li><p>(numpy.array): Layer index for top active, 1-based</p></li>
+<li><p>(numpy.array): Cell ID, 2D 1-based</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p>2. <strong>PL_GW_MAPPING</strong> is a dictionary with Targ ID for keys and a list of
+values.</p>
+<blockquote>
+<div><ol class="arabic" start="0">
+<li><p>(list): sub-list with numpy.arrays with dimension NCPL as items</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(numpy.array): Cell ID, 2D 1-based</p></li>
+<li><p>(numpy.array): weighting factor</p></li>
+<li><p>(numpy.array): cell area within the target ID</p></li>
+<li><p>(numpy.array): Layer index for top active, 1-based</p></li>
+<li><p>(numpy.array): UZF index, 1-based</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>(list): np.arrays with dimension NUZF as items</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(numpy.array): UZF index, 1-based</p></li>
+<li><p>(numpy.array): weighting factor</p></li>
+<li><p>(numpy.array): cell area within the target ID</p></li>
+<li><p>(numpy.array): Layer index for top active, 1-based</p></li>
+<li><p>(numpy.array): Cell ID, 2D 1-based</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p>3. <strong>SP_GW_MAPPING</strong> is a dictionary with spring index, 1-based, as the
+keys and a list of values.</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li><p>(str): target ID for this spring</p></li>
+<li><p>(int): 2D cell ID, 1-based</p></li>
+<li><p>(int): top active layer for spring location</p></li>
+<li><p>(float): cell surface area</p></li>
+<li><p>(str): spring name/label</p></li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tDict</strong> (<em>dict</em>) – TARG_DICT from locaMain</p></li>
+<li><p><strong>ncpl</strong> (<em>int</em>) – number of cells per layer in the MODFLOW 6 model</p></li>
+<li><p><strong>nuzf</strong> (<em>int</em>) – the number of UZF cells in the MODFLOW 6 model</p></li>
+<li><p><strong>rr_file</strong> (<em>str</em>) – fqdn path for file that has RCHRES mapping dictionary</p></li>
+<li><p><strong>pl_file</strong> (<em>str</em>) – fqdn path for file that has PERLND mapping dictionary</p></li>
+<li><p><strong>sp_file</strong> (<em>str</em>) – fqdn path for file that has SPRING mapping dictionary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.processReceivedArray">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">processReceivedArray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tDict</span></em>, <em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">fromGWArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.processReceivedArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the array of received, rejected infiltration and
+discharge to the ground surface.</p>
+<p>Assumes that the received array is in m3/day.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tDict</strong> (<em>dict</em>) – TARG_DICT from locaMain</p></li>
+<li><p><strong>iI</strong> (<em>int</em>) – current day, 0-based in the simulation</p></li>
+<li><p><strong>fromGWArray</strong> (<em>np.array</em>) – 1D array received from MODFLOW 6
+dimension should be NCPL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.setIVOLfromGW">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setIVOLfromGW</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">volAFpd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setIVOLfromGW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the external inflow volume value for inflow from
+MODFLOW 6.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – index of current simulation day</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – ID for recarray columns</p></li>
+<li><p><strong>volAFpd</strong> (<em>float</em>) – volume in acre-ft/day</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.setUpPLRecArrays">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setUpPLRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpPLRecArrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and initialize pervious land, coupling tracking arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pwList</strong> (<em>list</em>) – list of IDs for this target type</p></li>
+<li><p><strong>sim_len</strong> (<em>int</em>) – number of output intervals in the simulation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.setUpRRRecArrays">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setUpRRRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpRRRecArrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and initialize RCHRES coupling tracking arrays</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pwList</strong> (<em>list</em>) – list of IDs for this target type</p></li>
+<li><p><strong>sim_len</strong> (<em>int</em>) – number of output intervals in the simulation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaCoupling.writeOutputs">
+<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the outputs to the hdf file at the end of the simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>store</strong> (<em>pandas.HDFStore</em>) – hdf5 file store to write to</p></li>
+<li><p><strong>tIndex</strong> (<em>pandas.DateIndex</em>) – time index for the simulation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="mHSP2_himpwat.html" title="4.2.4. IMPLND Water Movement and Storage"
+              >previous</a> |
+            <a href="mHSP2_HDF5.html" title="4.2.6. HDF5 File Methods and Data Structures"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/mHSP2_coupling.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

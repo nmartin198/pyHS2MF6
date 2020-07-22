@@ -1,0 +1,13 @@
+BEGIN options
+END options
+
+BEGIN continuous  FILEOUT  riv_obs.bsv
+  DolanCreek_Gauge  riv  6 11707
+  Reach_1  riv  reach_1
+  Reach_2  riv  reach_2
+  Reach_3  riv  reach_3
+  Reach_4  riv  reach_4
+  Reach_5  riv  reach_5
+  DevilsRiver  riv  devils_river
+END continuous  FILEOUT  riv_obs.bsv
+

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1.3. Main Block for Standalone Mode &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.1.4. Coupled Mode Logging" href="pyHS2MF6_logger.html" />
+    <link rel="prev" title="4.1.2. Coupled Mode Inputs" href="pyHS2MF6_cpinputs.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="pyHS2MF6_cpinputs.html" title="4.1.2. Coupled Mode Inputs"
+             accesskey="P">previous</a> |
+          <a href="pyHS2MF6_logger.html" title="4.1.4. Coupled Mode Logging"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="main-block-for-standalone-mode">
+<span id="cp-standalone"></span><h1><span class="section-number">4.1.3. </span>Main Block for Standalone Mode<a class="headerlink" href="#main-block-for-standalone-mode" title="Permalink to this headline">¶</a></h1>
+<p>Standalone mode allows the user to confirm that <strong>pyHS2MF6</strong> is reproducing
+model output sufficiently from independent standalone models. <strong>pyHS2MF6</strong>
+is specifically formulated to use extend existing <strong>HSPF</strong> and
+<strong>MODFLOW 6</strong> models.</p>
+<p><strong>pyMF6</strong> is the standalone version of <strong>MODFLOW 6</strong> in <strong>pyHS2MF6</strong>.
+<strong>pyMF6</strong> should reproduce previous <strong>MODFLOW 6</strong> results almost exactly
+because all of the source code and calculation logic in <strong>MODFLOW 6</strong> is
+ported intact to <strong>pyMF6</strong>. The reproduction should be almost exact in
+the sense that identical compilers and computers will be required to
+be exact.</p>
+<p><strong>mHSP2</strong> is the standalone version of <strong>HSPF</strong> in <strong>pyHS2MF6</strong>. It only
+provides the water movement and storage capabilities of <strong>HSPF</strong>.
+Additionally, <strong>mHSP2</strong> is a pure python, rewrite of <em>HSPsquared</em>.
+The rewrite was necessary to make the main loop the simulation time
+loop to facilitate dynamic coupling. The goal of the rewrite was to
+reproduce the calculation logic from <em>HSPsquared</em> and <strong>HSPF</strong> but
+reorder the calculations into outer time loop order. Because <strong>mHSP2</strong>
+is a complete rewrite using different numpy package components,
+<strong>mHSP2</strong> is not expected to exactly reproduce <strong>HSPF</strong> results. It
+is expected to conceptually and generally reproduce <strong>HSPF</strong> results.</p>
+<div class="section" id="module-standaloneMain">
+<span id="standalonemain-py"></span><span id="cp-standalonemain-py"></span><h2><span class="section-number">4.1.3.1. </span>standaloneMain.py<a class="headerlink" href="#module-standaloneMain" title="Permalink to this headline">¶</a></h2>
+<p>pyHS2MF6 main block for running either pyMF6 or mHSP2 in standalone mode.</p>
+<p>Provides standalone access to MODFLOW 6 or HSPF under the assumption that the
+user will want to do some pre-coupling, independent model verification prior to
+running a coupled model. Uses argparse to accept and parse three command line
+arguments.</p>
+<p>Command line argument options</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><em>modelType</em> (str): identifier for which model to run in standalone mode;</dt><dd><p>must be HSP2 or MF6</p>
+</dd>
+</dl>
+</li>
+<li><p><em>modelDir</em> (str): path for model directory with input files</p></li>
+<li><dl class="simple">
+<dt><em>inFile</em> (str): main input file name for the program that was specified</dt><dd><p>modelType</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Typical usage examples</p>
+<blockquote>
+<div><dl class="simple">
+<dt><strong>mHSP2</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">..\..\LOCA\standaloneMain.py</span> <span class="pre">HSP2</span> <span class="pre">C:\Users\nmartin\Documents\LOCA\Test_Models\HSP2</span> <span class="pre">-f</span> <span class="pre">DC_Subs.h5</span></code></p>
+</dd>
+<dt><strong>pyMF6</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">..\..\LOCA\standaloneMain.py</span> <span class="pre">MF6</span> <span class="pre">C:\Users\nmartin\Documents\LOCA\Test_Models\MF6</span> <span class="pre">-f</span> <span class="pre">mfsim.nam</span></code></p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py data">
+<dt id="standaloneMain.MF_SIM_NAME">
+<code class="sig-prename descclassname">standaloneMain.</code><code class="sig-name descname">MF_SIM_NAME</code><em class="property"> = 'mfsim.nam'</em><a class="headerlink" href="#standaloneMain.MF_SIM_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard and fixed MODFLOW 6 simulation name</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="pyHS2MF6_cpinputs.html" title="4.1.2. Coupled Mode Inputs"
+              >previous</a> |
+            <a href="pyHS2MF6_logger.html" title="4.1.4. Coupled Mode Logging"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/pyHS2MF6_samain.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

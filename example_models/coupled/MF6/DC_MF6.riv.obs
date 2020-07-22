@@ -1,0 +1,7 @@
+BEGIN options
+END options
+
+BEGIN continuous  FILEOUT  riv_obs.bsv
+  DevilsRiver  riv  devils_river
+END continuous  FILEOUT  riv_obs.bsv
+

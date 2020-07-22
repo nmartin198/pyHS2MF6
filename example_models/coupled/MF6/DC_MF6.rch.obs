@@ -1,0 +1,7 @@
+BEGIN options
+END options
+
+BEGIN continuous  FILEOUT  recharge_obs.bsv
+  Recharge  rch  rch_topact
+END continuous  FILEOUT  recharge_obs.bsv
+

@@ -1,0 +1,11 @@
+BEGIN options
+END options
+
+BEGIN continuous  FILEOUT  springs_obs.bsv
+  finegan  drn  finegan
+  704  drn  ud704
+  703  drn  ud703
+  dolan  drn  dolan
+  701  drn  ud701
+END continuous  FILEOUT  springs_obs.bsv
+
