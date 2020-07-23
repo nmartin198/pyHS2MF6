@@ -42,7 +42,7 @@ release = '0.1.1'
 extensions = [ 'sphinx.ext.graphviz', 'sphinx.ext.inheritance_diagram', 
                'sphinx.ext.autodoc', 'sphinx.ext.napoleon', 
                'sphinxfortran.fortran_domain', 
-               'sphinxfortran.fortran_autodoc' ]
+               'sphinxfortran.fortran_autodoc', 'sphinx.ext.githubpages' ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
