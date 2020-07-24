@@ -11,4 +11,4 @@ example_models/jupyter_notebooks/.ipynb_checkpoints/*
 bin/__pycache__/*
 bin/pyMF6/__pycache__/*
 bin/mHSP2/__pycache__/*
-doc/html/*
+docs/html/*
