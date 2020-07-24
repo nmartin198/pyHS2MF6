@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1. Install and Configure a Python Environment &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.2. Install a Compiler and Build DLLs" href="install_dlls.html" />
+    <link rel="prev" title="2. Installation" href="installation.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="installation.html" title="2. Installation"
+             accesskey="P">previous</a> |
+          <a href="install_dlls.html" title="2.2. Install a Compiler and Build DLLs"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install-and-configure-a-python-environment">
+<span id="install-pyint"></span><h1><span class="section-number">2.1. </span>Install and Configure a Python Environment<a class="headerlink" href="#install-and-configure-a-python-environment" title="Permalink to this headline">¶</a></h1>
+<p>A Python environment provides the Python 3 interpreter. The
+<a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda Individual Edition</a>
+is the recommended distribution to install to provide a Python environment
+and a Python 3 interpreter. Instructions and helper files are provided
+for working with this distribution in Section <a class="reference internal" href="#install-pyconda"><span class="std std-ref">Anaconda Install Instructions</span></a>.</p>
+<p>You can use any Python distribution that is desired as long as you ensure
+the requirements, listed in Section <a class="reference internal" href="#install-pyreqs"><span class="std std-ref">Python Requirements</span></a> are fulfilled.</p>
+<div class="section" id="python-requirements">
+<span id="install-pyreqs"></span><h2><span class="section-number">2.1.1. </span>Python Requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Python 3.7 is the only version with which pyHS2MF6 has been used and
+tested. Consequently, it is recommended to use Python 3.7.</p>
+<p>In addition to Python 3.7, a number of add on Python libraries or
+packages are required by pyHS2MF6. These packages are listed below.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
+<li><p><a class="reference external" href="https://www.h5py.org/">h5py</a></p></li>
+<li><p><a class="reference external" href="https://www.pytables.org/usersguide/tutorials.html">PyTables</a></p></li>
+<li><p><a class="reference external" href="https://modflowpy.github.io/flopydoc/">FloPy</a></p></li>
+</ul>
+</div></blockquote>
+<p>The following packages are not strictly required by pyHS2MF6 but are
+used for pre- and post-processing in the test case model.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://geopandas.org/">GeoPandas</a></p></li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://pypi.org/project/Shapely/">Shapely</a></dt><dd><ul>
+<li><p>Shapely is installed as part of the GeoPandas installation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="anaconda-install-instructions">
+<span id="install-pyconda"></span><h2><span class="section-number">2.1.2. </span>Anaconda Install Instructions<a class="headerlink" href="#anaconda-install-instructions" title="Permalink to this headline">¶</a></h2>
+<p>1. Download the
+<a class="reference external" href="https://www.anaconda.com/products/individual">Python 3.7 Anaconda Graphical Installer</a>
+and follow the
+<a class="reference external" href="https://docs.anaconda.com/anaconda/install/">installation instructions</a></p>
+<p>2. Open an
+<a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt">Anaconda Prompt</a>.</p>
+<p>3. Install a pre-configured virtual environment for use with pyHS2MF6
+using the file <cite>pyHS2MF6_env.yml</cite> in the <cite>installation</cite> directory by running
+the following command from the <cite>Anaconda Prompt</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">pyHS2MF6_env</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>4. When you use pyHS2MF6 in the future, you will want to run all programs
+from the virtual environment that was just created. To use the
+virtual environment, you need to
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment">activate it</a>
+and when you are done with it,
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#deactivating-an-environment">deactivate it</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments">Anaconda Virtual Environments</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="installation.html">2. Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Install and Configure a Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_dlls.html">2.2. Install a Compiler and Build DLLs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_doc.html">4. Code Documentation</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="installation.html" title="2. Installation"
+              >previous</a> |
+            <a href="install_dlls.html" title="2.2. Install a Compiler and Build DLLs"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/install_pyint.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

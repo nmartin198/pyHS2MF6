@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.2.1. Module f2pwrap in f2pWrappers.f90 &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.3.2.2. Extended MODFLOW 6 Types" href="pyMF6_mf6types.html" />
+    <link rel="prev" title="4.3.2. Customized Fortran Modules" href="pyMF6_fortran.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="pyMF6_fortran.html" title="4.3.2. Customized Fortran Modules"
+             accesskey="P">previous</a> |
+          <a href="pyMF6_mf6types.html" title="4.3.2.2. Extended MODFLOW 6 Types"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-f2pwrap-in-f2pwrappers-f90">
+<span id="pymf6-f2pwrap-f"></span><h1><span class="section-number">4.3.2.1. </span>Module <strong>f2pwrap</strong> in f2pWrappers.f90<a class="headerlink" href="#module-f2pwrap-in-f2pwrappers-f90" title="Permalink to this headline">¶</a></h1>
+<p>Special module to replace MODFLOW 6 main program block and to provide
+for array passing logic. The array passing provides for dynamic
+coupling between MODFLOW 6 and HSPF as information is exchanged for
+each simulation day.</p>
+<p><strong>Module</strong> <a class="reference internal" href="#f/f2pwrap" title="f/f2pwrap: Python version of MODFLOW 6 main program block"><code class="xref f f-mod docutils literal notranslate"><span class="pre">f2pwrap</span></code></a></p>
+<span class="target" id="f/f2pwrap"></span><dl class="subroutine">
+<dt id="f/f2pwrap/setup">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does all of the set-up things for MODFLOW 6 prior to object allocation
+and creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>printInfo() in Mf6CoreModule</cite></p></li>
+<li><p><cite>simulation_cr() in SimulationCreateModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphsetup">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphsetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphsetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does all of the set-up things for MODFLOW 6 prior to object allocation
+and creation. This particular version is for running the coupled
+model and so use the simulation create from the special coupled model
+type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>printInfo() in Mf6CoreModule</cite></p></li>
+<li><p><cite>cphsimulation_cr() in cphSimulationCreateModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/objsetup">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">objsetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/objsetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup the objects of various types for the main time loop</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>simulation_df() in Mf6CoreModule</cite></p></li>
+<li><p><cite>simulation_ar() in Mf6CoreModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/innertimeloop">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">innertimeloop</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/innertimeloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides all of the within time step logic for a standalone simulation.
+Directly employs the subroutines in the <em>mfcore.f90</em> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ioutlocal</strong><em> [</em><em>integer</em><em>,</em><em>out</em><em>]</em> :: convergence status; 0 == converged</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><cite>Mf6PrepareTimestep() in Mf6CoreModule</cite></p></li>
+<li><p><cite>Mf6DoTimestep() in Mf6CoreModule</cite></p></li>
+<li><p><cite>Mf6FinalizeTimestep() in Mf6CoreModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/finalproc">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">finalproc</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/finalproc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the required processing, deallocation and messaging, after the
+main time loop is over. Standalone simulation only. Custom extended
+types are not used in standalone simulation so that the standard
+MODFLOW 6 deallocation and wrap-up routines can be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ioutlocal</strong><em> [</em><em>integer</em><em>,</em><em>out</em><em>]</em> :: function status; 0 == success</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><cite>Mf6Finalize() in Mf6CoreModule</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphfinalproc">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphfinalproc</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinalproc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the required final model, exchange, and solution processing
+after the main time loop is over. Coupled simulation only. The
+coupled version is more involved than the standalone because
+have <em>new</em> deallocation from the new types and so have to customize
+many of the subroutines called from <em>mfcore.f90</em> to implement
+individual pieces of larger routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ioutlocal</strong><em> [</em><em>integer</em><em>,</em><em>out</em><em>]</em> :: function status; 0 == success</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphdeallocall">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphdeallocall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphdeallocall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocation subroutine needed for coupled mode. Custom deallocation
+had to be added to include dealloc for the extended types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>tdis_da() in TdisModule</cite></p></li>
+<li><p><cite>cphsimulation_da() in cphSimulationCreateModule</cite></p></li>
+<li><p><cite>lists_da() in ListsModule</cite></p></li>
+<li><p><cite>mem_write_usage() in MemoryManagerModule</cite></p></li>
+<li><p><cite>mem_da() in MemoryManagerModule</cite></p></li>
+<li><p><cite>elapsed_time() in TimerModule</cite></p></li>
+<li><p><a class="reference internal" href="#f/f2pwrap/cphfinal_message" title="f/f2pwrap/cphfinal_message"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphfinal_message()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphfinal_message">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphfinal_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinal_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override of the final message output functionality so that <strong>stop</strong>
+is not called within MODFLOW and control returns to <strong>pyMF6</strong> for
+normal program termination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Called from</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#f/f2pwrap/cphdeallocall" title="f/f2pwrap/cphdeallocall"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphdeallocall()</span></code></a></p>
+</dd>
+<dt class="field-even">Call to</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference internal" href="#f/f2pwrap/cphprint_final_message" title="f/f2pwrap/cphprint_final_message"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphprint_final_message()</span></code></a></p></li>
+<li><p><cite>sim_message() in GenericUtilitiesModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphprint_final_message">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphprint_final_message</code><span class="sig-paren">(</span><em class="sig-param">stopmess</em>, <em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphprint_final_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override of the print_final_message() because this is where the <strong>stop</strong>
+is called within MODFLOW. This routine called by cphfinal_message(),
+and the purpose of this routine is to allow control to return
+to <strong>pyMF6</strong> for normal program termination. <strong>Note</strong> that the end
+of simulation listing of warnings (related to changes in parameters
+between v.6.1.0 and 6.1.1) will not be printed for coupled simulation
+because these output routines are not public in the MODFLOW code
+base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stopmess</strong> (*)<em> [</em><em>character</em><em>,</em><em>in</em><em>]</em> :: message for output</p></li>
+<li><p><strong>ioutlocal</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: file output unit number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="#f/f2pwrap/cphfinal_message" title="f/f2pwrap/cphfinal_message"><code class="xref f f-subr docutils literal notranslate"><span class="pre">cphfinal_message()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><cite>sim_message() in GenericUtilitiesModule</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphconverge_check">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphconverge_check</code><span class="sig-paren">(</span><em class="sig-param">iexLoop</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphconverge_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coupled model convergence check. Designed to be called independently
+at the end of the inner time loop logic in coupled simulation. This
+routine had to split out so that custom array passing logic could be
+used to couple the programs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iexLoop</strong><em> [</em><em>integer</em><em>,</em><em>out</em><em>]</em> :: convergence flag, 0 means converged</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><cite>converge_check() in SimModule</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/gettotim">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">gettotim</code><span class="sig-paren">(</span><em class="sig-param">mftotim</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the MODFLOW 6 public totim which holds the total elapsed
+simulation time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mftotim</strong><em> [</em><em>float</em><em>,</em><em>out</em><em>]</em> :: elapsed simulation time</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><cite>totim in TdisModule</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/gettotalsimtime">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">gettotalsimtime</code><span class="sig-paren">(</span><em class="sig-param">mftotsim</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotalsimtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the MODFLOW 6 public totalsimtime which holds the total
+simulation time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mftotsim</strong><em> [</em><em>float</em><em>,</em><em>out</em><em>]</em> :: total simulation time</p>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.saMF6TimeLoop" title="pyMF6py.saMF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.saMF6TimeLoop()</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><cite>totalsimtime in TdisModule</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="subroutine">
+<dt id="f/f2pwrap/cphinnertimeloop">
+<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphinnertimeloop</code><span class="sig-paren">(</span><em class="sig-param">finf</em>, <em class="sig-param">iuzno</em>, <em class="sig-param">ncpl</em>, <em class="sig-param">surfdis</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphinnertimeloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Within simulation time step logic for coupled model simulation.
+Provides for receipt of a one-dimensional array of <strong>iuzno</strong>
+length that has infiltration for the UZF package from HSPF. Also
+returns a one-dimensional array of <strong>ncpl</strong> length that has
+groundwater discharge to the surface for each two-dimensional
+grid cell.</p>
+<p>This routine is necessary to call the custom extended types that
+are used to implement coupling for MODFLOW 6. Fortran
+<a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/fortran-compiler-developer-guide-and-reference/top/language-reference/a-to-z-reference/s-1/select-type.html">Select Type</a>
+statements are used to call the extended logic for coupling.
+This statement is used for model read and prepare</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! -- READ AND PREPARE (RP)
+! -- Read and prepare each model
+do im = 1, basemodellist%Count()
+mp =&gt; GetBaseModelFromList(basemodellist, im)
+call mp%model_message(line, fmt=fmt)
+! select type
+select type (mp)
+    type is (cphGwfModelType)
+    call mp%gwf_chprp( cpinalen, cpinarr )
+    class default
+    call mp%model_rp()
+end select
+end do
+</pre></div>
+</div>
+<p>and for collating solution values at the end of a timestep.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! -- Write output and final message for timestep for each model
+do im = 1, basemodellist%Count()
+  mp =&gt; GetBaseModelFromList(basemodellist, im)
+  ! select type
+  select type (mp)
+  type is (cphGwfModelType)
+    call mp%model_ot()
+    call mp%cphsurfdis( psdischarge, numnodes )
+  class default
+    call mp%model_ot()
+  end select
+  call mp%model_message(line, fmt=fmt)
+enddo
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iuzno</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: NUZFCELL or number of UZF package cells</p></li>
+<li><p><strong>ncpl</strong><em> [</em><em>integer</em><em>,</em><em>in</em><em>]</em> :: NCPL or number of cells in a layer</p></li>
+<li><p><strong>finf</strong> (iuzno)<em> [</em><em>float</em><em>,</em><em>in</em><em>]</em> :: fixed infiltration rate for the current day</p></li>
+<li><p><strong>surfdis</strong> (2, ncpl)<em> [</em><em>out</em><em>]</em> :: <p>groundwater discharge to the surface for
+each computational cell</p>
+<ol class="arabic simple">
+<li><p>UZF groundwater discharge and DRN discharge</p></li>
+<li><p>UZF rejected infiltration</p></li>
+</ol>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Called from</dt>
+<dd class="field-even"><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.MF6TimeLoop" title="pyMF6py.MF6TimeLoop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyMF6py.MF6TimeLoop()</span></code></a></p>
+</dd>
+<dt class="field-odd">Call to</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><cite>gwf_chprp in cphGwfModule</cite></p></li>
+<li><p><cite>cphsurfdis in cphGwfModule</cite></p></li>
+<li><p><cite>tdis_tu() in TdisModule</cite></p></li>
+<li><p><cite>converge_reset() in SimModule</cite></p></li>
+<li><p><cite>Mf6DoTimestep() in Mf6CoreModule</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="pyMF6_fortran.html" title="4.3.2. Customized Fortran Modules"
+              >previous</a> |
+            <a href="pyMF6_mf6types.html" title="4.3.2.2. Extended MODFLOW 6 Types"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/pyMF6_f2pwrap.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

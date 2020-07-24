@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2.4. IMPLND Water Movement and Storage &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.2.5. Coupling Specific Methods and Data Structures" href="mHSP2_coupling.html" />
+    <link rel="prev" title="4.2.3. PERLND Water Movement and Storage" href="mHSP2_hyperwat.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="mHSP2_hyperwat.html" title="4.2.3. PERLND Water Movement and Storage"
+             accesskey="P">previous</a> |
+          <a href="mHSP2_coupling.html" title="4.2.5. Coupling Specific Methods and Data Structures"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implnd-water-movement-and-storage">
+<span id="mhsp2-himpwat"></span><h1><span class="section-number">4.2.4. </span>IMPLND Water Movement and Storage<a class="headerlink" href="#implnd-water-movement-and-storage" title="Permalink to this headline">¶</a></h1>
+<p>Water movement and storage calculations, logic, and data structures for
+impervious land segments (<strong>IMPLND</strong>).</p>
+<div class="section" id="module-locaHimpwat">
+<span id="locahimpwat-py"></span><span id="mhsp2-locahimpwat-py"></span><h2><span class="section-number">4.2.4.1. </span>locaHimpwat.py<a class="headerlink" href="#module-locaHimpwat" title="Permalink to this headline">¶</a></h2>
+<p>Replacement for <em>HSPsquared</em> himpwat that provides for water movement
+and storage in impervious land segments, <strong>IMPLND</strong>.</p>
+<p>Had to replace HSP2 himpwat so that can break into the main time loop
+at the beginning and end of each day. This required fundamentally
+restructuring the storage and memory allocation within HSP2.</p>
+<p>locaHimpwat functions as a module handling storage for global
+<strong>IMPLND</strong> variables as well as for parameter and constant
+definitions.</p>
+<p>Internal time unit DELT60 is in hours for <strong>IMPLND</strong>.</p>
+<dl class="py data">
+<dt id="locaHimpwat.BAD_OUTPUT_LIST">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">BAD_OUTPUT_LIST</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Currently unsupported outputs</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.CSNOFG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">CSNOFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.CSNOFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switch to turn on consideration of snow accumulation and melt.</p>
+<p>SNOW is not currently supported.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.DEF_DT">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">DEF_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.DEF_DT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data type specification for time series structured array or
+record array</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.DELT60">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">DELT60</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.DELT60" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time step in hours to use in calculations</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.ERRMSG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">ERRMSG</code><em class="property"> = ['IWATER: IROUTE Newton Method did not converge']</em><a class="headerlink" href="#locaHimpwat.ERRMSG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defined error messages from HSPF.</p>
+<p>Used with errorsV for error handling. Currently, these messages
+written to the log file as errors when encountered.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.FLAG_DT">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.FLAG_DT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data type specification for flag record arrays</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.FLAG_GOOD">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_GOOD</code><em class="property"> = ['CSNOFG', 'RTLIFG', 'RTOPFG', 'VNNFG', 'VRSFG']</em><a class="headerlink" href="#locaHimpwat.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags that are at least referenced in mHSP2.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.FLAG_UNUSED">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_UNUSED</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags that are completely unused in mHSP2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.GOOD_OUTPUT_LIST">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">GOOD_OUTPUT_LIST</code><em class="property"> = ['IMPEV', 'IMPS', 'PET', 'PETADJ', 'RETS', 'SUPY', 'SURI', 'SURO', 'SURS']</em><a class="headerlink" href="#locaHimpwat.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of currently supported outputs that can be written to the
+HDF5 file</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.HOLD_DEC">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_DEC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_DEC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carry over calculation variable in case simulation is not daily</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.HOLD_MSUPY">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_MSUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_MSUPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value of MSUPY to cover over between time steps</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.HOLD_SRC">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_SRC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_SRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carry over calculation variable in case simulation is not daily</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.HR1FG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HR1FG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HR1FG" title="Permalink to this definition">¶</a></dt>
+<dd><p>True at 1 am every day</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.IMPEV">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">IMPEV</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.IMPEV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total simulated ET for impervious, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.IMPS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">IMPS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.IMPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total water stored in impervious lands, inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.INFLOW_TS_GOOD">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">INFLOW_TS_GOOD</code><em class="property"> = ['PREC', 'PETINP']</em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_GOOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>All supported inflow time series in mHSP2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.INFLOW_TS_UNUSED">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">INFLOW_TS_UNUSED</code><em class="property"> = ['AIRTMP', 'GATMP', 'DTMPG', 'WINMOV', 'SOLRAD', 'CLOUD', 'SLSLD', 'IQADFX', 'IQADCN', 'RAINF', 'SNOCOV', 'WYIELD', 'PACKI']</em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsupported inflow time series</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.I_RETS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">I_RETS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.I_RETS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial retention, or interception, storage in inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.I_SURS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">I_SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.I_SURS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial surface or overland flow storage in inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.KEY_TS_PET">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">KEY_TS_PET</code><em class="property"> = 'PETINP'</em><a class="headerlink" href="#locaHimpwat.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
+<dd><p>External time series key for input PET</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.KEY_TS_PRECIP">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">KEY_TS_PRECIP</code><em class="property"> = 'PREC'</em><a class="headerlink" href="#locaHimpwat.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>External time series key for precipitation</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.LATIN_CONTROL">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LATIN_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.LATIN_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control structure telling which lateral inflows are active</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.LAT_INFLOW_TS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LAT_INFLOW_TS</code><em class="property"> = ['SURLI']</em><a class="headerlink" href="#locaHimpwat.LAT_INFLOW_TS" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of possible lateral inflow time series</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.LSUR">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.LSUR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of the assumed overland flow plane in feet</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.MAXLOOPS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MAXLOOPS</code><em class="property"> = 100</em><a class="headerlink" href="#locaHimpwat.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Newton method max loop iterations.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.MON_FLAGS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MON_FLAGS</code><em class="property"> = ['VNNFG', 'VRSFG']</em><a class="headerlink" href="#locaHimpwat.MON_FLAGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag names for monthly flags</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.MON_PARAMS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MON_PARAMS</code><em class="property"> = ['NSURM', 'RETSCM']</em><a class="headerlink" href="#locaHimpwat.MON_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameter names for values that can be specified as monthly</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.NSUR">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">NSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.NSUR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manning’s n for the assumed overland flow plane use English/Standard
+units versions from tables.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.NSURM">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">NSURM</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.NSURM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monthly overland flow Manning’s n</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.OUTPUT_CONTROL">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">OUTPUT_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control structure telling which time series are to be output</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PARAM_GOOD">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PARAM_GOOD</code><em class="property"> = ['LSUR', 'NSUR', 'PETMAX', 'PETMIN', 'RETSC', 'SLSUR']</em><a class="headerlink" href="#locaHimpwat.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input, non-state parameters that are used in mHSP2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PARAM_UNUSED">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PARAM_UNUSED</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input parameters that unused in mHSP2</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PET">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PET</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Potential evapotranspiration, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PETADJ">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETADJ</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETADJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusted PET from air temperature limits, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PETMAX">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETMAX</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETMAX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Air temperature below which ET will be arbitrarily reduced.</p>
+<p>Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not
+supported so this is not used.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.PETMIN">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETMIN</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETMIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Air temperature below which ET will be set to zero.</p>
+<p>Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not
+supported and this is not used.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.RETS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retention storage, inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.RETSC">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETSC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETSC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retention, or interception, storage capacity of the surface in inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.RETSCM">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETSCM</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETSCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monthly retention, or interception, storage capacity of the surface
+in inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.RTLIFG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RTLIFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RTLIFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag for handling retention storage on lateral surface inflow.</p>
+<p>If == 1, then lateral surface inflow is subject to retention. For 0,
+not subject to retention</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.RTOPFG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RTOPFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RTOPFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to select algorithm for overland flow.</p>
+<p>RTOPFG == 1 then overland flow done as in predeccesor models - HSPX,
+ARM, and NPS. RTOPFG == 0 then a different algorithm is used.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SLSUR">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SLSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SLSUR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slope of the assumed overland flow plane, ft/ft</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SPEC_DT">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SPEC_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SPEC_DT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data type specification for the calculation and input
+record arrays</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.STATE_PARMS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">STATE_PARMS</code><em class="property"> = ['RETS', 'SURS']</em><a class="headerlink" href="#locaHimpwat.STATE_PARMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of state parameters</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SUPY">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SUPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moisture supplied to the land segment by precipitation, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SURI">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURI</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surface storage inflow, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SURLI">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURLI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surface storage lateral inflow external time series, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SURO">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURO</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surface storage outflow, inches/ivld</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.SURS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surface storage, inches</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.TOLERANCE">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">TOLERANCE</code><em class="property"> = 0.01</em><a class="headerlink" href="#locaHimpwat.TOLERANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tolerance for Newton method convergence</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.VNNFG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">VNNFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.VNNFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag for using monthly variation in Manning’s n for overland flow</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.VRSFG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">VRSFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.VRSFG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag for using monthly variation in retention storage capacity</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.WS_AREAS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">WS_AREAS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.WS_AREAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Areas of impervious segments in acres</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.configExternalTS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">configExternalTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">TSMapList</span></em>, <em class="sig-param"><span class="n">AllTSDict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configExternalTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer external time series from HDF5 input to module data
+structures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sim_len</strong> (<em>int</em>) – the length of the simulation</p></li>
+<li><p><strong>TSMapList</strong> (<em>list</em>) – <p>nested list with sublists, L, of time series
+metadata for a particular target ID</p>
+<ol class="arabic simple" start="0">
+<li><p>time series type</p></li>
+<li><p>time series ID</p></li>
+<li><p>target ID</p></li>
+</ol>
+</p></li>
+<li><p><strong>AllTSDict</strong> (<em>dict</em>) – dictionary of time series by time series ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.configFlagsParams">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">configFlagsParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">cFlagVals</span></em>, <em class="sig-param"><span class="n">allIndexes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configFlagsParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set and configure flags and parameters for PERLND</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – the target location ID</p></li>
+<li><p><strong>cFlagVals</strong> (<em>dict</em>) – collected flag values</p></li>
+<li><p><strong>allIndexes</strong> (<em>list</em>) – list of indexes for cFlagVals</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt id="locaHimpwat.errorsV">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">errorsV</code><em class="property"> = array([0])</em><a class="headerlink" href="#locaHimpwat.errorsV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error tracking in liftedloop</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.getLatInflowByTypeTarget">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getLatInflowByTypeTarget</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">liType</span></em>, <em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getLatInflowByTypeTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a lateral inflow by type and target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – target ID</p></li>
+<li><p><strong>liType</strong> (<em>str</em>) – lateral inflow type</p></li>
+<li><p><strong>iI</strong> (<em>int</em>) – current time index</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.getSURObyTargTS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getSURObyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getSURObyTargTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total outflow from impervious land, inches/day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – time step index to extract the storage values</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – current PERLND target</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>suro, total outflow in inches/day</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.getWatershedAreabyTarg">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getWatershedAreabyTarg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getWatershedAreabyTarg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get WS_AREA or watershed area by target id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>targID</strong> (<em>str</em>) – current PERLND target</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>watershed areas in acres</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.iwater_liftedloop">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">iwater_liftedloop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">mon</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.iwater_liftedloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modified version of liftedloop to do a single time step and
+return to the main time loop.</p>
+<p>Module-wide recarrays are used to store all results and calculation
+variables between calls. Modified real number comparisons to be
+more numerically reliable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iI</strong> (<em>int</em>) – index of current time step (0 to (sim_len-1))</p></li>
+<li><p><strong>mon</strong> (<em>int</em>) – current simulation month</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – ID for recarray columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>count of the number of errors. Should be 0, but this</dt><dd><p>provides a way to reference errorsV for error handling</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setDelT">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setDelT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_delt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setDelT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the impervious land delt for calculations.</p>
+<p>The delt is stored as a module wide global</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sim_delt</strong> (<em>float</em>) – overall simulation time step in minutes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setGoodFlag">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setGoodFlag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tFlag</span></em>, <em class="sig-param"><span class="n">fVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for the specified flag structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – ID or recarray header to set</p></li>
+<li><p><strong>tFlag</strong> (<em>str</em>) – flag string to identify the data structure</p></li>
+<li><p><strong>fVal</strong> (<em>int</em>) – flag value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setGoodParam">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setGoodParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for the specified parameter structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – ID or recarray header to set</p></li>
+<li><p><strong>tParam</strong> (<em>str</em>) – param string to identify the data structure</p></li>
+<li><p><strong>pVal</strong> (<em>float</em>) – parameter value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setLatInflowTS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setLatInflowTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">inflowType</span></em>, <em class="sig-param"><span class="n">tsVals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setLatInflowTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to setup lateral inflow time series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sim_len</strong> (<em>int</em>) – the simulation length</p></li>
+<li><p><strong>targID</strong> (<em>str</em>) – target ID</p></li>
+<li><p><strong>inflowType</strong> (<em>str</em>) – type of lateral inflow</p></li>
+<li><p><strong>tsVals</strong> (<em>np.array</em>) – array of time series values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setMonthlyParams">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setMonthlyParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">monName</span></em>, <em class="sig-param"><span class="n">monTuple</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setMonthlyParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for the specified monthly parameter structures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – ID or recarray header to set</p></li>
+<li><p><strong>monName</strong> (<em>str</em>) – name for data structure to set the monthly values</p></li>
+<li><p><strong>monTuple</strong> (<em>tuple</em>) – tuple of 12 floats which are the values.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setOutputControlFlags">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setOutputControlFlags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">savetable</span></em>, <em class="sig-param"><span class="n">stTypes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the output control flags</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – target id</p></li>
+<li><p><strong>savetable</strong> (<em>np.array</em><em> or </em><em>dict</em>) – boolean array of which outputs to save</p></li>
+<li><p><strong>stTypes</strong> (<em>list</em>) – keys or indexes to save</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setPETTS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setPETTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPETTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the PET time series from one data set
+to one target.</p>
+<p>PET is where pet is stored for calculations. Might be adjusted
+by various activities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – the target identifier - must be same as used
+to create the rec array</p></li>
+<li><p><strong>npTS</strong> (<em>np.array</em>) – 1D array with the time series values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setPrecipTS">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setPrecipTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPrecipTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the precipitation time series from one data set
+to one target.</p>
+<p>SUPY is where precipitation is stored for calculations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – the target identifier - must be same as used
+to create the rec array</p></li>
+<li><p><strong>npTS</strong> (<em>np.array</em>) – 1D array with the time series values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setStateParams">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setStateParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setStateParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for the specified initial state structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – ID or recarray header to set</p></li>
+<li><p><strong>tParam</strong> (<em>str</em>) – param string to identify the data structure</p></li>
+<li><p><strong>pVal</strong> (<em>float</em>) – parameter value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setUpRecArrays">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setUpRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and initialize impervious land output arrays</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pwList</strong> (<em>list</em>) – list of IDs for this target type</p></li>
+<li><p><strong>sim_len</strong> (<em>int</em>) – number of output intervals in the simulation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setWSAreas">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setWSAreas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">area</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setWSAreas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the watershed area to the global information structure.</p>
+<p>Area is in acres</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targID</strong> (<em>str</em>) – ID or recarray header to set</p></li>
+<li><p><strong>area</strong> (<em>float</em>) – area in acres</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.setupHR1FG">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setupHR1FG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setupHR1FG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the module-level global HR1FG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tIndex</strong> (<em>pd.DateIndex</em>) – datetime index for the simulation output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="locaHimpwat.writeOutputs">
+<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the outputs to the hdf file at the end of the simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>store</strong> (<em>pd.HDFStore</em>) – hdf5 file store to write to</p></li>
+<li><p><strong>tIndex</strong> (<em>pd.DateIndex</em>) – time index for the simulation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function status; 0 == success</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="mHSP2_hyperwat.html" title="4.2.3. PERLND Water Movement and Storage"
+              >previous</a> |
+            <a href="mHSP2_coupling.html" title="4.2.5. Coupling Specific Methods and Data Structures"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/mHSP2_himpwat.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1.4. Coupled Mode Logging &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.2. mHSP2" href="mHSP2.html" />
+    <link rel="prev" title="4.1.3. Main Block for Standalone Mode" href="pyHS2MF6_samain.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="pyHS2MF6_samain.html" title="4.1.3. Main Block for Standalone Mode"
+             accesskey="P">previous</a> |
+          <a href="mHSP2.html" title="4.2. mHSP2"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="coupled-mode-logging">
+<span id="cplogger"></span><h1><span class="section-number">4.1.4. </span>Coupled Mode Logging<a class="headerlink" href="#coupled-mode-logging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-custLogger">
+<span id="custlogger-py"></span><span id="cp-pyhs2mf6-logger-py"></span><h2><span class="section-number">4.1.4.1. </span>custLogger.py<a class="headerlink" href="#module-custLogger" title="Permalink to this headline">¶</a></h2>
+<p>pyHS2MF6 custom logger leveraging Python logging</p>
+<p>Provides specification and configuration of Python’s logging API to use for
+debugging and informational purposes.</p>
+<dl class="py data">
+<dt id="custLogger.FH">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">FH</code><em class="property"> = None</em><a class="headerlink" href="#custLogger.FH" title="Permalink to this definition">¶</a></dt>
+<dd><p>File handler</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="custLogger.FORMATTER">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">FORMATTER</code><em class="property"> = &lt;logging.Formatter object&gt;</em><a class="headerlink" href="#custLogger.FORMATTER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom formatter</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="custLogger.LOGNAME">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">LOGNAME</code><em class="property"> = 'pyHS2MF6_Log.txt'</em><a class="headerlink" href="#custLogger.LOGNAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log file name</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="custLogger.LOGR">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">LOGR</code><em class="property"> = &lt;Logger COUPLED (DEBUG)&gt;</em><a class="headerlink" href="#custLogger.LOGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom logging object</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="custLogger.LOG_LEVEL">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">LOG_LEVEL</code><em class="property"> = 10</em><a class="headerlink" href="#custLogger.LOG_LEVEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="custLogger.START_TIME">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">START_TIME</code><em class="property"> = None</em><a class="headerlink" href="#custLogger.START_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coupled model start time</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="custLogger.loggerEnd">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">loggerEnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#custLogger.loggerEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>End the pyHS2MF6 log file output</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="custLogger.loggerStart">
+<code class="sig-prename descclassname">custLogger.</code><code class="sig-name descname">loggerStart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">LFPath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custLogger.loggerStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the logger to use for pyHS2MF6
+:param LFPath: FQDN path for the log file
+:type LFPath: str</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="pyHS2MF6_samain.html" title="4.1.3. Main Block for Standalone Mode"
+              >previous</a> |
+            <a href="mHSP2.html" title="4.2. mHSP2"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/pyHS2MF6_logger.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

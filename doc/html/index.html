@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta content="pyHS2MF6: a dynamically coupled, HSPF-MODFLOW 6 integrated hydrologic model " name="description" />
+<meta content="pyHS2MF6, HSPF, MODFLOW 6, integrated hydrologic model, mHSPF, pyMF6" name="keywords" />
+
+    <title>Welcome to the pyHS2MF6 documentation! &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Getting Started with pyHS2MF6" href="getting_started.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="#">pyHS2MF6 0.1.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="getting_started.html" title="1. Getting Started with pyHS2MF6"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="f-modindex.html" title="Fortran Module Index"
+             >fortran modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-the-pyhs2mf6-documentation">
+<h1>Welcome to the pyHS2MF6 documentation!<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
+<p>pyHS2MF6 is an integrated hydrologic model created using a dynamic
+coupling of the Hydrological Simulation Program – FORTRAN (HSPF) and
+MODFLOW 6 in Python. The coupling is dynamic because HSPF and MODFLOW
+6 exchange information during each simulation time step. At this time,
+pyHS2MF6 can only use and simulate the basic water movement and storage
+processes in HSPF and MODFLOW.</p>
+<p>A fundamental goal in the design of pyHS2MF6 was to provide for the
+ability to build on existing, independently created, HSPF and MODFLOW
+models. Consequently, pyHS2MF6 provides two simulation modes.</p>
+<ol class="arabic simple">
+<li><p>Coupled mode: Provides a dynamically coupled simulation with a
+one day time step where HSPF simulates watershed and stream
+routing processes first and then sends simulated infiltration
+to MODFLOW for MODFLOW to use in its simulation of the current
+day. When MODFLOW finishes simulating the day, it sends
+simulated groundwater discharge to the land surface back
+to HSPF. HSPF uses the groundwater discharge in its simulation
+of the next day.</p></li>
+<li><p>Standalone mode: Is included purely so that the user can check or
+verify the function of the independent, existing model (either
+HSPF or MODFLOW 6) in pyHS2MF6. It is not recommended to use
+pyHS2MF6 standalone mode in place of just using HSPF or just
+using MODFLOW 6.</p></li>
+</ol>
+<p>pyHS2MF6 is available for free under the
+<a class="reference external" href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License version 3</a>
+and without warranty or support. Technical support, however, can be
+arranged, if desired. pyHS2MF6 builds upon and extends two
+independent models and provides for dynamic information exchange
+between the models. As a result, pyHS2MF6 configuration, implementation,
+and use requires a number of prerequisites.</p>
+<p>Please see <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started with pyHS2MF6</span></a> before trying to install and run
+pyHS2MF6. And, it is recommended to at least browse through the
+<a class="reference internal" href="case_study.html#case-study"><span class="std std-ref">Coupled Mode Example Model</span></a> before trying to apply pyHS2MF6 to a specific site.</p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="maintoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#python-programming">1.1. Python Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps">1.2. Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install_pyint.html">2.1. Install and Configure a Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_dlls.html">2.2. Install a Compiler and Build DLLs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="case_study.html#study-site">3.1. Study Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case_study.html#standalone-hspf-model">3.2. Standalone HSPF Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case_study.html#standalone-modflow-6-model">3.3. Standalone MODFLOW 6 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case_study.html#coupled-mode-simulation-and-results">3.4. Coupled Mode Simulation and Results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mHSP2.html">4.2. mHSP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyMF6.html">4.3. pyMF6</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">1. Getting Started with pyHS2MF6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_doc.html">4. Code Documentation</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="getting_started.html" title="1. Getting Started with pyHS2MF6"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="f-modindex.html" title="Fortran Module Index"
+              >fortran modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/index.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
