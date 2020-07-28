@@ -1,87 +1,36 @@
 # pyHS2MF6: An Integrated Hydrologic Model 
 
-pyHS2MF6 is a dynamic coupling of HSPF and MODFLOW 6 in Python. It is composed of three independent processes: HSPF, MODFLOW 6, and a coupled model controller and queue server that are linked with message passing queues. Dynamic coupling among the processes provides for information exchange in memory and process update during each simulation time step. To use pyHS2MF6, the user must specify the spatial mapping between the lumped parameter, stream reach and sub-watershed HSPF representation and the three-dimensional computational grid representation in MODFLOW 6. Mapping specification provides a means to focus infiltration, simulated in HSPF, to discrete zones of collections of cells, in MODFLOW 6, that could represent fractures, faults, or regions of enhanced secondary porosity to create focused areas of high transmissivity and storage if needed to match site conceptualization.
+pyHS2MF6 is an open source, integrated hydrologic model. Integrated hydrologic modeling means simulating the full hydrologic cycle in terrestrial environments where both surface- and subsurface water flow need to be represented. It is a dynamic coupling of two existing hydrologic models, [HSPF](https://www.epa.gov/ceam/hydrological-simulation-program-fortran-hspf) and [MODFLOW 6](https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model) in Python.
+
+pyHS2MF6 currently only supports water movement and storage processes. Snow, frozen ground, and fate and transport processes and representations are **not** currently supported.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+A design goal for pyHS2MF6 was to provide the capability to leverage existing HSPF watershed models and MODFLOW groundwater models. The desire to leverage these existing tools means that using pyHS2MF6 is complicated because the user needs to know a priori how to use the two building block programs.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Code documentation, installation instructions, and a test case are provided on the associated [Pages](https://nmartin198.github.io/pyHS2MF6/) site.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+The authors are happy to accept contributions to the project. It might be easiest to contact us prior to starting your contribution in case there are any initial suggestions or direction that we can provide.
 
-## Versioning
+The general procedure for contributing is as follows.
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+- Fork the project
+- Make your changes
+- Submit a pull request
+    - It is important to have a conversation when opening a pull request. Describe your change and why it should be accepted.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Nick Martin** nmartin@swri.org
+* **Paul Southard** psouthard@swri.org
+* **Stuart Stothoff** sstothoff@swri.org
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU Affero General Public License v.3.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* A significant portion of pyHS2MF6 development was funded by [Southwest Research Institute](https://www.swri.org/groundwater-and-surface-water-analysis-and-modeling) internal research and development grant 15-R6015.
