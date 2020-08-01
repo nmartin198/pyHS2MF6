@@ -51,74 +51,101 @@
 <p>Two dynamic-link library (DLL) files are required for pyHS2MF6 operation.
 The installation and compilation discussion is presented for use on
 Windows operating systems. These instructions can easily be adapted
-for use on Linux operating systems. On a Linux system, these two files
-would be dynamic load library (SO) files.</p>
+for use on Linux operating systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On a Linux system, these two DLL files would be dynamic load
+library, <cite>so</cite>, files.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p>The purpose of the DLL files is two-fold.</p>
 <ol class="arabic simple">
-<li><dl class="simple">
-<dt>Make MODFLOW 6 available to Python programs and the Python 3</dt><dd><p>interpreter</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Incorporate extended types or objects into MODFLOW 6 to enable</dt><dd><p>sharing of information between independent HSPF and MODFLOW 6
-processes, or models.</p>
-</dd>
-</dl>
-</li>
+<li><p>Make MODFLOW 6 available to Python programs and the Python 3
+interpreter</p></li>
+<li><p>Incorporate extended types or objects into MODFLOW 6 to enable
+sharing of information between independent HSPF and MODFLOW 6
+processes, or models.</p></li>
 </ol>
-<p>Two DLL files are in the <cite>pyHS2MF6\bin\pyMF6</cite> folder. Both of these
-files were created by compiling Fortran source code. These two DLL
-files were compiled on a system with the following characteristics.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Two DLL files are in the <cite>pyHS2MF6\bin\pyMF6</cite> folder.
+Both of these files were created by compiling Fortran source code.
+These two DLL files were compiled on a system with the following
+characteristics.</p>
 <ul class="simple">
 <li><p>Windows 10, 64-bit OS, Intel x64-based processor</p></li>
 <li><p>Python 3.7, 64-bit</p></li>
 </ul>
 <p>If your computer has equivalent characteristics and software, you can
-try using the versions of <cite>mf6.dll</cite> and <cite>pyMF6.cp37-win_amd64.pyd</cite>
+try using the versions of <strong>mf6.dll</strong> and <strong>pyMF6.cp37-win_amd64.pyd</strong>
 that are in the <cite>pyHS2MF6\bin\pyMF6</cite> folder. Most likely, you will
 need to recreate these DLL files to work on your particular computer
 system.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="section" id="install-a-compiler">
 <span id="install-fortran"></span><h2><span class="section-number">2.2.1. </span>Install a Compiler<a class="headerlink" href="#install-a-compiler" title="Permalink to this headline">¶</a></h2>
 <p>A Fortran compiler, that supports Fortran 95 and 2008 standards, is
 needed to transform the Fortran source code files into DLL files. The
 <a class="reference external" href="http://www.mingw.org/">MinGW</a> port of the GNU Compiler Collection (GCC)
-Fortran compiler, called <a class="reference external" href="https://gcc.gnu.org/fortran/">GFortran</a>,
-was used to compile <cite>pyHS2MF6\bin\pyMF6\mf6.dll</cite> and
-<cite>pyHS2MF6\bin\pyMF6\pyMF6.cp37-win_amd64.pyd</cite>. Instructions are only
-available here for <cite>MinGW GFortran</cite>; however, any Fortran compiler that
-supports the 1995 and 2008 standards and is supported by F2PY could be
-used in place of <cite>MinGW GFortran</cite>. On linux systems, GFortran can
-usually be installed through a customized installation of the GNU
-Compiler Collection (GCC) using the linux distribution package manager.</p>
-<ul>
+Fortran compiler, <a class="reference external" href="https://gcc.gnu.org/fortran/">GFortran</a>,
+was used to compile the two DLL files included in the <cite>pyMF6</cite> folder.</p>
+<ul class="simple">
+<li><p><strong>mf6.dll</strong></p></li>
+<li><p><strong>pyMF6.cp37-win_amd64.pyd</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instructions are only available here for <cite>MinGW GFortran</cite>
+on the Windows 10 OS. However, any Fortran compiler that
+supports the 1995 and 2008 standards and is supported by
+<abbr title="Fortran to Python interface generator">F2PY</abbr> could
+be used in place of <cite>MinGW GFortran</cite>.</p>
+<p>On linux systems, GFortran can usually be installed through a
+customized installation of the GNU Compiler Collection (GCC) using
+the linux distribution package manager.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>To obtain, GFortran as part of <a class="reference external" href="http://www.mingw.org/">MinGW</a> :</p>
+<ul class="simple">
 <li><p><a class="reference external" href="http://www.mingw.org/wiki/Install_MinGW">Install 32-bit MinGW</a></p></li>
-<li><p><a class="reference external" href="http://mingw-w64.org/doku.php/download">Install 64-bit MinGW</a></p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>Be sure to add the <cite>bin</cite> directory from the MinGW installation</dt><dd><p>to your PATH environment variable before continuing to the
-next steps.</p>
-</dd>
-</dl>
-</li>
+<li><p><a class="reference external" href="http://mingw-w64.org/doku.php/download">Install 64-bit MinGW</a></p></li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Be sure to add the <cite>bin</cite> directory from the MinGW installation to
+your PATH environment variable before continuing to the next steps.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="section" id="configure-numpy-f2py">
 <span id="install-f2py"></span><h3><span class="section-number">2.2.1.1. </span>Configure NumPy F2PY<a class="headerlink" href="#configure-numpy-f2py" title="Permalink to this headline">¶</a></h3>
 <p><abbr title="Fortran to Python interface generator">F2PY</abbr> provides a connection
-between Fortran and Python programming languages. F2PY provides this
+between Fortran and Python programming languages.
+<abbr title="Fortran to Python interface generator">F2PY</abbr> provides this
 connection by inserting interface information into Fortran source code
 file and then using a Fortran compiler to compile both the source code
 and the interface specification to a <cite>PYD</cite> file. A <cite>PYD</cite> is a <cite>DLL</cite> file
 that has a special function and some additional declarations so that it
 can be loaded into a Python program or the Python 3 interpreter.</p>
-<p>F2PY was installed with NumPy in <a class="reference internal" href="install_pyint.html#install-pyconda"><span class="std std-ref">Anaconda Install Instructions</span></a>. There is one
-configuration item that seems be required to have Python and F2PY use
-the MinGW compiler. The user needs to create a
+<p><abbr title="Fortran to Python interface generator">F2PY</abbr> was installed with
+<a class="reference external" href="https://numpy.org/">NumPy</a> in <a class="reference internal" href="install_pyint.html#install-pyconda"><span class="std std-ref">Anaconda Install Instructions</span></a>. There is one
+configuration item that seems to be required to have Python and
+<abbr title="Fortran to Python interface generator">F2PY</abbr> use the MinGW
+compiler. The user needs to create a
 <a class="reference external" href="https://www.scivision.dev/f2py-fortran-python-windows/">pydistutils.cfg</a>
 file in their home directory. The contents of the <cite>pydistutils.cfg</cite> file
 should be</p>
@@ -126,65 +153,64 @@ should be</p>
 <span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span>
 </pre></div>
 </div>
-<p>After installing a Fortran compiler and configuring F2PY, it is best to
+<p>After installing a Fortran compiler and configuring
+<abbr title="Fortran to Python interface generator">F2PY</abbr>, it is best to
 test your installation and configuration before moving on to building
 the DLL files.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.numfys.net/howto/F2PY/">A simple F2PY test case and tutorial</a></p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 <div class="section" id="build-dll-files">
 <span id="install-builddlls"></span><h2><span class="section-number">2.2.2. </span>Build DLL Files<a class="headerlink" href="#build-dll-files" title="Permalink to this headline">¶</a></h2>
 <p>The following steps are required to build the DLL files from the source
 code files.</p>
-<p>1. Obtain the
+<ol class="arabic">
+<li><p>Obtain the
 <a class="reference external" href="https://water.usgs.gov/water-resources/software/MODFLOW-6/mf6.1.1.zip">MODFLOW 6, version 6.1.1 distribution</a>
-from the USGS including source code.</p>
+including source code from the <a class="reference external" href="https://www.usgs.gov/">USGS</a>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="simple">
-<dt>Extract <cite>mf6.1.1</cite> from the zip archive and place it at the root</dt><dd><p>of the <cite>C:\</cite> so that have the MODFLOW 6 root directory of at
-<cite>C:\mf6.1.1</cite>.</p>
-</dd>
-</dl>
-</li>
+<li><p>Extract <cite>mf6.1.1</cite> from the zip archive and place it at the root
+of the <cite>C:\</cite> so that have the MODFLOW 6 root directory of at
+<cite>C:\mf6.1.1</cite>.</p></li>
 </ul>
 </div></blockquote>
-<p>2. Make a new directory <cite>cp_Modules</cite> within the <cite>make</cite> sub-directory so
-that have <cite>C:\mf6.1.1\make\cp_Modules</cite>.</p>
-<p>3. Copy the five Fortran source code files, listed below, from
+</li>
+<li><p>Make a new directory <cite>cp_Modules</cite> within the <cite>make</cite> sub-directory so
+that have <cite>C:\mf6.1.1\make\cp_Modules</cite>.</p></li>
+<li><p>Copy the five Fortran source code files, listed below, from
 <cite>pyHS2MF6\src\pyMF6</cite> to <cite>C:\mf6.1.1\make\cp_Modules</cite></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>f2PWrappers.f90</p></li>
-<li><p>cp_SimulationCreate.f90</p></li>
-<li><p>cp_gwf3.f90</p></li>
-<li><p>cp_gwf3uzf8.f90</p></li>
-<li><p>cp_gwf3drn8.f90</p></li>
+<li><p>f2PWrappers.f90 - <a class="reference internal" href="pyMF6_f2pwrap.html#pymf6-f2pwrap-f"><span class="std std-ref">Module f2pwrap in f2pWrappers.f90</span></a></p></li>
+<li><p>cp_SimulationCreate.f90 - <a class="reference internal" href="pyMF6_mf6types.html#pymf6-cphsimulationcreatemodule-f"><span class="std std-ref">cphSimulationCreateModule in cp_SimulationCreate.f90</span></a></p></li>
+<li><p>cp_gwf3.f90 - <a class="reference internal" href="pyMF6_mf6types.html#pymf6-cphgwfmodule-f"><span class="std std-ref">cphGwfModule in cp_gwf3.f90</span></a></p></li>
+<li><p>cp_gwf3uzf8.f90 - <a class="reference internal" href="pyMF6_mf6types.html#pymf6-cphuzfmodule-f"><span class="std std-ref">cphUzfModule in cp_gwf3uzf8.f90</span></a></p></li>
+<li><p>cp_gwf3drn8.f90 - <a class="reference internal" href="pyMF6_mf6types.html#pymf6-cphdrnmodule-f"><span class="std std-ref">cphDrnModule in cp_gwf3drn8.f90</span></a></p></li>
 </ul>
 </div></blockquote>
-<p>4. Copy the modified makefile, <cite>modmakefile</cite> from <cite>pyHS2MF6\installation</cite>
+</li>
+<li><p>Copy the modified makefile, <cite>modmakefile</cite> from <cite>pyHS2MF6\installation</cite>
 to <cite>C:\mf6.1.1\make</cite></p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="simple">
-<dt>This is a modified version of the file <cite>C:\mf6.1.1\make\makefile</cite>.</dt><dd><p>The modifications are so that the result is a DLL instead of an
+<li><p>This is a modified version of the file <cite>C:\mf6.1.1\make\makefile</cite>.
+The modifications are so that the result is a DLL instead of an
 EXE and so that modified file uses DOS commands instead of
-UNIX commands.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>If you would like to make a modified make file for Linux, just</dt><dd><p>compare the <cite>C:\mf6.1.1\make\makefile</cite> and
+UNIX commands.</p></li>
+<li><p>If you would like to make a modified make file for Linux, just
+compare the <cite>C:\mf6.1.1\make\makefile</cite> and
 <cite>C:\mf6.1.1\make\modmakefile</cite> and the required modifications
-should be identifiable.</p>
-</dd>
-</dl>
-</li>
+should be identifiable.</p></li>
 </ul>
 </div></blockquote>
-<p>5. Open an Anaconda Prompt, activate the pyhs2mf6 environment, and make
+</li>
+<li><p>Open an Anaconda Prompt, activate the pyhs2mf6 environment, and make
 the active directory <cite>C:\mf6.1.1\make</cite>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">pyhs2mf6</span>
 
@@ -193,17 +219,21 @@ the active directory <cite>C:\mf6.1.1\make</cite>.</p>
 <span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">1.1</span>\<span class="n">make</span> <span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>6. Create the DLL file, <cite>C:\mf6.1.1\make\mf6.dll</cite>, using the MODFLOW 6 source
+</li>
+<li><p>Create the DLL file, <cite>C:\mf6.1.1\make\mf6.dll</cite>, using the MODFLOW 6 source
 code, four of source code files in <cite>cp_Modules</cite>, and <cite>modmakefile</cite>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">1.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">mingw32</span><span class="o">-</span><span class="n">make</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">makefile</span><span class="o">=</span><span class="n">modmakefile</span> <span class="nb">all</span>
 </pre></div>
 </div>
-<p>7. Create the PYD file, <cite>C:\mf6.1.1\make\pyMF6.cp37-win_amd64.pyd</cite>, using F2PY
-by linking to <cite>C:\mf6.1.1\make\mf6.dll</cite> and compiling <cite>cp_Modules\f2PWrappers.f90</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">1.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">f2py</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">m</span> <span class="n">pyMF6</span> <span class="o">-</span><span class="n">L</span><span class="o">.</span>\ <span class="o">-</span><span class="n">lmf6</span> <span class="o">-</span><span class="n">I</span><span class="o">.</span>\<span class="n">obj_temp</span>\ <span class="o">--</span><span class="n">verbose</span> <span class="o">.</span>\<span class="n">cp_Modules</span>\<span class="n">f2PWrappers</span><span class="o">.</span><span class="n">f90</span>
+</li>
+<li><p>Create the PYD file, <cite>C:\mf6.1.1\make\pyMF6.cp37-win_amd64.pyd</cite>, using F2PY
+by linking to <cite>C:\mf6.1.1\make\mf6.dll</cite> and compiling
+<cite>cp_Modules\f2PWrappers.f90</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">1.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">f2py</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">m</span> <span class="n">pyMF6</span> <span class="o">-</span><span class="n">L</span><span class="o">.</span>\ <span class="o">-</span><span class="n">lmf6</span> <span class="o">-</span><span class="n">I</span><span class="o">.</span>\<span class="n">obj_temp</span>\
+                                  <span class="o">--</span><span class="n">verbose</span> <span class="o">.</span>\<span class="n">cp_Modules</span>\<span class="n">f2PWrappers</span><span class="o">.</span><span class="n">f90</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="8">
+</li>
 <li><p>Copy the DLL and PYD files from <cite>C:\mf6.1.1\make</cite> to <cite>pyHS2MF6\bin\pyMF6</cite>.</p></li>
 </ol>
 </div>

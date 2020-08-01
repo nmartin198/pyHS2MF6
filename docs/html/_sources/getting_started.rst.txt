@@ -29,6 +29,7 @@ item on the list is installation of a Python distribution. The
 is the recommended distribution, but you can use any Python distribution 
 under the caveats provided in :ref:`installation`.
 
+|
 
 Python Programming 
 =====================
@@ -51,13 +52,13 @@ on a three-dimensional, computational grid, like MODFLOW 6. And, it would
 likely be seizure inducing from all of the monitor refresh flashes
 required for model rendering when zooming with the mouse scroll wheel.
 
+|
 
 Next Steps 
 =============
 
 * :ref:`installation`: Install and configure all of the requirements
 * :ref:`case_study`: Understand the requirments to go from existing, 
-    standalone HSPF and MODFLOW 6 models to a coupled mode pyHS2MF6 
-    simulation
-  
+  standalone HSPF and MODFLOW 6 models to a coupled mode pyHS2MF6 
+  simulation
 

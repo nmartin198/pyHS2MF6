@@ -4,10 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta content="pyHS2MF6: a dynamically coupled, HSPF-MODFLOW 6 integrated hydrologic model " name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta content="pyHS2MF6: a dynamically coupled, HSPF and MODFLOW 6 integrated hydrologic model " name="description" />
 <meta content="pyHS2MF6, HSPF, MODFLOW 6, integrated hydrologic model, mHSPF, pyMF6" name="keywords" />
 
-    <title>Welcome to the pyHS2MF6 documentation! &#8212; pyHS2MF6 0.1.1 documentation</title>
+    <title>Welcome to the pyHS2MF6 documentation &#8212; pyHS2MF6 0.1.1 documentation</title>
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -46,41 +46,57 @@
           <div class="body" role="main">
             
   <div class="section" id="welcome-to-the-pyhs2mf6-documentation">
-<h1>Welcome to the pyHS2MF6 documentation!<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to the pyHS2MF6 documentation<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
 <p>pyHS2MF6 is an integrated hydrologic model created using a dynamic
-coupling of the Hydrological Simulation Program – FORTRAN (HSPF) and
-MODFLOW 6 in Python. The coupling is dynamic because HSPF and MODFLOW
+coupling of <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr>
+and MODFLOW 6 in Python. The coupling is dynamic because
+<abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW
 6 exchange information during each simulation time step. At this time,
 pyHS2MF6 can only use and simulate the basic water movement and storage
-processes in HSPF and MODFLOW.</p>
+processes in <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and
+MODFLOW.</p>
 <p>A fundamental goal in the design of pyHS2MF6 was to provide for the
-ability to build on existing, independently created, HSPF and MODFLOW
+ability to build on existing, independently created,
+<abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW
 models. Consequently, pyHS2MF6 provides two simulation modes.</p>
 <ol class="arabic simple">
-<li><p>Coupled mode: Provides a dynamically coupled simulation with a
-one day time step where HSPF simulates watershed and stream
-routing processes first and then sends simulated infiltration
-to MODFLOW for MODFLOW to use in its simulation of the current
-day. When MODFLOW finishes simulating the day, it sends
-simulated groundwater discharge to the land surface back
-to HSPF. HSPF uses the groundwater discharge in its simulation
-of the next day.</p></li>
-<li><p>Standalone mode: Is included purely so that the user can check or
+<li><p><strong>Coupled mode</strong>: Main simulation mode with dynamically coupled
+<abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW 6</p></li>
+<li><p><strong>Standalone mode</strong>: Included purely so that the user can check or
 verify the function of the independent, existing model (either
 HSPF or MODFLOW 6) in pyHS2MF6. It is not recommended to use
-pyHS2MF6 standalone mode in place of just using HSPF or just
+pyHS2MF6 standalone mode in place of just using
+<abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> or just
 using MODFLOW 6.</p></li>
 </ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please see <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started with pyHS2MF6</span></a> before trying to
+install and run pyHS2MF6.</p>
+<p>It is recommended to at least browse through the <a class="reference internal" href="case_study.html#case-study"><span class="std std-ref">Coupled Mode Example Model</span></a>
+before trying to apply pyHS2MF6 to a specific site.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>pyHS2MF6 is available for free under the
 <a class="reference external" href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License version 3</a>
-and without warranty or support. Technical support, however, can be
-arranged, if desired. pyHS2MF6 builds upon and extends two
-independent models and provides for dynamic information exchange
-between the models. As a result, pyHS2MF6 configuration, implementation,
-and use requires a number of prerequisites.</p>
-<p>Please see <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started with pyHS2MF6</span></a> before trying to install and run
-pyHS2MF6. And, it is recommended to at least browse through the
-<a class="reference internal" href="case_study.html#case-study"><span class="std std-ref">Coupled Mode Example Model</span></a> before trying to apply pyHS2MF6 to a specific site.</p>
+and without warranty or support.</p>
+<ul class="simple">
+<li><p>Technical support can be arranged, if desired.</p></li>
+<li><p>pyHS2MF6 builds upon and extends two independent models and provides for dynamic information
+exchange between the models. As a result, pyHS2MF6 configuration, implementation,
+and use requires a number of prerequisites.</p></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="section" id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound" id="maintoc">
@@ -96,10 +112,10 @@ pyHS2MF6. And, it is recommended to at least browse through the
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="case_study.html">3. Coupled Mode Example Model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="case_study.html#study-site">3.1. Study Site</a></li>
-<li class="toctree-l2"><a class="reference internal" href="case_study.html#standalone-hspf-model">3.2. Standalone HSPF Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="case_study.html#standalone-modflow-6-model">3.3. Standalone MODFLOW 6 Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="case_study.html#coupled-mode-simulation-and-results">3.4. Coupled Mode Simulation and Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs_study_site.html">3.1. Study Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs_sa_HSPF.html">3.2. Standalone HSPF Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs_sa_MF6.html">3.3. Standalone MODFLOW 6 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs_cpmode.html">3.4. Coupled Mode Simulation and Results</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="code_doc.html">4. Code Documentation</a><ul>

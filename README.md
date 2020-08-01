@@ -1,6 +1,6 @@
 # pyHS2MF6: An Integrated Hydrologic Model 
 
-pyHS2MF6 is an open source, integrated hydrologic model. Integrated hydrologic modeling means simulating the full hydrologic cycle in terrestrial environments where both surface- and subsurface water flow need to be represented. It is a dynamic coupling of two existing hydrologic models, [HSPF](https://www.epa.gov/ceam/hydrological-simulation-program-fortran-hspf) and [MODFLOW 6](https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model) in Python.
+pyHS2MF6 is an open source, integrated hydrologic model. Integrated hydrologic modeling means simulating the full hydrologic cycle in terrestrial environments where both surface- and subsurface water flow need to be represented. It is a dynamic coupling of two existing hydrologic models, [HSPF](https://www.epa.gov/ceam/hydrological-simulation-program-fortran-hspf) and [MODFLOW 6](https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model), in Python.
 
 pyHS2MF6 currently only supports water movement and storage processes. Snow, frozen ground, and fate and transport processes and representations are **not** currently supported.
 

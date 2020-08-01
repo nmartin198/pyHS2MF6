@@ -50,40 +50,34 @@
 <span id="id1"></span><h1><span class="section-number">2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>pyHS2MF6 installation and configuration includes a number of steps, which
 are enumerated below.</p>
-<a class="reference internal image-reference" href="_images/pyHS2MF6_dir_structure.png"><img alt="_images/pyHS2MF6_dir_structure.png" class="align-center" src="_images/pyHS2MF6_dir_structure.png" style="width: 500px;" /></a>
 <p>1. Obtain or download the pyHS2MF6 directories and files from the GitHub site
 as a zip file archive.</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="simple">
-<dt>Unzip this file to a local directory on the computer where you will</dt><dd><p>run pyHS2MF6.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>In the remainder of these instructions this directory is referred</dt><dd><p>to as the <cite>pyHS2MF6</cite> directory. The <cite>pyHS2MF6</cite> directory should
-have the structure shown above.</p>
-</dd>
-</dl>
-</li>
+<li><p>Unzip this file to a local directory on the computer where you will
+run pyHS2MF6.</p></li>
+<li><p>In the remainder of these instructions this directory is referred
+to as the <cite>pyHS2MF6</cite> directory. The <cite>pyHS2MF6</cite> directory should
+have the structure shown below.</p></li>
 </ul>
 </div></blockquote>
-<p>2. The <cite>pyHS2MF6bin</cite> directory contains the executable files or
+<div class="figure align-center" id="id2">
+<span id="fig-dir-struct"></span><img alt="pyHS2MF6 directory structure" src="_images/pyHS2MF6_dir_structure.png" />
+<p class="caption"><span class="caption-text">pyHS2MF6 GitHub archive directory structure</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>2. The <cite>pyHS2MF6\bin</cite> directory contains the executable files or
 program files that comprise the program. In the <cite>bin</cite> root there
 should be four Python source code files with the extension <cite>.py</cite>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="simple">
-<dt>The <cite>pyHS2MF6binmHSP2</cite> folder contains eight Python source code</dt><dd><p>files that compose the <strong>mHSP2</strong> program.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><cite>pyHS2MF6binpyMF6</cite> folder contains three Python source code files</dt><dd><p>and two dynamic-link library (DLL) files. One file has a <cite>.dll</cite>
-extension and the other has a <cite>.pyd</cite> extension.</p>
-</dd>
-</dl>
-</li>
+<li><p>The <cite>pyHS2MF6\bin\mHSP2</cite> folder contains eight Python source code
+files that compose the mHSP2 program.</p></li>
+<li><p><cite>pyHS2MF6\bin\pyMF6</cite> folder contains three Python source code files
+and two dynamic-link library (DLL) files. One file has a <cite>.dll</cite>
+extension and the other has a <cite>.pyd</cite> extension.</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic" start="3">
@@ -102,7 +96,63 @@ extension and the other has a <cite>.pyd</cite> extension.</p>
 </div></blockquote>
 </li>
 </ol>
-<p><strong>Table of Contents</strong></p>
+<p>5. Configure firewall to allow for message passing between the three
+independent processes used in a coupled mode simulation.</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://www.tomshardware.com/news/how-to-open-firewall-ports-in-windows-10,36451.html">Open firewall ports</a></p></li>
+<li><p>There are three ports that need to be opened. One port for each
+message passing queue.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>To HSPF queue</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="pyHS2MF6_cpmain.html#coupledMain.PORT0" title="coupledMain.PORT0"><code class="xref py py-data docutils literal notranslate"><span class="pre">coupledMain.PORT0</span></code></a></p></li>
+<li><p><a class="reference internal" href="mHSP2_main.html#locaMain.PORT0" title="locaMain.PORT0"><code class="xref py py-data docutils literal notranslate"><span class="pre">locaMain.PORT0</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.PORT0" title="pyMF6py.PORT0"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyMF6py.PORT0</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To MODFLOW 6 queue</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="pyHS2MF6_cpmain.html#coupledMain.PORT1" title="coupledMain.PORT1"><code class="xref py py-data docutils literal notranslate"><span class="pre">coupledMain.PORT1</span></code></a></p></li>
+<li><p><a class="reference internal" href="mHSP2_main.html#locaMain.PORT1" title="locaMain.PORT1"><code class="xref py py-data docutils literal notranslate"><span class="pre">locaMain.PORT1</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.PORT1" title="pyMF6py.PORT1"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyMF6py.PORT1</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Error handling queue</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="pyHS2MF6_cpmain.html#coupledMain.PORT2" title="coupledMain.PORT2"><code class="xref py py-data docutils literal notranslate"><span class="pre">coupledMain.PORT2</span></code></a></p></li>
+<li><p><a class="reference internal" href="mHSP2_main.html#locaMain.PORT2" title="locaMain.PORT2"><code class="xref py py-data docutils literal notranslate"><span class="pre">locaMain.PORT2</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.PORT2" title="pyMF6py.PORT2"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyMF6py.PORT2</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>There is also an authorization key or pass code that
+is set by the user for queue access.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="pyHS2MF6_cpmain.html#coupledMain.AUTHKEY" title="coupledMain.AUTHKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">coupledMain.AUTHKEY</span></code></a></p></li>
+<li><p><a class="reference internal" href="mHSP2_main.html#locaMain.AUTHKEY" title="locaMain.AUTHKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">locaMain.AUTHKEY</span></code></a></p></li>
+<li><p><a class="reference internal" href="pyMF6_python.html#pyMF6py.AUTHKEY" title="pyMF6py.AUTHKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyMF6py.AUTHKEY</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Section Contents</strong></p>
 <div class="toctree-wrapper compound" id="installtoc">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_pyint.html">2.1. Install and Configure a Python Environment</a><ul>
