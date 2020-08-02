@@ -63,6 +63,17 @@ and provides samples of pyHS2MF6 inputs and outputs.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The case study models were derived solely for use in testing
+coupled mode simulation. Consequently, there was not an existing
+HSPF or MODFLOW 6 model available for the test case. As a result,
+the case study focuses on pyHS2MF6 implementation and simulation
+rather than on the study site.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>It is assumed for this test case that the user is an expert
@@ -84,7 +95,14 @@ satisfactorily reproducing the standalone model representations.</p>
 <div class="toctree-wrapper compound" id="tcasetoc">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cs_study_site.html">3.1. Study Site</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cs_sa_HSPF.html">3.2. Standalone HSPF Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_sa_HSPF.html">3.2. Standalone HSPF Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs_sa_HSPF.html#hspf-model-layout-and-configuration">3.2.1. HSPF Model Layout and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs_sa_HSPF.html#calibration">3.2.1.1. Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs_sa_HSPF.html#hspf-software-packages-and-conversion">3.2.2. HSPF Software Packages and Conversion</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="cs_sa_MF6.html">3.3. Standalone MODFLOW 6 Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs_cpmode.html">3.4. Coupled Mode Simulation and Results</a></li>
 </ul>

@@ -20,6 +20,14 @@ and provides samples of pyHS2MF6 inputs and outputs.
 
 |
 
+.. note:: The case study models were derived solely for use in testing 
+    coupled mode simulation. Consequently, there was not an existing 
+    HSPF or MODFLOW 6 model available for the test case. As a result,
+    the case study focuses on pyHS2MF6 implementation and simulation
+    rather than on the study site.
+
+|
+
 .. caution:: It is assumed for this test case that the user is an expert
     user of both :abbr:`HSPF (Hydrological Simulation Program – FORTRAN)` 
     and MODFLOW 6.
@@ -35,7 +43,7 @@ and provides samples of pyHS2MF6 inputs and outputs.
 **Section Contents**
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 4
     :name: tcasetoc
 
     cs_study_site.rst

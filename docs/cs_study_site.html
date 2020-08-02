@@ -53,29 +53,151 @@ Verde County, TX, USA.
 <a class="reference external" href="https://waterdata.usgs.gov/tx/nwis/uv/?site_no=08449100&amp;PARAmeter_cd=00065,00060">USGS Gage 08449100</a>
 is located on Dolan Creek near the watershed outlet and the confluence of
 Dolan Creek and Devils River.</p>
-<p>In terms of surficial geology, Dolan Creek watershed is at the
-southwestern margin of the Edwards Plateau, a resistant carbonate
-upland of nearly flat-lying limestone and dolostone with thin
-soils, caprock mesas and dry arroyos (Barker et al., 1994). Dolan
-Springs and three other mapped springs, in or near the site watershed,
-are located on an outcrop of the Fort Terrett limestone of the Edwards
-Formation. The hypothesis is that the Fort Terrett is relatively
-impermeable and spring discharge occurs at or associated with the
-contact of the Fort Terrett and overlying material. The majority of
-the watershed has Segovia limestone of the Edwards Formation mapped
-at the surface with the exception of a few ridgetops mapped as Buda
-limestone of the Edwards Formation.</p>
-<div class="figure align-left" id="id2">
-<span id="fig-cs-watershed"></span><a class="reference internal image-reference" href="_images/Study_Area.svg"><img alt="Case Study Watershed" src="_images/Study_Area.svg" width="800" /></a>
+<div class="align-center figure" id="id2">
+<span id="fig-cs-watershed"></span><a class="reference internal image-reference" href="_images/Study_Area.png"><img alt="Case Study Watershed" src="_images/Study_Area.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-text"><strong>Dolan Creek watershed</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<p>This stream gauging station has been in operation since November 2011. As shown
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>This stream gaging station has been in operation since November 2011. As shown
 on <a class="reference internal" href="#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>, most of Dolan Creek is ephemeral with the exception of the
 downstream-most reach where a number of springs, including Dolan Springs,
 provide flow to the stream throughout the year.</p>
-<div class="figure align-left" id="id3">
-<span id="fig-cs-focused-ws"></span><a class="reference internal image-reference" href="_images/Study_Area-Focused.svg"><img alt="Springs and" src="_images/Study_Area-Focused.svg" width="600" /></a>
+<div class="align-center figure" id="id3">
+<span id="fig-cs-focused-ws"></span><a class="reference internal image-reference" href="_images/Study_Area-Focused.png"><img alt="Springs and gage location" src="_images/Study_Area-Focused.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text"><strong>Springs and gage location</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Figure <a class="reference internal" href="#fig-cs-watershed"><span class="std std-ref">Dolan Creek watershed</span></a> shows the mapped Hydrologic Soil Group
+from SSURGO for the site watershed. Table <a class="reference internal" href="#tab-ssurgo-props"><span class="std std-ref">SSURGO soil properties</span></a>
+provides a listing of the pertinent hydrologic soil properties for
+HSPF simulation considertions, also from SSURGO. The ridgetops and
+valley/mesa sides (92-93% of total watershed area) have low water
+storage and high runoff potential while the dry stream beds and valley
+bottoms (7-8% of total watershed area) provide high infiltration
+rates and near surface water storage.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<span id="tab-ssurgo-props"></span><table class="docutils align-default" id="id4">
+<caption><span class="caption-text"><strong>SSURGO soil properties</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 27%" />
+<col style="width: 17%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Descriptor</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>% of
+Watershed</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="3"><p>Hydrologic Soil
+Group</p></td>
+<td><p>D</p></td>
+<td><p>92%</p></td>
+<td><p>Everything except
+for dry stream beds</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>1%</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>7%</p></td>
+<td><p>Dry stream beds and
+valley bottoms</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>Available Water
+Supply</p></td>
+<td><p>1 - 2 cm</p></td>
+<td><p>88.5%</p></td>
+<td><p>Uplands away from
+streambeds</p></td>
+</tr>
+<tr class="row-even"><td><p>3 - 4 cm</p></td>
+<td><p>4 %</p></td>
+<td><p>Valley bottoms away
+from stream beds</p></td>
+</tr>
+<tr class="row-odd"><td><p>10 - 23 cm</p></td>
+<td><p>7.5%</p></td>
+<td><p>Dry stream beds</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>Depth to
+restrictive
+layer</p></td>
+<td><p>&gt; 201 cm</p></td>
+<td><p>8.2%</p></td>
+<td><p>Dry stream beds</p></td>
+</tr>
+<tr class="row-odd"><td><p>30 - 50 cm</p></td>
+<td><p>53.7%</p></td>
+<td><p>Hillsides</p></td>
+</tr>
+<tr class="row-even"><td><p>20 - 25 cm</p></td>
+<td><p>38.1 %</p></td>
+<td><p>Ridgetops</p></td>
+</tr>
+</tbody>
+</table>
+<p>Hydrologic Soil Types:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">high</span> <span class="n">runoff</span> <span class="ow">and</span> <span class="n">slow</span> <span class="n">infiltration</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">moderate</span> <span class="n">runoff</span> <span class="ow">and</span> <span class="n">slow</span> <span class="n">infiltration</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">little</span> <span class="n">runoff</span> <span class="ow">and</span> <span class="n">high</span> <span class="n">infiltration</span> <span class="n">rate</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Land cover across the watershed is relatively uniform shrub/scrub.
+Development-related impervious surfaces within the watershed are limited
+as there are no paved roads and only a few scattered cabins. Most of
+the watershed, 92% in Table <a class="reference internal" href="#tab-ssurgo-props"><span class="std std-ref">SSURGO soil properties</span></a>, is naturally
+impervious due to the rocky nature of the mesa-dominated landscape.
+The site watershed is in karst terrain and the high infiltration
+rate, valley bottom-areas exhibit enhanced secondary porosity from
+limestone dissolution.</p>
+<p>In terms of surficial geology, the Dolan Creek watershed is at the
+southwestern margin of the Edwards Plateau, a resistant carbonate
+upland of nearly flat-lying limestone and dolostone with thin
+soils, caprock mesas and dry arroyos. Dolan Springs and three other
+mapped springs, in or near the site watershed, are located on an
+outcrop of the Fort Terrett limestone of the Edwards Formation.
+Conduits and caves are present in the overlying Segovia limestone
+above the contact with the Fort Terrett limestone. The majority
+of the watershed has Segovia limestone of the Edwards Formation
+mapped at the surface with the exception of a few ridgetops mapped
+as Buda limestone of the Edwards Formation.</p>
+<p>The hypothesis for integrated hydrologic model development is that
+the Fort Terrett is relatively impermeable and spring discharge
+occurs at or associated with the contact of the Fort Terrett and
+overlying material. Additionally, the perennial portions of Dolan
+Creek coincide with locations where the creek bed crosses Fort
+Terrett outcrop.</p>
+<p>As shown on Figures <a class="reference internal" href="#fig-cs-watershed"><span class="std std-ref">Dolan Creek watershed</span></a> and
+<a class="reference internal" href="#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>, most of Dolan Creek is ephemeral with the
+exception of the downstream-most reach where a number of springs,
+including Dolan Springs, provide flow to the stream throughout the
+year. A probabilistic, day of the year discharge plot is provided
+for USGS Gage 08449100 Dolan Creek on Figure <a class="reference internal" href="#fig-cs-dc-prob"><span class="std std-ref">Dolan Creek probabilistic discharge</span></a>.
+In this figure, the interquartile (25th percentile to 75th
+percentile) and lower quartile (0th percentile to 25th percentile)
+ranges suggest relatively consistent discharge across the year.
+The consistent flow pattern is attributed to the dominance of spring
+discharge from Dolan Springs and YR-70-01-701
+(see Figure <a class="reference internal" href="#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>) on the Dolan Creek discharge
+hydrograph.</p>
+<div class="align-center figure" id="id5">
+<span id="fig-cs-dc-prob"></span><a class="reference internal image-reference" href="_images/DolanCreek_Gauge_DischargePerc_cfs.svg"><img alt="Dolan Creek probabilistic discharge" src="_images/DolanCreek_Gauge_DischargePerc_cfs.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Dolan Creek probabilistic discharge</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
