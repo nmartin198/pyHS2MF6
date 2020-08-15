@@ -11,8 +11,9 @@ and a Python 3 interpreter. Instructions and helper files are provided
 for working with this distribution in Section :ref:`install_pyconda`.
  
 You can use any Python distribution that is desired as long as you ensure 
-the requirements, listed in Section :ref:`install_pyreqs` are fulfilled.
+the requirements, listed in :ref:`install_pyreqs` are fulfilled.
 
+|
 
 .. _install_pyreqs:
 
@@ -45,10 +46,11 @@ used for pre- and post-processing in the test case model.
 
     * `GeoPandas <https://geopandas.org/>`_
 
+    * `Shapely <https://pypi.org/project/Shapely/>`_ - installed as part of 
+      the GeoPandas installation.
 
-    * `Shapely <https://pypi.org/project/Shapely/>`_
-        - Shapely is installed as part of the GeoPandas installation.
 
+|
 
 .. _install_pyconda:
 
@@ -56,26 +58,26 @@ Anaconda Install Instructions
 -------------------------------
 
 1. Download the 
-`Python 3.7 Anaconda Graphical Installer <https://www.anaconda.com/products/individual>`_ 
-and follow the
-`installation instructions <https://docs.anaconda.com/anaconda/install/>`_
+   `Python 3.7 Anaconda Graphical Installer <https://www.anaconda.com/products/individual>`_ 
+   and follow the
+   `installation instructions <https://docs.anaconda.com/anaconda/install/>`_
 
 2. Open an 
-`Anaconda Prompt <https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt>`_.
+   `Anaconda Prompt <https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt>`_.
 
 3. Install a pre-configured virtual environment for use with pyHS2MF6 
-using the file `pyHS2MF6_env.yml` in the `installation` directory by running 
-the following command from the `Anaconda Prompt`. ::
+   using the file `pyHS2MF6_env.yml` in the `installation` directory by running 
+   the following command from the `Anaconda Prompt`. ::
 
     conda env create -f pyHS2MF6_env.yml
 
 
-4. When you use pyHS2MF6 in the future, you will want to run all programs 
-from the virtual environment that was just created. To use the 
-virtual environment, you need to 
-`activate it <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment>`_ 
-and when you are done with it,  
-`deactivate it <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#deactivating-an-environment>`_.
+4. When you use pyHS2MF6 in the future, you will want to run it  
+   from the virtual environment that was just created. To use the 
+   virtual environment, you need to 
+   `activate it <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment>`_ 
+   and when you are done with it,  
+   `deactivate it <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#deactivating-an-environment>`_.
 
     * `Anaconda Virtual Environments <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments>`_ 
 

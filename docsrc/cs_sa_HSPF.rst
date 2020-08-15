@@ -3,9 +3,9 @@
 Standalone HSPF Model 
 ======================
 
-The case study application was developed to assist in pyHS2MF6 
-development and testing. Consequently, there was not an existing 
-HSPF model to use as a starting point. However, a standalone 
+This case study application was developed to assist in pyHS2MF6 
+development and testing. There was not an existing 
+HSPF model to use as a starting point. A standalone 
 HSPF model was created expressly for testing pyHS2MF6.
 
 **mHSP2** is the name of the standalone HSPF component of pyHS2MF6. 
@@ -36,7 +36,7 @@ water from the upstream-most :abbr:`HRU (Hydrologic Response Unit)` to
 the watershed outlet. RCHRES #5 is the stream segment where the stream 
 gage and the springs are located.
 
-Figure :ref:`fig_cs_sahspf` shows the HSPF model layout for the study 
+**Figure** :ref:`fig_cs_sahspf` shows the HSPF model layout for the study 
 site. Complete details of HSPF model configuration are available in 
 the `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5>`_.
 
@@ -62,13 +62,13 @@ The goal for the standalone model is to produce Reach #5 outflow that
 approximately represents the observed Dolan Creek stream flow discharge from 
 `USGS Gage 08449100 <https://waterdata.usgs.gov/tx/nwis/uv/?site_no=08449100&PARAmeter_cd=00065,00060>`_.
 In the set-up for calibration, estimates of spring discharge from Dolan 
-Springs and YR-70-01-701 (see Figure :ref:`fig_cs_focused_ws`) are provided 
+Springs and YR-70-01-701 (see **Figure** :ref:`fig_cs_focused_ws`) are provided 
 to the HSPF model as an external time series of inflows to Reach #5.
 
 An automated calibration process using `PEST <http://www.pesthomepage.org/>`_ 
 was used to tweak watershed parameters to best reproduce the observed 
 Dolan Creek stream flow. The results from this best-fit case are shown 
-on Figure :ref:`fig_cs_sahspf_calib`. In this figure, the orange shaded 
+on **Figure** :ref:`fig_cs_sahspf_calib`. In this figure, the orange shaded 
 area denotes the estimated, external inflow time series to Reach #5 that
 represents the combination of Dolan Springs and YR-70-01-701 discharge.
 

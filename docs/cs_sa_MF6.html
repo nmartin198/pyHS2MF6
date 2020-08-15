@@ -16,7 +16,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Code Documentation" href="code_doc.html" />
+    <link rel="next" title="3.4. Coupled Mode Simulation and Results" href="cs_cpmode.html" />
     <link rel="prev" title="3.2. Standalone HSPF Model" href="cs_sa_HSPF.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
@@ -26,7 +26,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="cs_sa_HSPF.html" title="3.2. Standalone HSPF Model"
              accesskey="P">previous</a> |
-          <a href="code_doc.html" title="4. Code Documentation"
+          <a href="cs_cpmode.html" title="3.4. Coupled Mode Simulation and Results"
              accesskey="N">next</a> |
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -48,6 +48,243 @@
             
   <div class="section" id="standalone-modflow-6-model">
 <span id="standalone-mf6"></span><h1><span class="section-number">3.3. </span>Standalone MODFLOW 6 Model<a class="headerlink" href="#standalone-modflow-6-model" title="Permalink to this headline">¶</a></h1>
+<p>This case study application was developed to assist in pyHS2MF6
+development and testing. There was not an existing MODFLOW 6 model
+to use as a starting point. A transient, standalone MODFLOW 6 model
+was created expressly for development and testing of pyHS2MF6.</p>
+<p>A transient groundwater flow model is required because there is not
+a <em>static</em> version of an HSPF model. Consequently, a transient
+groundwater flow model is required for coupled mode simulation and
+so the standalone mode model should also be transient.</p>
+<p><strong>pyMF6</strong> is the name of the standalone MODFLOW 6 component of pyHS2MF6.
+The <strong>pyMF6</strong> code base is documented in <a class="reference internal" href="pyMF6.html#pymf6"><span class="std std-ref">pyMF6</span></a>. <strong>pyMF6</strong> has all
+of the functionality and uses all of the code base of MODFLOW 6.</p>
+<p>The <strong>pyMF6</strong> input files for the case study are on the GitHub site at
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/standalone/MF6">standalone MODFLOW 6 input files</a>
+These files are all standard MODFLOW 6 inputs and should work with any
+version of MODFLOW 6.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="modflow-6-model-layout-and-configuration">
+<span id="cs-samf6-layout"></span><h2><span class="section-number">3.3.1. </span>MODFLOW 6 Model Layout and Configuration<a class="headerlink" href="#modflow-6-model-layout-and-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The study area is the Dolan Creek watershed which is composed of caprock mesas
+and dry arroyos. Dolan Creek is ephemeral until the lower-most stream segment,
+which is just above the confluence with the Devils River. The MODFLOW 6 model
+was created with seven computational layers covering the areal extent shown on
+<strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-units"><span class="std std-ref">MODFLOW 6 layers and hydrostratigraphy</span></a>. A DISV-style, unstructured grid is used
+for each layer. The computational grid was created using the <a class="reference external" href="https://www.usgs.gov/software/gridgen-a-program-generating-unstructured-finite-volume-grids">USGS GridGen
+program</a>.</p>
+<div class="align-center figure" id="id1">
+<span id="fig-cs-samf6-units"></span><a class="reference internal image-reference" href="_images/MF6_SA_TASurfEl.png"><img alt="MODFLOW 6 computational layers and units" src="_images/MF6_SA_TASurfEl.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>MODFLOW 6 layers and hydrostratigraphy</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The seven computational layers are used to represent four different
+<abbr title="hydrostratigraphic units">HSUs</abbr> of the Edwards Formation. Each
+layer is flat and cells are inactivated to form depressions for stream
+valleys and dry arroyos. This effect can be seen in the color patterns
+denoting the valley bottoms in <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-units"><span class="std std-ref">MODFLOW 6 layers and hydrostratigraphy</span></a>.
+<strong>Table</strong> <a class="reference internal" href="#tab-mf6-layers"><span class="std std-ref">MODFLOW 6 layers and HSUs</span></a> provides the computational layer
+characteristics along with the HSU that each layer represents.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<span id="tab-mf6-layers"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-text"><strong>MODFLOW 6 layers and HSUs</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 25%" />
+<col style="width: 34%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Layer</p></th>
+<th class="head"><p>HSU</p></th>
+<th class="head"><p>Elevation Range (m)</p></th>
+<th class="head"><p>Typical K (m/d)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Buda</p></td>
+<td><p>685 - 635</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Segovia</p></td>
+<td><p>635 - 570</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Segovia</p></td>
+<td><p>570 - 510</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Segovia</p></td>
+<td><p>510 - 450</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Segovia</p></td>
+<td><p>450 - 420</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Fort Terrett</p></td>
+<td><p>420 - 390</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Devils River</p></td>
+<td><p>390 - 250</p></td>
+<td><p>0.8</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="boundary-conditions">
+<span id="cs-samf6-bcs"></span><h3><span class="section-number">3.3.1.1. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<p>Specific boundary condition types are required in the MODFLOW 6 model
+for coupling to HSPF. The requirements are enumerated below.</p>
+<ol class="arabic simple">
+<li><p><abbr title="Unsaturated Zone Flow">UZF</abbr> Advanced Stress Package - required
+for all water transfers between programs where MODFLOW receives
+water from HSPF. The two primary cases where MODFLOW receives water
+are deep infiltration from the bottom of the soil column and stream
+leakage from the bottom of the stream bed.</p></li>
+<li><p><abbr title="Drain Package">DRN</abbr> Stress Package - required to represent
+discharge of water to the ground surface from springs.</p></li>
+</ol>
+<p>The <abbr title="Unsaturated Zone Flow">UZF</abbr> and <abbr title="Drain Package">DRN</abbr>
+boundary conditions should also be used in the standalone model to
+represent pervious HRU areas, <abbr title="Unsaturated Zone Flow">UZF</abbr>,
+and springs, <abbr title="Drain Package">DRN</abbr>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-bcs"><span class="std std-ref">Standalone model boundary conditions</span></a> shows locations for all boundary
+condition, or stress package, types used in the standalone model. The
+boundary condition types, not yet discussed, are listed below.</p>
+<ul class="simple">
+<li><p><abbr title="River Package">RIV</abbr> Stress Package - represents stream
+segments that are represented in the HSPF model with <em>RCHRES</em>
+structures.</p></li>
+<li><p><abbr title="Recharge Package">RCH</abbr> Stress Package - represents pervious
+land segments that are outside of the HSPF model domain.</p></li>
+<li><p><abbr title="General-Head Boundary Package">GHB</abbr> Stress Package - provides
+or enforces a regional flow pattern at the groundwater model domain
+edges.</p></li>
+</ul>
+<div class="align-center figure" id="id3">
+<span id="fig-cs-samf6-bcs"></span><a class="reference internal image-reference" href="_images/MF6_SA_GridBnds.png"><img alt="Standalone model boundary conditions" src="_images/MF6_SA_GridBnds.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Standalone model boundary conditions</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-bcs"><span class="std std-ref">Standalone model boundary conditions</span></a> the <abbr title="Unsaturated Zone Flow">UZF</abbr>
+and <abbr title="River Package">RIV</abbr> boundary conditions are labeled according to
+corresponding HSPF structures. The MODFLOW 6 <abbr title="Observation">OBS</abbr> package
+is used to collate and track water budget information for these identified
+regions for comparison to the standalone HSPF model results as part of
+calibration.</p>
+<p>As the standalone MODFLOW 6 model needs to be transient and water will be
+passed back and forth between HSPF and MODFLOW each simulation day in
+coupled mode, time-series records are used to specify stress package
+forcing for <abbr title="River Package">RIV</abbr>, <abbr title="Recharge Package">RCH</abbr>,
+and <abbr title="Unsaturated Zone Flow">UZF</abbr>. The time-series forcing is
+correlated to precipitation so that <abbr title="Recharge Package">RCH</abbr>
+and <abbr title="Unsaturated Zone Flow">UZF</abbr> only represent infiltration
+associated with rainfall and so that <abbr title="River Package">RIV</abbr>
+only represents water in Reaches #1 - #4 associated with rainfall.</p>
+<p>It is important to provide this daily, time-series forcing in semi-arid
+environments in order to facilitate configuration of the Newton-Raphson
+solver formulation. The Newton-Raphson solver will provide a better
+representation of the dynamic water table movements expected for the
+semi-arid, karst terrain study site.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="standalone-calibration">
+<h2><span class="section-number">3.3.2. </span>Standalone Calibration<a class="headerlink" href="#standalone-calibration" title="Permalink to this headline">¶</a></h2>
+<p>The focus of the calibration of this hypothetical case study model was
+to match the external inflow time series for Reach #5 in the standalone
+HSPF model with simulated spring discharge from Dolan Springs and
+YR-70-01-701 (see <strong>Figure</strong> <a class="reference internal" href="cs_study_site.html#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the standard MODFLOW 6 capabilities are available in
+<strong>pyMF6</strong>. For a <em>real</em> modeling study, the MODFLOW 6 model would also
+be calibrated to observed water levels in wells. This would be done
+with whatever means is preferred by the modeller and could include
+PEST or other automated, parameter estimation tool.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6ca-disc"><span class="std std-ref">Standalone model calibration</span></a> displays the match between simulated
+spring discharge in the MODFLOW 6 model and the external time series used
+to introduce spring discharge to Reach #5 in the HSPF model.</p>
+<div class="align-center figure" id="id4">
+<span id="fig-cs-samf6ca-disc"></span><a class="reference internal image-reference" href="_images/MF6_SA_DC_Calib.svg"><img alt="Standalone model calibration target" src="_images/MF6_SA_DC_Calib.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Standalone model calibration</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>To achieve, this level of spring discharge in the MODFLOW 6 model, a
+preferential flow pathway was added to the eastern side of the domain
+which funnels water to these springs. The location of this preferential
+pathway is shown on <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6ca-ks"><span class="std std-ref">Preferential flow pathway</span></a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The need for the preferential pathway is somewhat determined
+by the domain geometry for this case study model. In this model, the
+groundwater flow model domain is largely coincident with the Dolan
+Creek watershed. Setting a groundwater flow model domain to be
+coincident with the surface water watershed for the stream of interest
+is never a good idea; the domain boundaries should always be extended
+away from the focus area to avoid boundary effects.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="align-center figure" id="id5">
+<span id="fig-cs-samf6ca-ks"></span><a class="reference internal image-reference" href="_images/MF6_SA_Ks.png"><img alt="Calibrated preferential pathway" src="_images/MF6_SA_Ks.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Preferential flow pathway</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The simulated water levels at the end of the transient, standalone, groundwater
+flow model simulation are shown on <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6ca-wlev"><span class="std std-ref">Simulated groundwater levels</span></a>
+along with the depth to the water table. Simulated water levels are close to
+the ground surface in the stream valleys, especially as move downstream to
+the Reach #4 and #5 regions. Bounding the groundwater flow domain with
+the surface water watershed contributes to this effect. The shape of the
+domain is arbitrarily focusing groundwater flow to Reach #4 and #5.</p>
+<div class="align-center figure" id="id6">
+<span id="fig-cs-samf6ca-wlev"></span><a class="reference internal image-reference" href="_images/MF6_SA_WLevResultsl.png"><img alt="Calibrated standalone model, simulated water levels" src="_images/MF6_SA_WLevResultsl.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Simulated groundwater levels</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
 </div>
 
 
@@ -66,6 +303,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cs_study_site.html">3.1. Study Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cs_sa_HSPF.html">3.2. Standalone HSPF Model</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.3. Standalone MODFLOW 6 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs_cpmode.html">3.4. Coupled Mode Simulation and Results</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="code_doc.html">4. Code Documentation</a></li>
@@ -90,7 +328,7 @@
           <div role="navigation" aria-label="related navigaton">
             <a href="cs_sa_HSPF.html" title="3.2. Standalone HSPF Model"
               >previous</a> |
-            <a href="code_doc.html" title="4. Code Documentation"
+            <a href="cs_cpmode.html" title="3.4. Coupled Mode Simulation and Results"
               >next</a> |
             <a href="py-modindex.html" title="Python Module Index"
               >modules</a> |

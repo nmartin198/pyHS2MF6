@@ -48,9 +48,9 @@
             
   <div class="section" id="standalone-hspf-model">
 <span id="standalone-hspf"></span><h1><span class="section-number">3.2. </span>Standalone HSPF Model<a class="headerlink" href="#standalone-hspf-model" title="Permalink to this headline">¶</a></h1>
-<p>The case study application was developed to assist in pyHS2MF6
-development and testing. Consequently, there was not an existing
-HSPF model to use as a starting point. However, a standalone
+<p>This case study application was developed to assist in pyHS2MF6
+development and testing. There was not an existing
+HSPF model to use as a starting point. A standalone
 HSPF model was created expressly for testing pyHS2MF6.</p>
 <p><strong>mHSP2</strong> is the name of the standalone HSPF component of pyHS2MF6.
 The <strong>mHSP2</strong> code base is documented in <a class="reference internal" href="mHSP2.html#mhsp2"><span class="std std-ref">mHSP2</span></a>. It uses the
@@ -74,7 +74,7 @@ in this area, the pervious land area is <code class="docutils literal notranslat
 water from the upstream-most <abbr title="Hydrologic Response Unit">HRU</abbr> to
 the watershed outlet. RCHRES #5 is the stream segment where the stream
 gage and the springs are located.</p>
-<p>Figure <a class="reference internal" href="#fig-cs-sahspf"><span class="std std-ref">HSPF model configuration</span></a> shows the HSPF model layout for the study
+<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-sahspf"><span class="std std-ref">HSPF model configuration</span></a> shows the HSPF model layout for the study
 site. Complete details of HSPF model configuration are available in
 the <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5">standalone mHSP2 input file</a>.</p>
 <div class="align-center figure" id="id4">
@@ -90,12 +90,12 @@ the <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/b
 approximately represents the observed Dolan Creek stream flow discharge from
 <a class="reference external" href="https://waterdata.usgs.gov/tx/nwis/uv/?site_no=08449100&amp;PARAmeter_cd=00065,00060">USGS Gage 08449100</a>.
 In the set-up for calibration, estimates of spring discharge from Dolan
-Springs and YR-70-01-701 (see Figure <a class="reference internal" href="cs_study_site.html#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>) are provided
+Springs and YR-70-01-701 (see <strong>Figure</strong> <a class="reference internal" href="cs_study_site.html#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>) are provided
 to the HSPF model as an external time series of inflows to Reach #5.</p>
 <p>An automated calibration process using <a class="reference external" href="http://www.pesthomepage.org/">PEST</a>
 was used to tweak watershed parameters to best reproduce the observed
 Dolan Creek stream flow. The results from this best-fit case are shown
-on Figure <a class="reference internal" href="#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>. In this figure, the orange shaded
+on <strong>Figure</strong> <a class="reference internal" href="#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>. In this figure, the orange shaded
 area denotes the estimated, external inflow time series to Reach #5 that
 represents the combination of Dolan Springs and YR-70-01-701 discharge.</p>
 <div class="align-center figure" id="id5">

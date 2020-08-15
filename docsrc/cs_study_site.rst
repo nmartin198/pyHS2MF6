@@ -21,9 +21,9 @@ Dolan Creek and Devils River.
 |
 
 This stream gaging station has been in operation since November 2011. As shown 
-on :ref:`fig_cs_focused_ws`, most of Dolan Creek is ephemeral with the exception of the 
-downstream-most reach where a number of springs, including Dolan Springs, 
-provide flow to the stream throughout the year.
+on **Figure** :ref:`fig_cs_focused_ws`, most of Dolan Creek is ephemeral with the 
+exception of the downstream-most reach where a number of springs, including Dolan 
+Springs, provide flow to the stream throughout the year.
 
 .. _fig_cs_focused_ws:
 .. figure:: ./images/Study_Area-Focused.png
@@ -36,10 +36,10 @@ provide flow to the stream throughout the year.
 
 |
 
-Figure :ref:`fig_cs_watershed` shows the mapped Hydrologic Soil Group
-from SSURGO for the site watershed. Table :ref:`tab_ssurgo_props` 
+**Figure** :ref:`fig_cs_watershed` shows the mapped Hydrologic Soil Group
+from SSURGO for the site watershed. **Table** :ref:`tab_ssurgo_props` 
 provides a listing of the pertinent hydrologic soil properties for 
-HSPF simulation considertions, also from SSURGO. The ridgetops and 
+HSPF simulation considerations, also from SSURGO. The ridgetops and 
 valley/mesa sides (92-93% of total watershed area) have low water 
 storage and high runoff potential while the dry stream beds and valley 
 bottoms (7-8% of total watershed area) provide high infiltration 
@@ -90,7 +90,7 @@ Hydrologic Soil Types::
 Land cover across the watershed is relatively uniform shrub/scrub. 
 Development-related impervious surfaces within the watershed are limited
 as there are no paved roads and only a few scattered cabins. Most of 
-the watershed, 92% in Table :ref:`tab_ssurgo_props`, is naturally 
+the watershed, 92% in **Table** :ref:`tab_ssurgo_props`, is naturally 
 impervious due to the rocky nature of the mesa-dominated landscape.
 The site watershed is in karst terrain and the high infiltration 
 rate, valley bottom-areas exhibit enhanced secondary porosity from 
@@ -115,18 +115,18 @@ overlying material. Additionally, the perennial portions of Dolan
 Creek coincide with locations where the creek bed crosses Fort 
 Terrett outcrop.
 
-As shown on Figures :ref:`fig_cs_watershed` and 
+As shown on **Figures** :ref:`fig_cs_watershed` and 
 :ref:`fig_cs_focused_ws`, most of Dolan Creek is ephemeral with the 
 exception of the downstream-most reach where a number of springs, 
 including Dolan Springs, provide flow to the stream throughout the 
 year. A probabilistic, day of the year discharge plot is provided 
-for USGS Gage 08449100 Dolan Creek on Figure :ref:`fig_cs_dc_prob`. 
+for USGS Gage 08449100 Dolan Creek on **Figure** :ref:`fig_cs_dc_prob`. 
 In this figure, the interquartile (25th percentile to 75th 
 percentile) and lower quartile (0th percentile to 25th percentile) 
 ranges suggest relatively consistent discharge across the year.
 The consistent flow pattern is attributed to the dominance of spring 
 discharge from Dolan Springs and YR-70-01-701 
-(see Figure :ref:`fig_cs_focused_ws`) on the Dolan Creek discharge 
+(see **Figure** :ref:`fig_cs_focused_ws`) on the Dolan Creek discharge 
 hydrograph.
 
 .. _fig_cs_dc_prob:

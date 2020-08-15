@@ -12,7 +12,7 @@ types.
 Documentation and comments are only provided for the modified portions
 of these four modules.
 
-
+|
 
 .. _pyMF6_cphSimulationCreateModule_f:
 
@@ -71,7 +71,7 @@ only three modifications or extensions to this module.
 
     :to: :f:subr:`cphGwfModule/cphgwf_cr`
 
-
+|
 
 .. _pyMF6_cphGwfModule_f:
 
@@ -191,7 +191,7 @@ only five modifications or extensions.
 
     :from: :f:subr:`f2pwrap/cphinnertimeloop`
 
-
+|
 
 .. _pyMF6_cphUzfModule_f:
 
@@ -276,7 +276,7 @@ four modifications or extensions.
 
     :from: :f:subr:`cphGwfModule/cphsurfdis`
 
-
+|
 
 .. _pyMF6_cphDrnModule_f:
 
