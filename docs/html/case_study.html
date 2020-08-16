@@ -48,18 +48,18 @@
             
   <div class="section" id="coupled-mode-example-model">
 <span id="case-study"></span><h1><span class="section-number">3. </span>Coupled Mode Example Model<a class="headerlink" href="#coupled-mode-example-model" title="Permalink to this headline">¶</a></h1>
-<p>pyHS2MF6 was designed and constructed under the premise that it would be
+<p><strong>pyHS2MF6</strong> was designed and constructed under the premise that it would be
 applied to link existing <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr>
 and MODFLOW models into a dynamically coupled, integrated hydrologic model.
 Consequently, <strong>coupled mode</strong> is the primary simulation mode. A
-<strong>standalone mode</strong> is provided so that they user can check that pyHS2MF6
+<strong>standalone mode</strong> is provided so that they user can check that <strong>pyHS2MF6</strong>
 is satisfactorily reproducing the solutions of the standalone
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW models.</p>
 <p>An example model is provided as a case study and test case to walk the
 user through the process of transitioning from standalone
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW
 models to a fully coupled simulation. This case study also explains
-and provides samples of pyHS2MF6 inputs and outputs.</p>
+and provides samples of <strong>pyHS2MF6</strong> inputs and outputs.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -68,7 +68,7 @@ and provides samples of pyHS2MF6 inputs and outputs.</p>
 <p>The case study models were derived solely for use in testing
 coupled mode simulation. Consequently, there was not an existing
 HSPF or MODFLOW 6 model available for the test case. As a result,
-the case study focuses on pyHS2MF6 implementation and simulation
+the case study focuses on <strong>pyHS2MF6</strong> implementation and simulation
 rather than on the study site.</p>
 </div>
 <div class="line-block">
@@ -85,7 +85,7 @@ and MODFLOW 6.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is the user’s responsibility to ensure that pyHS2MF6 is
+<p>It is the user’s responsibility to ensure that <strong>pyHS2MF6</strong> is
 satisfactorily reproducing the standalone model representations.</p>
 </div>
 <div class="line-block">
@@ -111,7 +111,20 @@ satisfactorily reproducing the standalone model representations.</p>
 <li class="toctree-l2"><a class="reference internal" href="cs_sa_MF6.html#standalone-calibration">3.3.2. Standalone Calibration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cs_cpmode.html">3.4. Coupled Mode Simulation and Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_cpmode.html">3.4. Coupled Mode Simulation and Results</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs_cpmode.html#coupled-mode-modifications-and-inputs">3.4.1. Coupled Mode Modifications and Inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs_cpmode.html#hspf-model-modifications-for-coupling">3.4.1.1. HSPF Model Modifications for Coupling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_cpmode.html#modflow-6-model-modifications-for-coupling">3.4.1.2. MODFLOW 6 Model Modifications for Coupling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_cpmode.html#coupled-mode-input-file">3.4.1.3. Coupled Mode Input File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs_cpmode.html#spatial-mapping-for-coupling">3.4.1.4. Spatial Mapping for Coupling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs_cpmode.html#coupled-mode-calibration-and-results">3.4.2. Coupled Mode Calibration and Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs_cpmode.html#coupled-mode-results">3.4.2.1. Coupled Mode Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>

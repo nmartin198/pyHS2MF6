@@ -3,17 +3,17 @@
 Standalone MODFLOW 6 Model 
 ==========================
 
-This case study application was developed to assist in pyHS2MF6 
+This case study application was developed to assist in **pyHS2MF6** 
 development and testing. There was not an existing MODFLOW 6 model 
 to use as a starting point. A transient, standalone MODFLOW 6 model 
-was created expressly for development and testing of pyHS2MF6.
+was created expressly for development and testing of **pyHS2MF6**.
 
 A transient groundwater flow model is required because there is not 
 a *static* version of an HSPF model. Consequently, a transient 
 groundwater flow model is required for coupled mode simulation and
 so the standalone mode model should also be transient.
 
-**pyMF6** is the name of the standalone MODFLOW 6 component of pyHS2MF6. 
+**pyMF6** is the name of the standalone MODFLOW 6 component of **pyHS2MF6**. 
 The **pyMF6** code base is documented in :ref:`pyMF6`. **pyMF6** has all 
 of the functionality and uses all of the code base of MODFLOW 6.
 
