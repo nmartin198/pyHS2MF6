@@ -48,6 +48,312 @@
             
   <div class="section" id="coupled-mode-simulation-and-results">
 <span id="coupled-case-study"></span><h1><span class="section-number">3.4. </span>Coupled Mode Simulation and Results<a class="headerlink" href="#coupled-mode-simulation-and-results" title="Permalink to this headline">¶</a></h1>
+<p><strong>pyHS2MF6</strong> was created for coupled mode simulations. The
+<a class="reference internal" href="cs_sa_HSPF.html#standalone-hspf"><span class="std std-ref">Standalone HSPF Model</span></a> and <a class="reference internal" href="cs_sa_MF6.html#standalone-mf6"><span class="std std-ref">Standalone MODFLOW 6 Model</span></a> were modified so that
+they could be used together as part of a dynamically coupled
+simulation. Dynamic coupling, here, refers to information and water
+exchange during each simulation time step.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>At this time, the only supported coupled time step duration
+is one day. <strong>mHSP2</strong> also only supports a one day time step.
+<strong>pyMF6</strong>, however, supports all time step durations which are
+supported by MODFLOW 6. The source code for <strong>mHSP2</strong> is available
+and so the savvy user can easily extend <strong>mHSP2</strong> to work with
+additional time step durations.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="coupled-mode-modifications-and-inputs">
+<span id="cp-mods-inputs"></span><h2><span class="section-number">3.4.1. </span>Coupled Mode Modifications and Inputs<a class="headerlink" href="#coupled-mode-modifications-and-inputs" title="Permalink to this headline">¶</a></h2>
+<p>For a coupled mode simulation, the standalone HSPF and
+MODFLOW 6 models need to be modified so that <strong>pyHS2MF6</strong> can send
+information back and forth between the two independent processes.
+Additionally, a special coupled mode input file needs to be created.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="hspf-model-modifications-for-coupling">
+<span id="cp-hspf-mods"></span><h3><span class="section-number">3.4.1.1. </span>HSPF Model Modifications for Coupling<a class="headerlink" href="#hspf-model-modifications-for-coupling" title="Permalink to this headline">¶</a></h3>
+<p>Only minimal modifications to the standalone HSPF model are needed.
+The external time series that provides for spring discharge, or baseflow,
+to Reach #5 (see <strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>) needs to be removed
+from the HSPF input file. In coupled mode, the simulated spring discharge
+from from Dolan Springs and YR-70-01-701 (see <strong>Figure</strong>
+<a class="reference internal" href="cs_study_site.html#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>) from the MODFLOW 6 are provided to Reach #5 in
+the HSPF model as transferred water as part of the dynamic coupling.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="modflow-6-model-modifications-for-coupling">
+<span id="cp-mf6-mods"></span><h3><span class="section-number">3.4.1.2. </span>MODFLOW 6 Model Modifications for Coupling<a class="headerlink" href="#modflow-6-model-modifications-for-coupling" title="Permalink to this headline">¶</a></h3>
+<p>More extensive modifications to the standalone MODFLOW 6 model are
+required to facilitate coupling. This is not surprising as MODFLOW 6
+uses a three-dimensional, computational grid and provides a suite
+of stress and advanced stress packages for simulating many different
+processes. Consequently, a MODFLOW 6 model is relatively complex and
+requires relatively more effort to prepare it for coupled mode simulation.</p>
+<p>In <strong>pyHS2MF6</strong> only the <abbr title="Unsaturated Zone Flow">UZF</abbr> Package
+cells can receive water from the HSPF model. There are two types of
+water that HSPF sends to MODFLOW 6 <abbr title="Unsaturated Zone Flow">UZF</abbr>
+cells.</p>
+<ol class="arabic simple">
+<li><p>Deep infiltration out of the bottom of the soil column. In HSPF
+terminology this water is inactive groundwater inflow (IGWI).</p></li>
+<li><p>River/stream leakage out of the bottom of the stream bed. In HSPF,
+there is not a preconfigured process for stream losses to groundwater
+because saturated groundwater conditions are not really represented
+in HSPF. In <strong>pyHS2MF6</strong>, stream losses from leakage to groundwater are
+extracted from a RCHRES stream segment through the use of multiple
+RCHRES exits. For each exit, the discharge through the exit can be
+routed to a different destination.</p>
+<ul class="simple">
+<li><p>One exit must be identified as part of the specifications in the
+<a class="reference internal" href="#cp-spat-map"><span class="std std-ref">Spatial Mapping for Coupling</span></a> for each RCHRES which provides for losses
+to groundwater. And, normally one exit is identified to the HSPF
+model, using mass links and schematic blocks in the HSPF inputs,
+for routing of water to the next operations structure downstream.</p></li>
+<li><p>In this example model, a volume-based relationship, or FTAB, is
+calibrated to calculate losses to groundwater from Reach #1 - #4.
+Reach #5 coincides with Fort Terrett outcrop and so this reach is
+treated as gaining only. The losses to groundwater for these four
+reaches are then a calculated HSPF model solution quantity which
+leaves the HSPF model.</p></li>
+<li><p>The user could also use a time-based relationship for determining
+outflows via the losses to groundwater exit. This has never been
+tested.</p></li>
+</ul>
+</li>
+</ol>
+<p>Because the <abbr title="Unsaturated Zone Flow">UZF</abbr> Package cells are the only
+stress package representation that can receive water from HSPF in
+<strong>pyHS2MF6</strong>, required modifications all involve
+<abbr title="Unsaturated Zone Flow">UZF</abbr> Package cells. These modifications
+are listed below.</p>
+<ul class="simple">
+<li><p>Replace the <abbr title="River Package">RIV</abbr> cells with
+<abbr title="Unsaturated Zone Flow">UZF</abbr> cells</p>
+<ul>
+<li><p>HSPF simulates all surface water and takes the place of the
+<abbr title="River Package">RIV</abbr> cells in a coupled model.</p></li>
+</ul>
+</li>
+<li><p>For <abbr title="Unsaturated Zone Flow">UZF</abbr> cells replace the time series
+stress specification with a fixed initial infiltration rate.</p>
+<ul>
+<li><p>The coupling of the two models provides for sending the infiltration
+rate for each simulated day from HSPF to MODFLOW 6.</p></li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="coupled-mode-input-file">
+<span id="cp-input-file"></span><h3><span class="section-number">3.4.1.3. </span>Coupled Mode Input File<a class="headerlink" href="#coupled-mode-input-file" title="Permalink to this headline">¶</a></h3>
+<p>Coupled mode execution requires a special input file. The primary purpose
+of this input file is to tell <strong>pyHS2MF6</strong> where to find the HSPF and
+MODFLOW 6 models and the spatial mapping information that allows <strong>mHSP2</strong>
+to process the arrays, which are identified with MODFLOW 6 computational grid
+locations, to HRUs and stream segments. The input file also provides model
+verification values like the number of RCHRES operating module instances
+in the HSPF model and the number of two-dimensional grid cells in the
+MODFLOW 6 model.</p>
+<p>An example input file,
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/LOCA_In.dat">LOCA_In.dat</a>,
+is availabe in the example models section of the GitHub respository. An
+overview of the required structure of the input file is as follows.</p>
+<ul class="simple">
+<li><p><cite>#</cite> at the start of the line denotes a comment line which is ignored
+when <strong>pyHS2MF6</strong> reads the input file.</p></li>
+<li><p>Input information and specification is provided with keyword and value
+pairs. An <cite>=</cite> separates the keyword on the left from the value on
+the right.</p></li>
+<li><p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-infile"><span class="std std-ref">Example pyHS2MF6 Input File</span></a> provides an example input file
+showing all of the supported keywords and providing definitions of
+the keywords.</p></li>
+</ul>
+<div class="align-center figure" id="id2">
+<span id="fig-cs-pyhs2mf6-infile"></span><a class="reference internal image-reference" href="_images/coupled_input_file.png"><img alt="pyHS2MF6 input file example" src="_images/coupled_input_file.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Example pyHS2MF6 Input File</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="spatial-mapping-for-coupling">
+<span id="cp-spat-map"></span><h3><span class="section-number">3.4.1.4. </span>Spatial Mapping for Coupling<a class="headerlink" href="#spatial-mapping-for-coupling" title="Permalink to this headline">¶</a></h3>
+<p>The primary purpose of this input file is to tell <strong>pyHS2MF6</strong> where to find
+the spatial mapping information that allows <strong>mHSP2</strong> to process the
+arrays that are passed back and forth between HSPF and MODFLOW 6.
+The indexes of these arrays are identified with MODFLOW 6 computational grid
+locations, and the mapping component tells <strong>mHSP2</strong> how to transform the
+grid locations to HRUs and stream segments.</p>
+<p>Three different mapping files need to be provided to <strong>pyHS2MF6</strong>.</p>
+<ol class="arabic">
+<li><p><strong>RR_MAP_GW_PFILE</strong> <a class="reference internal" href="pyHS2MF6_cpinputs.html#pyHS2MF6_Inputs.RR_MAP_GW_PFILE" title="pyHS2MF6_Inputs.RR_MAP_GW_PFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyHS2MF6_Inputs.RR_MAP_GW_PFILE</span></code></a>: provides
+specification of groundwater model cells that correspond to each
+defined RCHRES in the model.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RCHRES exit number that goes to groundwater</p></li>
+<li><p>Example <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/">cpWS_Rchres.pickle</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>PL_MAP_GW_PFILE</strong> <a class="reference internal" href="pyHS2MF6_cpinputs.html#pyHS2MF6_Inputs.PL_MAP_GW_PFILE" title="pyHS2MF6_Inputs.PL_MAP_GW_PFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyHS2MF6_Inputs.PL_MAP_GW_PFILE</span></code></a>: provides
+specification of groundwater model cells that correspond to the pervious
+parts of each HRU defined in the model.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Example <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/">cpWS_Perlnd.pickle</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>SP_MAP_GW_PFILE</strong> <a class="reference internal" href="pyHS2MF6_cpinputs.html#pyHS2MF6_Inputs.SP_MAP_GW_PFILE" title="pyHS2MF6_Inputs.SP_MAP_GW_PFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyHS2MF6_Inputs.SP_MAP_GW_PFILE</span></code></a>: defines
+the <abbr title="Drain Package">DRN</abbr> cells that represents springs discharging
+to the ground surface within the HSPF model domain.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Example <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/">cpWS_Springs.pickle</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>One example of the creation of these three files is provided in the
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/">TestModels_ConverttoCoupled_2 Jupyter Notebook</a>.
+This Jupyter Notebook also provides definition of the Python objects that
+need to compose these input files. The mapping files are saved as
+<a class="reference external" href="https://docs.python.org/3.7/library/pickle.html">pickle files</a> which
+provide a serialized version of of Python objects or variables. The top
+level objects in these input, mapping pickle files are
+<a class="reference external" href="https://docs.python.org/3.7/tutorial/datastructures.html#dictionaries">dictionaries</a>.
+One of the values in each dictionary entry is a
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas DataFrame</a>.
+The DataFrame provides for the mapping between groundwater model cells and
+HSPF lumped parameter regions.</p>
+<p>Included in the mapping are specification of weights for each cell.
+The purpose of these weights is to provide the ability to focus
+infiltration from an HRU or stream segment to a discrete feature or
+subset of cells in the groundwater model.
+<strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-mapweights"><span class="std std-ref">Spatial mapping weights</span></a> provides a depiction
+of the spatial mapping weights used in the coupled model. The
+weights were specified to focus infiltration and seepage into the
+hydrologic soil type A, stream bed locations.</p>
+<div class="align-center figure" id="id3">
+<span id="fig-cs-pyhs2mf6-mapweights"></span><a class="reference internal image-reference" href="_images/MF6_CP_MappingWeightsl.png"><img alt="Coupled model spatial mapping weights" src="_images/MF6_CP_MappingWeightsl.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Spatial mapping weights</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="coupled-mode-calibration-and-results">
+<span id="cp-cp-calib"></span><h2><span class="section-number">3.4.2. </span>Coupled Mode Calibration and Results<a class="headerlink" href="#coupled-mode-calibration-and-results" title="Permalink to this headline">¶</a></h2>
+<p>A very basic manual process was used to calibrate the coupled model. The
+daily time series of Dolan Creek discharge (see
+<strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>) from the gage record provided
+the calibration targets. The standalone HSPF model parameters were not
+modified as part of coupled model calibration. In MODFLOW 6, hydraulic
+conductivity values, storage values, and <abbr title="Drain Package">DRN</abbr>
+conductance were adjusted to improve the fit between <strong>pyHS2MF6</strong> model
+results and the gage record.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As stated earlier, an actual scientific model application to the study
+site would likely involve calibration to observed water level elevations
+in wells. This was not done for this case study because of time limitations
+but <strong>pyHS2MF6</strong> will support joint calibration to stream gage records
+and observed well water level elevations.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpcalibdc"><span class="std std-ref">Calibrated coupled model match to Dolan Creek discharge</span></a> displays the simulated Reach
+#5 discharge for the calibrated, coupled model. The coupled model results
+provide a better match to the recession curves after each event relative
+to the standalone HSPF model.</p>
+<div class="align-center figure" id="id4">
+<span id="fig-cs-pyhs2mf6-cpcalibdc"></span><a class="reference internal image-reference" href="_images/CP_Calib_DC.svg"><img alt="Calibrated, coupled model results" src="_images/CP_Calib_DC.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Calibrated coupled model match to Dolan Creek discharge</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="coupled-mode-results">
+<span id="cp-cp-results"></span><h3><span class="section-number">3.4.2.1. </span>Coupled Mode Results<a class="headerlink" href="#coupled-mode-results" title="Permalink to this headline">¶</a></h3>
+<p><strong>pyHS2MF6</strong> produces all of the outputs which are produced by MODFLOW 6
+and <em>HSPsquared</em>. In addition, custom outputs are written to the <strong>mHSP2</strong>
+<a class="reference external" href="https://portal.hdfgroup.org/display/knowledge/What+is+HDF5">HDF5 file</a>
+and to four custom, <strong>pyMF6</strong>
+<a class="reference external" href="https://docs.python.org/3.7/library/pickle.html">pickle files</a>.</p>
+<p>The Jupyter Notebook
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/">TestModels_Coupled-Results</a>
+provides an example of processing these custom outputs. Additionally,
+this notebook provides definition of the the custom output structures.
+This notebook can be used as a template or building block for processing
+of the custom, coupled model outputs.</p>
+<p>The primary purpose of these custom, coupled model outputs is to
+provide both a summary of the water exchanged between HSPF and
+MODFLOW 6 and a volume balance check to ensure that no water (or mass)
+is lost during the coupled simulation.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because <strong>pyHS2MF6</strong> uses existing HSPF and MODFLOW 6
+boundary condition logic and functionality, all custom outputs
+can be obtained from the individual HSPF and MODFLOW 6 outputs.
+However, the custom summarization is provided to facilite validation
+of simulation mass balance and to simplify identification of the
+exchanged water volumes and locations for exchange.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Deep infiltration provides the primary link from HSPF to MODFLOW 6.
+<strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpinfilt"><span class="std std-ref">Simulated discharge from HSPF to MODFLOW 6</span></a> displays the average, deep
+infiltration discharge sent from HSPF to MODFLOW 6. The focus of
+coupled model, water exchange is the dry stream beds which are mapped
+as hydrologic soil type A (see <strong>Figure</strong> <a class="reference internal" href="cs_study_site.html#fig-cs-watershed"><span class="std std-ref">Dolan Creek watershed</span></a>).</p>
+<div class="align-center figure" id="id5">
+<span id="fig-cs-pyhs2mf6-cpinfilt"></span><a class="reference internal image-reference" href="_images/MF6_CP_H2Infilt.png"><img alt="Simulated infiltration rates" src="_images/MF6_CP_H2Infilt.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text"><strong>Simulated discharge from HSPF to MODFLOW 6</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>An important check on coupled mode simulation results is to ensure that
+the water sent from HSPF is received by MODFLOW 6 and to confirm that
+surface discharge from MODFLOW 6 is received by HSPF. <strong>Figure</strong>
+<a class="reference internal" href="#fig-cs-pyhs2mf6-cpinfiltcheck"><span class="std std-ref">Mass balance verification of infiltration sent from HSPF to MODFLOW 6</span></a> validates that all water sent from
+HSPF is received by MODFLOW 6. While, <strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpsurfdcheck"><span class="std std-ref">Mass balance verification of surface discharge sent from MODFLOW 6 to HSPF</span></a>
+confirms that discharge to the ground surface sent from MODFLOW 6 is
+received by HSPF.</p>
+<div class="align-center figure" id="id6">
+<span id="fig-cs-pyhs2mf6-cpinfiltcheck"></span><a class="reference internal image-reference" href="_images/CP_Calib_Infiltration_Check.svg"><img alt="Mass balance check on calculated infiltration" src="_images/CP_Calib_Infiltration_Check.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Mass balance verification of infiltration sent from HSPF to MODFLOW 6</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id7">
+<span id="fig-cs-pyhs2mf6-cpsurfdcheck"></span><a class="reference internal image-reference" href="_images/CP_Calib_SurfDis_Check.svg"><img alt="Mass balance check on surface discharge" src="_images/CP_Calib_SurfDis_Check.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Mass balance verification of surface discharge sent from MODFLOW 6 to HSPF</strong></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
 </div>
 
 

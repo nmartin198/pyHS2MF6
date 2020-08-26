@@ -48,18 +48,18 @@
             
   <div class="section" id="standalone-hspf-model">
 <span id="standalone-hspf"></span><h1><span class="section-number">3.2. </span>Standalone HSPF Model<a class="headerlink" href="#standalone-hspf-model" title="Permalink to this headline">¶</a></h1>
-<p>This case study application was developed to assist in pyHS2MF6
+<p>This case study application was developed to assist in <strong>pyHS2MF6</strong>
 development and testing. There was not an existing
 HSPF model to use as a starting point. A standalone
-HSPF model was created expressly for testing pyHS2MF6.</p>
-<p><strong>mHSP2</strong> is the name of the standalone HSPF component of pyHS2MF6.
+HSPF model was created expressly for testing <strong>pyHS2MF6</strong>.</p>
+<p><strong>mHSP2</strong> is the name of the standalone HSPF component of <strong>pyHS2MF6</strong>.
 The <strong>mHSP2</strong> code base is documented in <a class="reference internal" href="mHSP2.html#mhsp2"><span class="std std-ref">mHSP2</span></a>. It uses the
 same input file format as used by the
 <a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a> variant of HSPF.</p>
 <p>The <strong>mHSP2</strong> input file for the case study is a
 <a class="reference external" href="https://portal.hdfgroup.org/display/knowledge/What+is+HDF5">HDF5 file</a>.
 This <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5">standalone mHSP2 input file</a>
-is available on the pyHS2MF6 GitHub site.</p>
+is available on the <strong>pyHS2MF6</strong> GitHub site.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -73,7 +73,59 @@ in this area, the pervious land area is <code class="docutils literal notranslat
 <p>Five RCHRES, stream reach or well mixed reservoirs, are used to route
 water from the upstream-most <abbr title="Hydrologic Response Unit">HRU</abbr> to
 the watershed outlet. RCHRES #5 is the stream segment where the stream
-gage and the springs are located.</p>
+gage and the springs are located. This reach is hypothesized to be a
+gaining stream reach where external water enters the reach from springs
+in addition to the water that is routed downstream from Reach #4.
+Reaches #1 - #4 are hypothesized to be losing reaches.</p>
+<p>An important conceptualization for coupled model simulation is how to
+treat gaining and losing reaches for communication with the groundwater
+flow model. Gaining and losing requires different HSPF configurations
+to facilitate future coupling to a groundwater flow model.</p>
+<ul class="simple">
+<li><p><strong>Gaining</strong> reaches: additional input water from spring discharge or
+other baseflow components is input to a <em>RCHRES</em> structure as an
+external inflow time series.</p>
+<ul>
+<li><p>This is the treatment used for Reach #5 to represent contributions
+from Dolan Springs and YR-70-01-701.</p></li>
+</ul>
+</li>
+<li><p><strong>Losing</strong> reaches: In HSPF, there is not a preconfigured process for
+stream losses to groundwater because saturated groundwater conditions
+are not really represented in HSPF. The representation of loses from
+stream segments to groundwater is then largely up to the modeler. In
+<strong>pyHS2MF6</strong> the modeler should specify one <em>RCHRES</em> exit to represent
+loses to groundwater. Typically, one <em>RCHRES</em> exit is used to
+calculate downstream discharge that is routed to the next <em>RCHRES</em>
+downstream and one <em>RCHES</em> exit is used to remove water from the
+model that represents loses to groundwater.</p>
+<ul>
+<li><p>In the standalone HSPF model, exit #2 for Reaches #1 - #4 represents
+seepage to groundwater from the stream. HSPF calculates this seepage
+using a volume-based, or FTAB, calculation for the standalone model.
+This volume-based, seepage relationship was part of the calibration
+to reproduce the gage discharge at the watershed outlet.</p></li>
+<li><p>If desired, the user can implement a time-based relationship for
+discharge from an exit. Consequently, a time-based relationship
+could be used for exit #2 to represent seepage to groundwater.</p></li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A single reach can be represented as both gaining and losing
+using both a specified external time series inflow and an outflow
+calculation for a designated exit for discharge to groundwater. This
+is not recommended. The recommended approach would be to use two
+<em>RCHRES</em> for the stream segment with one portraying gaining
+conditions and one representing losing conditions.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-sahspf"><span class="std std-ref">HSPF model configuration</span></a> shows the HSPF model layout for the study
 site. Complete details of HSPF model configuration are available in
 the <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5">standalone mHSP2 input file</a>.</p>

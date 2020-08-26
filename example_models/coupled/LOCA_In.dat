@@ -3,7 +3,7 @@
 # HSP2 model directory
 HSP2_DIR = "C:\pyHS2MF6\example_models\coupled\HSPF"
 # HSP2 HDF5 file
-HSP2_HDF5 = "DC_Subs_12_mHSP2_PreAutoCal.h5"
+HSP2_HDF5 = "DC_CalibmHSP2.h5"
 # Simulation start time "%Y-%m-%d" format
 START_DT = 2013-01-01
 # Simulation end time "%Y-%m-%d" format

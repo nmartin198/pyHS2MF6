@@ -3,12 +3,12 @@
 Standalone HSPF Model 
 ======================
 
-This case study application was developed to assist in pyHS2MF6 
+This case study application was developed to assist in **pyHS2MF6** 
 development and testing. There was not an existing 
 HSPF model to use as a starting point. A standalone 
-HSPF model was created expressly for testing pyHS2MF6.
+HSPF model was created expressly for testing **pyHS2MF6**.
 
-**mHSP2** is the name of the standalone HSPF component of pyHS2MF6. 
+**mHSP2** is the name of the standalone HSPF component of **pyHS2MF6**. 
 The **mHSP2** code base is documented in :ref:`mHSP2`. It uses the 
 same input file format as used by the 
 `HSPsquared <https://github.com/respec/HSPsquared>`_ variant of HSPF.
@@ -16,7 +16,7 @@ same input file format as used by the
 The **mHSP2** input file for the case study is a 
 `HDF5 file <https://portal.hdfgroup.org/display/knowledge/What+is+HDF5>`_. 
 This `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5>`_  
-is available on the pyHS2MF6 GitHub site.
+is available on the **pyHS2MF6** GitHub site.
 
 |
 
@@ -34,7 +34,53 @@ in this area, the pervious land area is ``>>`` impervious land area.
 Five RCHRES, stream reach or well mixed reservoirs, are used to route 
 water from the upstream-most :abbr:`HRU (Hydrologic Response Unit)` to 
 the watershed outlet. RCHRES #5 is the stream segment where the stream 
-gage and the springs are located.
+gage and the springs are located. This reach is hypothesized to be a 
+gaining stream reach where external water enters the reach from springs 
+in addition to the water that is routed downstream from Reach #4. 
+Reaches #1 - #4 are hypothesized to be losing reaches.
+
+An important conceptualization for coupled model simulation is how to 
+treat gaining and losing reaches for communication with the groundwater
+flow model. Gaining and losing requires different HSPF configurations 
+to facilitate future coupling to a groundwater flow model.
+
+* **Gaining** reaches: additional input water from spring discharge or 
+  other baseflow components is input to a *RCHRES* structure as an 
+  external inflow time series.
+
+  - This is the treatment used for Reach #5 to represent contributions 
+    from Dolan Springs and YR-70-01-701.
+
+* **Losing** reaches: In HSPF, there is not a preconfigured process for 
+  stream losses to groundwater because saturated groundwater conditions 
+  are not really represented in HSPF. The representation of loses from 
+  stream segments to groundwater is then largely up to the modeler. In 
+  **pyHS2MF6** the modeler should specify one *RCHRES* exit to represent
+  loses to groundwater. Typically, one *RCHRES* exit is used to 
+  calculate downstream discharge that is routed to the next *RCHRES* 
+  downstream and one *RCHES* exit is used to remove water from the 
+  model that represents loses to groundwater.
+
+  - In the standalone HSPF model, exit #2 for Reaches #1 - #4 represents
+    seepage to groundwater from the stream. HSPF calculates this seepage 
+    using a volume-based, or FTAB, calculation for the standalone model.
+    This volume-based, seepage relationship was part of the calibration
+    to reproduce the gage discharge at the watershed outlet.
+
+  - If desired, the user can implement a time-based relationship for 
+    discharge from an exit. Consequently, a time-based relationship 
+    could be used for exit #2 to represent seepage to groundwater.
+
+|
+
+.. note:: A single reach can be represented as both gaining and losing 
+   using both a specified external time series inflow and an outflow 
+   calculation for a designated exit for discharge to groundwater. This
+   is not recommended. The recommended approach would be to use two 
+   *RCHRES* for the stream segment with one portraying gaining 
+   conditions and one representing losing conditions.
+
+|
 
 **Figure** :ref:`fig_cs_sahspf` shows the HSPF model layout for the study 
 site. Complete details of HSPF model configuration are available in 
