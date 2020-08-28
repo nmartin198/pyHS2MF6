@@ -193,11 +193,17 @@ Three different mapping files need to be provided to **pyHS2MF6**.
 
     * Example `cpWS_Springs.pickle <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/>`_
 
-One example of the creation of these three files is provided in the 
-Jupyter Notebook `pyHS2MF6_Create_Spatial_Mapping  
-<https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb>`_.
-This Jupyter Notebook also provides definition of the Python objects that 
-need to compose these input files. The mapping files are saved as 
+Two examples of the creation of these three files are provided. 
+
+1. Jupyter Notebook `pyHS2MF6_Create_Spatial_Mapping  
+   <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb>`_.
+
+2. Jupyter Notebook `Create_Coupled_Model_Mapping 
+   <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/Create_Coupled_Model_Mapping.ipynb>`_.
+
+
+These Jupyter Notebooks also provide definition of the Python objects that 
+compose these input files. The mapping files are saved as 
 `pickle files <https://docs.python.org/3.7/library/pickle.html>`_ which 
 provide a serialized version of of Python objects or variables. The top 
 level objects in these input, mapping pickle files are 
@@ -347,5 +353,62 @@ received by HSPF.
     :figclass: align-center 
 
     **Mass balance verification of surface discharge sent from MODFLOW 6 to HSPF**
+
+|
+
+.. _cp_cp_runmod:
+
+Running a Coupled pyHS2MF6 Simulation
+----------------------------------------
+
+A coupled **pyHS2MF6** simulation is executed from an 
+`Anaconda Prompt <https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt>`_ 
+using the instructions below. For these instructions it is assumed, 
+that **pyHS2MF6** is installed at `C:\\pyHS2MF6`, that the **mHSP2** 
+model input files are in the directory `C:\\Models\\cp_mHSP2`, that the 
+**pyMF6** model input files are in the directory `C:\\Models\\cp_pyMF6`, 
+and that the coupled model input file, `LOCA_In.dat`, is in the 
+directory `C:\\Models`.
+
+1. `Activate <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment>`_ 
+   the pyhs2mf6 Anaconda virtual environment. Additional details can be 
+   found at :ref:`install_pyconda`. ::
+   
+      (base) > conda activate pyhs2mf6
+
+2. Make the current directory the model directory. ::
+
+      (pyhs2mf6) > cd C:\Models
+
+3. Run the model ::
+
+      (pyhs2mf6) > python C:\pyHS2MF6\bin\standaloneMain.py LOCA_In.dat 
+
+
+The coupled model will create four log files that record general 
+information and any issues encountered during the run.
+
+1. `C:\\Models\\sa_mHSP2\\mHSP2_Log.txt`: the **mHSP2** log file
+
+   - `mHSP2_Log.txt <https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled/HSPF>`_
+
+2. `C:\\Models\\sa_MF6\\pyMF6_Log.txt`: the **pyMF6** log file
+
+   - `pyMF6_Log.txt <https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled/MF6>`_
+
+3. `C:\\Models\\pyHS2MF6_Log.txt`: the coupled controller and queue 
+   server log file
+
+   - `pyHS2MF6_Log.txt <https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled>`_
+
+4. `C:\\Models\MF6_ShellOut.txt`: an echo of the MODFLOW 6 shell output 
+   that shows the current simulation time step
+
+   - `MF6_ShellOut.txt <https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled>`_
+
+
+The traditional MODFLOW 6 log files, *.lst files*, are still output 
+by **pyHS2MF6** and these provide MODFLOW-related troubleshooting 
+information. 
 
 |

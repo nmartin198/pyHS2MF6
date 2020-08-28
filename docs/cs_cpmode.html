@@ -229,10 +229,13 @@ to the ground surface within the HSPF model domain.</p>
 </div></blockquote>
 </li>
 </ol>
-<p>One example of the creation of these three files is provided in the
-Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb">pyHS2MF6_Create_Spatial_Mapping</a>.
-This Jupyter Notebook also provides definition of the Python objects that
-need to compose these input files. The mapping files are saved as
+<p>Two examples of the creation of these three files are provided.</p>
+<ol class="arabic simple">
+<li><p>Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb">pyHS2MF6_Create_Spatial_Mapping</a>.</p></li>
+<li><p>Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/Create_Coupled_Model_Mapping.ipynb">Create_Coupled_Model_Mapping</a>.</p></li>
+</ol>
+<p>These Jupyter Notebooks also provide definition of the Python objects that
+compose these input files. The mapping files are saved as
 <a class="reference external" href="https://docs.python.org/3.7/library/pickle.html">pickle files</a> which
 provide a serialized version of of Python objects or variables. The top
 level objects in these input, mapping pickle files are
@@ -355,6 +358,68 @@ received by HSPF.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+</div>
+</div>
+<div class="section" id="running-a-coupled-pyhs2mf6-simulation">
+<span id="cp-cp-runmod"></span><h2><span class="section-number">3.4.3. </span>Running a Coupled pyHS2MF6 Simulation<a class="headerlink" href="#running-a-coupled-pyhs2mf6-simulation" title="Permalink to this headline">¶</a></h2>
+<p>A coupled <strong>pyHS2MF6</strong> simulation is executed from an
+<a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt">Anaconda Prompt</a>
+using the instructions below. For these instructions it is assumed,
+that <strong>pyHS2MF6</strong> is installed at <cite>C:\pyHS2MF6</cite>, that the <strong>mHSP2</strong>
+model input files are in the directory <cite>C:\Models\cp_mHSP2</cite>, that the
+<strong>pyMF6</strong> model input files are in the directory <cite>C:\Models\cp_pyMF6</cite>,
+and that the coupled model input file, <cite>LOCA_In.dat</cite>, is in the
+directory <cite>C:\Models</cite>.</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment">Activate</a>
+the pyhs2mf6 Anaconda virtual environment. Additional details can be
+found at <a class="reference internal" href="install_pyint.html#install-pyconda"><span class="std std-ref">Anaconda Install Instructions</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">pyhs2mf6</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make the current directory the model directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cd</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Models</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">python</span> <span class="n">C</span><span class="p">:</span>\<span class="n">pyHS2MF6</span>\<span class="nb">bin</span>\<span class="n">standaloneMain</span><span class="o">.</span><span class="n">py</span> <span class="n">LOCA_In</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The coupled model will create four log files that record general
+information and any issues encountered during the run.</p>
+<ol class="arabic simple">
+<li><p><cite>C:\Models\sa_mHSP2\mHSP2_Log.txt</cite>: the <strong>mHSP2</strong> log file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled/HSPF">mHSP2_Log.txt</a></p></li>
+</ul>
+</li>
+<li><p><cite>C:\Models\sa_MF6\pyMF6_Log.txt</cite>: the <strong>pyMF6</strong> log file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled/MF6">pyMF6_Log.txt</a></p></li>
+</ul>
+</li>
+<li><p><cite>C:\Models\pyHS2MF6_Log.txt</cite>: the coupled controller and queue
+server log file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled">pyHS2MF6_Log.txt</a></p></li>
+</ul>
+</li>
+<li><p><cite>C:\ModelsMF6_ShellOut.txt</cite>: an echo of the MODFLOW 6 shell output
+that shows the current simulation time step</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/coupled">MF6_ShellOut.txt</a></p></li>
+</ul>
+</li>
+</ol>
+<p>The traditional MODFLOW 6 log files, <em>.lst files</em>, are still output
+by <strong>pyHS2MF6</strong> and these provide MODFLOW-related troubleshooting
+information.</p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 </div>
 </div>

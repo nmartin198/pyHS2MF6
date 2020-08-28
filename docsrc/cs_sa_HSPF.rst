@@ -155,8 +155,48 @@ of HSPF-variant software.
    was employed to modify the `HSPsquared`, input HDF5 file to be 
    provide the specification of model outputs that is required by **mHSP2**.
 
-The Jupyter Notebook `mHSP2_SA_Results <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb>`_ 
+
+|
+
+.. _cs_saHSPF_runmod:
+
+Running a Standalone mHSP2 Simulation
+----------------------------------------
+
+A standalone **mHSP2** simulation is executed from an 
+`Anaconda Prompt <https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt>`_ 
+using the instructions below. For these instructions it is assumed, 
+that **pyHS2MF6** is installed at `C:\\pyHS2MF6` and that the model 
+HDF5 file is in the directory `C:\\Models\\sa_mHSP2`.
+
+1. `Activate <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment>`_ 
+   the pyhs2mf6 Anaconda virtual environment. Additional details can be 
+   found at :ref:`install_pyconda`. ::
+   
+      (base) > conda activate pyhs2mf6
+
+2. Make the current directory the model directory. ::
+
+      (pyhs2mf6) > cd C:\Models\sa_mHSP2
+
+3. Run the model ::
+
+      (pyhs2mf6) > python C:\pyHS2MF6\bin\standaloneMain.py HSP2 C:\\Models\\sa_mHSP2 -f DC_CalibmHSP2.h5
+
+
+The model will create a log file that records general information and 
+any issues encountered during the run. The log file provides a listing
+of input parameters along with required units. It also provides a 
+listing of output parameters along with output units.
+
+For the example provided above, the run log is written to the file 
+`C:\\Models\\sa_mHSP2\\mHSP2_Log.txt`. An example 
+`mHSP2_Log.txt <https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/standalone/HSPF>`_ 
+is available in the standalone, example model directory.
+
+In terms of accessing standalone simulation results, the Jupyter Notebook 
+`mHSP2_SA_Results <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb>`_ 
 provides a simple example of extracting and analyzing standalone **mHSP2**
 results.
 
-
+|

@@ -1,0 +1,2 @@
+2020-07-21 18:31:33,624 - pyMF6 - INFO - Start MODFLOW6 model at 2020-07-21 18:31:33
+

@@ -178,9 +178,51 @@ This format is similar to what is required for <strong>mHSP2</strong>.</p></li>
 was employed to modify the <cite>HSPsquared</cite>, input HDF5 file to be
 provide the specification of model outputs that is required by <strong>mHSP2</strong>.</p></li>
 </ol>
-<p>The Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb">mHSP2_SA_Results</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="running-a-standalone-mhsp2-simulation">
+<span id="cs-sahspf-runmod"></span><h2><span class="section-number">3.2.3. </span>Running a Standalone mHSP2 Simulation<a class="headerlink" href="#running-a-standalone-mhsp2-simulation" title="Permalink to this headline">¶</a></h2>
+<p>A standalone <strong>mHSP2</strong> simulation is executed from an
+<a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-anaconda-prompt">Anaconda Prompt</a>
+using the instructions below. For these instructions it is assumed,
+that <strong>pyHS2MF6</strong> is installed at <cite>C:\pyHS2MF6</cite> and that the model
+HDF5 file is in the directory <cite>C:\Models\sa_mHSP2</cite>.</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment">Activate</a>
+the pyhs2mf6 Anaconda virtual environment. Additional details can be
+found at <a class="reference internal" href="install_pyint.html#install-pyconda"><span class="std std-ref">Anaconda Install Instructions</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">pyhs2mf6</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make the current directory the model directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cd</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Models</span>\<span class="n">sa_mHSP2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">python</span> <span class="n">C</span><span class="p">:</span>\<span class="n">pyHS2MF6</span>\<span class="nb">bin</span>\<span class="n">standaloneMain</span><span class="o">.</span><span class="n">py</span> <span class="n">HSP2</span> <span class="n">C</span><span class="p">:</span>\\<span class="n">Models</span>\\<span class="n">sa_mHSP2</span> <span class="o">-</span><span class="n">f</span> <span class="n">DC_CalibmHSP2</span><span class="o">.</span><span class="n">h5</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The model will create a log file that records general information and
+any issues encountered during the run. The log file provides a listing
+of input parameters along with required units. It also provides a
+listing of output parameters along with output units.</p>
+<p>For the example provided above, the run log is written to the file
+<cite>C:\Models\sa_mHSP2\mHSP2_Log.txt</cite>. An example
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/tree/master/example_models/standalone/HSPF">mHSP2_Log.txt</a>
+is available in the standalone, example model directory.</p>
+<p>In terms of accessing standalone simulation results, the Jupyter Notebook
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb">mHSP2_SA_Results</a>
 provides a simple example of extracting and analyzing standalone <strong>mHSP2</strong>
 results.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 
