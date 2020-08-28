@@ -24,7 +24,7 @@ and provides samples of **pyHS2MF6** inputs and outputs.
     coupled mode simulation. Consequently, there was not an existing 
     HSPF or MODFLOW 6 model available for the test case. As a result,
     the case study focuses on **pyHS2MF6** implementation and simulation
-    rather than on the study site.
+    rather than on scientific analysis of the study site.
 
 |
 

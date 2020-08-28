@@ -49,15 +49,30 @@
   <div class="section" id="mhsp2">
 <span id="id1"></span><h1><span class="section-number">4.2. </span>mHSP2<a class="headerlink" href="#mhsp2" title="Permalink to this headline">¶</a></h1>
 <p><strong>mHSP2</strong> is the port of <a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a>
-created specifically for coupled simulation with MODFLOW 6. <em>HSPsquared</em>
-is a HSPF variant which was rewritten in pure Python. <strong>mHSP2</strong> only
-provides the water movement and storage capabilities of <em>HSPsquared</em>.</p>
-<p>The main difference between <strong>mHSP2</strong> and <em>HSPsquared</em> is that <strong>mHSP2</strong>
+created specifically for coupled simulation with MODFLOW 6.
+<a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a> is a HSPF variant
+which was rewritten in pure Python. <strong>mHSP2</strong> only provides the water
+movement and storage capabilities of
+<a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a>.</p>
+<p>The main difference between <strong>mHSP2</strong> and
+<a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a> is that <strong>mHSP2</strong>
 was created with the simulation time loop as the main simulation loop to
 facilitate dynamic coupling to MODFLOW 6. HSPF-variants traditionally use
 an operating module instance loop that is executed in routing order as
 the main simulation loop. This approach requires that the time
-simulation loop be executed for each operating module instance.</p>
+simulation loop be executed for each operating module instance.
+<strong>Figure</strong> <a class="reference internal" href="#fig-cd-mhsp2-struct-mod"><span class="std std-ref">mHSP2 structural modifications</span></a> graphically depicts this
+structural modification.</p>
+<div class="align-center figure" id="id5">
+<span id="fig-cd-mhsp2-struct-mod"></span><a class="reference internal image-reference" href="_images/Fig_02-mHSP2_Structure_Reorg.png"><img alt="mHSP2 Structural Modifications" src="_images/Fig_02-mHSP2_Structure_Reorg.png" style="width: 900px;" /></a>
+<p class="caption"><span class="caption-text"><strong>mHSP2 structural modifications</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mHSP2_main.html">4.2.1. Main Block</a><ul>

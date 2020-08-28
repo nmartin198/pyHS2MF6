@@ -75,6 +75,18 @@ was created with seven computational layers covering the areal extent shown on
 <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-units"><span class="std std-ref">MODFLOW 6 layers and hydrostratigraphy</span></a>. A DISV-style, unstructured grid is used
 for each layer. The computational grid was created using the <a class="reference external" href="https://www.usgs.gov/software/gridgen-a-program-generating-unstructured-finite-volume-grids">USGS GridGen
 program</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The DISV-style grid is the only MODFLOW 6 grid option
+supported for coupled mode simulation. All MODFLOW 6 grid
+configurations are supported for standalone mode simulation.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id1">
 <span id="fig-cs-samf6-units"></span><a class="reference internal image-reference" href="_images/MF6_SA_TASurfEl.png"><img alt="MODFLOW 6 computational layers and units" src="_images/MF6_SA_TASurfEl.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-text"><strong>MODFLOW 6 layers and hydrostratigraphy</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -87,8 +99,8 @@ program</a>.</p>
 layer is flat and cells are inactivated to form depressions for stream
 valleys and dry arroyos. This effect can be seen in the color patterns
 denoting the valley bottoms in <strong>Figure</strong> <a class="reference internal" href="#fig-cs-samf6-units"><span class="std std-ref">MODFLOW 6 layers and hydrostratigraphy</span></a>.
-<strong>Table</strong> <a class="reference internal" href="#tab-mf6-layers"><span class="std std-ref">MODFLOW 6 layers and HSUs</span></a> provides the computational layer
-characteristics along with the HSU that each layer represents.</p>
+<strong>Table</strong> <a class="reference internal" href="#tab-mf6-layers"><span class="std std-ref">MODFLOW 6 layers and HSUs</span></a> provides the HSU and computational layer
+characteristics for each layer.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -205,9 +217,10 @@ associated with rainfall and so that <abbr title="River Package">RIV</abbr>
 only represents water in Reaches #1 - #4 associated with rainfall.</p>
 <p>It is important to provide this daily, time-series forcing in semi-arid
 environments in order to facilitate configuration of the Newton-Raphson
-solver formulation. The Newton-Raphson solver will provide a better
-representation of the dynamic water table movements expected for the
-semi-arid, karst terrain study site.</p>
+solver formulation and the <abbr title="Unsaturated Zone Flow">UZF</abbr> wave sets.
+The Newton-Raphson solver will provide a better representation of the
+dynamic water table movements expected for the semi-arid, karst terrain
+study site.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -227,7 +240,7 @@ YR-70-01-701 (see <strong>Figure</strong> <a class="reference internal" href="cs
 <p>All of the standard MODFLOW 6 capabilities are available in
 <strong>pyMF6</strong>. For a <em>real</em> modeling study, the MODFLOW 6 model would also
 be calibrated to observed water levels in wells. This would be done
-with whatever means is preferred by the modeller and could include
+with whatever means is preferred by the modeler and could include
 PEST or other automated, parameter estimation tool.</p>
 </div>
 <div class="line-block">

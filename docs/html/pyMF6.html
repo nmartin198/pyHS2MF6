@@ -51,14 +51,32 @@
 <p><strong>pyMF6</strong> is a Python-wrapped version of
 <a class="reference external" href="https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model">MODFLOW 6</a>
 created specifically for coupled simulation with HSPF. <strong>pyMF6</strong> provides
-the full functionality of MODFLOW 6 because it references all of the MODFLOW 6
+the full functionality of <a class="reference external" href="https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model">MODFLOW 6</a>
+because it references all of the
+<a class="reference external" href="https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model">MODFLOW 6</a>
 source code.</p>
-<p>For coupled simulation with <strong>pyMF6</strong>, four extended types are available
-to the coupled program to provide for passing an array into MODFLOW 6 from
-the independent, external <strong>mHSP2</strong> process and to provide for sending an array
+<p>For coupled simulation with <strong>pyMF6</strong>, four extended types, or objects, are available
+to the coupled program. <strong>Figure</strong> <a class="reference internal" href="#fig-cd-pymf6-new-types"><span class="std std-ref">pyMF6 Python-wrapping and extended types</span></a> shows the Python-
+wrapping methodology along with the extended types added to the source code. The
+purpose of the extended objects or types is to provide for passing an array into
+<a class="reference external" href="https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model">MODFLOW 6</a>
+from the independent, external <strong>mHSP2</strong> process and to provide for sending an array
 from <strong>pyMF6</strong> to the <strong>mHSP2</strong> process.</p>
 <p>The passing of these arrays provides for the dynamic simulation capabilities
 in <strong>pyHS2MF6</strong>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="align-center figure" id="id5">
+<span id="fig-cd-pymf6-new-types"></span><a class="reference internal image-reference" href="_images/Fig_05-pyMF6_Structure_Reorg.svg"><img alt="pyMF6 Extended Types" src="_images/Fig_05-pyMF6_Structure_Reorg.svg" width="1000px" /></a>
+<p class="caption"><span class="caption-text"><strong>pyMF6 Python-wrapping and extended types</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyMF6_python.html">4.3.1. Python Modules</a><ul>

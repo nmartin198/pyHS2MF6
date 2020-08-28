@@ -15,7 +15,7 @@ same input file format as used by the
 
 The **mHSP2** input file for the case study is a 
 `HDF5 file <https://portal.hdfgroup.org/display/knowledge/What+is+HDF5>`_. 
-This `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5>`_  
+This `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF>`_  
 is available on the **pyHS2MF6** GitHub site.
 
 |
@@ -84,7 +84,7 @@ to facilitate future coupling to a groundwater flow model.
 
 **Figure** :ref:`fig_cs_sahspf` shows the HSPF model layout for the study 
 site. Complete details of HSPF model configuration are available in 
-the `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5>`_.
+the `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF>`_.
 
 
 .. _fig_cs_sahspf:
@@ -150,9 +150,13 @@ of HSPF-variant software.
    input `HDF5 file <https://portal.hdfgroup.org/display/knowledge/What+is+HDF5>`_.
    This format is similar to what is required for **mHSP2**.
 
-3. Next, the jupyter notebook 
-   `mHSP2_SetSaves.ipynb <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SetSaves.ipynb>`_ 
+3. Next, the Jupyter Notebook 
+   `mHSP2_SetSaves <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SetSaves.ipynb>`_ 
    was employed to modify the `HSPsquared`, input HDF5 file to be 
-   provide the specification of model outputs that is required by **mHSP2**. 
+   provide the specification of model outputs that is required by **mHSP2**.
+
+The Jupyter Notebook `mHSP2_SA_Results <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb>`_ 
+provides a simple example of extracting and analyzing standalone **mHSP2**
+results.
 
 

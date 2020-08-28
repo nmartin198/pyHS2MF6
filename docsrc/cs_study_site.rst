@@ -37,7 +37,8 @@ Springs, provide flow to the stream throughout the year.
 |
 
 **Figure** :ref:`fig_cs_watershed` shows the mapped Hydrologic Soil Group
-from SSURGO for the site watershed. **Table** :ref:`tab_ssurgo_props` 
+from `SSURGO <https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627>`_
+for the site watershed. **Table** :ref:`tab_ssurgo_props` 
 provides a listing of the pertinent hydrologic soil properties for 
 HSPF simulation considerations, also from SSURGO. The ridgetops and 
 valley/mesa sides (92-93% of total watershed area) have low water 
@@ -78,6 +79,8 @@ rates and near surface water storage.
     |                  +-------------------+------------+---------------------+
     |                  | 20 - 25 cm        | 38.1 %     | Ridgetops           |
     +------------------+-------------------+------------+---------------------+
+
+|
 
 Hydrologic Soil Types::
 

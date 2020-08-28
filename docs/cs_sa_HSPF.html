@@ -58,7 +58,7 @@ same input file format as used by the
 <a class="reference external" href="https://github.com/respec/HSPsquared">HSPsquared</a> variant of HSPF.</p>
 <p>The <strong>mHSP2</strong> input file for the case study is a
 <a class="reference external" href="https://portal.hdfgroup.org/display/knowledge/What+is+HDF5">HDF5 file</a>.
-This <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5">standalone mHSP2 input file</a>
+This <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF">standalone mHSP2 input file</a>
 is available on the <strong>pyHS2MF6</strong> GitHub site.</p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -128,7 +128,7 @@ conditions and one representing losing conditions.</p>
 </div>
 <p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-sahspf"><span class="std std-ref">HSPF model configuration</span></a> shows the HSPF model layout for the study
 site. Complete details of HSPF model configuration are available in
-the <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF/DC_Subs_12_mHSP2_PreAutoCal.h5">standalone mHSP2 input file</a>.</p>
+the <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF">standalone mHSP2 input file</a>.</p>
 <div class="align-center figure" id="id4">
 <span id="fig-cs-sahspf"></span><a class="reference internal image-reference" href="_images/HSPF_Layout.png"><img alt="HSPF model layout" src="_images/HSPF_Layout.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-text"><strong>HSPF model configuration</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
@@ -173,11 +173,14 @@ to convert the <abbr title="User Control Interface">UCI</abbr> file and input
 <abbr title="Watershed Data Management">WDM</abbr> file to an <cite>HSPsquared</cite>
 input <a class="reference external" href="https://portal.hdfgroup.org/display/knowledge/What+is+HDF5">HDF5 file</a>.
 This format is similar to what is required for <strong>mHSP2</strong>.</p></li>
-<li><p>Next, the jupyter notebook
-<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SetSaves.ipynb">mHSP2_SetSaves.ipynb</a>
+<li><p>Next, the Jupyter Notebook
+<a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SetSaves.ipynb">mHSP2_SetSaves</a>
 was employed to modify the <cite>HSPsquared</cite>, input HDF5 file to be
 provide the specification of model outputs that is required by <strong>mHSP2</strong>.</p></li>
 </ol>
+<p>The Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_SA_Results.ipynb">mHSP2_SA_Results</a>
+provides a simple example of extracting and analyzing standalone <strong>mHSP2</strong>
+results.</p>
 </div>
 </div>
 

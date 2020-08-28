@@ -4,14 +4,14 @@
  Installation
 ================
 
-pyHS2MF6 installation and configuration includes a number of steps, which
-are enumerated below.
+**pyHS2MF6** installation and configuration includes a number of steps, 
+enumerated below.
 
-1. Obtain or download the pyHS2MF6 directories and files from the GitHub site
-as a zip file archive.
+1. Obtain or download the **pyHS2MF6** directories and files from the GitHub site
+   as a zip file archive.
 
     * Unzip this file to a local directory on the computer where you will 
-      run pyHS2MF6.
+      run **pyHS2MF6**.
 
     * In the remainder of these instructions this directory is referred 
       to as the `pyHS2MF6` directory. The `pyHS2MF6` directory should
@@ -22,16 +22,16 @@ as a zip file archive.
     :align: center
     :alt: pyHS2MF6 directory structure 
 
-    pyHS2MF6 GitHub archive directory structure
+    **pyHS2MF6 GitHub archive directory structure**
 
 |
 
 2. The `pyHS2MF6\\bin` directory contains the executable files or 
-program files that comprise the program. In the `bin` root there
-should be four Python source code files with the extension `.py`.
+   program files that comprise the program. In the `bin` root there
+   should be four Python source code files with the extension `.py`.
 
-    * The `pyHS2MF6\\bin\\mHSP2` folder contains eight Python source code
-      files that compose the mHSP2 program.
+    * The `pyHS2MF6\\bin\\mHSP2` folder contains the eight Python source
+      code files that compose the mHSP2 program.
 
     * `pyHS2MF6\\bin\\pyMF6` folder contains three Python source code files 
       and two dynamic-link library (DLL) files. One file has a `.dll` 
@@ -45,13 +45,13 @@ should be four Python source code files with the extension `.py`.
 
     * See :ref:`install_dlls`
 
-5. Configure firewall to allow for message passing between the three 
-independent processes used in a coupled mode simulation.
+5. Configure the firewall to allow for message passing between the three
+   independent processes used in a coupled mode simulation.
 
     * `Open firewall ports <https://www.tomshardware.com/news/how-to-open-firewall-ports-in-windows-10,36451.html>`_ 
 
-    * There are three ports that need to be opened. One port for each
-      message passing queue.
+    * There are three firewall ports that need to be opened. One port 
+      for each message passing queue.
 
         1. To HSPF queue
 

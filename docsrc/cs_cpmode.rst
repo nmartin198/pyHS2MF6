@@ -3,7 +3,7 @@
 Coupled Mode Simulation and Results
 ====================================
 
-**pyHS2MF6** was created for coupled mode simulations. The 
+**pyHS2MF6** was created for coupled mode simulation. The 
 :ref:`standalone_HSPF` and :ref:`standalone_MF6` were modified so that
 they could be used together as part of a dynamically coupled 
 simulation. Dynamic coupling, here, refers to information and water
@@ -43,8 +43,12 @@ The external time series that provides for spring discharge, or baseflow,
 to Reach #5 (see **Figure** :ref:`fig_cs_sahspf_calib`) needs to be removed 
 from the HSPF input file. In coupled mode, the simulated spring discharge 
 from from Dolan Springs and YR-70-01-701 (see **Figure** 
-:ref:`fig_cs_focused_ws`) from the MODFLOW 6 are provided to Reach #5 in 
+:ref:`fig_cs_focused_ws`) from the MODFLOW 6 model are provided to Reach #5 in 
 the HSPF model as transferred water as part of the dynamic coupling.
+
+The Jupyter Notebook `mHSP2_Mods_SAtoCP <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_Mods_SAtoCP.ipynb>`_ 
+provides an example of removing an external time series inflow from 
+a **mHSP2** input file.
 
 |
 
@@ -58,7 +62,7 @@ required to facilitate coupling. This is not surprising as MODFLOW 6
 uses a three-dimensional, computational grid and provides a suite 
 of stress and advanced stress packages for simulating many different 
 processes. Consequently, a MODFLOW 6 model is relatively complex and 
-requires relatively more effort to prepare it for coupled mode simulation.
+requires relatively more effort to prepare for coupled mode simulation.
 
 In **pyHS2MF6** only the :abbr:`UZF (Unsaturated Zone Flow)` Package 
 cells can receive water from the HSPF model. There are two types of 
@@ -77,7 +81,7 @@ cells.
    routed to a different destination. 
 
    * One exit must be identified as part of the specifications in the 
-     :ref:`cp_spat_map` for each RCHRES which provides for losses 
+     :ref:`cp_spat_map` for each RCHRES which generates losses 
      to groundwater. And, normally one exit is identified to the HSPF 
      model, using mass links and schematic blocks in the HSPF inputs, 
      for routing of water to the next operations structure downstream.
@@ -85,7 +89,7 @@ cells.
    * In this example model, a volume-based relationship, or FTAB, is 
      calibrated to calculate losses to groundwater from Reach #1 - #4.
      Reach #5 coincides with Fort Terrett outcrop and so this reach is 
-     treated as gaining only. The losses to groundwater for these four 
+     treated as gaining, only. The losses to groundwater for these four 
      reaches are then a calculated HSPF model solution quantity which 
      leaves the HSPF model. 
    
@@ -130,7 +134,7 @@ MODFLOW 6 model.
 
 An example input file, 
 `LOCA_In.dat <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/LOCA_In.dat>`_, 
-is availabe in the example models section of the GitHub respository. An 
+is available in the example models section of the GitHub respository. An 
 overview of the required structure of the input file is as follows.
 
 * `#` at the start of the line denotes a comment line which is ignored 
@@ -152,7 +156,7 @@ overview of the required structure of the input file is as follows.
     :alt: pyHS2MF6 input file example
     :figclass: align-center 
 
-    **Example pyHS2MF6 Input File**
+    **Example pyHS2MF6 input file**
 
 |
 
@@ -190,8 +194,8 @@ Three different mapping files need to be provided to **pyHS2MF6**.
     * Example `cpWS_Springs.pickle <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/coupled/>`_
 
 One example of the creation of these three files is provided in the 
-`TestModels_ConverttoCoupled_2 Jupyter Notebook 
-<https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/>`_.
+Jupyter Notebook `pyHS2MF6_Create_Spatial_Mapping  
+<https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb>`_.
 This Jupyter Notebook also provides definition of the Python objects that 
 need to compose these input files. The mapping files are saved as 
 `pickle files <https://docs.python.org/3.7/library/pickle.html>`_ which 
@@ -242,7 +246,7 @@ results and the gage record.
 
 .. note:: As stated earlier, an actual scientific model application to the study 
    site would likely involve calibration to observed water level elevations 
-   in wells. This was not done for this case study because of time limitations 
+   in wells. This was not done for this case study because of time limitations,  
    but **pyHS2MF6** will support joint calibration to stream gage records 
    and observed well water level elevations.
 
@@ -277,7 +281,7 @@ and to four custom, **pyMF6**
 `pickle files <https://docs.python.org/3.7/library/pickle.html>`_.
 
 The Jupyter Notebook 
-`TestModels_Coupled-Results <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/>`_ 
+`pyHS2MF6_Coupled_Results_Example <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Coupled_Results_Example.ipynb>`_ 
 provides an example of processing these custom outputs. Additionally, 
 this notebook provides definition of the the custom output structures. 
 This notebook can be used as a template or building block for processing 
@@ -307,7 +311,7 @@ as hydrologic soil type A (see **Figure** :ref:`fig_cs_watershed`).
 
 
 .. _fig_cs_pyHS2MF6_cpInfilt:
-.. figure:: ./images/MF6_CP_H2Infilt.png 
+.. figure:: ./images/MF6_CP_H2Infilt.svg 
     :width: 800px
     :align: center
     :alt: Simulated infiltration rates

@@ -17,14 +17,14 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.1. Coupled Model Controller and Queue Server" href="cpcontroller.html" />
-    <link rel="prev" title="3. Coupled Mode Example Model" href="case_study.html" /> 
+    <link rel="prev" title="3.4. Coupled Mode Simulation and Results" href="cs_cpmode.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="case_study.html" title="3. Coupled Mode Example Model"
+          <a href="cs_cpmode.html" title="3.4. Coupled Mode Simulation and Results"
              accesskey="P">previous</a> |
           <a href="cpcontroller.html" title="4.1. Coupled Model Controller and Queue Server"
              accesskey="N">next</a> |
@@ -50,7 +50,26 @@
 <span id="code-doc"></span><h1><span class="section-number">4. </span>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h1>
 <p>The code base is composed of two independent programs and a coupled model
 and message passing queue management framework. The two programs and the
-manager all execute in independent processes.</p>
+manager all execute in independent processes. <strong>Figure</strong>
+<a class="reference internal" href="#fig-cd-3procframe"><span class="std std-ref">pyHS2MF6 framework and queues</span></a> provides a schematic showing the interaction of
+the three independent processes and the components of the coupled
+controller and queue server.</p>
+<ul class="simple">
+<li><p>One independent program is <strong>mHSP2</strong> which provides a Python variant of
+<abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr>.</p></li>
+<li><p>The other program is <strong>pyMF6</strong> which provides a Python-wrapped version
+of MODFLOW 6.</p></li>
+</ul>
+<div class="align-center figure" id="id1">
+<span id="fig-cd-3procframe"></span><a class="reference internal image-reference" href="_images/Fig_04-ProcFramework.svg"><img alt="pyHS2MF6 Coupling Framework" src="_images/Fig_04-ProcFramework.svg" width="1000px" /></a>
+<p class="caption"><span class="caption-text"><strong>pyHS2MF6 framework and queues</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="toctree-wrapper compound" id="codedoctoc">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cpcontroller.html">4.1. Coupled Model Controller and Queue Server</a><ul>
@@ -117,7 +136,7 @@ manager all execute in independent processes.</p>
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="case_study.html" title="3. Coupled Mode Example Model"
+            <a href="cs_cpmode.html" title="3.4. Coupled Mode Simulation and Results"
               >previous</a> |
             <a href="cpcontroller.html" title="4.1. Coupled Model Controller and Queue Server"
               >next</a> |

@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta content="pyHS2MF6: a dynamically coupled, HSPF and MODFLOW 6 integrated hydrologic model " name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta content="pyHS2MF6: a dynamically coupled, HSPF and MODFLOW 6, integrated hydrologic model " name="description" />
 <meta content="pyHS2MF6, HSPF, MODFLOW 6, integrated hydrologic model, mHSPF, pyMF6" name="keywords" />
 
     <title>Welcome to the pyHS2MF6 documentation &#8212; pyHS2MF6 0.1.1 documentation</title>
@@ -47,50 +47,57 @@
             
   <div class="section" id="welcome-to-the-pyhs2mf6-documentation">
 <h1>Welcome to the pyHS2MF6 documentation<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
-<p>pyHS2MF6 is an integrated hydrologic model created using a dynamic
+<p><strong>pyHS2MF6</strong> is an integrated hydrologic model created using a dynamic
 coupling of <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr>
 and MODFLOW 6 in Python. The coupling is dynamic because
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW
 6 exchange information during each simulation time step. At this time,
-pyHS2MF6 can only use and simulate the basic water movement and storage
+<strong>pyHS2MF6</strong> can only use and simulate the basic water movement and storage
 processes in <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and
 MODFLOW.</p>
-<p>A fundamental goal in the design of pyHS2MF6 was to provide for the
+<p>A fundamental goal in the design of <strong>pyHS2MF6</strong> was to provide for the
 ability to build on existing, independently created,
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW
-models. Consequently, pyHS2MF6 provides two simulation modes.</p>
+models. Consequently, <strong>pyHS2MF6</strong> provides two simulation modes.</p>
 <ol class="arabic simple">
 <li><p><strong>Coupled mode</strong>: Main simulation mode with dynamically coupled
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> and MODFLOW 6</p></li>
 <li><p><strong>Standalone mode</strong>: Included purely so that the user can check or
 verify the function of the independent, existing model (either
-HSPF or MODFLOW 6) in pyHS2MF6. It is not recommended to use
-pyHS2MF6 standalone mode in place of just using
+HSPF or MODFLOW 6) in <strong>pyHS2MF6</strong>. It is not recommended to use
+<strong>pyHS2MF6</strong> standalone mode in place of just using
 <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr> or just
 using MODFLOW 6.</p></li>
 </ol>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<div class="align-center figure" id="id1">
+<span id="fig-graphical-abs"></span><a class="reference internal image-reference" href="_images/Fig_01-ConcepCouple.svg"><img alt="pyHS2MF6 Coupling of HSPF and MODFLOW 6" src="_images/Fig_01-ConcepCouple.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>pyHS2MF6 coupling of HSPF and MODFLOW 6</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Please see <a class="reference internal" href="getting_started.html#getting-started"><span class="std std-ref">Getting Started with pyHS2MF6</span></a> before trying to
-install and run pyHS2MF6.</p>
+install and run <strong>pyHS2MF6</strong>.</p>
 <p>It is recommended to at least browse through the <a class="reference internal" href="case_study.html#case-study"><span class="std std-ref">Coupled Mode Example Model</span></a>
-before trying to apply pyHS2MF6 to a specific site.</p>
+before trying to apply <strong>pyHS2MF6</strong> to a specific site.</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>pyHS2MF6 is available for free under the
+<p><strong>pyHS2MF6</strong> is available for free under the
 <a class="reference external" href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License version 3</a>
 and without warranty or support.</p>
 <ul class="simple">
 <li><p>Technical support can be arranged, if desired.</p></li>
-<li><p>pyHS2MF6 builds upon and extends two independent models and provides for dynamic information
-exchange between the models. As a result, pyHS2MF6 configuration, implementation,
+<li><p><strong>pyHS2MF6</strong> builds upon and extends two independent models and provides for dynamic information
+exchange between the models. As a result, <strong>pyHS2MF6</strong> configuration, implementation,
 and use requires a number of prerequisites.</p></li>
 </ul>
 </div>

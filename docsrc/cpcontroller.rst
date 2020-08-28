@@ -4,9 +4,9 @@ Coupled Model Controller and Queue Server
 ==========================================
 
 The coupled model controller and queue server also includes the main 
-functionality to run each of mHSP2 and pyMF6 in standalone mode. Standalone 
-mode is really only for model checking and verification. Consequently, the
-focus of this component is on coupled model simulations.
+functionality to run each of **mHSP2** and **pyMF6** in standalone mode.
+Standalone mode is really only for model checking and verification. 
+Consequently, the focus of this component is on coupled model simulations.
 
 
 .. toctree::

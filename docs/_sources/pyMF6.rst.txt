@@ -6,16 +6,37 @@ pyMF6
 **pyMF6** is a Python-wrapped version of 
 `MODFLOW 6 <https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model>`_
 created specifically for coupled simulation with HSPF. **pyMF6** provides 
-the full functionality of MODFLOW 6 because it references all of the MODFLOW 6
+the full functionality of `MODFLOW 6 <https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model>`_ 
+because it references all of the 
+`MODFLOW 6 <https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model>`_ 
 source code.
 
-For coupled simulation with **pyMF6**, four extended types are available 
-to the coupled program to provide for passing an array into MODFLOW 6 from 
-the independent, external **mHSP2** process and to provide for sending an array 
+For coupled simulation with **pyMF6**, four extended types, or objects, are available 
+to the coupled program. **Figure** :ref:`fig_cd_pyMF6_new_types` shows the Python-
+wrapping methodology along with the extended types added to the source code. The 
+purpose of the extended objects or types is to provide for passing an array into 
+`MODFLOW 6 <https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model>`_ 
+from the independent, external **mHSP2** process and to provide for sending an array 
 from **pyMF6** to the **mHSP2** process.
 
 The passing of these arrays provides for the dynamic simulation capabilities 
 in **pyHS2MF6**.
+
+|
+
+.. _fig_cd_pyMF6_new_types:
+
+.. figure:: ./images/Fig_05-pyMF6_Structure_Reorg.svg
+    :width: 1000px
+    :align: center
+    :alt: pyMF6 Extended Types
+    :figclass: align-center 
+
+    **pyMF6 Python-wrapping and extended types**
+
+|
+
+|
 
 
 .. toctree::

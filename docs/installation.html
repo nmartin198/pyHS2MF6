@@ -48,39 +48,43 @@
             
   <div class="section" id="installation">
 <span id="id1"></span><h1><span class="section-number">2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>pyHS2MF6 installation and configuration includes a number of steps, which
-are enumerated below.</p>
-<p>1. Obtain or download the pyHS2MF6 directories and files from the GitHub site
+<p><strong>pyHS2MF6</strong> installation and configuration includes a number of steps,
+enumerated below.</p>
+<ol class="arabic">
+<li><p>Obtain or download the <strong>pyHS2MF6</strong> directories and files from the GitHub site
 as a zip file archive.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Unzip this file to a local directory on the computer where you will
-run pyHS2MF6.</p></li>
+run <strong>pyHS2MF6</strong>.</p></li>
 <li><p>In the remainder of these instructions this directory is referred
 to as the <cite>pyHS2MF6</cite> directory. The <cite>pyHS2MF6</cite> directory should
 have the structure shown below.</p></li>
 </ul>
 </div></blockquote>
+</li>
+</ol>
 <div class="figure align-center" id="id2">
 <span id="fig-dir-struct"></span><img alt="pyHS2MF6 directory structure" src="_images/pyHS2MF6_dir_structure.png" />
-<p class="caption"><span class="caption-text">pyHS2MF6 GitHub archive directory structure</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>pyHS2MF6 GitHub archive directory structure</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>2. The <cite>pyHS2MF6\bin</cite> directory contains the executable files or
+<ol class="arabic" start="2">
+<li><p>The <cite>pyHS2MF6\bin</cite> directory contains the executable files or
 program files that comprise the program. In the <cite>bin</cite> root there
 should be four Python source code files with the extension <cite>.py</cite>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>The <cite>pyHS2MF6\bin\mHSP2</cite> folder contains eight Python source code
-files that compose the mHSP2 program.</p></li>
+<li><p>The <cite>pyHS2MF6\bin\mHSP2</cite> folder contains the eight Python source
+code files that compose the mHSP2 program.</p></li>
 <li><p><cite>pyHS2MF6\bin\pyMF6</cite> folder contains three Python source code files
 and two dynamic-link library (DLL) files. One file has a <cite>.dll</cite>
 extension and the other has a <cite>.pyd</cite> extension.</p></li>
 </ul>
 </div></blockquote>
-<ol class="arabic" start="3">
+</li>
 <li><p>Install and configure the Python 3 interpreter</p>
 <blockquote>
 <div><ul class="simple">
@@ -95,14 +99,13 @@ extension and the other has a <cite>.pyd</cite> extension.</p></li>
 </ul>
 </div></blockquote>
 </li>
-</ol>
-<p>5. Configure firewall to allow for message passing between the three
+<li><p>Configure the firewall to allow for message passing between the three
 independent processes used in a coupled mode simulation.</p>
 <blockquote>
 <div><ul>
 <li><p><a class="reference external" href="https://www.tomshardware.com/news/how-to-open-firewall-ports-in-windows-10,36451.html">Open firewall ports</a></p></li>
-<li><p>There are three ports that need to be opened. One port for each
-message passing queue.</p>
+<li><p>There are three firewall ports that need to be opened. One port
+for each message passing queue.</p>
 <blockquote>
 <div><ol class="arabic">
 <li><p>To HSPF queue</p>
@@ -149,6 +152,8 @@ is set by the user for queue access.</p>
 </div></blockquote>
 </div>
 </div></blockquote>
+</li>
+</ol>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

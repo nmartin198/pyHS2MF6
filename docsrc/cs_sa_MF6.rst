@@ -37,6 +37,14 @@ was created with seven computational layers covering the areal extent shown on
 for each layer. The computational grid was created using the `USGS GridGen 
 program <https://www.usgs.gov/software/gridgen-a-program-generating-unstructured-finite-volume-grids>`_.
 
+|
+
+.. caution:: The DISV-style grid is the only MODFLOW 6 grid option 
+   supported for coupled mode simulation. All MODFLOW 6 grid 
+   configurations are supported for standalone mode simulation.
+
+
+|
 
 .. _fig_cs_samf6_units:
 .. figure:: ./images/MF6_SA_TASurfEl.png 
@@ -54,8 +62,8 @@ The seven computational layers are used to represent four different
 layer is flat and cells are inactivated to form depressions for stream 
 valleys and dry arroyos. This effect can be seen in the color patterns
 denoting the valley bottoms in **Figure** :ref:`fig_cs_samf6_units`. 
-**Table** :ref:`tab_mf6_layers` provides the computational layer 
-characteristics along with the HSU that each layer represents.
+**Table** :ref:`tab_mf6_layers` provides the HSU and computational layer 
+characteristics for each layer.
 
 |
 
@@ -153,9 +161,10 @@ only represents water in Reaches #1 - #4 associated with rainfall.
 
 It is important to provide this daily, time-series forcing in semi-arid 
 environments in order to facilitate configuration of the Newton-Raphson
-solver formulation. The Newton-Raphson solver will provide a better
-representation of the dynamic water table movements expected for the
-semi-arid, karst terrain study site.
+solver formulation and the :abbr:`UZF (Unsaturated Zone Flow)` wave sets.
+The Newton-Raphson solver will provide a better representation of the 
+dynamic water table movements expected for the semi-arid, karst terrain 
+study site.
 
 |
 
@@ -172,7 +181,7 @@ YR-70-01-701 (see **Figure** :ref:`fig_cs_focused_ws`).
 .. note:: All of the standard MODFLOW 6 capabilities are available in 
   **pyMF6**. For a *real* modeling study, the MODFLOW 6 model would also
   be calibrated to observed water levels in wells. This would be done 
-  with whatever means is preferred by the modeller and could include
+  with whatever means is preferred by the modeler and could include
   PEST or other automated, parameter estimation tool.
 
 |

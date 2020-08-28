@@ -4,10 +4,12 @@
 Install a Compiler and Build DLLs
 ==================================
 
-Two dynamic-link library (DLL) files are required for pyHS2MF6 operation. 
+Two dynamic-link library (DLL) files are required for **pyHS2MF6** operation. 
 The installation and compilation discussion is presented for use on 
 Windows operating systems. These instructions can easily be adapted 
 for use on Linux operating systems.
+
+|
 
 .. note:: On a Linux system, these two DLL files would be dynamic load 
     library, `so`, files.
@@ -75,6 +77,7 @@ To obtain, GFortran as part of `MinGW <http://www.mingw.org/>`_ :
 
 * `Install 64-bit MinGW <http://mingw-w64.org/doku.php/download>`_
 
+|
 
 .. caution:: Be sure to add the `bin` directory from the MinGW installation to
     your PATH environment variable before continuing to the next steps.
@@ -102,7 +105,7 @@ configuration item that seems to be required to have Python and
 compiler. The user needs to create a 
 `pydistutils.cfg <https://www.scivision.dev/f2py-fortran-python-windows/>`_ 
 file in their home directory. The contents of the `pydistutils.cfg` file 
-should be ::
+should be: ::
 
     [build]
     compiler=mingw32
@@ -152,11 +155,10 @@ code files.
    to `C:\\mf6.1.1\\make`
 
     * This is a modified version of the file `C:\\mf6.1.1\\make\\makefile`. 
-      The modifications are so that the result is a DLL instead of an 
-      EXE and so that modified file uses DOS commands instead of 
-      UNIX commands.
+      The modifications result in a DLL instead of an EXE, and the modified 
+      makefile uses DOS commands instead of UNIX shell commands.
 
-    * If you would like to make a modified make file for Linux, just 
+    * If you would like to make a modified makefile for Linux, just 
       compare the `C:\\mf6.1.1\\make\\makefile` and 
       `C:\\mf6.1.1\\make\\modmakefile` and the required modifications 
       should be identifiable.
@@ -171,7 +173,7 @@ code files.
     (pyhs2mf6) C:\mf6.1.1\make >
 
 6. Create the DLL file, `C:\\mf6.1.1\\make\\mf6.dll`, using the MODFLOW 6 source 
-   code, four of source code files in `cp_Modules`, and `modmakefile`. ::
+   code, four of the source code files in `cp_Modules`, and `modmakefile`. ::
 
     (pyhs2mf6) C:\mf6.1.1\make > mingw32-make.exe --makefile=modmakefile all 
 

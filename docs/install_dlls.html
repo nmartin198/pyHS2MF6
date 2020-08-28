@@ -48,10 +48,13 @@
             
   <div class="section" id="install-a-compiler-and-build-dlls">
 <span id="install-dlls"></span><h1><span class="section-number">2.2. </span>Install a Compiler and Build DLLs<a class="headerlink" href="#install-a-compiler-and-build-dlls" title="Permalink to this headline">¶</a></h1>
-<p>Two dynamic-link library (DLL) files are required for pyHS2MF6 operation.
+<p>Two dynamic-link library (DLL) files are required for <strong>pyHS2MF6</strong> operation.
 The installation and compilation discussion is presented for use on
 Windows operating systems. These instructions can easily be adapted
 for use on Linux operating systems.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On a Linux system, these two DLL files would be dynamic load
@@ -123,6 +126,9 @@ the linux distribution package manager.</p>
 <li><p><a class="reference external" href="http://www.mingw.org/wiki/Install_MinGW">Install 32-bit MinGW</a></p></li>
 <li><p><a class="reference external" href="http://mingw-w64.org/doku.php/download">Install 64-bit MinGW</a></p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>Be sure to add the <cite>bin</cite> directory from the MinGW installation to
@@ -148,7 +154,7 @@ configuration item that seems to be required to have Python and
 compiler. The user needs to create a
 <a class="reference external" href="https://www.scivision.dev/f2py-fortran-python-windows/">pydistutils.cfg</a>
 file in their home directory. The contents of the <cite>pydistutils.cfg</cite> file
-should be</p>
+should be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="p">]</span>
 <span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span>
 </pre></div>
@@ -200,10 +206,9 @@ to <cite>C:\mf6.1.1\make</cite></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>This is a modified version of the file <cite>C:\mf6.1.1\make\makefile</cite>.
-The modifications are so that the result is a DLL instead of an
-EXE and so that modified file uses DOS commands instead of
-UNIX commands.</p></li>
-<li><p>If you would like to make a modified make file for Linux, just
+The modifications result in a DLL instead of an EXE, and the modified
+makefile uses DOS commands instead of UNIX shell commands.</p></li>
+<li><p>If you would like to make a modified makefile for Linux, just
 compare the <cite>C:\mf6.1.1\make\makefile</cite> and
 <cite>C:\mf6.1.1\make\modmakefile</cite> and the required modifications
 should be identifiable.</p></li>
@@ -221,7 +226,7 @@ the active directory <cite>C:\mf6.1.1\make</cite>.</p>
 </div>
 </li>
 <li><p>Create the DLL file, <cite>C:\mf6.1.1\make\mf6.dll</cite>, using the MODFLOW 6 source
-code, four of source code files in <cite>cp_Modules</cite>, and <cite>modmakefile</cite>.</p>
+code, four of the source code files in <cite>cp_Modules</cite>, and <cite>modmakefile</cite>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">1.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">mingw32</span><span class="o">-</span><span class="n">make</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">makefile</span><span class="o">=</span><span class="n">modmakefile</span> <span class="nb">all</span>
 </pre></div>
 </div>
