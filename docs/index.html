@@ -23,7 +23,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="#">pyHS2MF6</a></div>
+          href="#">pyHS2MF6 0.1.1 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="getting_started.html" title="1. Getting Started with pyHS2MF6"
              accesskey="N">next</a> |
@@ -46,7 +46,7 @@
           <div class="body" role="main">
             
   <div class="section" id="welcome-to-the-pyhs2mf6-documentation">
-<h1>Welcome to the pyHS2MF6 documentation<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to the pyHS2MF6 0.1.1 documentation<a class="headerlink" href="#welcome-to-the-pyhs2mf6-documentation" title="Permalink to this headline">¶</a></h1>
 <p><strong>pyHS2MF6</strong> is an integrated hydrologic model created using a dynamic
 coupling of <abbr title="Hydrological Simulation Program – FORTRAN">HSPF</abbr>
 and MODFLOW 6 in Python. The coupling is dynamic because
@@ -76,6 +76,15 @@ using MODFLOW 6.</p></li>
 <span id="fig-graphical-abs"></span><a class="reference internal image-reference" href="_images/Fig_01-ConcepCouple.svg"><img alt="pyHS2MF6 Coupling of HSPF and MODFLOW 6" src="_images/Fig_01-ConcepCouple.svg" width="800px" /></a>
 <p class="caption"><span class="caption-text"><strong>pyHS2MF6 coupling of HSPF and MODFLOW 6</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
+<p>In <strong>Figure</strong> <a class="reference internal" href="#fig-graphical-abs"><span class="std std-ref">pyHS2MF6 coupling of HSPF and MODFLOW 6</span></a> arrows are shown representing
+flow downwards from HSPF to MODFLOW 6. The spatial mapping component
+translates between the HSPF lumped parameter representation of watersheds
+and stream segments, represented with a single arrow in the diagram, and
+the three-dimensional, computational grid representation of MODFLOW 6,
+represented with multiple arrows in the diagram. pyHS2MF6 simulates
+and accounts for flows in both directions: 1) from HSPF to MODFLOW 6
+and 2) from MODFLOW6 to HSPF. Rendering all flow arrows and arrows in
+both directions would make the diagram too busy for interpretation.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

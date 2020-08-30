@@ -31,6 +31,13 @@ structural modification.
 
     **mHSP2 structural modifications**
 
+**Figure** :ref:`fig_cd_mHSP2_struct_mod` panel A), HSPF uses an operating 
+module instance loop as the outermost calculation loop. Panel B) In mHSP2, 
+the simulation time loop is the outermost simulation loop. For coupling, 
+the simulation time must be the outermost calculation loop so that 
+information from and for all operating module instances can be passed 
+to or received from MODFLOW 6.
+
 |
 
 |

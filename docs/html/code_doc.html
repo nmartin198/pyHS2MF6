@@ -60,10 +60,15 @@ controller and queue server.</p>
 <li><p>The other program is <strong>pyMF6</strong> which provides a Python-wrapped version
 of MODFLOW 6.</p></li>
 </ul>
-<div class="align-center figure" id="id1">
+<div class="align-left figure" id="id1">
 <span id="fig-cd-3procframe"></span><a class="reference internal image-reference" href="_images/Fig_04-ProcFramework.svg"><img alt="pyHS2MF6 Coupling Framework" src="_images/Fig_04-ProcFramework.svg" width="1000px" /></a>
 <p class="caption"><span class="caption-text"><strong>pyHS2MF6 framework and queues</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
+<p>Coupled model simulation relies on three message passing queues to
+transmit information among <a class="reference internal" href="pyMF6.html#pymf6"><span class="std std-ref">pyMF6</span></a>, <a class="reference internal" href="mHSP2.html#mhsp2"><span class="std std-ref">mHSP2</span></a>, and the Coupled
+Controller and Queue Server. Spatial mapping, specified by the user as
+part of coupled model inputs, tells mHSP2 how to map to and from the
+MODFLOW 6 model grid.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

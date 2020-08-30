@@ -406,18 +406,6 @@ div.figure p.caption span.caption-number {
 div.figure p.caption span.caption-text {
 }
 
-table.docutils {
-    border: 1px solid #888;
-    -moz-box-shadow: 2px 2px 4px #EEE;
-    -webkit-box-shadow: 2px 2px 4px #EEE;
-    box-shadow: 2px 2px 4px #EEE;
-}
-
-table.docutils td, table.docutils th {
-    border: 1px solid #888;
-    padding: 0.25em 0.7em;
-}
-
 /* -- search page ----------------------------------------------------------- */
 
 ul.search {

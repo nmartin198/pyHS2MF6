@@ -28,11 +28,17 @@ in **pyHS2MF6**.
 
 .. figure:: ./images/Fig_05-pyMF6_Structure_Reorg.svg
     :width: 1000px
-    :align: center
+    :align: left
     :alt: pyMF6 Extended Types
-    :figclass: align-center 
+    :figclass: align-left 
 
     **pyMF6 Python-wrapping and extended types**
+
+**pyMF6** retains all MODFLOW 6 functionality, input structure, and 
+output formats. The only changes to MODFLOW 6 in **pyMF6** are wrapping 
+of subroutines and modules for access from Python modules and addition 
+of four extended types to provide for dynamic information sharing with 
+**mHSP2**.
 
 |
 

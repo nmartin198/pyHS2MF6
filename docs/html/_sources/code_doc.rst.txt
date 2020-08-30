@@ -23,11 +23,17 @@ controller and queue server.
 
 .. figure:: ./images/Fig_04-ProcFramework.svg
     :width: 1000px
-    :align: center
+    :align: left
     :alt: pyHS2MF6 Coupling Framework
-    :figclass: align-center 
+    :figclass: align-left 
 
     **pyHS2MF6 framework and queues**
+
+Coupled model simulation relies on three message passing queues to 
+transmit information among :ref:`pyMF6`, :ref:`mHSP2`, and the Coupled 
+Controller and Queue Server. Spatial mapping, specified by the user as 
+part of coupled model inputs, tells mHSP2 how to map to and from the 
+MODFLOW 6 model grid.
 
 |
 

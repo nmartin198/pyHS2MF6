@@ -42,9 +42,20 @@ models. Consequently, **pyHS2MF6** provides two simulation modes.
     :width: 800px
     :align: center
     :alt: pyHS2MF6 Coupling of HSPF and MODFLOW 6
-    :figclass: align-center 
+    :figclass: align-center
 
     **pyHS2MF6 coupling of HSPF and MODFLOW 6**
+
+In **Figure** :ref:`fig_graphical_abs` arrows are shown representing 
+flow downwards from HSPF to MODFLOW 6. The spatial mapping component 
+translates between the HSPF lumped parameter representation of watersheds 
+and stream segments, represented with a single arrow in the diagram, and 
+the three-dimensional, computational grid representation of MODFLOW 6, 
+represented with multiple arrows in the diagram. pyHS2MF6 simulates 
+and accounts for flows in both directions: 1) from HSPF to MODFLOW 6 
+and 2) from MODFLOW6 to HSPF. Rendering all flow arrows and arrows in 
+both directions would make the diagram too busy for interpretation.
+
 
 |
 
