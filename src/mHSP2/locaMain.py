@@ -542,10 +542,22 @@ def setParmsFlagsUCS( sim_delt, ucs, hdfType ):
         # end for target id
     # end of target key for
     # now can set the parameter values that need to be adjusted for
-    #    internal units
-    PLD.setDelT( sim_delt )
-    RR.setDelT( sim_delt )
-    IMP.setDelT( sim_delt )
+    #    internal units. Need to make sure that have the operator type
+    #    before calling
+    for ttKey in targKeys:
+        allTargIds = TARG_DICT[ ttKey ]
+        if len( allTargIds ) == 0:
+            continue
+        # end if
+        # now call the setup
+        if ttKey == TARG_PERVLND:
+            PLD.setDelT( sim_delt )
+        elif ttKey == TARG_RCHRES:
+            RR.setDelT( sim_delt )
+        elif ttKey == TARG_IMPLND:
+            IMP.setDelT( sim_delt )
+        # end if
+    # end for
     # also set the number of exits for each RCHRES. This is stored
     #   under GENERAL in UCS
     allTargIds = TARG_DICT[ TARG_RCHRES ]
@@ -831,13 +843,15 @@ def setOutputSave( ucs, hdfType ):
     return goodReturn
 
 
-def writeOutputs( hdfname, tIndex, hdfType ):
+def writeOutputs( hdfname, tIndex, hdfType, IsCoupled):
     """Write out the outputs at the end of the simulation.
 
     Args:
         hdfname (str): HDF5 file to output to
+        tIndex (pd.DateTimeIndex): time series index for outputs
         hdfType (int): type of HDF5 file; 0 == original format; 
                        1 == new format
+        IsCoupled (bool): is a coupled simulation?
 
     Returns:
         int: function status; success == 0
@@ -894,12 +908,15 @@ def writeOutputs( hdfname, tIndex, hdfType ):
             # end activity for
         # end type for
         # now do the coupled outputs
-        retStat = wCOuts( store, tIndex )
-        if retStat != 0:
-            # error
-            errMsg = "Issue writing coupled tracking arrays to file !!!"
-            CL.LOGR.error( errMsg )
-            return badReturn
+        if IsCoupled:
+            retStat = wCOuts( store, tIndex )
+            if retStat != 0:
+                # error
+                errMsg = "Issue writing coupled tracking arrays to file !!!"
+                CL.LOGR.error( errMsg )
+                return badReturn
+            # end check if
+        # end if coupled
     # end with and store closed
     # return
     return goodReturn
@@ -1133,11 +1150,10 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             CL.LOGR.error( errMsg )
             return badReturn
         # finally try to parse the exits and categories
-        exitList = [ 1 ]
         if cSMemsb:
+            exitList = list()
             if len( cSMemsb ) > 0:
                 strLister = cSMemsb.split(" ")
-                iCnt = 0
                 for sL in strLister:
                     try:
                         intSL = int( sL )
@@ -1149,14 +1165,11 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         CL.LOGR.error( errMsg )
                         return badReturn
                     # if made it here then add to our list
-                    if iCnt == 0:
-                        exitList[iCnt] = intSL
-                    else:
-                        exitList.append( intSL )
-                    # end if
-                    iCnt == 1
+                    exitList.append( intSL )
                 # end for exit and category
             # end if
+        else:
+            exitList = [ 1 ]
         # end if
         # add our values to our custom list
         massLinkD[intInd] = [ cTVol, cTGrpn, cTMemn, cFFactor, cSVol, 
@@ -1381,7 +1394,7 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
     for iI in range( sim_len ):
         # debugging outputs
         if iI == 0:
-            print("LOCA HSPF Start")
+            print("mHSP2 Start")
         elif iI % 365 == 0:
             print("Sim time: %s" % tIndex[iI].strftime( "%Y-%m-%d" ) )
         # get the current month
@@ -1436,7 +1449,7 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
         # end operation for
     # end time step for
     # now are ready to write out our outputs
-    retStat = writeOutputs( hdfname, tIndex, hdfTyper )
+    retStat = writeOutputs( hdfname, tIndex, hdfTyper, False )
     if retStat != 0:
         # some sort of error
         errMsg = "Issue writing outputs!!!"
@@ -2217,7 +2230,7 @@ if __name__ == "__main__":
         sys.exit( errMsg )
     # write our outputs
     # now are ready to write out our outputs
-    retStat = writeOutputs( hdfname, tIndex, hdfTyper )
+    retStat = writeOutputs( hdfname, tIndex, hdfTyper, True )
     if retStat != 0:
         # some sort of error
         errMsg = "Issue writing outputs!!!"

@@ -1,20 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: locaHyperwat.py
-   :platform: Windows, Linux
-   :synopsis: Replacement for HSP2 hperwat
+Replacement for *HSPsquared* hperwat which provides for water movement 
+and storage in pervious land segments, i.e. **PERLND**.
 
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
-
-Had to replace HSP2 hyperwat so that can break into the main time loop
-at the beginning and end of each day. This required fundamentally
+Had to replace HSPsquared hyperwat so that can break into the main time 
+loop at the beginning and end of each day. This required fundamentally
 restructuring the storage and memory allocation within HSP2.
 
-locaHyperwat functions as a module handling storage for global
-PERLND variables as well as for parameter and constant 
+*locaHyperwat* functions as a module handling storage for global
+**PERLND** variables as well as for parameter and constant 
 definitions.
 
-Internal time unit DELT60 is in hours for PERLND.
+Internal time unit, DELT60, is in hours for **PERLND**.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -34,11 +53,13 @@ ERRMSG = ['PWATER: Sum of irrtgt is not one',             #ERRMSG0
           'PWATER: Proute runoff did not converge',       #ERRMSG6
           'PWATER: UZI highly negative',                  #ERRMSG7
           'PWATER: Reset AGWS to zero']                   #ERRMSG8
-"""Defined error messages - can be used with errorsV for 
-error handling. Currently, these messages written to the 
-log file as errors when encountered."""
+"""Defined error messages - can be used with errorsV for error handling.
+
+Currently, these messages written to the log file as errors when 
+encountered.
+"""
 errorsV = np.zeros( len(ERRMSG), dtype=np.int32 )
-"""Error handling in liftedloop"""
+"""Error handling in liftedloop from original HSPF formulation."""
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # new module wide parameters
@@ -49,16 +70,16 @@ PARAM_GOOD = [ "AGWETP", "AGWRC", "BASETP", "CEPSC", "DEEPFR",
                "FOREST", "FZG", "FZGL", "INFEXP", "INFILD", "INFILT",
                "INTFW", "IRC", "KVARY", "LSUR", "LZETP", "LZSN", "NSUR",
                "PETMAX", "PETMIN", "SLSUR", "UZSN" ]
-"""Input, non-state parameters that are used in this implementation"""
+"""Input, non-state parameters that are used in mHSP2"""
 PARAM_UNUSED = [ "BELV", "DELTA", "GWDATM", "IFWSC", "LELFAC", "MELEV",
                  "PCW", "PGW", "SREXP", "SRRC", "STABNO", "UELFAC", 
                  "UPGW" ]
-"""Input parameters that unused in this implementation"""
+"""Input parameters that are unused or unsupported in mHSP2"""
 FLAG_GOOD = [ "CSNOFG", "ICEFG", "RTOPFG", "UZFG", "VCSFG", "VIFWFG", "VIRCFG",
               "VLEFG", "VNNFG", "VUZFG" ]
-"""Flags that at least referenced in this implementation"""
+"""Flags that are at least referenced in mHSP2"""
 FLAG_UNUSED = [ "HWTFG", "IFFCFG", "IFRDFG", "IRRGFG" ]
-"""Flags that completely unused in this implementation"""
+"""Flags that are completely unused and unsupported in mHSP2"""
 MON_PARAMS = [ "LZETPM", "CEPSCM", "INTFWM", "IRCM", "NSURM", "UZSNM" ]
 """Parameter names for values that can be specified as monthly"""
 MON_FLAGS = [ "VLEFG", "VCSFG", "VIFWFG", "VIRCFG", "VNNFG", "VUZFG" ]
@@ -79,14 +100,17 @@ INFLOW_TS_UNUSED = [ "GATMP", "DTMPG", "WINMOV", "SOLRAD", "CLOUD",
                      "NIADFX", "NIADCN", "PHADFX", "PHADCN", "TRADFX",
                      "TRADCN", "RAINF", "SNOCOV", "WYIELD", "PACKI",
                      "LGTMP" ]
-"""Unsupported inflow time series"""
+"""Unsupported inflow time series names"""
 GOOD_OUTPUT_LIST = [ "AGWET", "AGWI", "AGWO", "AGWS", "BASET", "CEPE", 
                      "CEPS", "GWVS", "IFWI", "IFWO", "IFWS", "IGWI",
                      "INFFAC", "INFIL", "LZET", "LZI", "LZS", "RPARM", 
                      "PERC", "PERO", "PERS", "PET", "PETADJ", "SUPY", 
                      "SURI", "SURO", "SURS", "TAET", "TGWS", "UZET", 
                      "UZI", "UZS" ]
-"""List of currently supported outputs"""
+"""List of currently supported time series outputs.
+
+These can be written to the HDF5 file at the end of simulation time.
+"""
 BAD_OUTPUT_LIST = [ "GWEL", "IRDRAW", "IRRAPP", "IRRDEM", "IRSHRT",
                     "RZWS", "SURET" ]
 """Currently unsupported outputs """
@@ -95,7 +119,7 @@ BAD_OUTPUT_LIST = [ "GWEL", "IRDRAW", "IRRAPP", "IRRDEM", "IRSHRT",
 DELT60 = None
 """Time step in hours to use in calculations"""
 IRRAPPV = np.zeros( 7, dtype=np.float64 )
-"""Irrigation paramater? - set to zeros so does not matter"""
+"""Irrigation paramater? - set to zeros so does not matter for logic."""
 IRRCEP = float( 0.0 )
 """Unknonwn parameter - set to zero so does not matter"""
 UZRA = np.array( [ 0.0, 1.25, 1.50, 1.75, 2.00, 2.10, 2.20, 2.25, 2.5, 4.0 ], 
@@ -143,40 +167,49 @@ HOLD_IFWK2 = None
 #   the UCI file
 # pwat-parm1
 CSNOFG = None
-"""Switch to turn on consideration of snow accumulation and melt"""
+"""Switch to turn on consideration of snow accumulation and melt.
+
+SNOW calculations are currently unsupported and so this switch is 
+hard coded to off.
+"""
 RTOPFG = None
-"""Flag to select algorithm for overland flow
+"""Flag to select the algorithm for overland flow.
+
 RTOPFG == 1 then overland flow done as in predeccesor models - HSPX, 
 ARM, and NPS. RTOPFG == 0 then a different algorithm is used."""
 UZFG = None
-"""UZFG selects the method for computing inflow to the upper zone
+"""UZFG selects the method for computing inflow to the upper zone.
+
 If UZFG is 1, upper zone inflow is computed in the same way as in 
 the predecessor models HSPX, ARM and NPS. A value of 0 results in 
 the use of a different algorithm, which is less sensitive to changes 
 in DELT
 """
 VLEFG = None
-"""Flag for monthly variation in lower zone ET parameter
+"""Flag for monthly variation in lower zone ET parameter.
+
 If 1 then the flag is on.
 """
 VCSFG = None
-"""Flag for monthly variation in interception storage capacity"""
+"""Flag for monthly variation in interception storage capacity."""
 VUZFG = None
-"""Flag for monthly variation in upper zone nominal storage"""
+"""Flag for monthly variation in upper zone nominal storage."""
 VNNFG = None
-"""Flag for monthly variation in Manning's n for overland flow"""
+"""Flag for monthly variation in Manning's n for overland flow."""
 VIFWFG = None
-"""Flag for monthly variation in interflow inflow parameter"""
+"""Flag for monthly variation in interflow inflow parameter."""
 VIRCFG = None
-"""Flag for monthly variation in interflow recession paramater"""
+"""Flag for monthly variation in interflow recession paramater."""
 # pwat-parm2
 FOREST = None
-"""FOREST is the fraction of the PLS which is covered by forest
+"""FOREST is the fraction of the PERLND which is covered by forest.
+
 This is only relevant if CSNOFG == 1 and then forest fraction will
-continue to transpire in winter.
+continue to transpire in winter. As SNOW is not supported, this is
+never relevant in the current mHSP2 implementation.
 """
 LZSN = None
-"""Lower soil zone nominal storage depth in inches"""
+"""Lower soil zone nominal storage depth in inches."""
 INFILT = None
 """Index to infiltration capacity of the soil, inches/invl"""
 LSUR = None
@@ -184,24 +217,32 @@ LSUR = None
 SLSUR = None
 """Slope of the assumed overland flow plane, ft/ft """
 KVARY = None
-"""Parameter that affects behavior of groundwater recession flow
+"""Parameter that affects behavior of groundwater recession flow.
+
 Purpose is to allow recession flow to be non-exponential in its
-decay time. Units are 1/in"""
+decay time. Units are 1/in."""
 KGWV = None
-"""Groundwater outflow recession parameter 1/day. Calculated
-from AGWRC."""
+"""Groundwater outflow recession parameter 1/day.
+
+Calculated internally from AGWRC."""
 AGWRC = None
 """Basic groundwater recession rate if KVARY is 0 and there is
-no inflow to groundwater. Defined as the rate of flow today 
-divided by the rate of flow yesterday. Units are 1/day"""
+no inflow to groundwater.
+
+Defined as the rate of flow today divided by the rate of flow 
+yesterday. Units are 1/day."""
 # pwat-parm3
 PETMAX = None
-"""Air temperature below which ET will be arbitrarily reduced
-Only used if CSNOFG == 1. Units are degrees Fahrenheit.
+"""Air temperature below which ET will be arbitrarily reduced.
+
+Only used if CSNOFG == 1. Units are degrees Fahrenheit. Not 
+supported in this implementation because SNOW is not available.
 """
 PETMIN = None
-"""Air temperature below which ET will be set to zero
-Only used if CSNOFG == 1. Units are degrees Fahrenheit.
+"""Air temperature below which ET will be set to zero.
+
+Only used if CSNOFG == 1. Units are degrees Fahrenheit. 
+Not supported in this implementation because SNOW is not available.
 """
 INFEXP = None
 """Exponent in infiltration equation, dimensionless.
@@ -211,11 +252,15 @@ INFILD = None
 """
 DEEPFR = None
 """Fraction of groundwater inflow which will enter deep and inactive 
-groundwater. Lost from the HSPF system.
+groundwater.
+
+This water is lost from the HSPF representation and is a model outflow. 
+In coupled mode simulations, this discharge is applied as specified 
+infiltration to the unsaturated zone flow (UZF) package in MODFLOW 6.
 """
 BASETP = None
 """Fraction of remaining potential ET which can be satisfied from baseflow
-or groundwater outflow
+or groundwater outflow.
 """
 AGWETP = None
 """Fraction of remaining potential ET which can be satistifed from 
@@ -229,31 +274,39 @@ UZSN = None
 """Upper zone nominal storage in inches
 """
 NSUR = None
-"""Manning's n for the assumed overland flow plane use English/Standard 
-units versions from tables.
+"""Manning's n for the assumed overland flow plane.
+
+Use English/Standard units versions from tables.
 """
 INTFW = None
 """Interflow inflow parameter, dimensionless.
 """
 IRC = None
-"""Interflow recession parameter
+"""Interflow recession parameter.
+
 Under zero inflow, the ratio of todays interflow outflow rate to 
 yesterday's rate. Units are 1/day
 """
 LZETP = None
-"""Lower zone ET parameter 
+"""Lower zone ET parameter.
+
 Index to the density of deep-rooted vegetation, dimensionless.
 """
 #pwat-parm5
 FZG = None
 """Parameter that adjusts for the effect of ice in the snow pack on
-infiltration when IFFCFG is 1. It is not used if IFFCFG is 2. Units
-are 1/inch
+infiltration when IFFCFG is 1.
+
+It is not used if IFFCFG is 2. Units are 1/inch. Not used in this 
+implementation because SNOW is not supported.
 """
 FZGL = None
 """Lower limit of INFFAC as adjusted by ice in the snow pack when IFFCFG
-is 1. If IFFCFG is 2, FZGL is the value of INFFAC when the lower layer temperature
-is at or below freezing. Dimensionless parameter
+is 1.
+
+If IFFCFG is 2, FZGL is the value of INFFAC when the lower layer temperature
+is at or below freezing. Dimensionless parameter, not used in this 
+implementation because SNOW is not supported.
 """
 #pwat-State1
 I_CEPS = None
@@ -287,7 +340,7 @@ UZSNM = None
 
 # Data and simulated time series
 AGWET = None
-""" AET from active groundwater, inches/ivld"""
+"""AET from active groundwater, inches/ivld"""
 AGWI = None 
 """Active groundwater inflow, inches/ivld"""
 AGWO = None 
@@ -311,8 +364,10 @@ IFWS = None
 IGWI = None 
 """Inflow to inactive groundwater, inches/ivld"""
 INFFAC = None 
-"""Factor to account for frozen ground
-Not currently implemented and always set to 1"""
+"""Factor to account for frozen ground.
+
+Not currently implemented because SNOW is not implemented and always 
+set to 1."""
 INFIL = None 
 """Infiltration to soil, inches/ivld"""
 LZET = None 
@@ -365,24 +420,33 @@ PETADJ = None
 
 
 def setDelT( sim_delt ):
-    """Set the pervious land delt for calculations
-    The delt is stored as a module wide global
+    """Set the pervious land delt for calculations.
 
-    Arguments:
+    The delt is stored as a module wide global. Also sets DELT60 
+    module-wide global. Once have this adjust the other module-wides 
+    that depend on this value to go to internal units
+
+    Args:
         sim_delt (float): overall simulation time step in minutes
 
-    Sets DELT60 module-wide global. Once have this adjust the other
-    module-wides that depend on this value to go to internal units
     """
     global DELT60, KGWV, AGWRC, INFILT, AGWRC, SPEC_DT
     # function
     DELT60 = sim_delt / 60.0
-    calcHelp = AGWRC.view( ( np.float64, len( AGWRC.dtype.names ) ) )
-    calcHelp2 = ( 1.0 - np.power( calcHelp[0,:], ( DELT60 / 24.0 ) ) ) 
-    KGWV[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
-    calcHelp = INFILT.view( ( np.float64, len( INFILT.dtype.names ) ) )
-    calcHelp2 = calcHelp[0,:] * DELT60 
-    INFILT[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
+    if AGWRC is None:
+        warnMsg = "No PERLND operators defined in model."
+        CL.LOGR.warning( warnMsg )
+    else:
+        calcHelp = AGWRC.view( ( np.float64, len( AGWRC.dtype.names ) ) )
+        calcHelp2 = ( 1.0 - np.power( calcHelp[0,:], ( DELT60 / 24.0 ) ) ) 
+        KGWV[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
+    if INFILT is None:
+        warnMsg = "No PERLND operators defined in model."
+        CL.LOGR.warning( warnMsg )
+    else:
+        calcHelp = INFILT.view( ( np.float64, len( INFILT.dtype.names ) ) )
+        calcHelp2 = calcHelp[0,:] * DELT60 
+        INFILT[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
     # return
     return
 
@@ -410,6 +474,7 @@ def setUpRecArrays( pwList, sim_len ):
     Args:
         pwList (list): list of IDs for this target type
         sim_len (int): number of output intervals in the simulation
+    
     """
     # imports
     # globals
@@ -566,12 +631,13 @@ def setPrecipTS( targID, npTS ):
     """Set the precipitation time series from one data set
     to one target.
 
+    SUPY is where precipitation is stored for calculations
+
     Args:
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
 
-    SUPY is where precipitation is stored for calculations
     """
     # imports
     # globals
@@ -585,16 +651,16 @@ def setPrecipTS( targID, npTS ):
 
 
 def setPETTS( targID, npTS ):
-    """Set the PET time series from one data set
-    to one target.
+    """Set the PET time series from one data set to one target.
+
+    PET is where pet is stored for calculations. Might be adjusted
+    by various activities.
 
     Args:
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
 
-    PET is where pet is stored for calculations. Might be adjusted
-    by various activities.
     """
     # imports
     # globals
@@ -608,7 +674,8 @@ def setPETTS( targID, npTS ):
 
 
 def setWSAreas( targID, area ):
-    """Set the watershed area to the global information structure
+    """Set the watershed area to the global information structure.
+
     Area is in acres
 
     Args:
@@ -799,19 +866,25 @@ def setStateParams( targID, tParam, pVal ):
 
 def configExternalTS( sim_len, TSMapList, AllTSDict ):
     """Transfer external time series from HDF5 input to module data
-    structures
+    structures.
 
     Args:
         sim_len (int): the length of the simulation
-        TSMapList (list): nested list with sublists, L, of time series 
-                            metadata for a particular target ID
-                           L[0] = time series type
-                           L[1] = time series ID
-                           L[2] = target ID
-        AllTSDict (dict): dictionary of time series by time series ID
     
+        TSMapList (list): nested list with sublists, L, of time series 
+        metadata for a particular target ID
+
+            0. time series type
+
+            1. time series ID
+
+            2. target ID
+
+        AllTSDict (dict): dictionary of time series by time series ID
+
     Returns:
-        
+        int: function status; 0 == success
+
     """
     # imports
     # global
@@ -965,7 +1038,7 @@ def setOutputControlFlags( targID, savetable, stTypes ):
         stTypes (list): keys or indexes to save
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -1018,7 +1091,7 @@ def configFlagsParams( targID, cFlagVals, allIndexes ):
         allIndexes (list): list of indexes for cFlagVals
     
     Return:
-        retStat (int): 0 == success
+        int: function status; 0 == success
     
     """
     # imports
@@ -1053,7 +1126,7 @@ def configFlagsParams( targID, cFlagVals, allIndexes ):
                 checkIndex = MON_FLAGS.index( fV )
                 monParamName = MON_PARAMS[ checkIndex ]
                 if monParamName in allIndexes:
-                    setMonthlyParams( monParamName, cFlagVals[monParamName] )
+                    setMonthlyParams( targID, monParamName, cFlagVals[monParamName] )
                 # end if
             # end if
         # end if
@@ -1111,13 +1184,17 @@ def configFlagsParams( targID, cFlagVals, allIndexes ):
 
 
 def getLatInflowByTypeTarget( targID, liType, iI ):
-    """Get a lateral inflow by type and target
+    """Get a lateral inflow by type and target for the specified time 
+    interval.
 
     Args:
         targID (str): target ID
         liType (str): lateral inflow type
         iI (int): current time index
 
+    Returns:
+        float: inflow rate for time interval
+    
     """
     global AGWLI, IFWLI, LZLI, SURLI, UZLI, LATIN_CONTROL
     global LAT_INFLOW_TS
@@ -1148,46 +1225,54 @@ def getLatInflowByTypeTarget( targID, liType, iI ):
 
 def pwater_liftedloop( iI, mon, targID ):
     """Modified version of liftedloop to do a single time step and
-    return to the main time loop. Module-wide recarrays are used
-    to store all results and calculation variables between
-    calls.
+    return to the main time loop.
+    
+    Module-wide recarrays are used to store all results and calculation 
+    variables between calls. Modified real number comparisons to be more 
+    numerically reliable.
 
-    Modified real number comparisons to be more numerically reliable.
-
-    Water supply to the ground surface, MSUPY, is the starting point:
+    Water supply to the ground surface, MSUPY, is the starting point 
+    for the calculation.
 
     1. MSUPY is divided into infiltration (infilt) to the Lower Zone 
         and potential direct runoff (PDRO)
+    
     2. Calculated Upper Zone Inflow (UZI) is taken out of PDRO and
         the remainder is available for interflow inflow (ifwi) and 
         potential surface storage (psur)
+    
     3. Interflow storage does not have a nominal capacity. Like
         active groundwater storage, interflow storage is adjusted
         by outflow and inflow but does not overflow. The recession
         in interflow outflow which is controlled by IRC which is
         the interflow recession parameter (1/day).
+    
     4. Percolation (perc) for Upper Zone to Lower Zone is calculated
         based on Upper Zone storage plus UZI and the uzs/uzsn
         being larger than lzs/lzsn
+    
     5. Inflow to the lower zone and active groundwater is infilt + 
         perc + lateral inflows (iperc). This is partitioned to Lower Zone
         percolation (lperc) which provides the Lower Zone inflow (lzi)
+    
     6. The remainder of total percolation (iperc) after removing
         lzi is groundwater water inflow (gwi) and is split between 
         active groundwater inflow (agwi) and inflow to inactive 
         groundwater (igwi)
+    
     7. IGWI is the DEEPFR percentage of gwi and leaves the soil 
         column and HSPF calculations.
+    
     8. There is no nominal storage limitation on active groundwater.
         Active groundwater outflow to baseflow is calculated using
         AGWRC and KVARY which essentially provide for delayed
         outflow rates and spread the outflow over time.
 
-    INTFW is the interflow inflow parameter (dimensionless)
+    * INTFW is the interflow inflow parameter (dimensionless)
     
-    ratio = max( 1.0001, ( intfw * pow( 2.0, lzrat ) ) )
+    * ratio = max( 1.0001, ( intfw * pow( 2.0, lzrat ) ) )
 
-    lzrat = lzs / lzsn 
+    * lzrat = lzs / lzsn 
 
     Args:
         iI (int): index of current time step (0 to (sim_len-1))
@@ -1195,9 +1280,9 @@ def pwater_liftedloop( iI, mon, targID ):
         targID (str): ID for recarray columns
 
     Returns:
-        errorCnt (int): count of the number of errors.
-                        Should be 0 but can use this to
-                        reference errorsV for error handling
+        int: count of the number of errors. Should generally be 0 
+            but used to reference errorsV for error handling
+    
     """
     # imports
     from copy import deepcopy
@@ -2016,10 +2101,14 @@ def proute( psur, rtopfg, delt60, dec, src, surs ):
         ans (np.array): calculation vector
 
     Returns:
-        ans (np.array): three item array, A, of return values
-                        A[0] = suro ; surface outflow
-                        A[1] = surs ; adjusted surface storage
-                        A[2] = err ; counter for errors encountered
+        np.array: three item array, ans, of return values
+        
+            0. suro ; surface outflow
+            
+            1. surs ; adjusted surface storage
+
+            2. err ; counter for errors encountered
+    
     """
     # import
     from math import pow
@@ -2189,7 +2278,7 @@ def writeOutputs( store, tIndex ):
         tIndex (pd.DateIndex): time index for the simulation
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -2333,14 +2422,14 @@ def writeOutputs( store, tIndex ):
 
 def getIGWIbyTargTS( iI, targID ):
     """Get IGWI, outflow to inactive groundwater for a specified target
-    and time step index
+    and time step index.
 
     Args:
         iI (int): current simulation day index, 0-based
         targID (str): current PERLND target
     
     Returns:
-        oVol (float): outflow to inactive groundwater in acre-ft/day
+        float: ovol, outflow to inactive groundwater in acre-ft/day
 
     """
     # globals
@@ -2358,7 +2447,7 @@ def getWatershedAreabyTarg( targID ):
         targID (str): current PERLND target
     
     Returns:
-        warea (float): watershed areas in acres
+        float: watershed areas in acres
 
     """
     # globals
@@ -2377,8 +2466,8 @@ def getNominalStorages( targID ):
         targID (str): current PERLND target
     
     Returns:
-        uzsn (float): upper zone nominal storage in inches
-        lzsn (float): lower zone nominal storage in inches
+        float: uzsn, upper zone nominal storage in inches
+        float: lzsn, lower zone nominal storage in inches
 
     """
     # globals
@@ -2392,15 +2481,15 @@ def getNominalStorages( targID ):
 
 def getCurrentStorages( iI, targID ):
     """Get the current storage values for this watershed in
-    inches
+    inches.
 
     Args:
         iI (int): time step index to extract the storage values
         targID (str): current PERLND target
     
     Returns:
-        uzs (float): upper zone current storage in inches
-        lzs (float): lower zone currernt storage in inches
+        float: uzs, upper zone current storage in inches
+        float: lzs, lower zone currernt storage in inches
 
     """
     # globals
@@ -2414,7 +2503,7 @@ def getCurrentStorages( iI, targID ):
 
 def setCurrentStorages( iI, targID, uzs, lzs ):
     """Set the current storage values for this watershed in
-    inches
+    inches.
 
     Args:
         iI (int): time step index to extract the storage values
@@ -2440,7 +2529,7 @@ def getPERObyTargTS( iI, targID ):
         targID (str): current PERLND target
 
     Return:
-        pero (float): total outflow in inches/day
+        float: pero, total outflow in inches/day
 
     """
     # global

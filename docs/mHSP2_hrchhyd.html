@@ -550,7 +550,7 @@ vol for exit 5</p>
 <dt id="locaHrchhyd.ORG_SSA_CALC">
 <code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ORG_SSA_CALC</code><em class="property"> = False</em><a class="headerlink" href="#locaHrchhyd.ORG_SSA_CALC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch to determine lookup table calculation metod.</p>
-<p>If true, yse the original auxil function to calculate surface area
+<p>If true, use the original auxil function to calculate surface area
 and depth from volume. If false use the np array lookup function
 interp.</p>
 </dd></dl>
@@ -965,10 +965,18 @@ comparisons to be more numerically reliable.</p>
 <li><p><strong>funct</strong> (<em>int</em>) – the value for combined type calculation switch</p></li>
 <li><p><strong>nexits</strong> (<em>int</em>) – number of exits</p></li>
 <li><p><strong>delts</strong> (<em>float</em>) – time step in seconds</p></li>
-<li><p><strong>convf</strong> (<em>int</em>) – flag - not supported now so should always be 0</p></li>
-<li><p><strong>colind</strong> (<em>np.array</em>) – Array for MAX_EXITS that has the multiplier and
-FTAB column value to use for each exit</p></li>
-<li><p><strong>outdgt</strong> (<em>np.array</em>) – Array for MAX_EXITS that has COLIND time series
+<li><p><strong>convf</strong> (<em>int</em>) – float multiplier - flag and values different from 1.0 not
+supported</p></li>
+<li><p><strong>colind</strong> (<em>np.array</em>) – Array for number of exits this RR that has a number
+identifying the ODFVFG calculation rule to use for this exit. If colind is
+0 there is no fN(Vol) component. If colind is positive integer then it is
+the value of column index in the FTAB table to use for fN(Vol) interpolation.
+If colind is negative then it needs to have the form of X.Y where this X.Y
+value is taken from a time series specified by the user. X denotes the first
+FTAB column to use and 0.Y dentoes the proportion for this X column. The fN(Vol)
+discharge is calculated, in this case, as (X column value * (1.0 - 0.Y ) ) +
+( X + 1 column value * 0.Y ).</p></li>
+<li><p><strong>outdgt</strong> (<em>np.array</em>) – Array for number of exits this RR that has COLIND time series
 for this time</p></li>
 <li><p><strong>ODGTF</strong> (<em>np.array</em>) – flag for whether to use outdgt which should be
 MAX_EXITS</p></li>
@@ -1315,7 +1323,7 @@ to one target and exit number.</p>
 <li><p><strong>targID</strong> (<em>str</em>) – the target identifier - must be same as used
 to create the rec array</p></li>
 <li><p><strong>npTS</strong> (<em>np.array</em>) – 1D array with the time series values</p></li>
-<li><p><strong>nExit</strong> (<em>int</em>) – the exit number</p></li>
+<li><p><strong>nExit</strong> (<em>int</em>) – the COLIND index number for this RR</p></li>
 </ul>
 </dd>
 </dl>
@@ -1450,7 +1458,7 @@ to one target and exit number.</p>
 <li><p><strong>targID</strong> (<em>str</em>) – the target identifier - must be same as used
 to create the rec array</p></li>
 <li><p><strong>npTS</strong> (<em>np.array</em>) – 1D array with the time series values</p></li>
-<li><p><strong>nExit</strong> (<em>int</em>) – the exit number</p></li>
+<li><p><strong>nExit</strong> (<em>int</em>) – the ODGTFG index number for this RR</p></li>
 </ul>
 </dd>
 </dl>

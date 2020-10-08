@@ -1,41 +1,62 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3
 """
-.. module:: locaMain.py
-   :platform: Windows, Linux
-   :synopsis: Replacement for HSP2 main
+The main block for mHSP2 which is a replacement for *HSPsquared* main.
 
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
-
-HSP2 was completely modified and rearranged to create a main time loop
-with a sub-loop of operations/targets. The original HSPF logic is
-a main-loop of operations/targets and then a sub-loop for each target 
-that is the time loop. Consequently, the time loop is run completely
-for each operation and target.
+*HSPsquared* (HSP2) was completely modified and rearranged to create a 
+main time loop with a sub-loop of operations/targets. The original HSPF 
+logic is a main-loop of operations/targets and then a sub-loop for each
+target that is the time loop. Consequently, the time loop is run 
+completely for each operation and target.
 
 To couple HSPF to MODFLOW6, need to be able to break into the time loop
 at the beginning of each day. This Python module provides the replacement
 for HSP2\main.py for coupling to MODFLOW 6. There are two main time loop
 versions within this module. The user controls which version is run by
-executing coupledMain.py or standaloneMain.py. Both "mains" use functions
-within this module. Function "salocaMain" is for standalone execution,
-and functions "setUPPreTL" and "mainTL" are for coupled (to MODFLOW6)
-execution.
+executing ``..\coupledMain.py`` or ``..\standaloneMain.py.`` Both "mains" 
+use functions within this module. Function *salocaMain* is for standalone 
+execution, and functions *setUPPreTL* and *mainTL* are for coupled 
+(to MODFLOW 6) execution.
 
 The message passing queue functions are only used when coupled mode
-execution is requested.
+execution is requested. Also the main block (``if __name__ == main():``)
+in this module is what is launcehd to start the independent process, 
+spawned by the coupled controller and queue manager. 
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports for this module
 import os
 import sys
+# code block to make sure that all required modules are in path at
+# run time
 OUR_MODULE_PATH = os.path.abspath( __file__ )
-"""Current module path"""
 OUR_PACKAGE_PATH = os.path.abspath( os.path.join( OUR_MODULE_PATH, '..' ) )
-"""Current package path"""
 PATH_LIST = sys.path
-"""All environment paths"""
 if ( not OUR_PACKAGE_PATH in PATH_LIST ):
     sys.path.append( OUR_PACKAGE_PATH )
+# end if
+# other imports
 import datetime as dt
 from collections import defaultdict
 import pandas as pd
@@ -43,7 +64,7 @@ import numpy as np
 from multiprocessing import Queue
 from multiprocessing.managers import SyncManager
 from queue import Empty
-# package imports
+# pyHS2MF6 package imports
 import locaLogger as CL
 import locaHyperwat as PLD 
 import locaHrchhyd as RR
@@ -100,7 +121,8 @@ key
 """
 MAP_TS_DICT = dict()
 """Dictionary to map solution structure to time series.
-Keys, tuple of (solution type, ID) and values [ SVOLNO, TMEMN, TVOLNO]
+
+Keys, tuple of (solution type, ID), and values [ SVOLNO, TMEMN, TVOLNO]
 """
 SEQUENCE_DICT = { TARG_PERVLND : [ [ 100, "AIRTFG" ], 
                                    [ 200, "SNOWFG" ],
@@ -110,7 +132,8 @@ SEQUENCE_DICT = { TARG_PERVLND : [ [ 100, "AIRTFG" ],
                                    [ 300, [ KEY_ACT_IWAT, nKEY_ACT_IWAT ] ] ], 
                   TARG_RCHRES : [ [ 100, [ KEY_ACT_RRHYD, nKEY_ACT_RRHYD ] ] ],
 }
-"""Holds the required calculation sequence by supported target type
+"""Holds the required calculation sequence by supported target type.
+
 In HSPsquared, this is read in from the HDF5 file. Anyone can change
 edit the HDF5 file which opens the possibility of unintentional 
 breakage of the program through incorrect editing of a portion of 
@@ -122,34 +145,62 @@ modify this sequence successfully, the code needs to be modified.
 # ---------------------------------------------------------------------
 # Queue definition and management items
 HOST = 'localhost'
-"""Localhost means that the process are set-up to be on all the same 
+"""Host machine for queue server.
+
+Localhost means that the process are set-up to be on all the same 
 machine. The queue server and the clients are in different processes
-on the same 'machine' """
+on the same 'machine'.
+"""
 CLIENTHOST = '127.0.0.1'
-"""Clients are on the same 'machine' as the queue server
+"""Host machine for queue clients.
+
+Clients are on the same 'machine' as the queue server when local 
+descriptors like 'localhost' or '127.0.0.1' are used.
 """
 PORT0 = 45492
-"""Port number for the HSP2 queue.  Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the HSP2 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT1 = 45493
-"""Port number for the MODFLOW 6 queue. Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the MODFLOW 6 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT2 = 45494
-"""Port number for global error handling and communications queue"""
+"""Port number for global error handling and communications queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 AUTHKEY = "authkey".encode()
-"""The authorization key for connecting to a queue. This can 
-be changed, on the queue server and on each process. It is 
-not intended at this point to provide a minimal layer of
-security but can be customized for that purpose."""
+"""Authorization key for queue access.
+
+This is not currently setup in a secure manner. If you plan on using 
+pyHS2MF6 across a public or partially public network, then you should
+give some thought to the AUTHKEY and a means of securing this value.
+AUTHKEY needs to be encoded to a byte string.
+"""
 QUEUE_TIMEOUT = ( 60.0 * 5.0 )
-"""Queue wait timeout before error in seconds """
+"""Queue wait timeout before error in seconds.
+
+This is for the from pyMF6 queue and determines the mHSP2 wait time
+for receipt from MODFLOW 6.
+"""
 QUEUE_ERROR = [ "Error" ]
 """Error message to put on queues for program termination """
 QINIT_MSG = [ "Hello" ]
 """Queue intialization and checkin message"""
 START_QUEUE_TO = ( 60.0 * 5.0 )
-"""Queue wait timeout before error in seconds. This is for the
-startup communications """
+"""Queue wait timeout before error in seconds.
+
+This is for program startup communications.
+"""
 QREADY_MSG = [ "Ready" ]
 """Queue intialization and checkin message"""
 QEND_MSG = [ "End" ]
@@ -162,30 +213,28 @@ QEND_MSG = [ "End" ]
 # needs to be at the top level so that is pickleable. Do not need to do
 # anything here just subclass SyncManager
 class QueueManager(SyncManager):
-    """Subclass of multiprocessing.managers.SyncManager. Just sub class
-    don't need to add any custom functionality or overloads. The class 
-    definition needs to be at the top level of the module so that it is
-    pickleable.
+    """Create the queue manager class.
+
+    Needs to be at top level of the module so that is pickleable. Do not
+    need anything here except to subclass SyncManager.
+
     """
     pass
 
 
 def QueueServerClient(ThisHost, Porter, CustomAuth):
-    """Get a client connection to the queue. Can use this connection for
-    both get and put.
+    """Get a client connection a queue.
     
-    See:
-        https://docs.python.org/2.7/library/multiprocessing.html#using-a-remote-manager
-        http://stackoverflow.com/questions/11532654/python-multiprocessing-remotemanager-under-a-multiprocessing-process
-        http://stackoverflow.com/questions/25631266/cant-pickle-class-main-jobqueuemanager
-        
+    The connection is bidirectional and can use this connection for both get 
+    and put.
+            
     Args:
-        ThisHost(str): host name. Should be '127.0.0.1' for the same machine
-        Porter(int): the port number to listen on
-        CustomAuth(str): the custom authorization string
+        ThisHost (str): host name. Should be '127.0.0.1' for the same machine
+        Porter (int): the port number to listen on
+        CustomAuth (str): the custom authorization string
     
-    Return:
-        manager(QueueManager): the client connection
+    Returns:
+        locaMain.QueueManager: the client connection
         
     """
     QueueManager.register('get_queue')
@@ -200,8 +249,11 @@ def WriteQueueCheckToLog( qMF6 ):
     """Write queue checks to log file
     
     Args:
-        qMF6(Queue): the from MODFLOW6 queue
-        
+        qMF6 (Queue): the from MODFLOW6 queue
+    
+    Returns:
+        int: function status; 0 == success
+    
     """
     # imports
     # globals
@@ -230,17 +282,18 @@ def WriteQueueCheckToLog( qMF6 ):
 def setSimTimeIndexes( allops, general, hdfType ):
     """Sets the simulation time indexes from operational sequence in the
     hdf5 file.
+
     At this time are only excepting daily time steps so this is all that
     will be returned. If a daily time step is not specified in the 
     operational sequence, then an error will be thrown.
 
     Args:
-        allops (np.recarray) : operations listing from locaHSP2HDF5
-        general (dict) : GENERAL dictionary from locaHSP2HDF5
+        allops (np.recarray): operations listing from locaHSP2HDF5
+        general (dict): GENERAL dictionary from locaHSP2HDF5
         hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
 
-    Return:
-        retStat (int): status; 0 == success
+    Returns:
+        int: function status; 0 == success
 
     """
     # imports
@@ -302,7 +355,7 @@ def getDailySimTimeIndex():
     Must be called after setSimTimeIndexes
 
     Returns:
-        tIndex (pd.datetimeindex): daily simulation time series
+        pd.datetimeindex: daily simulation time series index
 
     """
     # globals
@@ -314,18 +367,19 @@ def getDailySimTimeIndex():
 
 def checkOpsSpec( allops, ucs, hdfType ):
     """Checks the activities and operations desired and creates lists of
-    target types
+    target types.
+
     Currently only PWATFG for PERLND, IWATFG for IMPLND, and HYDR
     for RCHRES are supported. Before going through the time and
     operations loops warn the user that only these will be implemented
 
     Args:
-        allops (np.recarray) : operations listing from locaHSP2HDF5
+        allops (np.recarray): operations listing from locaHSP2HDF5
         ucs (dict): user control dictionary from locaHSP2HDF5
         hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
 
     Returns:
-        retStat (int): status - 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -404,18 +458,20 @@ def checkOpsSpec( allops, ucs, hdfType ):
 
 def setParmsFlagsUCS( sim_delt, ucs, hdfType ):
     """Transfer the parameter values and flags from the hdf file to
-    our target modules Currently only "PWATFG", "IWATFG", and 
-    "HYDRFG" are supported. Note that these names have changed slightly
-    under the new HDF5 file format and both naming conventions are
-    supported.
+    our target modules.
+    
+    Currently only "PWATFG", "IWATFG", and "HYDRFG" are supported. Note 
+    that these names have changed slightly under the new HDF5 file format
+    and both naming conventions are supported.
 
     Args:
         sim_delt (float): time step duration 
         ucs (dict): user control dictionary from locaHSP2HDF5
-        hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
+        hdfType (int): type of HDF5 file; 0 == original format; 
+                       1 == new format
     
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     #imports
@@ -486,10 +542,22 @@ def setParmsFlagsUCS( sim_delt, ucs, hdfType ):
         # end for target id
     # end of target key for
     # now can set the parameter values that need to be adjusted for
-    #    internal units
-    PLD.setDelT( sim_delt )
-    RR.setDelT( sim_delt )
-    IMP.setDelT( sim_delt )
+    #    internal units. Need to make sure that have the operator type
+    #    before calling
+    for ttKey in targKeys:
+        allTargIds = TARG_DICT[ ttKey ]
+        if len( allTargIds ) == 0:
+            continue
+        # end if
+        # now call the setup
+        if ttKey == TARG_PERVLND:
+            PLD.setDelT( sim_delt )
+        elif ttKey == TARG_RCHRES:
+            RR.setDelT( sim_delt )
+        elif ttKey == TARG_IMPLND:
+            IMP.setDelT( sim_delt )
+        # end if
+    # end for
     # also set the number of exits for each RCHRES. This is stored
     #   under GENERAL in UCS
     allTargIds = TARG_DICT[ TARG_RCHRES ]
@@ -615,11 +683,17 @@ def setParmsFlagsUCS( sim_delt, ucs, hdfType ):
 
 def initAllocTargStructures( sim_len ):
     """Initialize all target structures including time series,
-    flags, parameters, and initial values
+    flags, parameters, and initial values.
+
+    This takes care of initializing or allocating the simulation
+    memory by creating np.recarrays of the simulation length.
 
     Args:
         sim_len (int): number of time steps in the simulation
 
+    Returns:
+        int: function status; 0 == success
+    
     """
     # imports
     from locaCoupling import setUpRRRecArrays, setUpPLRecArrays
@@ -652,15 +726,18 @@ def initAllocTargStructures( sim_len ):
 
 
 def setTargDataTS( sim_len ):
-    """Set the input time series into the target structures 
+    """Set the input time series into the target structures.
+
+    **Note** that this only works with daily simulation time steps
+    Time steps are stored in minutes so this should always be
+    1440.0 minutes or 1 day.
 
     Args:
         sim_len (int): number of time steps in the simulation
 
-    Note that this only works with daily simulation time steps
-    Time steps are stored in minutes so this should always be
-    1440.0 minutes or 1 day.
-
+    Returns:
+        int: function status; 0 == success
+    
     """
     # imports
     # globals
@@ -716,10 +793,11 @@ def setOutputSave( ucs, hdfType ):
 
     Args:
         ucs (dict): user control dictionary from locaHSP2HDF5
-        hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
+        hdfType (int): type of HDF5 file; 0 == original format; 
+                       1 == new format
     
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -765,15 +843,18 @@ def setOutputSave( ucs, hdfType ):
     return goodReturn
 
 
-def writeOutputs( hdfname, tIndex, hdfType ):
-    """Write out the outputs at the end of the simulation
+def writeOutputs( hdfname, tIndex, hdfType, IsCoupled):
+    """Write out the outputs at the end of the simulation.
 
     Args:
         hdfname (str): HDF5 file to output to
-        hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
+        tIndex (pd.DateTimeIndex): time series index for outputs
+        hdfType (int): type of HDF5 file; 0 == original format; 
+                       1 == new format
+        IsCoupled (bool): is a coupled simulation?
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status; success == 0
 
     """
     # imports
@@ -827,19 +908,23 @@ def writeOutputs( hdfname, tIndex, hdfType ):
             # end activity for
         # end type for
         # now do the coupled outputs
-        retStat = wCOuts( store, tIndex )
-        if retStat != 0:
-            # error
-            errMsg = "Issue writing coupled tracking arrays to file !!!"
-            CL.LOGR.error( errMsg )
-            return badReturn
+        if IsCoupled:
+            retStat = wCOuts( store, tIndex )
+            if retStat != 0:
+                # error
+                errMsg = "Issue writing coupled tracking arrays to file !!!"
+                CL.LOGR.error( errMsg )
+                return badReturn
+            # end check if
+        # end if coupled
     # end with and store closed
     # return
     return goodReturn
 
 
 def setHRUAreas( linkdd ):
-    """Set the HRU areas
+    """Extract the HRU surface areas and store for post-processing.
+
     This involves setting the areas for PERLND and IMPLND. These
     are only stored in the SCHEMATIC and LINKS sections of the
     inputs as the area factor or AFACTOR. So have to process through
@@ -849,7 +934,7 @@ def setHRUAreas( linkdd ):
         linkdd(dict): dictionary of links with reaches as keys
 
     Returns:
-        retStat (int): 0 == success 
+        int: function status; 0 == success 
 
     """
     # imports
@@ -910,25 +995,28 @@ def setHRUAreas( linkdd ):
 
 
 def setFlowLinks( linkdd, mldd, hdfType ):
-    """Setup the link structues among targets
+    """Setup the link structues, or routing, among targets.
+
     This requires a combination of the defined mass links 
     and schematic defined in the UCI file and ported to the
     HDF5 file.
-
-    Args:
-        linkdd (dict): dictionary with schematic linkage among 
-                        targets
-        mldd (dict): mass link definitions
-        hdfType (int): type of HDF5 file; 0 == original format; 1 == new format
-    
-     Return:
-        retStat (int): success == 0
 
     At this point only linkages among "flow" types: PERLND; IMPLAND;
     and RCHRES are supported. Note that only RCHRES is supported as 
     a receiving target - this means that a usable mass link and 
     schematic link can only have RCHRES as the TVOL and that
     PERLND and IMPLAND can never be the TVOL.
+
+    Args:
+        linkdd (dict): dictionary with schematic linkage among 
+                        targets
+        mldd (dict): mass link definitions
+        hdfType (int): type of HDF5 file; 0 == original format; 
+                       1 == new format
+    
+     Returns:
+        int: function status; success == 0
+
     """
     # imports
     from locaHrchhyd import RR_TGRPN_SUPP, RR_TMEMN_SUPP
@@ -1062,11 +1150,10 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             CL.LOGR.error( errMsg )
             return badReturn
         # finally try to parse the exits and categories
-        exitList = [ 1 ]
         if cSMemsb:
+            exitList = list()
             if len( cSMemsb ) > 0:
                 strLister = cSMemsb.split(" ")
-                iCnt = 0
                 for sL in strLister:
                     try:
                         intSL = int( sL )
@@ -1078,14 +1165,11 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         CL.LOGR.error( errMsg )
                         return badReturn
                     # if made it here then add to our list
-                    if iCnt == 0:
-                        exitList[iCnt] = intSL
-                    else:
-                        exitList.append( intSL )
-                    # end if
-                    iCnt == 1
+                    exitList.append( intSL )
                 # end for exit and category
             # end if
+        else:
+            exitList = [ 1 ]
         # end if
         # add our values to our custom list
         massLinkD[intInd] = [ cTVol, cTGrpn, cTMemn, cFFactor, cSVol, 
@@ -1161,7 +1245,8 @@ def setFlowLinks( linkdd, mldd, hdfType ):
 
 
 def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
-    """Runs main locaHSP2 program in standalone mode
+    """Runs main HSP2 program in standalone mode.
+
     Rewrite of original to make one main time loop
 
     Args:
@@ -1171,7 +1256,7 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
         reloadkeys (bool): Regenerates keys, used after adding new modules.
     
     Returns:
-        retStat (int): return status, 0 == success
+        int: function status, 0 == success
 
     """
     # imports
@@ -1364,7 +1449,7 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
         # end operation for
     # end time step for
     # now are ready to write out our outputs
-    retStat = writeOutputs( hdfname, tIndex, hdfTyper )
+    retStat = writeOutputs( hdfname, tIndex, hdfTyper, False )
     if retStat != 0:
         # some sort of error
         errMsg = "Issue writing outputs!!!"
@@ -1379,20 +1464,21 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
 
 
 def mainTL( sim_len, tIndex, qHSP2, qMF6, hdfTyper ):
-    """The main time loop for HSP2 in the coupled program
+    """The main time loop for mHSP2 in the coupled program.
 
-    Currently only 1440.0 minutes is supported for sim_delt or a daily
-    time step.
+    Currently only 1440.0 minutes, or daily, is supported for 
+    sim_delt or a daily time step.
 
     Args:
         sim_len (int): number of daily time steps in the simulation
         tIndex (pd.datetimeseries): daily time index for simulation
         qHSP2 (Queue client): from HSP2 queue
         qMF6 (Queue client): from MODFLOW 6 queue
-        hdfTyper (int): type of HDF5 file; 0 == original format; 1 == new format
+        hdfTyper (int): type of HDF5 file; 0 == original format;0 
+                        1 == new format
     
     Returns:
-        retStat (int): return status, 0 == success
+        int: function status, 0 == success
 
     """
     # imports
@@ -1502,8 +1588,9 @@ def mainTL( sim_len, tIndex, qHSP2, qMF6, hdfTyper ):
 
 
 def setUPPreTL(hdfname, saveall=False, reloadkeys=False):
-    """Does all of the main HSP2 setup prior to starting the
-    time loop.
+    """Does all of the main mHSP2 setup for a coupled simulation.
+    
+    Called prior to starting the main, time, loop.
 
     Args:
         hdfname (str): HDF5 filename used for both input and output.
@@ -1511,7 +1598,9 @@ def setUPPreTL(hdfname, saveall=False, reloadkeys=False):
         reloadkeys (bool): Regenerates keys, used after adding new modules.
     
     Returns:
-        retStat (int): return status, hdfTyper [0,1] == success
+        int: function status; also needs to be one of the *hdfTyper* 
+             supported values, [0,1]; successful execution of this 
+             function means that either 0 or 1 is returned.
 
     """
     # imports
@@ -1648,11 +1737,11 @@ def setUPPreTL(hdfname, saveall=False, reloadkeys=False):
 
 
 def metaChecks( start_dt, end_dt, num_pl, num_il, num_rr ):
-    """Check the remaining meta data items pass from the queue
-    server as part of initial setup.
+    """Check the remaining meta data items passed from the queue
+    server as part of initial setup of a coupled simulation.
 
-    Requires that the input HDF5 file has already been read in
-    the locaMain module.
+    Requires that the input HDF5 file has already been read 
+    and processed into program structures.
 
     Args:
         start_dt (dt.datetime): starting date time
@@ -1662,7 +1751,7 @@ def metaChecks( start_dt, end_dt, num_pl, num_il, num_rr ):
         num_rr (int): number of RCHRES
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -1706,7 +1795,11 @@ def metaChecks( start_dt, end_dt, num_pl, num_il, num_rr ):
 
 
 def getTARG_DICT():
-    """Get the global target dictionary
+    """Get the global target dictionary.
+
+    Returns:
+        dict: TARG_DICT
+    
     """
     global TARG_DICT
     return TARG_DICT
@@ -1716,36 +1809,39 @@ def getTARG_DICT():
 # queue processing methods
 def processInitMeta( PassList ):
     """Process the initial metadata communication received from the
-    queue server. Call the various routines as required to read 
-    in all of the HDF5 information as required to completely set
-    up the model and check start time, end time, number of 
-    pervious, number of impervious, and number of reach res
+    queue server.
+    
+    Call the various routines as required to read in all of the HDF5 
+    information as required to completely set up the model and check 
+    start time, end time, number of pervious, number of impervious, 
+    and number of reach res
 
     Args:
         PassList (list): list, L, of items - these are pickled and 
-                                unpickled and following formats are
-                                required.
-                        L[0] (str): model directory
-                        L[1] (str): FQDN pathname for HDF5 input file
-                        L[2] (dt.datetime): start time
-                        L[3] (dt.datetime): end time
-                        L[4] (int): number of PERLND
-                        L[5] (int): number of IMPLND
-                        L[6] (int): number of RCHRES
-                        L[7] (int): number of 2D cells, NCPL in MF6
-                        L[8] (str): FQDN pathname for RCHRES mapping
-                                        dictionary
-                        L[9] (str): FQDN pathname for PERLND mapping
-                                        dictionary
-                        L[10] (int): number of UZF cells in MF6
-                        L[11] (str): FQDN pathname for SPRING mapping
-                                        dictionary
+        unpickled and following formats are required.
 
-    Return:
-        Tuple, T
-            T[0] (int): return status; hdfTyper[0,1] == success
-            T[1] (str): hdfname - FQDN path for simulation HDF5 file. Empty string
-                           for error.
+            0. (str): model directory
+            1. (str): FQDN pathname for HDF5 input file
+            2. (dt.datetime): start time
+            3. (dt.datetime): end time
+            4. (int): number of PERLND
+            5. (int): number of IMPLND
+            6. (int): number of RCHRES
+            7. (int): number of 2D cells, NCPL in MF6
+            8. (str): FQDN pathname for RCHRES mapping dictionary
+            9. (str): FQDN pathname for PERLND mapping dictionary
+            10. (int): number of UZF cells in MF6
+            11. (str): FQDN pathname for SPRING mapping dictionary
+
+    Returns:
+        tuple: two items that provide the necessary information for 
+        continuing the simulation.
+
+            0. (int): return status; needs to be a member of *hdfTyper* - 
+            0 or 1 for a success status
+
+            1. (str): hdfname - FQDN path for simulation HDF5 file. Empty
+            string for error.
 
     """
     # imports
@@ -1896,13 +1992,13 @@ def processInitMeta( PassList ):
 
 
 def processReadyComm( StringList ):
-    """Process the ready communication with external processes
+    """Process the ready communication with external processes.
 
     Args:
         StringList (list): list of string items
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status; success == 0
 
     """
     # imports
@@ -1946,7 +2042,7 @@ def processReadyComm( StringList ):
 
 
 def processArrayComm( iI, NpArray ):
-    """Process the array communication from MODFLOW 6
+    """Process the array communication from MODFLOW 6.
 
     Args:
         iI (int): current day, 0-based in the simulation
@@ -1954,7 +2050,7 @@ def processArrayComm( iI, NpArray ):
                             MODFLOW 6
 
     Return:
-        retStat (int): success == 0
+        int: function status; success == 0
 
     """
     # imports
@@ -2134,7 +2230,7 @@ if __name__ == "__main__":
         sys.exit( errMsg )
     # write our outputs
     # now are ready to write out our outputs
-    retStat = writeOutputs( hdfname, tIndex, hdfTyper )
+    retStat = writeOutputs( hdfname, tIndex, hdfTyper, True )
     if retStat != 0:
         # some sort of error
         errMsg = "Issue writing outputs!!!"

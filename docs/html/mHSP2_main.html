@@ -749,14 +749,16 @@ function means that either 0 or 1 is returned.</p>
 
 <dl class="py function">
 <dt id="locaMain.writeOutputs">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">tIndex</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">tIndex</span></em>, <em class="sig-param"><span class="n">hdfType</span></em>, <em class="sig-param"><span class="n">IsCoupled</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write out the outputs at the end of the simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hdfname</strong> (<em>str</em>) – HDF5 file to output to</p></li>
+<li><p><strong>tIndex</strong> (<em>pd.DateTimeIndex</em>) – time series index for outputs</p></li>
 <li><p><strong>hdfType</strong> (<em>int</em>) – type of HDF5 file; 0 == original format;
 1 == new format</p></li>
+<li><p><strong>IsCoupled</strong> (<em>bool</em>) – is a coupled simulation?</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -433,12 +433,20 @@ def setDelT( sim_delt ):
     global DELT60, KGWV, AGWRC, INFILT, AGWRC, SPEC_DT
     # function
     DELT60 = sim_delt / 60.0
-    calcHelp = AGWRC.view( ( np.float64, len( AGWRC.dtype.names ) ) )
-    calcHelp2 = ( 1.0 - np.power( calcHelp[0,:], ( DELT60 / 24.0 ) ) ) 
-    KGWV[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
-    calcHelp = INFILT.view( ( np.float64, len( INFILT.dtype.names ) ) )
-    calcHelp2 = calcHelp[0,:] * DELT60 
-    INFILT[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
+    if AGWRC is None:
+        warnMsg = "No PERLND operators defined in model."
+        CL.LOGR.warning( warnMsg )
+    else:
+        calcHelp = AGWRC.view( ( np.float64, len( AGWRC.dtype.names ) ) )
+        calcHelp2 = ( 1.0 - np.power( calcHelp[0,:], ( DELT60 / 24.0 ) ) ) 
+        KGWV[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
+    if INFILT is None:
+        warnMsg = "No PERLND operators defined in model."
+        CL.LOGR.warning( warnMsg )
+    else:
+        calcHelp = INFILT.view( ( np.float64, len( INFILT.dtype.names ) ) )
+        calcHelp2 = calcHelp[0,:] * DELT60 
+        INFILT[0] = np.array( tuple(calcHelp2), dtype=SPEC_DT )
     # return
     return
 

@@ -93,7 +93,7 @@ AKAPPA = 0.4
 ORG_SSA_CALC = False
 """Switch to determine lookup table calculation metod.
 
-If true, yse the original auxil function to calculate surface area
+If true, use the original auxil function to calculate surface area
 and depth from volume. If false use the np array lookup function
 interp."""
 
@@ -625,31 +625,44 @@ def setCOLINDTS( targID, npTS, nExit ):
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
-        nExit (int): the exit number
+        nExit (int): the COLIND index number for this RR
 
     """
     # imports
     # globals
-    global COLIND1, COLIND2, COLIND3, COLIND4, COLIND5, MAX_EXITS
+    global COLIND1, COLIND2, COLIND3, COLIND4, COLIND5, MAX_EXITS, NEXITS
     # parameters
     # local
     # start
-    if ( nExit >= 0 ) and ( nExit < MAX_EXITS ):
+    # first need to get our exit number
+    totEx = int( NEXITS[targID][0] )
+    ofExArr = getODFVFG( targID, totEx )
+    retArray = np.argwhere( ofExArr == (-1.0 * nExit ) ) 
+    if retArray.size <= 0:
+        # then there was an issue
+        errMsg = "Did not find a negative exit denoting COLIND use. " \
+                 "Expected to find a %d value for ODFVFG for %s!!!" % \
+                 ( (-1.0 * nExit ), targID )
+        CL.LOGR.error( errMsg )
+        return
+    # end if
+    setExit = int( retArray[0] )
+    if ( setExit >= 0 ) and ( setExit < MAX_EXITS ):
         # then we have a good exit value
-        if nExit == 0:
+        if setExit == 0:
             COLIND1[targID][:] += npTS
-        elif nExit == 1:
+        elif setExit == 1:
             COLIND2[targID][:] += npTS
-        elif nExit == 2:
+        elif setExit == 2:
             COLIND3[targID][:] += npTS
-        elif nExit == 3:
+        elif setExit == 3:
             COLIND4[targID][:] += npTS
-        elif nExit == 4:
+        elif setExit == 4:
             COLIND5[targID][:] += npTS
         # end if
     else:
         # this is an error
-        errMsg = "COLIND external time series has a port value of %d.\n" \
+        errMsg = "COLIND external time series has a index value of %d.\n" \
                  "This functionality is not supported and will be ignored!!!" \
                  % nExit
         CL.LOGR.error( errMsg )
@@ -665,31 +678,44 @@ def setOUTDGTTS( targID, npTS, nExit ):
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
-        nExit (int): the exit number
+        nExit (int): the ODGTFG index number for this RR
 
     """
     # imports
     # globals
-    global OUTDGT1, OUTDGT2, OUTDGT3, OUTDGT4, OUTDGT5, MAX_EXITS
+    global OUTDGT1, OUTDGT2, OUTDGT3, OUTDGT4, OUTDGT5, MAX_EXITS, NEXITS
     # parameters
     # local
     # start
-    if ( nExit >= 0 ) and ( nExit < MAX_EXITS ):
+    # first need to get our exit number
+    totEx = int( NEXITS[targID][0] )
+    odExArr = getODGTFG( targID, totEx )
+    retArray = np.argwhere( odExArr == nExit )
+    if retArray.size <= 0:
+        # then there was an issue
+        errMsg = "Did not find a matching index for OUTDGT use. " \
+                 "Expected to find a %d value for OUTDGT for %s!!!" % \
+                 ( nExit, targID )
+        CL.LOGR.error( errMsg )
+        return
+    # end if
+    setExit = int( retArray[0] )
+    if ( setExit >= 0 ) and ( setExit < MAX_EXITS ):
         # then we have a good exit value
-        if nExit == 0:
+        if setExit == 0:
             OUTDGT1[targID][:] += npTS
-        elif nExit == 1:
+        elif setExit == 1:
             OUTDGT2[targID][:] += npTS
-        elif nExit == 2:
+        elif setExit == 2:
             OUTDGT3[targID][:] += npTS
-        elif nExit == 3:
+        elif setExit == 3:
             OUTDGT4[targID][:] += npTS
-        elif nExit == 4:
+        elif setExit == 4:
             OUTDGT5[targID][:] += npTS
         # end if
     else:
         # this is an error
-        errMsg = "OUTDGT external time series has a port value of %d.\n" \
+        errMsg = "OUTDGT external time series has a index value of %d.\n" \
                  "This functionality is not supported and will be ignored!!!" \
                  % nExit
         CL.LOGR.error( errMsg )
@@ -1213,7 +1239,7 @@ def setOutputControlFlags( targID, savetable, stTypes ):
     global GOOD_OUTPUT_LIST, BAD_OUTPUT_LIST, OUTPUT_CONTROL
     # parameters
     goodReturn = 0
-    badReturn = -1
+    #badReturn = -1
     # locals
     # start
     for sType in stTypes:
@@ -1593,25 +1619,29 @@ def getCOLIND( targID, nexits, iI, odfvf ):
     colind = np.zeros( MAX_EXITS, dtype=np.float64 )
     retcolind = np.zeros( nexits, dtype=np.float64 )
     # start
-    # first check if need to do anything
-    totalOVF = odfvf.sum()
-    if totalOVF >= 0.0:
-        retcolind[:] = odfvf[:]
-        return retcolind
-    # now need to something
-    if iI == 0:
-        colind[0] = float( COLIN1[targID][0] )
-        colind[1] = float( COLIN2[targID][0] )
-        colind[2] = float( COLIN3[targID][0] )
-        colind[3] = float( COLIN4[targID][0] )
-        colind[4] = float( COLIN5[targID][0] )
-    else:
-        colind[0] = float( COLIND1[targID][iI] )
-        colind[1] = float( COLIND2[targID][iI] )
-        colind[2] = float( COLIND3[targID][iI] )
-        colind[3] = float( COLIND4[targID][iI] )
-        colind[4] = float( COLIND5[targID][iI] )
-    # end if
+    # for this need to just go through the odfvf flag values
+    #  and fill accordingly.
+    for jJ in range( nexits ):
+        cOVFlag = odfvf[jJ]
+        if cOVFlag == 0:
+            continue
+        # end if
+        if cOVFlag < 0:
+            if jJ == 0:
+                colind[jJ] = float(  COLIND1[targID][iI] )
+            elif jJ == 1:
+                colind[jJ] = float(  COLIND2[targID][iI] )
+            elif jJ == 2:
+                colind[jJ] = float(  COLIND3[targID][iI] )
+            elif jJ == 3:
+                colind[jJ] = float(  COLIND4[targID][iI] )
+            elif jJ == 4:
+                colind[jJ] = float( COLIND5[targID][iI] )
+            # end if
+        else:
+            colind[jJ] = cOVFlag
+        # end if
+    # end for
     retcolind[:] = colind[:nexits]
     # return
     return retcolind
@@ -1644,20 +1674,13 @@ def getOUTDGT( targID, nexits, iI, odgtf ):
     totalOVF = odgtf.sum()
     if totalOVF <= 0.0:
         return retoutdgt
-    # now need to something
-    if iI == 0:
-        outdgt[0] = float( OUTDG1[targID][0] )
-        outdgt[1] = float( OUTDG2[targID][0] )
-        outdgt[2] = float( OUTDG3[targID][0] )
-        outdgt[3] = float( OUTDG4[targID][0] )
-        outdgt[4] = float( OUTDG5[targID][0] )
-    else:
-        outdgt[0] = float( OUTDGT1[targID][iI] )
-        outdgt[1] = float( OUTDGT2[targID][iI] )
-        outdgt[2] = float( OUTDGT3[targID][iI] )
-        outdgt[3] = float( OUTDGT4[targID][iI] )
-        outdgt[4] = float( OUTDGT5[targID][iI] )
     # end if
+    outdgt[0] = float( OUTDGT1[targID][iI] )
+    outdgt[1] = float( OUTDGT2[targID][iI] )
+    outdgt[2] = float( OUTDGT3[targID][iI] )
+    outdgt[3] = float( OUTDGT4[targID][iI] )
+    outdgt[4] = float( OUTDGT5[targID][iI] )
+    # assign for return
     retoutdgt[:] = outdgt[:nexits]
     # return
     return retoutdgt
@@ -1754,13 +1777,13 @@ def hydr_liftedloop( iI, targID, fTabDict ):
     global LKFG, FTABNO, LEN, DELTH, STCOR, KS, DB50
     # data time series
     # initial states
-    global I_VOL, COLIN1, COLIN2, COLIN3, COLIN4, COLIN5
+    global I_VOL
     # storage ts for states
     global VOL
     # save time series only
     global DEP, IVOL, O1, O2, O3, O4, O5, OVOL1, OVOL2, OVOL3
     global OVOL4, OVOL5, POTEV, PREC, PRSUPY, RO, ROVOL, SAREA
-    global STAGE, TAU, USTAR, VOLEV, EXIVOL, AVVEL, AVDEP
+    global STAGE, TAU, USTAR, VOLEV, AVVEL, AVDEP
     global HRAD, TWID
     # carryovers
     global HOLD_RO, HOLD_OS1, HOLD_OS2, HOLD_OS3, HOLD_OS4, HOLD_OS5
@@ -1823,7 +1846,7 @@ def hydr_liftedloop( iI, targID, fTabDict ):
     outOVol = np.zeros( nexits, dtype=np.float64 ) # output ovol
     outROVol = float( 0.0 )  # output rovol
     # VCONF is not currently supported so always 1.0 so the factor
-    # has not impact
+    # has no impact
     convf = float( 1.0 )
     # irrigation not supported
     irexit = int( -1 )
@@ -1834,6 +1857,7 @@ def hydr_liftedloop( iI, targID, fTabDict ):
     fl_aux1fg = int( AUX1FG[targID][0] )
     fl_aux2fg = int( AUX2FG[targID][0] )
     fl_aux3fg = int( AUX3FG[targID][0] )
+    fl_lkfg = int( LKFG[targID][0] )
     # get our exit flags
     funct = getFUNCT( targID, nexits )
     odfvf = getODFVFG( targID, nexits )
@@ -1861,7 +1885,10 @@ def hydr_liftedloop( iI, targID, fTabDict ):
     sareaFT = surfarea * AFACT 
     # get out the discharge array(s)
     dischList = list()
-    for jJ in range( 1, nexits + 1, 1 ):
+    ftabcols = list( cRArray.dtype.names )
+    nftCols = len( ftabcols )
+    ndisCols = nftCols - 3
+    for jJ in range( 1, ndisCols + 1, 1 ):
         cKey = "Disch%d" % jJ
         dischList.append( cRArray[cKey].view(dtype=np.float64) )
     # end for
@@ -1925,8 +1952,6 @@ def hydr_liftedloop( iI, targID, fTabDict ):
         # end if ORG_SSA_CALC
     # end if
     # start
-    # monthly are not supported and time dependent components are not supported
-    # no convf or outdgt
     # irrigation exit and other considerations not supported
     #   irexit is set so this will not be called but the code block is
     #   maintained for future expansion
@@ -2303,7 +2328,7 @@ def hydr_liftedloop( iI, targID, fTabDict ):
         #if avdep > 0.0:
         if ( ( avdep - 0.0 ) >= smallVal ):
             # these lines replace SHEAR; ustar (bed shear velocity), tau (bed shear stress)
-            if LKFG > 0:
+            if fl_lkfg > 0:
                 # lake calculations
                 diff = ( 17.66 + ( log10( avdep / ( 96.5 * db50 ) ) ) 
                          * ( 2.3 / AKAPPA ) )
@@ -2346,7 +2371,7 @@ def hydr_liftedloop( iI, targID, fTabDict ):
     if fl_aux3fg > 0:
         USTAR[targID][iI] = ustar * SFACTA * LFACTA
         TAU[targID][iI] = tau * TFACTA
-        if LKFG == 0:
+        if fl_lkfg == 0:
             HRAD[targID][iI] = hrad * LFACTA
         # end if LKFG
     # end if aux3
@@ -2391,7 +2416,7 @@ def demand(vol, rowFT, funct, nexits, delts, convf, colind, outdgt, ODGTF):
 
     Args:
         vol (float): current volume
-        
+
         rowFT (np.array): array of FTAB row
         
         funct (int): the value for combined type calculation switch
@@ -2400,12 +2425,20 @@ def demand(vol, rowFT, funct, nexits, delts, convf, colind, outdgt, ODGTF):
         
         delts (float): time step in seconds
         
-        convf (int): flag - not supported now so should always be 0
+        convf (int): float multiplier - flag and values different from 1.0 not
+            supported
         
-        colind (np.array): Array for MAX_EXITS that has the multiplier and 
-            FTAB column value to use for each exit
+        colind (np.array): Array for number of exits this RR that has a number 
+            identifying the ODFVFG calculation rule to use for this exit. If colind is
+            0 there is no fN(Vol) component. If colind is positive integer then it is
+            the value of column index in the FTAB table to use for fN(Vol) interpolation.
+            If colind is negative then it needs to have the form of X.Y where this X.Y 
+            value is taken from a time series specified by the user. X denotes the first
+            FTAB column to use and 0.Y dentoes the proportion for this X column. The fN(Vol)
+            discharge is calculated, in this case, as (X column value * (1.0 - 0.Y ) ) +
+            ( X + 1 column value * 0.Y ). 
         
-        outdgt (np.array): Array for MAX_EXITS that has COLIND time series 
+        outdgt (np.array): Array for number of exits this RR that has COLIND time series 
             for this time
         
         ODGTF (np.array): flag for whether to use outdgt which should be 
@@ -2444,7 +2477,15 @@ def demand(vol, rowFT, funct, nexits, delts, convf, colind, outdgt, ODGTF):
                 # this is the case where COLIND has the multiplier
                 # and exit
                 _od1 = rowFT[icol-1]
-                od[i] = _od1 + diff * ( _od1 - rowFT[icol] ) * convf
+                # this calculation seems completely wrong. It is 
+                # commented out and adjusted in the following line.
+                # It seems the correct equation should be Eq. 13 in
+                #  the HSPF user manual.
+                # Note that this functionality has never been tested
+                # in mHSP2 and is unsupported.
+                #od[i] = _od1 + diff * ( _od1 - rowFT[icol] ) * convf
+                od[i] = ( ( ( _od1 * ( 1.0 - diff ) ) + 
+                            ( rowFT[icol] * diff ) ) * convf )
             else:
                 # this is the case where just use the designated column 
                 # from the FTAB
@@ -2453,11 +2494,11 @@ def demand(vol, rowFT, funct, nexits, delts, convf, colind, outdgt, ODGTF):
         # end if icol != 0
         # now see if need to do time varying time series
         icol = int(ODGTF[i])
-        if icol != 0:
-            if ( ( col - 0.0 ) > smallVal ):
+        if icol > 0:
+            if ( int(col) > 0 ):
                 # both f(time) and f(vol)
                 a = od[i]
-                b = outdgt[icol-1]
+                b = outdgt[i]
                 c = (vol - b) / delts
                 # need to use funct to determine relationship
                 #  between f(time) and f(vol)
@@ -2472,7 +2513,7 @@ def demand(vol, rowFT, funct, nexits, delts, convf, colind, outdgt, ODGTF):
                 # end funct if
             else:
                 # pbd added for f(time) only
-                od[i] = outdgt[icol-1]  
+                od[i] = outdgt[i]
             # end if both or only f(time)
         # end if f(time)
     # end for exits
