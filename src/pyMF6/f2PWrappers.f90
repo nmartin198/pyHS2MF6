@@ -22,6 +22,7 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 module f2pwrap
 !====================================================================
+! MODFLOW 6, version 6.2.0
 ! Collection of wrappers needed to reproduce the Program modules
 !   statements in Python. These subroutines are compiled to a pyd
 !   module so that can be imported into Python. In the pyd compilation
@@ -100,6 +101,7 @@ module f2pwrap
     
     !    LOGIC: lines 45 - 67 of mf6.f90
     !    LOGIC: Mf6Initialize() in Mf6CoreModule, ver 6.1.1
+    !    v6.2.0 logic same as v6.1.1
     ! ---------------------------------------------------------------
     ! -- parse any command line arguments
     ! call GetCommandLineArguments()
@@ -122,6 +124,7 @@ module f2pwrap
     
     !    LOGIC: lines 71-107 of mf6.f90, v6.1.0
     !    LOGIC: simulation_df() and simulation_ar() of mf6core.f90, v6.1.1
+    !    v6.2.0 logic same as v6.1.1
     !
     ! -- define
     call simulation_df()
@@ -138,6 +141,7 @@ module f2pwrap
   subroutine innertimeloop( ioutlocal )
 !====================================================================
 ! Within time step logic after the call to tdis
+! v6.2.0 logic is identical to v6.1.1
 ! In version 6.1.1 this logic, including tdis is in Mf6PrepareTimestep(),
 !     Mf6DoTimestep(), and Mf6FinalizeTimestep() which are called by 
 !     Mf6Update().
@@ -173,6 +177,7 @@ module f2pwrap
   subroutine finalproc( ioutlocal )
 !====================================================================
 ! Final processing after the main time loop is over.
+! v6.2.0 logic identical to v6.1.1
 ! In ver 6.1.1, just call Mf6Finalize() which takes care of final
 !   processing and deallocation. 
 ! In ver 6.1.0, used two subroutines one for final processing and
@@ -670,9 +675,6 @@ module f2pwrap
     !
     ! now need to assign our psdicharge values to our return
     surfdis(:, :) = psdischarge(:, :)
-    !do im = 1, numnodes
-    !  surfdis(im) = psdischarge(im)
-    !end do
     !
     return
     !

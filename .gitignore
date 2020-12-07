@@ -2,11 +2,14 @@
 *.pyo
 *.o
 *~
+*.code-workspace
 src/.vscode/*
 src/__pycache__/*
 src/*.code-workspace
 src/pyMF6/__pycache__/*
+src/pyMF6/.vscode/*
 src/mHSP2/__pycache__/*
+src/mHSP2/.vscode/*
 example_models/jupyter_notebooks/.ipynb_checkpoints/*
 bin/__pycache__/*
 bin/pyMF6/__pycache__/*

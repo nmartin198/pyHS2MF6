@@ -1,20 +1,20 @@
-2020-08-26 08:55:02,047 - COUPLED - INFO - Start Coupled HSP2 and MODFLOW6 at 2020-08-26 08:55:02
+2020-12-05 15:21:34,559 - COUPLED - INFO - Start Coupled HSP2 and MODFLOW6 at 2020-12-05 15:21:34
 
-2020-08-26 08:55:02,563 - COUPLED - INFO - GS queue size is 0, FE queue size is 0, TERM queue size is 0 
+2020-12-05 15:21:34,821 - COUPLED - INFO - GS queue size is 0, FE queue size is 0, TERM queue size is 0 
 
-2020-08-26 08:55:03,297 - COUPLED - INFO - Successfully initialized and communicated with queue client.
+2020-12-05 15:21:35,170 - COUPLED - INFO - Successfully initialized and communicated with queue client.
 
-2020-08-26 08:55:06,045 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
+2020-12-05 15:21:36,631 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
 
-2020-08-26 08:55:06,361 - COUPLED - INFO - Successfully initialized and communicated with queue client.
+2020-12-05 15:21:36,790 - COUPLED - INFO - Successfully initialized and communicated with queue client.
 
-2020-08-26 08:55:13,387 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
+2020-12-05 15:21:39,775 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
 
-2020-08-26 09:17:42,619 - COUPLED - INFO - Successfully received end of simulation message from queue client.
+2020-12-05 15:35:12,630 - COUPLED - INFO - Successfully received end of simulation message from queue client.
 
-2020-08-26 09:17:42,619 - COUPLED - INFO - Received successful end message 1!!!
-2020-08-26 09:17:43,510 - COUPLED - INFO - Successfully received end of simulation message from queue client.
+2020-12-05 15:35:12,630 - COUPLED - INFO - Received successful end message 1!!!
+2020-12-05 15:35:13,063 - COUPLED - INFO - Successfully received end of simulation message from queue client.
 
-2020-08-26 09:17:43,510 - COUPLED - INFO - Received successful end message 2!!!
-2020-08-26 09:17:43,510 - COUPLED - INFO - End Coupled HSP2 and MODFLOW6 at 2020-08-26 09:17:43 - elapsed time -      22.69 min
+2020-12-05 15:35:13,063 - COUPLED - INFO - Received successful end message 2!!!
+2020-12-05 15:35:13,069 - COUPLED - INFO - End Coupled HSP2 and MODFLOW6 at 2020-12-05 15:35:13 - elapsed time -      13.64 min
 

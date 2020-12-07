@@ -1,14 +1,14 @@
-2020-08-26 08:55:06,751 - pyMF6 - INFO - Start MODFLOW6 model at 2020-08-26 08:55:06
+2020-12-05 15:21:36,979 - pyMF6 - INFO - Start MODFLOW6 model at 2020-12-05 15:21:36
 
-2020-08-26 08:55:13,356 - pyMF6 - INFO - Model DC_MF6 in directory C:\Working\Test_Models\modCP_pyMF6 has time units of days and length units of meters; 68 stress periods and 2069 total simulation days; and, it has 7 layers with 12347 cells per layer and a grid type of DISV.
-2020-08-26 08:55:13,356 - pyMF6 - INFO - Model DC_MF6 also uses the UZF package. Only GW seepage is simulated and there are 11536 UZF cells. Additionally inputs are only provided for 1 stress period.
-2020-08-26 08:55:13,387 - pyMF6 - INFO - Successfully received simulation start message queue client.
+2020-12-05 15:21:39,762 - pyMF6 - INFO - Model DC_MF6 in directory D:\Data\pyHS2MF6_Testing\testCP_pyMF6 has time units of days and length units of meters; 68 stress periods and 2069 total simulation days; and, it has 7 layers with 12347 cells per layer and a grid type of DISV.
+2020-12-05 15:21:39,762 - pyMF6 - INFO - Model DC_MF6 also uses the UZF package. Only GW seepage is simulated and there are 11536 UZF cells. Additionally inputs are only provided for 1 stress period.
+2020-12-05 15:21:39,776 - pyMF6 - INFO - Successfully received simulation start message queue client.
 
-2020-08-26 09:17:42,539 - pyMF6 - INFO - Finished main time loop
-2020-08-26 09:17:42,539 - pyMF6 - INFO - Finished cphfinalproc, status 0
-2020-08-26 09:17:42,599 - pyMF6 - INFO - Finished cphdeallocall
-2020-08-26 09:17:42,619 - pyMF6 - INFO - Finished outputTracking, status 0
-2020-08-26 09:17:42,619 - pyMF6 - INFO - Received success MF6 end
-2020-08-26 09:17:42,619 - pyMF6 - INFO - Changed back to original directory
-2020-08-26 09:17:42,619 - pyMF6 - INFO - End of MODFLOW6 mods at 2020-08-26 09:17:42 - elapsed time -      22.60 min
+2020-12-05 15:35:12,594 - pyMF6 - INFO - Finished main time loop
+2020-12-05 15:35:12,594 - pyMF6 - INFO - Finished cphfinalproc, status 0
+2020-12-05 15:35:12,614 - pyMF6 - INFO - Finished cphdeallocall
+2020-12-05 15:35:12,629 - pyMF6 - INFO - Finished outputTracking, status 0
+2020-12-05 15:35:12,629 - pyMF6 - INFO - Received success MF6 end
+2020-12-05 15:35:12,629 - pyMF6 - INFO - Changed back to original directory
+2020-12-05 15:35:12,629 - pyMF6 - INFO - End of MODFLOW6 mods at 2020-12-05 15:35:12 - elapsed time -      13.59 min
 

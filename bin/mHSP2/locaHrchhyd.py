@@ -1680,7 +1680,7 @@ def getOUTDGT( targID, nexits, iI, odgtf ):
     outdgt[2] = float( OUTDGT3[targID][iI] )
     outdgt[3] = float( OUTDGT4[targID][iI] )
     outdgt[4] = float( OUTDGT5[targID][iI] )
-    # end if
+    # assign for return
     retoutdgt[:] = outdgt[:nexits]
     # return
     return retoutdgt

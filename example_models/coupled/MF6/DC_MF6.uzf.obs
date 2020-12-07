@@ -1,6 +1,6 @@
 BEGIN options
 END options
-
+  
 BEGIN continuous  FILEOUT  uzf_obs.bsv
   Recharge  uzf-gwrch  HRU_1
   Recharge  uzf-gwrch  HRU_2
@@ -50,5 +50,17 @@ BEGIN continuous  FILEOUT  uzf_obs.bsv
   RejInfilt  rej-inf  HRU_10
   RejInfilt  rej-inf  HRU_11
   RejInfilt  rej-inf  HRU_12
+  NetInfilt  net-infiltration  HRU_1
+  NetInfilt  net-infiltration  HRU_2
+  NetInfilt  net-infiltration  HRU_3
+  NetInfilt  net-infiltration  HRU_4
+  NetInfilt  net-infiltration  HRU_5
+  NetInfilt  net-infiltration  HRU_6
+  NetInfilt  net-infiltration  HRU_7
+  NetInfilt  net-infiltration  HRU_8
+  NetInfilt  net-infiltration  HRU_9
+  NetInfilt  net-infiltration  HRU_10
+  NetInfilt  net-infiltration  HRU_11
+  NetInfilt  net-infiltration  HRU_12
 END continuous  FILEOUT  uzf_obs.bsv
 

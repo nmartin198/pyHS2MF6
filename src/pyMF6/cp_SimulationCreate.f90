@@ -22,12 +22,12 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 module cphSimulationCreateModule
 !====================================================================
-! Copy of MODFLOW 6, v.6.1.1 SimulationCreateModule that has been 
+! Copy of MODFLOW 6, v.6.2.0 SimulationCreateModule that has been 
 ! slightly extended to provde for coupled mode simulation with HSPF.
 ! There are really only three modifications or extensions.
 !   1. simulation_cr() replaced cphsimulation_cr() so that this module
 !       provides a unique name for simulation object creation 
-!   2. simulatioN_da() replaced by cphsimulation_da() so that this
+!   2. simulation_da() replaced by cphsimulation_da() so that this
 !       module provides a unique name for simulation object deallocation
 !   3. cphgwf_cr() from cphGwfModule is used in models_create() so that
 !       extended type GWF models are created and used for coupled 
@@ -42,6 +42,7 @@ module cphSimulationCreateModule
   use GenericUtilitiesModule, only: sim_message, write_centered
   use SimModule,              only: ustop, store_error, count_errors,            &
                                     store_error_unit, MaxErrors
+  use VersionModule,          only: write_listfile_header
   use InputOutputModule,      only: getunit, urword, openfile
   use ArrayHandlersModule,    only: expandarray, ifind
   use BaseModelModule,        only: BaseModelType
@@ -68,8 +69,6 @@ module cphSimulationCreateModule
   subroutine cphsimulation_cr()
 ! ******************************************************************************
 ! Read the simulation name file and initialize the models, exchanges
-!
-! No changes to this subroutine, only the name changed
 ! ******************************************************************************
 !
 !    SPECIFICATIONS:
@@ -90,7 +89,7 @@ module cphSimulationCreateModule
     write(line,'(2(1x,A))') 'Writing simulation list file:',                     &
                             trim(adjustl(simlstfile))
     call sim_message(line)
-    call write_simulation_header()
+    call write_listfile_header(iout)
     !
     ! -- Read the simulation name file and create objects
     call read_simulation_namefile(trim(adjustl(simfile)))
@@ -102,8 +101,6 @@ module cphSimulationCreateModule
   subroutine cphsimulation_da()
 ! ******************************************************************************
 ! Deallocate simulation variables
-! 
-! No changes to this subroutine, only the name changed
 ! ******************************************************************************
 !
 !    SPECIFICATIONS:
@@ -118,56 +115,6 @@ module cphSimulationCreateModule
     ! -- Return
     return
   end subroutine cphsimulation_da
-
-  subroutine write_simulation_header()
-! ******************************************************************************
-! Write header information for the simulation
-! ******************************************************************************
-!
-!    SPECIFICATIONS:
-! ------------------------------------------------------------------------------
-    use ConstantsModule,        only: LENBIGLINE
-    use VersionModule,          only: VERSION, MFVNAM, MFTITLE, FMTDISCLAIMER,  & 
-                                      IDEVELOPMODE
-    use CompilerVersion
-    use GenericUtilitiesModule, only: write_centered
-    ! -- dummy
-    ! -- local
-    character(len=LENBIGLINE) :: syscmd
-    character(len=80) :: compiler
-! ------------------------------------------------------------------------------
-    !
-    ! -- Write header lines to simulation list file.
-    call write_centered('MODFLOW'//MFVNAM, 80, iunit=iout)
-    call write_centered(MFTITLE, 80, iunit=iout)
-    call write_centered('VERSION '//VERSION, 80, iunit=iout)
-    !
-    ! -- Write if develop mode
-    if (IDEVELOPMODE == 1) then
-      call write_centered('***DEVELOP MODE***', 80, iunit=iout)
-    end if
-    !
-    ! -- Write compiler version
-    call get_compiler(compiler)
-    call write_centered(' ', 80, iunit=iout)
-    call write_centered(trim(adjustl(compiler)), 80, iunit=iout)
-    !
-    ! -- Write disclaimer
-    write(iout, FMTDISCLAIMER)
-    !
-    ! -- Write the system command used to initiate simulation
-    call GET_COMMAND(syscmd)
-    write(iout, '(/,a,/,a)') 'System command used to initiate simulation:',    &
-                             trim(syscmd)
-    !
-    ! -- Write precision of real variables
-    write(iout, '(/,a)') 'MODFLOW was compiled using uniform precision.'
-    call write_kindinfo(iout)
-    write(iout, *)
-    !
-    ! -- Return
-    return
-  end subroutine write_simulation_header
 
   subroutine read_simulation_namefile(simfile)
 ! ******************************************************************************
@@ -373,7 +320,7 @@ module cphSimulationCreateModule
   subroutine models_create()
 ! ******************************************************************************
 ! Set the models to be used for the simulation
-! 
+!
 ! Changed the GwfModule type to use the coupled type
 ! ******************************************************************************
 !
@@ -381,6 +328,7 @@ module cphSimulationCreateModule
 ! ------------------------------------------------------------------------------
     ! -- modules
     use cphGwfModule,           only: cphgwf_cr
+    use GwtModule,              only: gwt_cr
     use ConstantsModule,        only: LENMODELNAME
     ! -- dummy
     ! -- local
@@ -407,6 +355,10 @@ module cphSimulationCreateModule
             call parser%GetString(fname)
             call add_model(im, 'GWF6', mname)
             call cphgwf_cr(fname, im, modelname(im))
+          case ('GWT6')
+            call parser%GetString(fname)
+            call add_model(im, 'GWT6', mname)
+            call gwt_cr(fname, im, modelname(im))
           case default
             write(errmsg, '(4x,a,a)') &
                   '****ERROR. UNKNOWN SIMULATION MODEL: ',                     &
@@ -437,6 +389,7 @@ module cphSimulationCreateModule
 ! ------------------------------------------------------------------------------
     ! -- modules
     use GwfGwfExchangeModule,    only: gwfexchange_create
+    use GwfGwtExchangeModule,    only: gwfgwt_cr
     ! -- dummy
     ! -- local
     integer(I4B) :: ierr
@@ -491,6 +444,36 @@ module cphSimulationCreateModule
             write(iout, '(4x,a,i0,a,i0,a,i0)') 'GWF6-GWF6 exchange ', id,      &
               ' will be created to connect model ', m1, ' with model ', m2
             call gwfexchange_create(fname, id, m1, m2)
+          case ('GWF6-GWT6')
+            id = id + 1
+            !
+            ! -- get filename
+            call parser%GetString(fname)
+            !
+            ! -- get first modelname and then model id
+            call parser%GetStringCaps(name1)
+            m1 = ifind(modelname, name1)
+            if(m1 < 0) then
+              write(errmsg, fmtmerr) trim(name1)
+              call store_error(errmsg)
+              call parser%StoreErrorUnit()
+              call ustop()
+            endif
+            !
+            ! -- get second modelname and then model id
+            call parser%GetStringCaps(name2)
+            m2 = ifind(modelname, name2)
+            if(m2 < 0) then
+              write(errmsg, fmtmerr) trim(name2)
+              call store_error(errmsg)
+              call parser%StoreErrorUnit()
+              call ustop()
+            endif
+            !
+            ! -- Create the exchange object.
+            write(iout, '(4x,a,i0,a,i0,a,i0)') 'GWF6-GWT6 exchange ', id,      &
+              ' will be created to connect model ', m1, ' with model ', m2
+            call gwfgwt_cr(fname, id, m1, m2)
           case default
             write(errmsg, '(4x,a,a)') &
                   '****ERROR. UNKNOWN SIMULATION EXCHANGES: ',                 &

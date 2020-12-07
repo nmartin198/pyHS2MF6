@@ -1,8 +1,8 @@
                                    MODFLOW 6
                 U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
-                            VERSION 6.1.1 06/12/2020
+                            VERSION 6.2.0 10/22/2020
 
-  MODFLOW 6 compiled Jul 21 2020 17:41:19 with GFORTRAN compiler (ver. 8.1.0)
+  MODFLOW 6 compiled Dec  5 2020 15:17:52 with GFORTRAN compiler (ver. 8.1.0)
 
 This software has been approved for release by the U.S. Geological 
 Survey (USGS). Although the software has been subjected to rigorous 
@@ -17,7 +17,8 @@ authorized or unauthorized use. Also refer to the USGS Water
 Resources Software User Rights Notice for complete use, copyright, 
 and distribution information.
 
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2020/08/26  8:55:13
+
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2020/12/05 15:21:39
 
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
@@ -2072,8 +2073,6 @@ and distribution information.
     Solving:  Stress period:    68    Time step:    10
     Solving:  Stress period:    68    Time step:    11
     Solving:  Stress period:    68    Time step:    12
-    Solving:  Stress period:    68    Time step:    13
-flopy is installed in C:\Users\nmartin\.conda\envs\pyhs2mf6\lib\site-packages\flopy
 loading simulation...
   loading simulation name file...
   loading tdis package...
@@ -2091,6 +2090,7 @@ loading simulation...
     loading package riv...
     loading package rch...
   loading ims package dc_mf6...
+    Solving:  Stress period:    68    Time step:    13
     Solving:  Stress period:    68    Time step:    14
     Solving:  Stress period:    68    Time step:    15
     Solving:  Stress period:    68    Time step:    16
@@ -2110,7 +2110,7 @@ loading simulation...
     Solving:  Stress period:    68    Time step:    30
     Solving:  Stress period:    68    Time step:    31
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2020/08/26  9:17:42
- Elapsed run time: 22 Minutes, 29.165 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2020/12/05 15:35:12
+ Elapsed run time: 13 Minutes, 32.833 Seconds
 
  Normal termination of simulation.

@@ -1,13 +1,31 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: locaLogger.py
-   :platform: Windows, Linux
-   :synopsis: mHSP2-wide logger
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+mHSP2 custom logger leveraging Python logging
 
 Provides specification and configuration of Python's logging API to use for
 debugging and informational purposes. This module is for mHSP2.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -125,6 +143,10 @@ PREC: Input time series of precipitation to RCHRES, inches per day
 POTEV: Input time series of potential evaporation from reservoir 
        surface, inches per day
 """
+"""mHSP2 start up user message.
+
+Provides implemented inputs to the program along with required units.
+"""
 
 END_MSG = """Only standard units (acres, feet, inches) are supported.
 Even if you set the units to 2, which is suppossed to denote metric, 
@@ -211,10 +233,14 @@ USTAR: Shear velocity ft/s
 VOL: Volume of water in the RCHRES, af
 VOLEV: Volume of water lost by evaporation, af/day
 """
+"""mHSP2 wrap-up user message.
+
+Provides implemented outputs from the program along with required units.
+"""
 
 
 def loggerStart( LFPath ):
-    """Start the logger to use for the entire program
+    """Start the logger to use with mHSP2
 
     Args:
         LFPath (str): FQDN path for the log file
@@ -233,7 +259,7 @@ def loggerStart( LFPath ):
     LOGR.addHandler( FH )
     # now write the first entry
     START_TIME = dt.datetime.now()
-    LOGR.info( "Start HSP2 model at %s\n" % 
+    LOGR.info( "Start mHSP2 model at %s\n" % 
                   START_TIME.strftime( "%Y-%m-%d %H:%M:%S" ) )
     LOGR.info( "%s" % START_MSG )
     # return
@@ -241,7 +267,7 @@ def loggerStart( LFPath ):
 
 
 def loggerEnd():
-    """End the program-wide logger
+    """End the mHSP2 logger
     """
     # imports
     import datetime as dt
@@ -252,7 +278,7 @@ def loggerEnd():
     END_TIME = dt.datetime.now()
     eTimerS = ( END_TIME - START_TIME ).total_seconds()
     eTimerM = eTimerS/60.0
-    LOGR.info( "End of HSP2 mods at %s - elapsed time - %10.2f min\n" % 
+    LOGR.info( "End of mHSP2 at %s - elapsed time - %10.2f min\n" % 
                ( END_TIME.strftime( "%Y-%m-%d %H:%M:%S" ), eTimerM ) )
     # return
     return

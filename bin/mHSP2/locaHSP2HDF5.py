@@ -1,25 +1,43 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: locaHSP2HDF5
-   :platform: Windows, Linux
-   :synopsis: Routines and data structures for processing HSP2 HDF5 file
-              from the model input standpoint
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+Routines and data structures for processing *HSPsqured* HDF5 file from 
+the model input standpoint.
 
 Use this module to isolate the reading of the input HSP2 HDF5 file and 
 corresponding model setup. The reorganization of this program, relative
-to HSPsquared, so that the main loop is the time loop means that we
+to *HSPsquared*, so that the main loop is the time loop means that we
 do not want to keep the HDF5 file open for the entire simulation. 
 Additionally are not providing full HSPF-functionality support at this
 time and need to identify exactly what is supported and what is not
 supported for the user.
 
 This module contains customizations to work with two different HDF5
-file formats. The original HSPsquared HDF5 format is for the 2.7
-version that was the primary HSPsquared version prior to March 2020.
-A 3.6+ version of HSPsquared was released in March-April 2020. This
+file formats. The original *HSPsquared* HDF5 format is for the 2.7
+version that was the primary *HSPsquared* version prior to March 2020.
+A 3.6+ version of *HSPsquared* was released in March-April 2020. This
 updated version has different HDF5 file format. 
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -31,37 +49,48 @@ import numpy as np
 #----------------------------------------------------------------------
 # MODULE wide globals
 SEQUENCE = defaultdict( list )
-"""Replaces sequence"""
+"""Replaces sequence in original HSPsquared formulations"""
 GENERAL = dict()
-"""Replaces general"""
+"""Replaces general in original HSPsquared formulations"""
 MONTHLYS = defaultdict( dict )
-"""Replaces monthlys, which are the dictionary of monthly tables 
-Example: monthlys['PERLND', 'P001']['CEPSCM'] """
+"""Replaces monthlys, which are the dictionary of monthly tables.
+
+Example: monthlys['PERLND', 'P001']['CEPSCM']
+"""
 UCS = dict()
-"""Replaces ucs
+"""Replaces ucs or user control.
+
 Holds all default user control info in a dictionary
 """
 nUCI = defaultdict( dict )
-"""Replaces uci in new format HDF5 file
+"""Replaces uci in new format HDF5 file.
+
 Holds all default user control info in a dictionary
 """
 TSDD = defaultdict( list )
-"""Replaces tsdd
+"""Replaces tsdd which is the time series data structure.
+
 Time series info default dictionary
 """
 LINKDD = defaultdict( list )
-"""Replaces linkdd
+"""Replaces linkdd which is the links database.
+
 Data for LINK (combined NETWORK & SCHEMATIC) and MASSLINK information
 """
 MLDD = defaultdict( list )
-"""Replaces mldd
-Data for mass links
+"""Replaces mldd or the mass links.
+
+Data for mass links.
 """
 XFLOWDD = dict( )
-"""Replaces xflowdd
+"""Replaces xflowdd.
+
+This is not really used here.
 """
 LOOKUP = defaultdict( list )
-"""Replaces lookup
+"""Replaces lookup.
+
+Also not really used.
 """
 KEY_GEN_START = "sim_start"
 """Key for simulation start time, in GENERAL dictionary"""
@@ -85,29 +114,35 @@ AOS_DTYPE = np.dtype( [ ( DFCOL_OPSEQ_TARG, 'U6' ),
                         ( DFCOL_OPSEQ_ID, 'U4' ), 
                         ( DFCOL_OPSEQ_SDELT, 'U4' ), 
                         ( DFCOL_OPSEQ_DELT, 'f4') ] )
-"""Structured array specification type"""
+"""Structured array specification type."""
 ALLOPSEQ = None
 """Structured array or recarray to hold the operational sequence.
-This is set off of the HDF5 file in locaHSP2HDF5."""
+
+This is set off of the HDF5 file in locaHSP2HDF5.
+"""
 HDF_FMT = 0
-"""HDF file format to read. HSPsquared changed the HDF5 file format
-in 2020 with the release that was Python 3 compatible. Unfortunately,
-neither format is well documented. If this value is 0, then read
-in the original format. If > 0, then read in the new format.
+"""HDF file format to read.
+
+HSPsquared changed the HDF5 file format in 2020 with the release that 
+was Python 3 compatible. Unfortunately, neither format is well 
+documented. If this value is 0, then read in the original format. 
+If > 0, then read in the new format.
 """
 
 
 #----------------------------------------------------------------------
 # methods
 def detHDF5Format(hdfname):
-    """Determine the HDF5 format. Need to know this to correctly 
-    read in the necessary values.
+    """Determine the HDF5 format.
+
+    Need to know this to correctly read in the necessary values.
 
     Args:
         hdfname (str): HDF5 filename used for both input and output.
 
     Returns:
-        format ID (int): 0 == original format; 1 == new format
+        int: HDF5 file format; 0 == original format; 1 == new format
+
     """
     # imports
     import h5py
@@ -143,16 +178,17 @@ def detHDF5Format(hdfname):
 
 
 def transform(ts, tindex, how):
-    """Copy of transform method from HSP2squared. Because we includes 
-    this function do not need to import the package
+    """Copy of transform method from HSP2squared.
+    
+    Because we include this function do not need to import the package
 
     Args:
-        ts (pd.DataFrame): time series in pandas DataFrame format
-        tindex (pd.DateTimeIndex): time index to use with the time series
+        ts (pandas.DataFrame): time series in pandas DataFrame format
+        tindex (pandas.DateTimeIndex): time index to use with the time series
         how (str): method for interpolation
 
     Returns:
-        ts (pd.DataFrame): resampled time series
+        pandas.DataFrame: resampled time series
 
     """
     if ( ( len(ts) == len(tindex) ) and ( ts.index[0] == tindex[0] ) 
@@ -217,15 +253,17 @@ def transform(ts, tindex, how):
 
 
 def newHDFRead( hdfname ):
-    """Logic to read the new HDF from. Extraction from main to 
-    read everything that needed from HDF5 file. Stores these main items 
-    now in module globals rather than keeping the file open.
+    """Logic to read the new format HDF file.
+    
+    Extraction from main to read everything that needed from 
+    HDF5 file. Stores these main items now in module globals 
+    rather than keeping the file open.
 
     Args:
         hdfname (str): HDF5 filename used for both input and output.
 
     Returns:
-        retStat (int): return status, 0 == success
+        int: function status, 0 == success
 
     """
     # imports
@@ -344,16 +382,18 @@ def newHDFRead( hdfname ):
 
 
 def origHDFRead( hdfname, reloadkeys ):
-    """Logic to read the original HDF type. Extraction from main to 
-    read everything that needed from HDF5 file. Stores these main items 
-    now in module globals rather than keeping the file open.
+    """Logic to read the original HDF file format.
+    
+    Extraction from main to read everything that needed from 
+    HDF5 file. Stores these main items now in module globals 
+    rather than keeping the file open.
 
     Args:
         hdfname (str): HDF5 filename used for both input and output.
         reloadkeys (bool): Regenerates keys, used after adding new modules.
 
     Returns:
-        retStat (int): return status, 0 == success
+        int: function status, 0 == success
 
     """
     # imports
@@ -584,14 +624,14 @@ def origHDFRead( hdfname, reloadkeys ):
 
 def initialHDFRead(hdfname, reloadkeys):
     """Determine the HDF5 file format and then call the method to read
-    that type.
+    that format.
 
     Args:
         hdfname (str): HDF5 filename used for both input and output.
         reloadkeys (bool): Regenerates keys, used after adding new modules.
     
     Returns:
-        retStat (int): return status, 0 == success
+        int: function status, 0 == success
 
     """
     # imports
@@ -611,10 +651,15 @@ def initialHDFRead(hdfname, reloadkeys):
 
 def setGTSDict( hdfname, simtimeinds, map_dict, gts ):
     """Set our global time series dictionary which contains each defined time series
-    in the HDF5 file. The keys are the ts name which is SVOLNO.
+    in the HDF5 file.
+    
+    The keys of the dictionary are the ts name which is SVOLNO.
 
-    Only SVOL == "*" is supported
-    Only MFACTOR as a number is supported
+    * Only SVOL == "*" is supported
+    
+    * Only MFACTOR as a number is supported
+
+    **Note** that RCHRES COLIND and OUTDG have not been tested.
 
     Args:
         hdfname (str): FQDN path for the input HDF file
@@ -625,9 +670,8 @@ def setGTSDict( hdfname, simtimeinds, map_dict, gts ):
                     also be modified here.
 
     Returns:
-        retStatus (int): success == 0
+        int: function status; success == 0
 
-    Note that RCHRES COLIND and OUTDG have not been tested.
     """
     # import
     from locaHrchhyd import KEY_TS_COLIND, KEY_TS_OUTDGT
@@ -677,9 +721,13 @@ def setGTSDict( hdfname, simtimeinds, map_dict, gts ):
                     path = "%s%s" % ("TIMESERIES/", svolNum )
                     # now get the time series as a Pandas series
                     temp = store[path]
-                    temp.fillna( value=0.0, inplace=True )
+                    OurIndexer = temp.index.to_pydatetime()
+                    OurIndexer = pd.DatetimeIndex( data=OurIndexer, freq='infer' )
+                    OurVals = np.array( temp, dtype=np.float32 )
+                    goodSeries = pd.Series( index=OurIndexer, data=OurVals )
+                    goodSeries.fillna( value=0.0, inplace=True )
                     # now transform if needed
-                    temp = transform(temp, tsIndex, tran) * mFact
+                    temp = transform(goodSeries, tsIndex, tran) * mFact
                     # then add it
                     gts[ svolNum ] = temp 
                 # now are ready to populate our dictionaries
@@ -710,10 +758,15 @@ def setGTSDict( hdfname, simtimeinds, map_dict, gts ):
 
 def setGFTabDict( hdfname, tdict, gftab ):
     """Set our global FTABLE dictionary which contains each defined FTABLE
-    in the HDF5 file. The keys are the FTAB name which is SVOLNO.
+    in the HDF5 file.
+    
+    The keys are the FTAB name which is SVOLNO.
 
-    Only SVOL == "*" is supported
-    Only MFACTOR as a number is supported
+    * Only SVOL == "*" is supported
+    
+    * Only MFACTOR as a number is supported
+
+    **Requirements**: relies on TARG_DICT so must be called after checkOpsSpec
 
     Args:
         hdfname (str): FQDN path for the input HDF file
@@ -721,9 +774,8 @@ def setGFTabDict( hdfname, tdict, gftab ):
         gftab (dict): FTAB dictionary from locaMain
 
     Returns:
-        retStatus (int): success == 0
+        int: function status; success == 0
     
-    Requirements: relies on TARG_DICT so must be called after checkOpsSpec
     """
     # import
     import re
@@ -789,6 +841,10 @@ def setGFTabDict( hdfname, tdict, gftab ):
 
 def getALLOPS( ):
     """Convenience function to return the module level global ALLOPSEQ
+
+    Returns:
+        numpy.recarray: ALLOPSEQ
+    
     """
     global ALLOPSEQ
     return ALLOPSEQ
@@ -832,10 +888,13 @@ def getSEQUENCE():
 def getUNITS():
     """Get the units from the GENERAL dictionary.
 
-    Return:
-        unitsInt (int): integer telling which units are specified
-                        1 == standard
-                        2 == metric
+    Only works for the old format HDF5 file. Also, the units always
+    have to be 1 because metric are not supported.
+
+    Returns:
+        int: integer telling which units are specified; 1 == standard;
+            2 == metric
+
     """
     global HDF_FMT, GENERAL
     if HDF_FMT == 0:
@@ -849,8 +908,8 @@ def getnUCI():
     """Get the nUCI dictionary. For new format HDF5 files this replaces
     the UCS dictionary.
 
-    Return:
-        nUCI (defaultdict): user control information from new format
+    Returns:
+        defaultdict: nUCI, user control information from new format
 
     """
     global nUCI
@@ -861,7 +920,8 @@ def getHDFFormat():
     """Get the integer format ID for this HDF5 file
 
     Returns:
-        HDF_FMT (int): 0 == original
+        int: HDF5 file format; 0 == original; 1 == new
+    
     """
     global HDF_FMT
     return HDF_FMT
@@ -872,11 +932,11 @@ def getMONTHLYs():
     HDF5 file format.
 
     Returns:
-        MONTHLYS (defaultdict): Key is (type, targID) which returns
-                                a dictionary as the value. The sub-
-                                dictionary has keys that are parameter
-                                names and values that are a tuple of
-                                size 12.
+        defaultdict: MONTHLYS, key is (type, targID) which returns
+                     a dictionary as the value. The sub-dictionary 
+                     has keys that are parameter names and values 
+                     that are a tuple of size 12.
+    
     """
     global MONTHLYS
     return MONTHLYS

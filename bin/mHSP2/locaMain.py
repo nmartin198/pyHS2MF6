@@ -1394,7 +1394,7 @@ def salocaMain(simdir, hdfname, saveall=False, reloadkeys=False):
     for iI in range( sim_len ):
         # debugging outputs
         if iI == 0:
-            print("LOCA HSPF Start")
+            print("mHSP2 Start")
         elif iI % 365 == 0:
             print("Sim time: %s" % tIndex[iI].strftime( "%Y-%m-%d" ) )
         # get the current month

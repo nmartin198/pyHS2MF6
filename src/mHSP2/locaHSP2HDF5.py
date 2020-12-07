@@ -721,9 +721,13 @@ def setGTSDict( hdfname, simtimeinds, map_dict, gts ):
                     path = "%s%s" % ("TIMESERIES/", svolNum )
                     # now get the time series as a Pandas series
                     temp = store[path]
-                    temp.fillna( value=0.0, inplace=True )
+                    OurIndexer = temp.index.to_pydatetime()
+                    OurIndexer = pd.DatetimeIndex( data=OurIndexer, freq='infer' )
+                    OurVals = np.array( temp, dtype=np.float32 )
+                    goodSeries = pd.Series( index=OurIndexer, data=OurVals )
+                    goodSeries.fillna( value=0.0, inplace=True )
                     # now transform if needed
-                    temp = transform(temp, tsIndex, tran) * mFact
+                    temp = transform(goodSeries, tsIndex, tran) * mFact
                     # then add it
                     gts[ svolNum ] = temp 
                 # now are ready to populate our dictionaries

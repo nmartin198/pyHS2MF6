@@ -1,6 +1,6 @@
-2020-07-21 19:20:49,683 - mHSP2 - INFO - Start HSP2 model at 2020-07-21 19:20:49
+2020-12-05 15:21:35,171 - mHSP2 - INFO - Start mHSP2 model at 2020-12-05 15:21:35
 
-2020-07-21 19:20:49,683 - mHSP2 - INFO - Only standard units (acres, feet, inches) are supported.
+2020-12-05 15:21:35,171 - mHSP2 - INFO - Only standard units (acres, feet, inches) are supported.
 Even if you set the units to 2, which is suppossed to denote metric, 
 standard units and conversions are hard-coded into HSPsquared and into
 this revised version.
@@ -93,332 +93,332 @@ PREC: Input time series of precipitation to RCHRES, inches per day
 POTEV: Input time series of potential evaporation from reservoir 
        surface, inches per day
 
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param MELEV is set to 1977.5
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param MELEV is set to 1977.5
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,584 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param MELEV is set to 1924.72
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param MELEV is set to 1924.72
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,585 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param MELEV is set to 2017.18
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param MELEV is set to 2017.18
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,339 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,586 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 1989.32
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param MELEV is set to 1989.32
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,587 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 1937.45
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param MELEV is set to 1937.45
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 1768.43
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param MELEV is set to 1768.43
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,588 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 2044.84
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param MELEV is set to 2044.84
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,589 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 1673.56
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param MELEV is set to 1673.56
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,590 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param MELEV is set to 1701.49
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param MELEV is set to 1701.49
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,591 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,355 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param MELEV is set to 1782.34
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param MELEV is set to 1782.34
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,592 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param MELEV is set to 1867.41
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param MELEV is set to 1867.41
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param BELV is set to 1600
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param BELV is set to 1600
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param DELTA is set to 0.001
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param DELTA is set to 0.001
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param GWDATM is set to 1400
+2020-12-05 15:21:36,593 - mHSP2 - WARNING - Param GWDATM is set to 1400
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param IFWSC is set to 0.9843
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param LELFAC is set to 1
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param LELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param MELEV is set to 1569.06
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param MELEV is set to 1569.06
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PCW is set to 0.4
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param PCW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param PGW is set to 0.4
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param PGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SREXP is set to 2
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param SREXP is set to 2
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param SRRC is set to 0.1
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param SRRC is set to 0.1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param STABNO is set to 999
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param STABNO is set to 999
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UELFAC is set to 1
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param UELFAC is set to 1
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Param UPGW is set to 0.4
+2020-12-05 15:21:36,594 - mHSP2 - WARNING - Param UPGW is set to 0.4
 This functionality is not currently implemented!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,370 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,386 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,386 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
-2020-07-21 19:20:52,386 - mHSP2 - WARNING - Only flow group member IVOL is supported for target type RCHRES and group INFLOW. Mass Link 1 has  for member type. Member type set to IVOL!!!
-2020-07-21 19:20:52,401 - mHSP2 - INFO - Finished setup in setUPPreTL
-2020-07-21 19:20:58,904 - mHSP2 - INFO - Successfully received simulation start message queue client.
+2020-12-05 15:21:36,595 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,595 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,596 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,596 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,596 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,596 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,596 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,597 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,597 - mHSP2 - WARNING - Flag ICAT had a value of nan. Set to 0!!!
+2020-12-05 15:21:36,598 - mHSP2 - WARNING - Only flow group member IVOL is supported for target type RCHRES and group INFLOW. Mass Link 1 has  for member type. Member type set to IVOL!!!
+2020-12-05 15:21:36,603 - mHSP2 - INFO - Finished setup in setUPPreTL
+2020-12-05 15:21:39,776 - mHSP2 - INFO - Successfully received simulation start message queue client.
 
-2020-07-21 19:44:12,538 - mHSP2 - INFO - Only standard units (acres, feet, inches) are supported.
+2020-12-05 15:35:13,063 - mHSP2 - INFO - Only standard units (acres, feet, inches) are supported.
 Even if you set the units to 2, which is suppossed to denote metric, 
 standard units and conversions are hard-coded into HSPsquared and into
 this revised version.
@@ -503,5 +503,5 @@ USTAR: Shear velocity ft/s
 VOL: Volume of water in the RCHRES, af
 VOLEV: Volume of water lost by evaporation, af/day
 
-2020-07-21 19:44:12,538 - mHSP2 - INFO - End of HSP2 mods at 2020-07-21 19:44:12 - elapsed time -      23.38 min
+2020-12-05 15:35:13,063 - mHSP2 - INFO - End of mHSP2 at 2020-12-05 15:35:13 - elapsed time -      13.63 min
 

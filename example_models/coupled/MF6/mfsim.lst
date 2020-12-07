@@ -1,8 +1,8 @@
                                    MODFLOW 6
                 U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
-                            VERSION 6.1.1 06/12/2020
+                            VERSION 6.2.0 10/22/2020
 
-  MODFLOW 6 compiled Jul 21 2020 17:41:19 with GFORTRAN compiler (ver. 8.1.0)
+  MODFLOW 6 compiled Dec  5 2020 15:17:52 with GFORTRAN compiler (ver. 8.1.0)
 
 This software has been approved for release by the U.S. Geological 
 Survey (USGS). Although the software has been subjected to rigorous 
@@ -185,31 +185,31 @@ Logical Variables
  END OF LINEAR DATA
 
  OUTER ITERATION CONVERGENCE CRITERION    (DVCLOSE) =    0.100000E-01
- MAXIMUM NUMBER OF OUTER ITERATIONS        (MXITER) =       500
- SOLVER PRINTOUT INDEX                     (IPRIMS) =         1
- NONLINEAR ITERATION METHOD            (NONLINMETH) =         3
- LINEAR SOLUTION METHOD                   (LINMETH) =         1
+ MAXIMUM NUMBER OF OUTER ITERATIONS        (MXITER) = 500
+ SOLVER PRINTOUT INDEX                     (IPRIMS) = 1
+ NONLINEAR ITERATION METHOD            (NONLINMETH) = 3
+ LINEAR SOLUTION METHOD                   (LINMETH) = 1
  UNDER-RELAXATION WEIGHT REDUCTION FACTOR   (THETA) =    0.800000E+00
  UNDER-RELAXATION WEIGHT INCREASE INCREMENT (KAPPA) =    0.100000E-03
  UNDER-RELAXATION PREVIOUS HISTORY FACTOR   (GAMMA) =    0.000000E+00
- UNDER-RELAXATIONMOMENTUM TERM          (AMOMENTUM) =    0.000000E+00
-    MAXIMUM NUMBER OF BACKTRACKS         (NUMTRACK) =        20
+ UNDER-RELAXATION MOMENTUM TERM         (AMOMENTUM) =    0.000000E+00
+ MAXIMUM NUMBER OF BACKTRACKS            (NUMTRACK) = 20
  BACKTRACKING TOLERANCE FACTOR               (BTOL) =    0.105000E+01
  BACKTRACKING REDUCTION FACTOR             (BREDUC) =    0.100000E+00
  BACKTRACKING RESIDUAL LIMIT              (RES_LIM) =    0.200000E-02
 
        SOLUTION BY THE BICONJUGATE-GRADIENT STABILIZED METHOD
  ------------------------------------------------------------------
- MAXIMUM OF    500 CALLS OF SOLUTION ROUTINE
- MAXIMUM OF    100 INTERNAL ITERATIONS PER CALL TO SOLUTION ROUTINE
+ MAXIMUM OF 500 CALLS OF SOLUTION ROUTINE
+ MAXIMUM OF 100 INTERNAL ITERATIONS PER CALL TO SOLUTION ROUTINE
  LINEAR ACCELERATION METHOD            = BCGS      
  MATRIX PRECONDITIONING TYPE           = INCOMPLETE LUT      
  MATRIX SCALING APPROACH               = NO SCALING          
  MATRIX REORDERING APPROACH            = ORIGINAL ORDERING        
- NUMBER OF ORTHOGONALIZATIONS          =        2
+ NUMBER OF ORTHOGONALIZATIONS          = 2
  HEAD CHANGE CRITERION FOR CLOSURE     =    0.10000E-01
  RESIDUAL CHANGE CRITERION FOR CLOSURE =    0.10000E-01
- RESIDUAL CONVERGENCE OPTION           =        0
+ RESIDUAL CONVERGENCE OPTION           = 0
  RESIDUAL CONVERGENCE NORM             = INFINITY NORM   
  RELAXATION FACTOR                     =    0.00000E+00
  NUMBER OF LEVELS                      =              5
@@ -35660,14 +35660,14 @@ Logical Variables
  -------------------------------
  Character        0.52153300    
  Logical          4.40000000E-05
- Integer          19.465220     
- Real             684.17218     
+ Integer          19.465332     
+ Real             684.17238     
  -------------------------------
- Total            704.15898     
+ Total            704.15928     
  -------------------------------
 
 
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2020/08/26  9:17:42
- Elapsed run time: 22 Minutes, 29.165 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2020/12/05 15:35:12
+ Elapsed run time: 13 Minutes, 32.833 Seconds
  Normal termination of simulation.

@@ -22,7 +22,7 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 module cphDrnModule
 !====================================================================
-! Copy of MODFLOW 6, v.6.1.1 DRN Module that has been slightly extended 
+! Copy of MODFLOW 6, v.6.2.0 DRN Module that has been slightly extended 
 ! to provide for coupled mode simulation with HSPF.
 ! There are really only three modifications or extensions.
 !   1. DrnType replaced cphDrnType so that the types can 
@@ -39,6 +39,7 @@ module cphDrnModule
   use KindModule, only: DP, I4B
   use ConstantsModule, only: DZERO, DONE, DTWO,                                  &
                              LENFTYPE, LENPACKAGENAME, LENAUXNAME, LINELENGTH
+  use MemoryHelperModule, only: create_mem_path
   use SmoothingModule,  only: sQSaturation, sQSaturationDerivative,              &
                               sQuadraticSaturation
   use BndModule, only: BndType
@@ -108,7 +109,7 @@ contains
     allocate(drnobj)
     packobj => drnobj
     !
-    ! -- create name and origin
+    ! -- create name and memory path
     call packobj%set_names(ibcnum, namemodel, pakname, ftype)
     packobj%text = text
     !
@@ -125,7 +126,7 @@ contains
     packobj%ibcnum = ibcnum
     packobj%ncolbnd=2  ! drnelev, conductance
     packobj%iscloc=2   !sfac applies to conductance
-    packobj%ictorigin = 'NPF'
+    packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
     !
     ! -- return
     return
@@ -171,8 +172,8 @@ contains
     call this%BndType%allocate_scalars()
     !
     ! -- allocate the object and assign values to object variables
-    call mem_allocate(this%iauxddrncol, 'IAUXDDRNCOL', this%origin)
-    call mem_allocate(this%icubic_scaling, 'ICUBIC_SCALING', this%origin)
+    call mem_allocate(this%iauxddrncol, 'IAUXDDRNCOL', this%memoryPath)
+    call mem_allocate(this%icubic_scaling, 'ICUBIC_SCALING', this%memoryPath)
     !
     ! -- Set values
     this%iauxddrncol = 0
@@ -188,7 +189,7 @@ contains
 
   subroutine drn_options(this, option, found)
 ! ******************************************************************************
-! drn_options -- set options specific to DrnType
+! drn_options -- set options specific to cphDrnType
 !
 ! drn_options overrides BndType%bnd_options
 ! ******************************************************************************
@@ -702,6 +703,7 @@ contains
     return
   end subroutine drn_rp_ts
 
+
   subroutine cphdrn_exsdis(this, surfd, numnodes2d)
 ! ******************************************************************************
 ! Completely new procedure for coupling
@@ -715,8 +717,8 @@ contains
     implicit none
     ! -- dummy
     class(cphDrnType),intent(inout) :: this
-    real(DP), dimension(2, numnodes2d), intent(inout) :: surfd
     integer(I4B), intent(in) :: numnodes2d
+    real(DP), dimension(2, numnodes2d), intent(inout) :: surfd
     ! -- locals
     integer(I4B) :: i, n 
     integer(I4B) :: curunode, inode, remmod, ntimes
@@ -755,6 +757,6 @@ contains
     ! -- return
     return
   end subroutine cphdrn_exsdis
-
+    
 
 end module cphDrnModule

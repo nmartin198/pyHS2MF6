@@ -1,20 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: locaHimpwat.py
-   :platform: Windows, Linux
-   :synopsis: Replacement for HSP2 himpwat
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+Replacement for *HSPsquared* himpwat that provides for water movement
+and storage in impervious land segments, **IMPLND**.
 
 Had to replace HSP2 himpwat so that can break into the main time loop
 at the beginning and end of each day. This required fundamentally
 restructuring the storage and memory allocation within HSP2.
 
 locaHimpwat functions as a module handling storage for global
-IMPLND variables as well as for parameter and constant 
+**IMPLND** variables as well as for parameter and constant 
 definitions.
 
-Internal time unit DELT60 is in hours for IMPLND.
+Internal time unit DELT60 is in hours for **IMPLND**.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -24,16 +43,18 @@ import locaLogger as CL
 # module wide parameters ------------------------------------
 # original HSP2 parameters ++++++++++++++++++++++++++++++++++
 MAXLOOPS  = int( 100 )
-"""Newton method max loops"""
+"""Newton method max loop iterations."""
 TOLERANCE = float( 0.01 ) 
 """Tolerance for Newton method convergence"""
 ERRMSG = ['IWATER: IROUTE Newton Method did not converge',    #ERRMSG0
 ]
-"""Defined error messages - can be used with errorsV for 
-error handling. Currently, these messages written to the 
-log file as errors when encountered."""
+"""Defined error messages from HSPF.
+
+Used with errorsV for error handling. Currently, these messages 
+written to the log file as errors when encountered.
+"""
 errorsV = np.zeros( len(ERRMSG), dtype=np.int32 )
-"""Error handling in liftedloop"""
+"""Error tracking in liftedloop"""
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # new module wide parameters
@@ -41,13 +62,13 @@ errorsV = np.zeros( len(ERRMSG), dtype=np.int32 )
 
 # some new control information
 PARAM_GOOD = [ "LSUR", "NSUR", "PETMAX", "PETMIN", "RETSC", "SLSUR" ]
-"""Input, non-state parameters that are used in this implementation"""
+"""Input, non-state parameters that are used in mHSP2"""
 PARAM_UNUSED = []
-"""Input parameters that unused in this implementation"""
+"""Input parameters that unused in mHSP2"""
 FLAG_GOOD = [ "CSNOFG", "RTLIFG", "RTOPFG", "VNNFG", "VRSFG" ]
-"""Flags that at least referenced in this implementation"""
+"""Flags that are at least referenced in mHSP2."""
 FLAG_UNUSED = [ ]
-"""Flags that completely unused in this implementation"""
+"""Flags that are completely unused in mHSP2"""
 MON_PARAMS = [ "NSURM", "RETSCM" ]
 """Parameter names for values that can be specified as monthly"""
 MON_FLAGS = [ "VNNFG", "VRSFG" ]
@@ -59,16 +80,17 @@ KEY_TS_PRECIP = "PREC"
 KEY_TS_PET = "PETINP"
 """External time series key for input PET"""
 INFLOW_TS_GOOD = [ KEY_TS_PRECIP, KEY_TS_PET, ]
-"""All supported inflow time series"""
+"""All supported inflow time series in mHSP2"""
 LAT_INFLOW_TS = [ "SURLI" ]
 """List of possible lateral inflow time series"""
 INFLOW_TS_UNUSED = [ "AIRTMP", "GATMP", "DTMPG", "WINMOV", "SOLRAD", 
                      "CLOUD","SLSLD", "IQADFX", "IQADCN", "RAINF", 
                      "SNOCOV", "WYIELD", "PACKI" ]
 """Unsupported inflow time series"""
-GOOD_OUTPUT_LIST = [ "IMPEV", "IMPS", "PET", "PETADJ", "RETS", "SUPY", "SURI", 
-                     "SURO", "SURS" ]
-"""List of currently supported outputs"""
+GOOD_OUTPUT_LIST = [ "IMPEV", "IMPS", "PET", "PETADJ", "RETS", "SUPY", 
+                     "SURI", "SURO", "SURS" ]
+"""List of currently supported outputs that can be written to the 
+HDF5 file"""
 BAD_OUTPUT_LIST = [  ]
 """Currently unsupported outputs """
 
@@ -79,15 +101,17 @@ DELT60 = None
 HOLD_MSUPY = None
 """Value of MSUPY to cover over between time steps"""
 HOLD_DEC = None
-"""Carry over calculation variable in case is not daily """
+"""Carry over calculation variable in case simulation is not daily """
 HOLD_SRC = None
-"""Carry over calculation variable in case is not daily """
+"""Carry over calculation variable in case simulation is not daily """
 
 # data type specifications for making rec arrays
 DEF_DT = None
-"""The data type specification for time series structured array or record array"""
+"""The data type specification for time series structured array or 
+record array"""
 SPEC_DT = None
-"""The data type specification for the calculation and input record arrays"""
+"""The data type specification for the calculation and input 
+record arrays"""
 FLAG_DT = None
 """The data type specification for flag record arrays"""
 
@@ -107,13 +131,17 @@ HR1FG = None
 #   the UCI file
 # iwat-parm1
 CSNOFG = None
-"""Switch to turn on consideration of snow accumulation and melt"""
+"""Switch to turn on consideration of snow accumulation and melt.
+
+SNOW is not currently supported."""
 RTOPFG = None
-"""Flag to select algorithm for overland flow
+"""Flag to select algorithm for overland flow.
+
 RTOPFG == 1 then overland flow done as in predeccesor models - HSPX, 
 ARM, and NPS. RTOPFG == 0 then a different algorithm is used."""
 RTLIFG = None 
-"""Flag for handling retention storage on lateral surface inflow
+"""Flag for handling retention storage on lateral surface inflow.
+
 If == 1, then lateral surface inflow is subject to retention. For 0,
 not subject to retention
 """
@@ -136,12 +164,16 @@ SLSUR = None
 """Slope of the assumed overland flow plane, ft/ft """
 # pwat-parm3
 PETMAX = None
-"""Air temperature below which ET will be arbitrarily reduced
-Only used if CSNOFG == 1. Units are degrees Fahrenheit.
+"""Air temperature below which ET will be arbitrarily reduced.
+
+Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not 
+supported so this is not used.
 """
 PETMIN = None
-"""Air temperature below which ET will be set to zero
-Only used if CSNOFG == 1. Units are degrees Fahrenheit.
+"""Air temperature below which ET will be set to zero.
+
+Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not 
+supported and this is not used.
 """
 
 #iwat-State1
@@ -183,7 +215,8 @@ SURS = None
 
 
 def setDelT( sim_delt ):
-    """Set the impervious land delt for calculations
+    """Set the impervious land delt for calculations.
+
     The delt is stored as a module wide global
 
     Arguments:
@@ -305,12 +338,13 @@ def setPrecipTS( targID, npTS ):
     """Set the precipitation time series from one data set
     to one target.
 
+    SUPY is where precipitation is stored for calculations
+
     Args:
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
 
-    SUPY is where precipitation is stored for calculations
     """
     # imports
     # globals
@@ -327,13 +361,14 @@ def setPETTS( targID, npTS ):
     """Set the PET time series from one data set
     to one target.
 
+    PET is where pet is stored for calculations. Might be adjusted
+    by various activities.
+
     Args:
         targID (str): the target identifier - must be same as used
                         to create the rec array
         npTS (np.array): 1D array with the time series values
 
-    PET is where pet is stored for calculations. Might be adjusted
-    by various activities.
     """
     # imports
     # globals
@@ -347,7 +382,8 @@ def setPETTS( targID, npTS ):
 
 
 def setWSAreas( targID, area ):
-    """Set the watershed area to the global information structure
+    """Set the watershed area to the global information structure.
+
     Area is in acres
 
     Args:
@@ -480,14 +516,18 @@ def configExternalTS( sim_len, TSMapList, AllTSDict ):
     Args:
         sim_len (int): the length of the simulation
         TSMapList (list): nested list with sublists, L, of time series 
-                            metadata for a particular target ID
-                           L[0] = time series type
-                           L[1] = time series ID
-                           L[2] = target ID
+            metadata for a particular target ID
+            
+            0. time series type
+
+            1. time series ID
+
+            2. target ID
+        
         AllTSDict (dict): dictionary of time series by time series ID
     
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -586,7 +626,6 @@ def setLatInflowTS( sim_len, targID, inflowType, tsVals ):
         inflowType (str): type of lateral inflow
         tsVals (np.array): array of time series values
     
-    LAT_INFLOW_TS = [ "SURLI" ]
     """
     # import
     # globals
@@ -618,7 +657,7 @@ def setOutputControlFlags( targID, savetable, stTypes ):
         stTypes (list): keys or indexes to save
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -664,7 +703,7 @@ def configFlagsParams( targID, cFlagVals, allIndexes ):
         allIndexes (list): list of indexes for cFlagVals
     
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -759,7 +798,6 @@ def getLatInflowByTypeTarget( targID, liType, iI ):
         liType (str): lateral inflow type
         iI (int): current time index
 
-    LAT_INFLOW_TS = [ "SURLI" ]
     """
     global SURLI, LATIN_CONTROL, LAT_INFLOW_TS
     # start
@@ -781,11 +819,11 @@ def getLatInflowByTypeTarget( targID, liType, iI ):
 
 def iwater_liftedloop( iI, mon, targID ):
     """Modified version of liftedloop to do a single time step and
-    return to the main time loop. Module-wide recarrays are used
-    to store all results and calculation variables between
-    calls.
-
-    Modified real number comparisons to be more numerically reliable.
+    return to the main time loop. 
+    
+    Module-wide recarrays are used to store all results and calculation
+    variables between calls. Modified real number comparisons to be 
+    more numerically reliable.
 
     Args:
         iI (int): index of current time step (0 to (sim_len-1))
@@ -793,9 +831,8 @@ def iwater_liftedloop( iI, mon, targID ):
         targID (str): ID for recarray columns
 
     Returns:
-        errorCnt (int): count of the number of errors.
-                        Should be 0 but can use this to
-                        reference errorsV for error handling
+        int: count of the number of errors. Should be 0, but this
+            provides a way to reference errorsV for error handling
 
     """
     # imports
@@ -1086,7 +1123,7 @@ def writeOutputs( store, tIndex ):
         tIndex (pd.DateIndex): time index for the simulation
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -1167,7 +1204,7 @@ def getWatershedAreabyTarg( targID ):
         targID (str): current PERLND target
     
     Returns:
-        warea (float): watershed areas in acres
+        float: watershed areas in acres
 
     """
     # globals
@@ -1186,7 +1223,7 @@ def getSURObyTargTS( iI, targID ):
         targID (str): current PERLND target
 
     Return:
-        suro (float): total outflow in inches/day
+        float: suro, total outflow in inches/day
 
     """
     # global

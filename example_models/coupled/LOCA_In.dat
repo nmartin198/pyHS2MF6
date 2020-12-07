@@ -1,7 +1,7 @@
-# Inputs for pyHS2MF6 coupling of HSPsquared and MODFLOW6
+# Inputs for LOCA coupling of HSPsquared and MODFLOW6
 
 # HSP2 model directory
-HSP2_DIR = "C:\pyHS2MF6\example_models\coupled\HSPF"
+HSP2_DIR = "D:\Data\pyHS2MF6_Testing\testCP_mHSP2"
 # HSP2 HDF5 file
 HSP2_HDF5 = "DC_CalibmHSP2.h5"
 # Simulation start time "%Y-%m-%d" format
@@ -9,7 +9,7 @@ START_DT = 2013-01-01
 # Simulation end time "%Y-%m-%d" format
 END_DT = 2018-09-01
 # MODFLOW 6 model directory
-MF6_DIR = "C:\pyHS2MF6\example_models\coupled\MF6"
+MF6_DIR = "D:\Data\pyHS2MF6_Testing\testCP_pyMF6"
 # HSP2 number of RCHRES
 HSP2_NUM_RR = 9
 # HSP2 number of PERLND

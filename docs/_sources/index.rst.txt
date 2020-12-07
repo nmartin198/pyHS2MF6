@@ -58,7 +58,10 @@ and 2) from MODFLOW 6 to HSPF.
 
 |
 
-.. attention:: Please see :ref:`getting_started` before trying to 
+.. attention:: **pyHS2MF6** source code is available from the project 
+   `GitHub site <https://github.com/nmartin198/pyHS2MF6>`_.
+
+   Please see :ref:`getting_started` before trying to 
    install and run **pyHS2MF6**.
    
    It is recommended to at least browse through the :ref:`case_study` 

@@ -1,16 +1,32 @@
 """
-.. module:: locaCoupling.py
-   :platform: Windows, Linux
-   :synopsis: Methods and data sets specifically for coupling
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+Methods and data set respository specifically for coupling.
 
 Repository for global-level variables that introduced as part of coupling
 HSP2 and MODFLOW 6. Also contains functions specifically related to
 coupling.
 
-Note queue communications and handling are by necessity in the main 
-module for each process.
+**Note** queue communications and handling are by necessity in the main 
+block or module for each process.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Nick Martin, Paul Southard, Stuart Stothoff
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # package imports
@@ -21,89 +37,116 @@ import numpy as np
 # ---------------------------------------------------------------------
 # MODULE-level globals
 RR_GW_MAPPING = dict()
-"""Dictionary of mappings for RCHRES segments to GW model cells
-Keys are TargID, e.g. 'R001' and values are a list, L.
-    L[0] (int): groundwater exit index
-    L[1] (list): sub-list, M
-        M[0] (list): with np.arrays with dimension NCPL as items
-            [0] (np.array): Cell ID, 2D 1-based
-            [1] (np.array): weighting factor
-            [2] (np.array): cell area within the target ID
-            [3] (np.array): Layer index for top active, 1-based
-            [4] (np.array): UZF index, 1-based
-        M[1] (list): np.arrays with dimension NUZF as items
-            [0] (np.array): UZF index, 1-based
-            [1] (np.array): weighting factor
-            [2] (np.array): cell area within the target ID
-            [3] (np.array): Layer index for top active, 1-based
-            [4] (np.array): Cell ID, 2D 1-based 
+"""Dictionary of mappings for RCHRES segments to GW model cells.
+
+Keys are TargID, e.g. 'R001', and values are a list whose members
+are enumerated below.
+
+0. (int): groundwater exit index
+1. (list): sub-list enumerated below
+    0. (list): another sublist with np.arrays with dimension NCPL as items
+        0. (np.array): Cell ID, 2D 1-based
+        1. (np.array): weighting factor
+        2. (np.array): cell area within the target ID
+        3. (np.array): Layer index for top active, 1-based
+        4. (np.array): UZF index, 1-based
+    1. (list): sublist np.arrays with dimension NUZF as items
+        0. (np.array): UZF index, 1-based
+        1. (np.array): weighting factor
+        2. (np.array): cell area within the target ID
+        3. (np.array): Layer index for top active, 1-based
+        4. (np.array): Cell ID, 2D 1-based
+ 
 """
 PL_GW_MAPPING = dict()
-"""Dictionary of mappings for PERLND areas to GW model cells
-Keys are TargID, e.g. 'P001' and values are a list, M.
-    M[0] (list): with np.arrays with dimension NCPL as items
-        [0] (np.array): Cell ID, 2D 1-based
-        [1] (np.array): weighting factor
-        [2] (np.array): cell area within the target ID
-        [3] (np.array): Layer index for top active, 1-based
-        [4] (np.array): UZF index, 1-based
-    M[1] (list): np.arrays with dimension NUZF as items
-        [0] (np.array): UZF index, 1-based
-        [1] (np.array): weighting factor
-        [2] (np.array): cell area within the target ID
-        [3] (np.array): Layer index for top active, 1-based
-        [4] (np.array): Cell ID, 2D 1-based
+"""Dictionary of mappings for PERLND areas to GW model cells.
+
+Keys are TargID, e.g. 'P001', and values are a list that is 
+enumerated below.
+
+0. (list): sub-list with np.arrays with dimension NCPL as items
+    0. (np.array): Cell ID, 2D 1-based
+    1. (np.array): weighting factor
+    2. (np.array): cell area within the target ID
+    3. (np.array): Layer index for top active, 1-based
+    4. (np.array): UZF index, 1-based
+1. (list): np.arrays with dimension NUZF as items
+    0. (np.array): UZF index, 1-based
+    1. (np.array): weighting factor
+    2. (np.array): cell area within the target ID
+    3. (np.array): Layer index for top active, 1-based
+    4. (np.array): Cell ID, 2D 1-based
+
 """
 SP_GW_MAPPING = dict()
 """Dictionary of mappings for defined springs in the area 
-covered by the HSPF model. Keys are a spring index and values
-are a list, L, of descriptive values.
-    L[0] (str): target ID for this spring
-    L[1] (int): 2D cell ID, 1-based
-    L[2] (int): top active layer for spring location
-    L[3] (float): cell surface area
-    L[4] (str): spring name/label
+covered by the HSPF model.
+
+Keys are a spring index and values are a list of descriptive values.
+
+0. (str): target ID for this spring
+1. (int): 2D cell ID, 1-based
+2. (int): top active layer for spring location
+3. (float): cell surface area
+4. (str): spring name or label
+
 """
 NUM_CPL = 0
-"""Number of MODFLOW 6 cells in a layer
-Provides the array size for receiving from MODFLOW 6"""
+"""Number of MODFLOW 6 cells in a layer.
+
+Provides the array size for receiving from MODFLOW 6
+"""
 NUM_UZF = 0
-"""Number of UZF MODFLOW 6 cells in the model
+"""Number of UZF MODFLOW 6 cells in the model.
+
 Provides the array size for passing discharges to MODFLOW 6
 """
 NUM_SPRINGS = 0
 """Number of spring locations that are represented by MODFLOW 6 drain
-cells in the model. Used to route discharge to ground surface 
-appropriately.
+cells in the model.
+
+Used to route discharge to ground surface appropriately.
 """
 # coupling time series
 GWIVOL = None
-"""Volume of water coming into each RCHRES directly from MODFLOW 6 in af/day"""
+"""Volume of water coming into each RCHRES directly from MODFLOW 6 in af/day.
+"""
 GWOVOL = None
 """Volume of water sent to MODFLOW 6 as losses to groundwater for each
-RCHRES in af/day"""
+RCHRES in af/day.
+"""
 IGWOVOL = None
 """Volume of water sent to MODFLOW 6 as inflow to inactive groundwater 
-for each PERLND in af/day"""
+for each PERLND in af/day.
+"""
 GWILZONE = None
-"""MODFLOW discharge assigned to the lower zone in inches"""
+"""MODFLOW discharge assigned to the lower zone in inches.
+"""
 GWIUZONE = None
-"""MODFLOW discharge assigned to the upper zone in inches"""
+"""MODFLOW discharge assigned to the upper zone in inches.
+"""
 GWIOVOL = None
 """MODFLOW discharge that becomes runoff and goes directly to a RCHRES in
-acre-ft. Includes spring discharge"""
+acre-ft.
+
+Includes spring discharge from DRN boundaries in MODFLOW 6
+"""
 GWITOTAL = None
-"""Total inflow from MODFLOW discharge to HSPF in af/day"""
+"""Total inflow from MODFLOW discharge to HSPF in af/day.
+"""
 GWIUATOTAL = None
 """Total inflow from MODFLOW discharge that is outside of HSPF
-area in af/day"""
+area in af/day.
+"""
 GWOTOTAL = None
 """Total outflow to MODFLOW UZF in af/day"""
 GWITOTPL = None
 """Total inflow from MODFLOW discharge in af/day by pervious HRU"""
 GWITOTRR = None
-"""Total inflow from MODFLOW discharge in af/day by RCHRES
-Does not include runoff from MODFLOW discharge to pervious lands"""
+"""Total inflow from MODFLOW discharge in af/day by RCHRES.
+
+Does not include runoff from MODFLOW discharge to pervious lands.
+"""
 
 
 # -------------------------------------------------------------------
@@ -114,6 +157,7 @@ def setUpRRRecArrays( pwList, sim_len ):
     Args:
         pwList (list): list of IDs for this target type
         sim_len (int): number of output intervals in the simulation
+    
     """
     # imports
     # globals
@@ -140,7 +184,8 @@ def setUpRRRecArrays( pwList, sim_len ):
 
 
 def setUpPLRecArrays( pwList, sim_len ):
-    """ Create and initialize pervious land, coupling tracking arrays
+    """ Create and initialize pervious land, coupling tracking arrays.
+
     Args:
         pwList (list): list of IDs for this target type
         sim_len (int): number of output intervals in the simulation
@@ -169,8 +214,9 @@ def setUpPLRecArrays( pwList, sim_len ):
 
 def processReceivedArray( tDict, iI, fromGWArray ):
     """Process the array of received, rejected infiltration and
-    discharge to the ground surface. Assumes that the received
-    array is in m3/day.
+    discharge to the ground surface. 
+    
+    Assumes that the received array is in m3/day.
     
     Args:
         tDict (dict): TARG_DICT from locaMain
@@ -179,7 +225,8 @@ def processReceivedArray( tDict, iI, fromGWArray ):
                                 dimension should be NCPL
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
+    
     """
     # imports
     from locaMain import TARG_RCHRES, TARG_PERVLND
@@ -276,7 +323,8 @@ def processReceivedArray( tDict, iI, fromGWArray ):
 
 
 def calcSendArray( iI ):
-    """Calculate the numpy array to send to MODFLOW 6
+    """Calculate the numpy array to send to MODFLOW 6.
+
     This array is 1D and has size/length == NUM_UZF. It provides
     the specified inflow/recharge rate for that day (day == iI) in
     m/day for the UZF package. It is calculated by adding
@@ -287,8 +335,8 @@ def calcSendArray( iI ):
         iI (int): current day, 0-based in the simulation
 
     Returns:
-        toGWArray (np.array): NUZF array of m/day inflow to
-                              UZF surface for each cell
+        numpy.array: NUZF array of m/day inflow to UZF surface for 
+                     each cell
     
     """
     # imports
@@ -347,97 +395,141 @@ def calcSendArray( iI ):
 
 
 def mapSetup( tDict, ncpl, nuzf, rr_file, pl_file, sp_file ):
-    """Create our mapping setup and check the passed information
+    """Create our mapping setup and check the passed information.
+
     Mapping files are passed in as paths to pickle files that contain
-    a mapping dictionary.
+    a mapping dictionary. There are three mapping dictionaries.
     
-    RCHRES dictionary, in rr_file, has keys that are the HSPF target 
+    1. **RCHRES** dictionary, in rr_file, has keys that are the HSPF target 
     Id, i.e., 'R001'. The values are a list, L, with 3 items.
-        L[0] (int): HSPF RCHRES exit that goes to groundwater. Must 
-                    be > 1 and <= 5.
-        L[1] (float): total UZF cell area in this target ID
-        L[2] (pd.DataFrame): DataFrame that describes the UZF cell
-                    specifications within this target ID. The 
-                    DataFrame index is the 2D Cell ID, 1-based. 
-                    The DataFrame has four columns.
-        - "iuzno" (int): UZF cell ID, 1-based
-        - "TopActive" (int): the top active layer for this model cell, 
-                             1-based
-        - "SArea_m2" (float): surface area of this cell within the 
-                              HSPF target ID in m2
-        - "Weight" (float): dimensionless weight for allocating flows from
-                            HSPF to this cell. Should be > 0 and <= 100.0
+
+        0. (int): HSPF RCHRES exit that goes to groundwater. Must be > 1 and <= 5.
+
+        1. (float): total UZF cell area in this target ID
+
+        2. (pd.DataFrame): DataFrame that describes the UZF cell
+        specifications within this target ID. The DataFrame index is the 2D 
+        Cell ID, 1-based. The DataFrame has four columns.
+
+            * "iuzno" (int): UZF cell ID, 1-based
+
+            * "TopActive" (int): the top active layer for this model cell, 1-based
+
+            * "SArea_m2" (float): surface area of this cell within the HSPF target 
+                ID in m2
+
+            * "Weight" (float): dimensionless weight for allocating flows from HSPF 
+                to this cell. Should be > 0 and <= 100.0
     
-    PERLND dictionrary, in pl_file, is similar to the RCHRES dictionary.
+    2. **PERLND** dictionrary, in pl_file, is similar to the RCHRES dictionary.
     The dictionary keys are the HSPF target Id, i.e., 'P001'. The values 
     are a list, L, with 2 items.
-        L[0] (float): total UZF cell area in this target ID
-        L[1] (pd.DataFrame): DataFrame that describes the UZF cell 
-                             specifications within this target ID. The 
-                             DataFrame index is the 2D Cell ID, 1-based.
-                             The DataFrame has four columns.
-        - "iuzno" (int): UZF cell ID, 1-based
-        - "TopActive" (int): the top active layer for this model cell, 
-                             1-based
-        - "SArea_m2" (float): surface area of this cell within the 
-                              HSPF target ID in m2
-        - "Weight" (float): dimensionless weight for allocating flows from
-                            HSPF to this cell. Should be > 0 and <= 100.0
 
-    SPRING dictionary, in sp_file, provides locations of the springs within
+        0. (float): total UZF cell area in this target ID
+
+        1. (pd.DataFrame): DataFrame that describes the UZF cell specifications 
+        within this target ID. The DataFrame index is the 2D Cell ID, 1-based.
+        The DataFrame has four columns.
+
+            * "iuzno" (int): UZF cell ID, 1-based
+
+            * "TopActive" (int): the top active layer for this model cell, 
+                1-based
+
+            * "SArea_m2" (float): surface area of this cell within the HSPF 
+                target ID in m2
+
+            * "Weight" (float): dimensionless weight for allocating flows from
+                HSPF to this cell. Should be > 0 and <= 100.0
+
+    3. **SPRING** dictionary, in sp_file, provides locations of the springs within
     the HSPF model that could be discharging to the ground surface. The 
     dictionary keys are the labels/names for the springs as represented in 
-    the *.drn and *.drn.obs files. The values are lists, L, where:
-        L[0] (str): target ID for the HSPF location
-        L[1] (int): 2D cell Id, 1-based, for the cell where the drain is
-                    placed
-        L[2] (int): top active layer, 1-based, for the cell where the drain
-                    is placed
-        L[3] (float): surface area for the cell where the drain is located
-    
-    Main outcome of this function is to fill in the module-level global
+    the .drn and .drn.obs files. The values are lists, described below.
+
+        0. (str): target ID for the HSPF location
+
+        1. (int): 2D cell Id, 1-based, for the cell where the drain is placed
+
+        2. (int): top active layer, 1-based, for the cell where the drain
+            is placed
+
+        3. (float): surface area for the cell where the drain is located
+
+    The main outcome of this function is to fill in the module-level global
     mapping dictionaries (RR_GW_MAPPING, PL_GW_MAPPING, SP_GW_MAPPING). 
     These dictionaries have targID as keys and a list for values.
 
-    RR_GW_MAPPING is a dictionary with Targ ID for keys and a list, L, for
-    values. 
-        L[0] (int): groundwater exit index
-        L[1] (list): sub-list, M
-            M[0] (list): with np.arrays with dimension NCPL as items
-                [0] (np.array): Cell ID, 2D 1-based
-                [1] (np.array): weighting factor
-                [2] (np.array): cell area within the target ID
-                [3] (np.array): Layer index for top active, 1-based
-                [4] (np.array): UZF index, 1-based
-            M[1] (list): np.arrays with dimension NUZF as items
-                [0] (np.array): UZF index, 1-based
-                [1] (np.array): weighting factor
-                [2] (np.array): cell area within the target ID
-                [3] (np.array): Layer index for top active, 1-based
-                [4] (np.array): Cell ID, 2D 1-based
+    1. **RR_GW_MAPPING** is a dictionary with Targ ID for keys and a list 
+        for values.
 
-    PL_GW_MAPPING is a dictionary with Targ ID for keys and a list, M, for
-    values. 
-        M[0] (list): with np.arrays with dimension NCPL as items
-            [0] (np.array): Cell ID, 2D 1-based
-            [1] (np.array): weighting factor
-            [2] (np.array): cell area within the target ID
-            [3] (np.array): Layer index for top active, 1-based
-            [4] (np.array): UZF index, 1-based
-        M[1] (list): np.arrays with dimension NUZF as items
-            [0] (np.array): UZF index, 1-based
-            [1] (np.array): weighting factor
-            [2] (np.array): cell area within the target ID
-            [3] (np.array): Layer index for top active, 1-based
-            [4] (np.array): Cell ID, 2D 1-based
+        0. (int): groundwater exit index
 
-    SP_GW_MAPPING is a dictionary with spring index, 1-based, as the
-    keys and a list, S, for values.
-        S[0] (str): target ID for this spring
-        S[1] (int): 2D cell ID, 1-based
-        S[2] (int): top active layer for spring location
-        S[3] (float): cell surface area
-        S[4] (str): spring name/label
+        1. (list): sub-list holding another sub-list of arrays
+
+            0. (list): with numpy.arrays with dimension NCPL as items
+
+                0. (numpy.array): Cell ID, 2D 1-based
+
+                1. (numpy.array): weighting factor
+
+                2. (numpy.array): cell area within the target ID
+
+                3. (numpy.array): Layer index for top active, 1-based
+
+                4. (numpy.array): UZF index, 1-based
+
+            1. (list): numpy.arrays with dimension NUZF as items
+
+                0. (numpy.array): UZF index, 1-based
+
+                1. (numpy.array): weighting factor
+
+                2. (numpy.array): cell area within the target ID
+
+                3. (numpy.array): Layer index for top active, 1-based
+
+                4. (numpy.array): Cell ID, 2D 1-based
+
+    2. **PL_GW_MAPPING** is a dictionary with Targ ID for keys and a list of
+    values.
+
+        0. (list): sub-list with numpy.arrays with dimension NCPL as items
+
+            0. (numpy.array): Cell ID, 2D 1-based
+
+            1. (numpy.array): weighting factor
+
+            2. (numpy.array): cell area within the target ID
+
+            3. (numpy.array): Layer index for top active, 1-based
+
+            4. (numpy.array): UZF index, 1-based
+
+        1. (list): np.arrays with dimension NUZF as items
+
+            0. (numpy.array): UZF index, 1-based
+
+            1. (numpy.array): weighting factor
+
+            2. (numpy.array): cell area within the target ID
+
+            3. (numpy.array): Layer index for top active, 1-based
+
+            4. (numpy.array): Cell ID, 2D 1-based
+
+    3. **SP_GW_MAPPING** is a dictionary with spring index, 1-based, as the
+    keys and a list of values.
+
+        0. (str): target ID for this spring
+
+        1. (int): 2D cell ID, 1-based
+
+        2. (int): top active layer for spring location
+
+        3. (float): cell surface area
+
+        4. (str): spring name/label
 
     Args:
         tDict (dict): TARG_DICT from locaMain
@@ -446,7 +538,10 @@ def mapSetup( tDict, ncpl, nuzf, rr_file, pl_file, sp_file ):
         rr_file (str): fqdn path for file that has RCHRES mapping dictionary
         pl_file (str): fqdn path for file that has PERLND mapping dictionary
         sp_file (str): fqdn path for file that has SPRING mapping dictionary
-    
+
+    Returns:
+        int: function status; 0 == success
+
     """
     # imports
     import pickle
@@ -694,7 +789,8 @@ def getNUM_CPL():
     Requires that mapSetup has already been called
 
     Returns:
-        NUM_CPL (int): number of MODFLOW 6 cells per layer
+        int: NUM_CPL, number of MODFLOW 6 cells per layer
+    
     """
     global NUM_CPL
     return NUM_CPL
@@ -706,7 +802,8 @@ def getNUM_UZF():
     Requires that mapSetup has already been called
 
     Returns:
-        NUM_UZF (int): number of MODFLOW 6 cells per layer
+        int: NUM_UZF, number of MODFLOW 6 cells per layer
+
     """
     global NUM_UZF
     return NUM_UZF
@@ -721,7 +818,7 @@ def getOVOLbyExitandTime( iI, targID, gwExit ):
         gwExit (int): gw discharge exit
 
     Returns:
-        exOvol (float): exit outflow volume in acre-ft per day
+        float: exOvol, exit outflow volume in acre-ft per day
 
     """
     # imports
@@ -757,14 +854,14 @@ def setIVOLfromGW( iI, targID, volAFpd ):
 
 def getGWIVOLbyTargTS( iI, targID ):
     """Return the value for groundwater inflow to RCHRES by target ID and
-    by time step index
+    by time step index.
 
     Args:
         iI (int): index of current simulation day
         targID (str): ID for recarray columns
     
     Returns:
-        ivol (float): inflow volume in acre-ft per day
+        float: ivol, inflow volume in acre-ft per day
 
     """
     # globals
@@ -777,6 +874,7 @@ def getGWIVOLbyTargTS( iI, targID ):
 
 def getIGWIbyTS( iI, targID ):
     """Get inflow to inactive groundwater (IGWI) to pass to MODFLOW 6.
+
     Inflow to inactivate groundwater is stored in inches per 
     interval. Convert this to acre-ft per day before returning
 
@@ -791,7 +889,7 @@ def getIGWIbyTS( iI, targID ):
         targID (str): current PERLND target
     
     Returns:
-        oVol (float): outflow to UZF in acre-ft/day
+        float: oVol, outflow to UZF in acre-ft/day
 
     """
     # imports
@@ -821,7 +919,7 @@ def adjustPervWStorage( iI, targID, totVolafd ):
     lower and upper zone storage, the excess is routed to the
     appropriate stream segment or RCHRES target.
 
-    Note that we need the current storage for the soil zones from
+    **Note** that we need the current storage for the soil zones from
     time step iI - 1 as this is called at the beginning of the
     HSPF time loop, prior to the iI calculations.
 
@@ -907,14 +1005,16 @@ def adjustPervWStorage( iI, targID, totVolafd ):
 
 def getGWIOVOLbyTargTS( iI, targID ):
     """Get the excess groundwater discharge from MODFLOW 6 that is routed
-    to stream segments. This value returned in acre-ft/day
+    to stream segments.
+    
+    This value returned in acre-ft/day
 
     Args:
         iI (int): current simulation day index, 0-based
         targID (str): current PERLND target
 
     Returns:
-        oVolAF (float): outflow volume in acre-feet/day to streams
+        float: oVolAF, outflow volume in acre-feet/day to streams
 
     """
     # global
@@ -929,11 +1029,11 @@ def writeOutputs( store, tIndex ):
     """Write the outputs to the hdf file at the end of the simulation
 
     Args:
-        store (pd.HDFStore): hdf5 file store to write to
-        tIndex (pd.DateIndex): time index for the simulation
+        store (pandas.HDFStore): hdf5 file store to write to
+        tIndex (pandas.DateIndex): time index for the simulation
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports

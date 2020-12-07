@@ -37,11 +37,13 @@ enumerated below.
       and two dynamic-link library (DLL) files. One file has a `.dll` 
       extension and the other has a `.pyd` extension.
 
-3. Install and configure the Python 3 interpreter
+3. Install and configure the Python 3 interpreter. This iteration of 
+   **pyHS2MF6** has only been tested with Python 3.8.5.
 
     * See :ref:`install_pyint`
 
-4. Recreate the DLL files, if needed.
+4. Recreate the DLL files, if needed. This iteration of **pyHS2MF6**
+   works with MODFLOW 6.2.0.
 
     * See :ref:`install_dlls`
 

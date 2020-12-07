@@ -1,9 +1,9 @@
                                    MODFLOW 6
                 U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
                           GROUNDWATER FLOW MODEL (GWF)
-                            VERSION 6.1.1 06/12/2020
+                            VERSION 6.2.0 10/22/2020
 
-  MODFLOW 6 compiled Jul 21 2020 17:41:19 with GFORTRAN compiler (ver. 8.1.0)
+  MODFLOW 6 compiled Dec  5 2020 15:17:52 with GFORTRAN compiler (ver. 8.1.0)
 
 This software has been approved for release by the U.S. Geological 
 Survey (USGS). Although the software has been subjected to rigorous 
@@ -19,8 +19,31 @@ Resources Software User Rights Notice for complete use, copyright,
 and distribution information.
 
 
+System command used to initiate simulation:
+
+
 MODFLOW was compiled using uniform precision.
-Precision of REAL variables: 15
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  BIT SIZE: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  BIT SIZE: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  BIT SIZE: 64
+
+Logical Variables
+  KIND: 4
+  BIT SIZE: 32
 
 
  OPENED DC_MF6.uzf
