@@ -4,9 +4,11 @@ Standalone HSPF Model
 ======================
 
 This case study application was developed to assist in **pyHS2MF6** 
-development and testing. There was not an existing 
-HSPF model to use as a starting point. A standalone 
-HSPF model was created expressly for testing **pyHS2MF6**.
+development and testing. The only existing HSPF model that was
+available to use as a starting point was created for a separate
+study examining water resources risk from climate change (`Martin 2020 <https://doi.org/10.3390/w13010040>`_). 
+This standalone HSPF model was used as the starting point for 
+testing **pyHS2MF6**.
 
 **mHSP2** is the name of the standalone HSPF component of **pyHS2MF6**. 
 The **mHSP2** code base is documented in :ref:`mHSP2`. It uses the 
@@ -64,8 +66,9 @@ to facilitate future coupling to a groundwater flow model.
   - In the standalone HSPF model, exit #2 for Reaches #1 - #4 represents
     seepage to groundwater from the stream. HSPF calculates this seepage 
     using a volume-based, or FTAB, calculation for the standalone model.
-    This volume-based, seepage relationship was part of the calibration
-    to reproduce the gage discharge at the watershed outlet.
+    This volume-based, seepage relationship was manually adjusted to 
+    improve the match between simulated discharge at the watershed outlet
+    and gage discharge.
 
   - If desired, the user can implement a time-based relationship for 
     discharge from an exit. Consequently, a time-based relationship 
@@ -86,6 +89,7 @@ to facilitate future coupling to a groundwater flow model.
 site. Complete details of HSPF model configuration are available in 
 the `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/standalone/HSPF>`_.
 
+|
 
 .. _fig_cs_sahspf:
 .. figure:: ./images/HSPF_Layout.png 
@@ -95,6 +99,11 @@ the `standalone mHSP2 input file <https://github.com/nmartin198/pyHS2MF6/blob/ma
     :figclass: align-center 
 
     **HSPF model configuration**
+
+    Adapted from `“Watershed-Scale, Probabilistic Risk Assessment of Water 
+    Resources Impacts from Climate Change” <https://doi.org/10.3390/w13010040>`_ by 
+    N. Martin, 2021. water, v. 13. 
+    `CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>`_
 
 
 |
@@ -107,13 +116,14 @@ Calibration
 The goal for the standalone model is to produce Reach #5 outflow that 
 approximately represents the observed Dolan Creek stream flow discharge from 
 `USGS Gage 08449100 <https://waterdata.usgs.gov/tx/nwis/uv/?site_no=08449100&PARAmeter_cd=00065,00060>`_.
-In the set-up for calibration, estimates of spring discharge from Dolan 
-Springs and YR-70-01-701 (see **Figure** :ref:`fig_cs_focused_ws`) are provided 
-to the HSPF model as an external time series of inflows to Reach #5.
+Ideally, an existing, standalone HSPF model would be calibrated as part of a
+previous study. For test model formulation, the standalone HSPF model was
+employed directly as available from `Martin (2020) <https://doi.org/10.3390/w13010040>`_.
 
-An automated calibration process using `PEST <http://www.pesthomepage.org/>`_ 
-was used to tweak watershed parameters to best reproduce the observed 
-Dolan Creek stream flow. The results from this best-fit case are shown 
+In this model, estimates of spring discharge from Dolan 
+Springs and YR-70-01-701 (see **Figure** :ref:`fig_cs_watershed`) are provided 
+to the HSPF model as an external time series of inflows to Reach #5. 
+Simulation results for the standalone HSPF model are shown 
 on **Figure** :ref:`fig_cs_sahspf_calib`. In this figure, the orange shaded 
 area denotes the estimated, external inflow time series to Reach #5 that
 represents the combination of Dolan Springs and YR-70-01-701 discharge.
@@ -123,10 +133,15 @@ represents the combination of Dolan Springs and YR-70-01-701 discharge.
 .. figure:: ./images/HSPF_SA_Calib.svg 
     :width: 800px
     :align: center
-    :alt: Standalone HSPF Calibration
+    :alt: Standalone HSPF Results
     :figclass: align-center 
 
-    **Standalone HSPF Calibration**
+    **Standalone HSPF Model Results**
+
+    Adapted from `“Watershed-Scale, Probabilistic Risk Assessment of Water 
+    Resources Impacts from Climate Change” <https://doi.org/10.3390/w13010040>`_ by 
+    N. Martin, 2021. water, v. 13. 
+    `CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>`_
 
 
 |

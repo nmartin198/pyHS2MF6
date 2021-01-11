@@ -9,6 +9,8 @@ Verde County, TX, USA.
 is located on Dolan Creek near the watershed outlet and the confluence of 
 Dolan Creek and Devils River.
 
+|
+
 .. _fig_cs_watershed:
 .. figure:: ./images/Study_Area.png 
     :width: 800px
@@ -21,20 +23,9 @@ Dolan Creek and Devils River.
 |
 
 This stream gaging station has been in operation since November 2011. As shown 
-on **Figure** :ref:`fig_cs_focused_ws`, most of Dolan Creek is ephemeral with the 
+on **Figure** :ref:`fig_cs_watershed`, most of Dolan Creek is ephemeral with the 
 exception of the downstream-most reach where a number of springs, including Dolan 
 Springs, provide flow to the stream throughout the year.
-
-.. _fig_cs_focused_ws:
-.. figure:: ./images/Study_Area-Focused.png
-    :width: 600px
-    :align: center
-    :alt: Springs and gage location
-    :figclass: align-center 
-
-    **Springs and gage location**
-
-|
 
 **Figure** :ref:`fig_cs_watershed` shows the mapped Hydrologic Soil Group
 from `SSURGO <https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627>`_
@@ -118,18 +109,17 @@ overlying material. Additionally, the perennial portions of Dolan
 Creek coincide with locations where the creek bed crosses Fort 
 Terrett outcrop.
 
-As shown on **Figures** :ref:`fig_cs_watershed` and 
-:ref:`fig_cs_focused_ws`, most of Dolan Creek is ephemeral with the 
-exception of the downstream-most reach where a number of springs, 
-including Dolan Springs, provide flow to the stream throughout the 
-year. A probabilistic, day of the year discharge plot is provided 
-for USGS Gage 08449100 Dolan Creek on **Figure** :ref:`fig_cs_dc_prob`. 
+As shown on **Figure** :ref:`fig_cs_watershed` most of Dolan Creek 
+is ephemeral with the exception of the downstream-most reach where 
+a number of springs, including Dolan Springs, provide flow to the 
+stream throughout the year. A probabilistic, day of the year discharge 
+plot is provided for USGS Gage 08449100 Dolan Creek on **Figure** :ref:`fig_cs_dc_prob`. 
 In this figure, the interquartile (25th percentile to 75th 
 percentile) and lower quartile (0th percentile to 25th percentile) 
 ranges suggest relatively consistent discharge across the year.
 The consistent flow pattern is attributed to the dominance of spring 
 discharge from Dolan Springs and YR-70-01-701 
-(see **Figure** :ref:`fig_cs_focused_ws`) on the Dolan Creek discharge 
+(see **Figure** :ref:`fig_cs_watershed`) on the Dolan Creek discharge 
 hydrograph.
 
 .. _fig_cs_dc_prob:

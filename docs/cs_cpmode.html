@@ -91,10 +91,10 @@ Additionally, a special coupled mode input file needs to be created.</p>
 <span id="cp-hspf-mods"></span><h3><span class="section-number">3.4.1.1. </span>HSPF Model Modifications for Coupling<a class="headerlink" href="#hspf-model-modifications-for-coupling" title="Permalink to this headline">¶</a></h3>
 <p>Only minimal modifications to the standalone HSPF model are needed.
 The external time series that provides for spring discharge, or baseflow,
-to Reach #5 (see <strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>) needs to be removed
+to Reach #5 (see <strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Model Results</span></a>) needs to be removed
 from the HSPF input file. In coupled mode, the simulated spring discharge
 from from Dolan Springs and YR-70-01-701 (see <strong>Figure</strong>
-<a class="reference internal" href="cs_study_site.html#fig-cs-focused-ws"><span class="std std-ref">Springs and gage location</span></a>) from the MODFLOW 6 model are provided to Reach #5 in
+<a class="reference internal" href="cs_study_site.html#fig-cs-watershed"><span class="std std-ref">Dolan Creek watershed</span></a>) from the MODFLOW 6 model are provided to Reach #5 in
 the HSPF model as transferred water as part of the dynamic coupling.</p>
 <p>The Jupyter Notebook <a class="reference external" href="https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_Mods_SAtoCP.ipynb">mHSP2_Mods_SAtoCP</a>
 provides an example of removing an external time series inflow from
@@ -131,8 +131,8 @@ routed to a different destination.</p>
 to groundwater. And, normally one exit is identified to the HSPF
 model, using mass links and schematic blocks in the HSPF inputs,
 for routing of water to the next operations structure downstream.</p></li>
-<li><p>In this example model, a volume-based relationship, or FTAB, is
-calibrated to calculate losses to groundwater from Reach #1 - #4.
+<li><p>In this example model, a volume-based relationship, or FTABLE, is
+used to calculate losses to groundwater from Reach #1 - #4.
 Reach #5 coincides with Fort Terrett outcrop and so this reach is
 treated as gaining, only. The losses to groundwater for these four
 reaches are then a calculated HSPF model solution quantity which
@@ -192,6 +192,9 @@ the right.</p></li>
 showing all of the supported keywords and providing definitions of
 the keywords.</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id2">
 <span id="fig-cs-pyhs2mf6-infile"></span><a class="reference internal image-reference" href="_images/coupled_input_file.png"><img alt="pyHS2MF6 input file example" src="_images/coupled_input_file.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text"><strong>Example pyHS2MF6 input file</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
@@ -262,6 +265,9 @@ subset of cells in the groundwater model.
 of the spatial mapping weights used in the coupled model. The
 weights were specified to focus infiltration and seepage into the
 hydrologic soil type A, stream bed locations.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id3">
 <span id="fig-cs-pyhs2mf6-mapweights"></span><a class="reference internal image-reference" href="_images/MF6_CP_MappingWeightsl.png"><img alt="Coupled model spatial mapping weights" src="_images/MF6_CP_MappingWeightsl.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-text"><strong>Spatial mapping weights</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
@@ -273,12 +279,15 @@ hydrologic soil type A, stream bed locations.</p>
 </div>
 <div class="section" id="coupled-mode-calibration-and-results">
 <span id="cp-cp-calib"></span><h2><span class="section-number">3.4.2. </span>Coupled Mode Calibration and Results<a class="headerlink" href="#coupled-mode-calibration-and-results" title="Permalink to this headline">¶</a></h2>
-<p>A very basic manual process was used to calibrate the coupled model. The
-daily time series of Dolan Creek discharge (see
-<strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Calibration</span></a>) from the gage record provided
-the calibration targets. The standalone HSPF model parameters were not
-modified as part of coupled model calibration. In MODFLOW 6, hydraulic
-conductivity values, storage values, and <abbr title="Drain Package">DRN</abbr>
+<p>In an actual scientific model application, the coupled model would
+be calibrated to water level measurements in wells and discharge observed
+at stream gauges. For this test case, a very basic manual, trial–and–error
+process was used to adjust the parametrization of the coupled model. The
+goal of these adjustments was to improve the match between the daily time
+series of Dolan Creek discharge (see <strong>Figure</strong> <a class="reference internal" href="cs_sa_HSPF.html#fig-cs-sahspf-calib"><span class="std std-ref">Standalone HSPF Model Results</span></a>)
+from the gage record and simulated discharge from Reach #5. Standalone HSPF
+model parameters were not modified as part of these adjustments. In MODFLOW 6,
+hydraulic conductivity values, storage values, and <abbr title="Drain Package">DRN</abbr>
 conductance were adjusted to improve the fit between <strong>pyHS2MF6</strong> model
 results and the gage record.</p>
 <div class="line-block">
@@ -295,13 +304,16 @@ and observed well water level elevations.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpcalibdc"><span class="std std-ref">Calibrated coupled model match to Dolan Creek discharge</span></a> displays the simulated Reach
-#5 discharge for the calibrated, coupled model. The coupled model results
+<p><strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpcalibdc"><span class="std std-ref">Adjusted coupled model match to Dolan Creek discharge</span></a> displays the simulated Reach
+#5 discharge for the adjusted, coupled model. The coupled model results
 provide a better match to the recession curves after each event relative
 to the standalone HSPF model.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id4">
-<span id="fig-cs-pyhs2mf6-cpcalibdc"></span><a class="reference internal image-reference" href="_images/CP_Calib_DC.svg"><img alt="Calibrated, coupled model results" src="_images/CP_Calib_DC.svg" width="800px" /></a>
-<p class="caption"><span class="caption-text"><strong>Calibrated coupled model match to Dolan Creek discharge</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<span id="fig-cs-pyhs2mf6-cpcalibdc"></span><a class="reference internal image-reference" href="_images/CP_Calib_DC.svg"><img alt="Adjusted coupled model results" src="_images/CP_Calib_DC.svg" width="800px" /></a>
+<p class="caption"><span class="caption-text"><strong>Adjusted coupled model match to Dolan Creek discharge</strong></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -338,13 +350,16 @@ exchanged water volumes and locations for exchange.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Deep infiltration provides the primary link from HSPF to MODFLOW 6.
+<p>Deep percolation provides the primary link from HSPF to MODFLOW 6.
 <strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpinfilt"><span class="std std-ref">Simulated discharge from HSPF to MODFLOW 6</span></a> displays the average, deep
-infiltration discharge sent from HSPF to MODFLOW 6. The focus of
+percolation discharge sent from HSPF to MODFLOW 6. The focus of
 coupled model, water exchange is the dry stream beds which are mapped
 as hydrologic soil type A (see <strong>Figure</strong> <a class="reference internal" href="cs_study_site.html#fig-cs-watershed"><span class="std std-ref">Dolan Creek watershed</span></a>).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id5">
-<span id="fig-cs-pyhs2mf6-cpinfilt"></span><a class="reference internal image-reference" href="_images/MF6_CP_H2Infilt.svg"><img alt="Simulated infiltration rates" src="_images/MF6_CP_H2Infilt.svg" width="800px" /></a>
+<span id="fig-cs-pyhs2mf6-cpinfilt"></span><a class="reference internal image-reference" href="_images/MF6_CP_H2Infilt.svg"><img alt="Simulated deep percolation rates" src="_images/MF6_CP_H2Infilt.svg" width="800px" /></a>
 <p class="caption"><span class="caption-text"><strong>Simulated discharge from HSPF to MODFLOW 6</strong></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="line-block">
@@ -357,6 +372,9 @@ surface discharge from MODFLOW 6 is received by HSPF. <strong>Figure</strong>
 HSPF is received by MODFLOW 6. While, <strong>Figure</strong> <a class="reference internal" href="#fig-cs-pyhs2mf6-cpsurfdcheck"><span class="std std-ref">Mass balance verification of surface discharge sent from MODFLOW 6 to HSPF</span></a>
 confirms that discharge to the ground surface sent from MODFLOW 6 is
 received by HSPF.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="align-center figure" id="id6">
 <span id="fig-cs-pyhs2mf6-cpinfiltcheck"></span><a class="reference internal image-reference" href="_images/CP_Calib_Infiltration_Check.svg"><img alt="Mass balance check on calculated infiltration" src="_images/CP_Calib_Infiltration_Check.svg" width="800px" /></a>
 <p class="caption"><span class="caption-text"><strong>Mass balance verification of infiltration sent from HSPF to MODFLOW 6</strong></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>

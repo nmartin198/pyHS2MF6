@@ -173,10 +173,12 @@ study site.
 Standalone Calibration 
 ------------------------
 
-The focus of the calibration of this hypothetical case study model was 
-to match the external inflow time series for Reach #5 in the standalone
-HSPF model with simulated spring discharge from Dolan Springs and 
-YR-70-01-701 (see **Figure** :ref:`fig_cs_focused_ws`). 
+Ideally, an existing, standalone MODFLOW 6 model would be calibrated as part of a
+previous study. As this is a test model to provide a coupling example, a 
+calibration was not completed for this test model. A trial–and–error 
+approach was employed to approximately match the external inflow time 
+series for Reach #5 in the standalone HSPF model with simulated spring 
+discharge from Dolan Springs and YR-70-01-701 (see **Figure** :ref:`fig_cs_watershed`). 
 
 |
 
@@ -240,6 +242,7 @@ the Reach #4 and #5 regions. Bounding the groundwater flow domain with
 the surface water watershed contributes to this effect. The shape of the 
 domain is arbitrarily focusing groundwater flow to Reach #4 and #5.
 
+|
 
 .. _fig_cs_samf6ca_wlev:
 .. figure:: ./images/MF6_SA_WLevResultsl.png 

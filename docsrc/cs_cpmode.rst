@@ -43,7 +43,7 @@ The external time series that provides for spring discharge, or baseflow,
 to Reach #5 (see **Figure** :ref:`fig_cs_sahspf_calib`) needs to be removed 
 from the HSPF input file. In coupled mode, the simulated spring discharge 
 from from Dolan Springs and YR-70-01-701 (see **Figure** 
-:ref:`fig_cs_focused_ws`) from the MODFLOW 6 model are provided to Reach #5 in 
+:ref:`fig_cs_watershed`) from the MODFLOW 6 model are provided to Reach #5 in 
 the HSPF model as transferred water as part of the dynamic coupling.
 
 The Jupyter Notebook `mHSP2_Mods_SAtoCP <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/mHSP2_Mods_SAtoCP.ipynb>`_ 
@@ -86,8 +86,8 @@ cells.
      model, using mass links and schematic blocks in the HSPF inputs, 
      for routing of water to the next operations structure downstream.
 
-   * In this example model, a volume-based relationship, or FTAB, is 
-     calibrated to calculate losses to groundwater from Reach #1 - #4.
+   * In this example model, a volume-based relationship, or FTABLE, is 
+     used to calculate losses to groundwater from Reach #1 - #4.
      Reach #5 coincides with Fort Terrett outcrop and so this reach is 
      treated as gaining, only. The losses to groundwater for these four 
      reaches are then a calculated HSPF model solution quantity which 
@@ -148,6 +148,7 @@ overview of the required structure of the input file is as follows.
   showing all of the supported keywords and providing definitions of 
   the keywords.
 
+|
 
 .. _fig_cs_pyHS2MF6_infile:
 .. figure:: ./images/coupled_input_file.png 
@@ -222,6 +223,7 @@ of the spatial mapping weights used in the coupled model. The
 weights were specified to focus infiltration and seepage into the 
 hydrologic soil type A, stream bed locations. 
 
+|
 
 .. _fig_cs_pyHS2MF6_mapweights:
 .. figure:: ./images/MF6_CP_MappingWeightsl.png 
@@ -239,12 +241,15 @@ hydrologic soil type A, stream bed locations.
 Coupled Mode Calibration and Results
 -------------------------------------
 
-A very basic manual process was used to calibrate the coupled model. The 
-daily time series of Dolan Creek discharge (see 
-**Figure** :ref:`fig_cs_sahspf_calib`) from the gage record provided 
-the calibration targets. The standalone HSPF model parameters were not 
-modified as part of coupled model calibration. In MODFLOW 6, hydraulic 
-conductivity values, storage values, and :abbr:`DRN (Drain Package)` 
+In an actual scientific model application, the coupled model would 
+be calibrated to water level measurements in wells and discharge observed
+at stream gauges. For this test case, a very basic manual, trial–and–error 
+process was used to adjust the parametrization of the coupled model. The 
+goal of these adjustments was to improve the match between the daily time 
+series of Dolan Creek discharge (see **Figure** :ref:`fig_cs_sahspf_calib`) 
+from the gage record and simulated discharge from Reach #5. Standalone HSPF 
+model parameters were not modified as part of these adjustments. In MODFLOW 6, 
+hydraulic conductivity values, storage values, and :abbr:`DRN (Drain Package)` 
 conductance were adjusted to improve the fit between **pyHS2MF6** model 
 results and the gage record. 
 
@@ -259,19 +264,20 @@ results and the gage record.
 |
 
 **Figure** :ref:`fig_cs_pyHS2MF6_cpcalibDC` displays the simulated Reach 
-#5 discharge for the calibrated, coupled model. The coupled model results 
+#5 discharge for the adjusted, coupled model. The coupled model results 
 provide a better match to the recession curves after each event relative 
 to the standalone HSPF model.
 
+|
 
 .. _fig_cs_pyHS2MF6_cpcalibDC:
 .. figure:: ./images/CP_Calib_DC.svg 
     :width: 800px
     :align: center
-    :alt: Calibrated, coupled model results
+    :alt: Adjusted coupled model results
     :figclass: align-center 
 
-    **Calibrated coupled model match to Dolan Creek discharge**
+    **Adjusted coupled model match to Dolan Creek discharge**
 
 |
 
@@ -309,18 +315,19 @@ is lost during the coupled simulation.
 
 |
 
-Deep infiltration provides the primary link from HSPF to MODFLOW 6.
+Deep percolation provides the primary link from HSPF to MODFLOW 6.
 **Figure** :ref:`fig_cs_pyHS2MF6_cpInfilt` displays the average, deep 
-infiltration discharge sent from HSPF to MODFLOW 6. The focus of 
+percolation discharge sent from HSPF to MODFLOW 6. The focus of 
 coupled model, water exchange is the dry stream beds which are mapped 
 as hydrologic soil type A (see **Figure** :ref:`fig_cs_watershed`).
 
+|
 
 .. _fig_cs_pyHS2MF6_cpInfilt:
 .. figure:: ./images/MF6_CP_H2Infilt.svg 
     :width: 800px
     :align: center
-    :alt: Simulated infiltration rates
+    :alt: Simulated deep percolation rates
     :figclass: align-center 
 
     **Simulated discharge from HSPF to MODFLOW 6**
@@ -335,6 +342,7 @@ HSPF is received by MODFLOW 6. While, **Figure** :ref:`fig_cs_pyHS2MF6_cpSurfDCh
 confirms that discharge to the ground surface sent from MODFLOW 6 is
 received by HSPF.
 
+|
 
 .. _fig_cs_pyHS2MF6_cpInfiltCheck:
 .. figure:: ./images/CP_Calib_Infiltration_Check.svg 

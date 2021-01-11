@@ -1,0 +1,23 @@
+/* table css to add-in to agogo.css */
+table.docutils {
+  border: 1px solid #888;
+    -moz-box-shadow: 2px 2px 4px #EEE;
+    -webkit-box-shadow: 2px 2px 4px #EEE;
+  box-shadow: 2px 2px 4px #EEE;
+}
+
+table.docutils td, table.docutils th {
+  border: 1px solid #888;
+  padding: 0.25em 0.7em;
+}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177207986-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-177207986-1');
+    </script>
+    <!-- End global site tag-->
