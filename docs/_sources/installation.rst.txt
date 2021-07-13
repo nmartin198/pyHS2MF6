@@ -38,12 +38,14 @@ enumerated below.
       extension and the other has a `.pyd` extension.
 
 3. Install and configure the Python 3 interpreter. This iteration of 
-   **pyHS2MF6** has only been tested with Python 3.8.5.
+   **pyHS2MF6** has only been tested with Python 3.8. The **mHSP2** 
+   source has been tested with Python 3.8.5 and 3.8.10. It is recommended 
+   to use Python 3.8.10.
 
     * See :ref:`install_pyint`
 
 4. Recreate the DLL files, if needed. This iteration of **pyHS2MF6**
-   works with MODFLOW 6.2.0.
+   is designed to be compiled with MODFLOW 6.2.1.
 
     * See :ref:`install_dlls`
 

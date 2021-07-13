@@ -3,27 +3,16 @@
 
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177207986-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-177207986-1');
-    </script>
-    <!-- End global site tag-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.3.1. Python Modules &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>4.3.1. Python Modules &#8212; pyHS2MF6 0.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.3.2. Customized Fortran Modules" href="pyMF6_fortran.html" />
@@ -32,7 +21,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6 0.1.2 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="pyMF6.html" title="4.3. pyMF6"
              accesskey="P">previous</a> |
@@ -80,8 +69,8 @@ when coupled mode execution is requested. Also the main block
 the independent process, spawned by the coupled controller and queue
 manager.</p>
 <dl class="py data">
-<dt id="pyMF6py.AUTHKEY">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">AUTHKEY</code><em class="property"> = b'authkey'</em><a class="headerlink" href="#pyMF6py.AUTHKEY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.AUTHKEY">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">AUTHKEY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">b'authkey'</span></em><a class="headerlink" href="#pyMF6py.AUTHKEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authorization key for queue access.</p>
 <p>This is not currently setup in a secure manner. If you plan on using
 pyHS2MF6 across a public or partially public network, then you should
@@ -90,16 +79,16 @@ AUTHKEY needs to be encoded to a byte string.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.CLIENTHOST">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">CLIENTHOST</code><em class="property"> = '127.0.0.1'</em><a class="headerlink" href="#pyMF6py.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.CLIENTHOST">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">CLIENTHOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'127.0.0.1'</span></em><a class="headerlink" href="#pyMF6py.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue clients.</p>
 <p>Clients are on the same ‘machine’ as the queue server when local
 descriptors like ‘localhost’ or ‘127.0.0.1’ are used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.HOST">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">HOST</code><em class="property"> = 'localhost'</em><a class="headerlink" href="#pyMF6py.HOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.HOST">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">HOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'localhost'</span></em><a class="headerlink" href="#pyMF6py.HOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue server.</p>
 <p>Localhost means that the process are set-up to be on all the same
 machine. The queue server and the clients are in different processes
@@ -107,8 +96,8 @@ on the same ‘machine’.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.MF6TimeLoop">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">MF6TimeLoop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">qMF6</span></em>, <em class="sig-param"><span class="n">qHSP2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.MF6TimeLoop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.MF6TimeLoop">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">MF6TimeLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qMF6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qHSP2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.MF6TimeLoop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main MODFLOW6 time loop and all model setup for coupled simulation.</p>
 <p>Currently have to run the simulation from the current directory and
 need to have all of the custom Python files in that directory as well.</p>
@@ -129,32 +118,32 @@ need to have all of the custom Python files in that directory as well.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.MF_SIM_NAME">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">MF_SIM_NAME</code><em class="property"> = 'mfsim.nam'</em><a class="headerlink" href="#pyMF6py.MF_SIM_NAME" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.MF_SIM_NAME">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">MF_SIM_NAME</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'mfsim.nam'</span></em><a class="headerlink" href="#pyMF6py.MF_SIM_NAME" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standard and fixed MODFLOW 6 simulation name</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.NUM_CPL">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">NUM_CPL</code><em class="property"> = 0</em><a class="headerlink" href="#pyMF6py.NUM_CPL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.NUM_CPL">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">NUM_CPL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pyMF6py.NUM_CPL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of cells per layer in the MODFLOW 6 model</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.NUM_LAY">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">NUM_LAY</code><em class="property"> = 0</em><a class="headerlink" href="#pyMF6py.NUM_LAY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.NUM_LAY">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">NUM_LAY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pyMF6py.NUM_LAY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of layers in the MODFLOW 6 model</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.NUM_UZF">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">NUM_UZF</code><em class="property"> = 0</em><a class="headerlink" href="#pyMF6py.NUM_UZF" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.NUM_UZF">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">NUM_UZF</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pyMF6py.NUM_UZF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of UZF cells in the MODFLOW 6 model</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.PORT0">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">PORT0</code><em class="property"> = 45492</em><a class="headerlink" href="#pyMF6py.PORT0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.PORT0">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">PORT0</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45492</span></em><a class="headerlink" href="#pyMF6py.PORT0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the HSP2 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -162,8 +151,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.PORT1">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">PORT1</code><em class="property"> = 45493</em><a class="headerlink" href="#pyMF6py.PORT1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.PORT1">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">PORT1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45493</span></em><a class="headerlink" href="#pyMF6py.PORT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the MODFLOW 6 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -171,8 +160,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.PORT2">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">PORT2</code><em class="property"> = 45494</em><a class="headerlink" href="#pyMF6py.PORT2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.PORT2">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">PORT2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45494</span></em><a class="headerlink" href="#pyMF6py.PORT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for global error handling and communications queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -180,48 +169,48 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.QEND_MSG">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QEND_MSG</code><em class="property"> = ['End']</em><a class="headerlink" href="#pyMF6py.QEND_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QEND_MSG">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QEND_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['End']</span></em><a class="headerlink" href="#pyMF6py.QEND_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>End of simulation message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.QINIT_MSG">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QINIT_MSG</code><em class="property"> = ['Hello']</em><a class="headerlink" href="#pyMF6py.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QINIT_MSG">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QINIT_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Hello']</span></em><a class="headerlink" href="#pyMF6py.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue intialization and checkin message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.QREADY_MSG">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QREADY_MSG</code><em class="property"> = ['Ready']</em><a class="headerlink" href="#pyMF6py.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QREADY_MSG">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QREADY_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Ready']</span></em><a class="headerlink" href="#pyMF6py.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue intialization and checkin message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.QUEUE_ERROR">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QUEUE_ERROR</code><em class="property"> = ['Error']</em><a class="headerlink" href="#pyMF6py.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QUEUE_ERROR">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QUEUE_ERROR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Error']</span></em><a class="headerlink" href="#pyMF6py.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message to put on queues for program termination</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.QUEUE_TIMEOUT">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QUEUE_TIMEOUT</code><em class="property"> = 120.0</em><a class="headerlink" href="#pyMF6py.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QUEUE_TIMEOUT">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QUEUE_TIMEOUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">120.0</span></em><a class="headerlink" href="#pyMF6py.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue wait timeout before error in seconds</p>
 <p>This is for the from pyMF6 queue and determines the mHSP2 wait time
 for receipt from MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="pyMF6py.QueueManager">
-<em class="property">class </em><code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QueueManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">authkey</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">serializer</span><span class="o">=</span><span class="default_value">'pickle'</span></em>, <em class="sig-param"><span class="n">ctx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.QueueManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QueueManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QueueManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pickle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.QueueManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the queue manager class.</p>
 <p>Needs to be at top level of the module so that is pickleable. Do not
 need anything here except to subclass SyncManager.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.QueueServerClient">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">QueueServerClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ThisHost</span></em>, <em class="sig-param"><span class="n">Porter</span></em>, <em class="sig-param"><span class="n">CustomAuth</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.QueueServerClient" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.QueueServerClient">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">QueueServerClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ThisHost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Porter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CustomAuth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.QueueServerClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a client connection a queue.</p>
 <p>The connection is bidirectional and can use this connection for both get
 and put.</p>
@@ -243,60 +232,60 @@ and put.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.SIM_DAYS">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">SIM_DAYS</code><em class="property"> = 0</em><a class="headerlink" href="#pyMF6py.SIM_DAYS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.SIM_DAYS">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">SIM_DAYS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pyMF6py.SIM_DAYS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of days to be simulated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.SIM_DAYS_SERIES">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">SIM_DAYS_SERIES</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6py.SIM_DAYS_SERIES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.SIM_DAYS_SERIES">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">SIM_DAYS_SERIES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6py.SIM_DAYS_SERIES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pandas date range series of days in date form to be simulated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.SIM_MONTHS">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">SIM_MONTHS</code><em class="property"> = 0</em><a class="headerlink" href="#pyMF6py.SIM_MONTHS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.SIM_MONTHS">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">SIM_MONTHS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#pyMF6py.SIM_MONTHS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of months to be simulated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.SIM_MONTH_SERIES">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">SIM_MONTH_SERIES</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6py.SIM_MONTH_SERIES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.SIM_MONTH_SERIES">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">SIM_MONTH_SERIES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6py.SIM_MONTH_SERIES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pandas date range series of months in date form to be simulated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.START_QUEUE_TO">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">START_QUEUE_TO</code><em class="property"> = 300.0</em><a class="headerlink" href="#pyMF6py.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.START_QUEUE_TO">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">START_QUEUE_TO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">300.0</span></em><a class="headerlink" href="#pyMF6py.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue wait timeout before error in seconds.</p>
 <p>This is for program startup communications.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.TRACK_DIS_OUT">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">TRACK_DIS_OUT</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6py.TRACK_DIS_OUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.TRACK_DIS_OUT">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">TRACK_DIS_OUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6py.TRACK_DIS_OUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numpy recarray with dimension NUM_CPL, SIM_MONTHS for tracking the
 discharge to ground surface sent to HSPF.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.TRACK_REJI_OUT">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">TRACK_REJI_OUT</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6py.TRACK_REJI_OUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.TRACK_REJI_OUT">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">TRACK_REJI_OUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6py.TRACK_REJI_OUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numpy recarray with dimension NUM_CPL, SIM_MONTHS for tracking the
 rejected infiltration sent to HSPF.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6py.TRACK_UZF_IN">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">TRACK_UZF_IN</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6py.TRACK_UZF_IN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.TRACK_UZF_IN">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">TRACK_UZF_IN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6py.TRACK_UZF_IN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numpy recarray with dimensions NUM_UZF, SIM_MONTHS for tracking the UZF
 inflows passed from HSPF</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.WriteQueueCheckToLog">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">WriteQueueCheckToLog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">qMF6</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.WriteQueueCheckToLog">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">WriteQueueCheckToLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qMF6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write queue checks to log file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -312,8 +301,8 @@ inflows passed from HSPF</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.metaChecks">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">metaChecks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mf6root</span></em>, <em class="sig-param"><span class="n">cwd</span></em>, <em class="sig-param"><span class="n">start_dt</span></em>, <em class="sig-param"><span class="n">end_dt</span></em>, <em class="sig-param"><span class="n">num_lay</span></em>, <em class="sig-param"><span class="n">num_cpl</span></em>, <em class="sig-param"><span class="n">num_vert</span></em>, <em class="sig-param"><span class="n">num_uzf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.metaChecks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.metaChecks">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">metaChecks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mf6root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_lay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_cpl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_vert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_uzf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.metaChecks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check meta data items passed from the queue server as part of
 initial setup.</p>
 <p>Uses flopy to implement these checks.</p>
@@ -340,8 +329,8 @@ initial setup.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.outputTracking">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">outputTracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.outputTracking" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.outputTracking">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">outputTracking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.outputTracking" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output all of our tracking collections so that these can be
 post-processed if desired.</p>
 <p>Output to four pickle files.</p>
@@ -371,8 +360,8 @@ post-processed if desired.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.processArrayComm">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">processArrayComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">NpArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processArrayComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.processArrayComm">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">processArrayComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NpArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processArrayComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the array communication from MODFLOW 6</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -389,8 +378,8 @@ MODFLOW 6</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.processInitMeta">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">processInitMeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">PassList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processInitMeta" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.processInitMeta">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">processInitMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PassList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processInitMeta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the initial metadata communication received from the
 queue server.</p>
 <p>Call the various routines as required to check start
@@ -421,8 +410,8 @@ unpickled and following formats are required.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.processReadyComm">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">processReadyComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">StringList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processReadyComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.processReadyComm">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">processReadyComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.processReadyComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the ready communication with external processes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -438,8 +427,8 @@ unpickled and following formats are required.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.saMF6TimeLoop">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">saMF6TimeLoop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simdir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.saMF6TimeLoop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.saMF6TimeLoop">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">saMF6TimeLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simdir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.saMF6TimeLoop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main MODFLOW 6 time loop and all model setup for standalone simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -455,8 +444,8 @@ unpickled and following formats are required.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.setupRecarrays">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">setupRecarrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ncpl</span></em>, <em class="sig-param"><span class="n">nuzf</span></em>, <em class="sig-param"><span class="n">nmonths</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.setupRecarrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.setupRecarrays">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">setupRecarrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncpl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuzf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmonths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.setupRecarrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Three recarrays are used to track communications between HSPF and
 MODFLOW on a grid basis.</p>
 <p>These recarrays are instantiated and initialized here</p>
@@ -478,8 +467,8 @@ MODFLOW on a grid basis.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.updateDischargeRAs">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">updateDischargeRAs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">curpTS</span></em>, <em class="sig-param"><span class="n">tArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.updateDischargeRAs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.updateDischargeRAs">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">updateDischargeRAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curpTS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.updateDischargeRAs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the two rec arrays that track discharge to the ground surface</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -499,8 +488,8 @@ at the end of every time step</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6py.updateUZFRAs">
-<code class="sig-prename descclassname">pyMF6py.</code><code class="sig-name descname">updateUZFRAs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">curpTS</span></em>, <em class="sig-param"><span class="n">rArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.updateUZFRAs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6py.updateUZFRAs">
+<span class="sig-prename descclassname"><span class="pre">pyMF6py.</span></span><span class="sig-name descname"><span class="pre">updateUZFRAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curpTS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6py.updateUZFRAs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the rec array that tracks inputs from HSPF.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -528,50 +517,50 @@ debugging and informational purposes.</p>
 <p>A log file, specified with LOGNAME, is used for receipt of log statements.
 Logging level is set with LOG_LEVEL.</p>
 <dl class="py data">
-<dt id="pyMF6Logger.FH">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">FH</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6Logger.FH" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.FH">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">FH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6Logger.FH" title="Permalink to this definition">¶</a></dt>
 <dd><p>File handler</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6Logger.FORMATTER">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">FORMATTER</code><em class="property"> = &lt;logging.Formatter object&gt;</em><a class="headerlink" href="#pyMF6Logger.FORMATTER" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.FORMATTER">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">FORMATTER</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;logging.Formatter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pyMF6Logger.FORMATTER" title="Permalink to this definition">¶</a></dt>
 <dd><p>Custom formatter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6Logger.LOGNAME">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">LOGNAME</code><em class="property"> = 'pyMF6_Log.txt'</em><a class="headerlink" href="#pyMF6Logger.LOGNAME" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.LOGNAME">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">LOGNAME</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pyMF6_Log.txt'</span></em><a class="headerlink" href="#pyMF6Logger.LOGNAME" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log file name</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6Logger.LOGR">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">LOGR</code><em class="property"> = &lt;Logger pyMF6 (DEBUG)&gt;</em><a class="headerlink" href="#pyMF6Logger.LOGR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.LOGR">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">LOGR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">pyMF6</span> <span class="pre">(DEBUG)&gt;</span></em><a class="headerlink" href="#pyMF6Logger.LOGR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Custom logger</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6Logger.LOG_LEVEL">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">LOG_LEVEL</code><em class="property"> = 10</em><a class="headerlink" href="#pyMF6Logger.LOG_LEVEL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.LOG_LEVEL">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">LOG_LEVEL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#pyMF6Logger.LOG_LEVEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logging level</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="pyMF6Logger.START_TIME">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">START_TIME</code><em class="property"> = None</em><a class="headerlink" href="#pyMF6Logger.START_TIME" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.START_TIME">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">START_TIME</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#pyMF6Logger.START_TIME" title="Permalink to this definition">¶</a></dt>
 <dd><p>MODFLOW 6 model start time</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6Logger.loggerEnd">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">loggerEnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6Logger.loggerEnd" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.loggerEnd">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">loggerEnd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6Logger.loggerEnd" title="Permalink to this definition">¶</a></dt>
 <dd><p>End the pyMF6 logger</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyMF6Logger.loggerStart">
-<code class="sig-prename descclassname">pyMF6Logger.</code><code class="sig-name descname">loggerStart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">LFPath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6Logger.loggerStart" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyMF6Logger.loggerStart">
+<span class="sig-prename descclassname"><span class="pre">pyMF6Logger.</span></span><span class="sig-name descname"><span class="pre">loggerStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LFPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyMF6Logger.loggerStart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the logger to use for pyMF6</p>
 </dd></dl>
 
@@ -637,8 +626,8 @@ Logging level is set with LOG_LEVEL.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

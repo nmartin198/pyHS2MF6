@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.1.1. Main Block for Coupled Mode &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.1.2. Coupled Mode Inputs" href="pyHS2MF6_cpinputs.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="cpcontroller.html" title="4.1. Coupled Model Controller and Queue Server"
              accesskey="P">previous</a> |
@@ -97,8 +96,8 @@ another client.</p>
 <div><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">..\LOCA\coupledMain.py</span> <span class="pre">LOCA_In.dat</span></code></p>
 </div></blockquote>
 <dl class="py data">
-<dt id="coupledMain.AUTHKEY">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">AUTHKEY</code><em class="property"> = b'authkey'</em><a class="headerlink" href="#coupledMain.AUTHKEY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.AUTHKEY">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">AUTHKEY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">b'authkey'</span></em><a class="headerlink" href="#coupledMain.AUTHKEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authorization key for queue access.</p>
 <p>This is not currently setup in a secure manner. If you plan on using
 pyHS2MF6 across a public or partially public network, then you should
@@ -107,16 +106,16 @@ AUTHKEY needs to be encoded to a byte string.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.CLIENTHOST">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">CLIENTHOST</code><em class="property"> = '127.0.0.1'</em><a class="headerlink" href="#coupledMain.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.CLIENTHOST">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">CLIENTHOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'127.0.0.1'</span></em><a class="headerlink" href="#coupledMain.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue clients.</p>
 <p>Clients are on the same ‘machine’ as the queue server when local
 descriptors like ‘localhost’ or ‘127.0.0.1’ are used.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.CreateQueueServer">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">CreateQueueServer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ThisHost</span></em>, <em class="sig-param"><span class="n">Porter</span></em>, <em class="sig-param"><span class="n">CustomAuth</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">description</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.CreateQueueServer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.CreateQueueServer">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">CreateQueueServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ThisHost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Porter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CustomAuth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.CreateQueueServer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and start the message passing queues.</p>
 <p>Needs to be called 2 times, one for each queue. The “register”
 settings provide the basic method structure for our queues.</p>
@@ -146,8 +145,8 @@ settings provide the basic method structure for our queues.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.HOST">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">HOST</code><em class="property"> = 'localhost'</em><a class="headerlink" href="#coupledMain.HOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.HOST">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">HOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'localhost'</span></em><a class="headerlink" href="#coupledMain.HOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue server.</p>
 <p>Localhost means that the process are set-up to be on all the same
 machine. The queue server and the clients are in different processes
@@ -155,38 +154,38 @@ on the same ‘machine’.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.HSP2_DESCRIPTION">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">HSP2_DESCRIPTION</code><em class="property"> = 'HSP2 Queue Server'</em><a class="headerlink" href="#coupledMain.HSP2_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.HSP2_DESCRIPTION">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">HSP2_DESCRIPTION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'HSP2</span> <span class="pre">Queue</span> <span class="pre">Server'</span></em><a class="headerlink" href="#coupledMain.HSP2_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue server description for from mHSP2 queue.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.MF6_DESCRIPTION">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">MF6_DESCRIPTION</code><em class="property"> = 'MODFLOW 6 Queue Server'</em><a class="headerlink" href="#coupledMain.MF6_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.MF6_DESCRIPTION">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">MF6_DESCRIPTION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'MODFLOW</span> <span class="pre">6</span> <span class="pre">Queue</span> <span class="pre">Server'</span></em><a class="headerlink" href="#coupledMain.MF6_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue server description for from pyMF6 queue.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.NAME_FROM_HSPF">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">NAME_FROM_HSPF</code><em class="property"> = 'qmHSP2'</em><a class="headerlink" href="#coupledMain.NAME_FROM_HSPF" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.NAME_FROM_HSPF">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">NAME_FROM_HSPF</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'qmHSP2'</span></em><a class="headerlink" href="#coupledMain.NAME_FROM_HSPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue name for the from mHSP2 queue.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.NAME_FROM_MF6">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">NAME_FROM_MF6</code><em class="property"> = 'qmMF6'</em><a class="headerlink" href="#coupledMain.NAME_FROM_MF6" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.NAME_FROM_MF6">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">NAME_FROM_MF6</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'qmMF6'</span></em><a class="headerlink" href="#coupledMain.NAME_FROM_MF6" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue name for the from pyMF6 queue.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.NAME_FROM_TERM">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">NAME_FROM_TERM</code><em class="property"> = 'qmTERM'</em><a class="headerlink" href="#coupledMain.NAME_FROM_TERM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.NAME_FROM_TERM">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">NAME_FROM_TERM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'qmTERM'</span></em><a class="headerlink" href="#coupledMain.NAME_FROM_TERM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue name for the error handling queue.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.PORT0">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">PORT0</code><em class="property"> = 45492</em><a class="headerlink" href="#coupledMain.PORT0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.PORT0">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">PORT0</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45492</span></em><a class="headerlink" href="#coupledMain.PORT0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the HSP2 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -194,8 +193,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.PORT1">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">PORT1</code><em class="property"> = 45493</em><a class="headerlink" href="#coupledMain.PORT1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.PORT1">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">PORT1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45493</span></em><a class="headerlink" href="#coupledMain.PORT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the MODFLOW 6 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -203,8 +202,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.PORT2">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">PORT2</code><em class="property"> = 45494</em><a class="headerlink" href="#coupledMain.PORT2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.PORT2">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">PORT2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45494</span></em><a class="headerlink" href="#coupledMain.PORT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for global error handling and communications queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -212,46 +211,46 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.QEND_MSG">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QEND_MSG</code><em class="property"> = ['End']</em><a class="headerlink" href="#coupledMain.QEND_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QEND_MSG">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QEND_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['End']</span></em><a class="headerlink" href="#coupledMain.QEND_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>End of simulation message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.QINIT_MSG">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QINIT_MSG</code><em class="property"> = ['Hello']</em><a class="headerlink" href="#coupledMain.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QINIT_MSG">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QINIT_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Hello']</span></em><a class="headerlink" href="#coupledMain.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue intialization and check in message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.QREADY_MSG">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QREADY_MSG</code><em class="property"> = ['Ready']</em><a class="headerlink" href="#coupledMain.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QREADY_MSG">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QREADY_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Ready']</span></em><a class="headerlink" href="#coupledMain.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue ready to start message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.QUEUE_ERROR">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QUEUE_ERROR</code><em class="property"> = ['Error']</em><a class="headerlink" href="#coupledMain.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QUEUE_ERROR">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QUEUE_ERROR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Error']</span></em><a class="headerlink" href="#coupledMain.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message to put on queues for program termination</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.QUEUE_TIMEOUT">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QUEUE_TIMEOUT</code><em class="property"> = 3600.0</em><a class="headerlink" href="#coupledMain.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QUEUE_TIMEOUT">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QUEUE_TIMEOUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3600.0</span></em><a class="headerlink" href="#coupledMain.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>End of simulation wait time in seconds</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="coupledMain.QueueManager">
-<em class="property">class </em><code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QueueManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">authkey</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">serializer</span><span class="o">=</span><span class="default_value">'pickle'</span></em>, <em class="sig-param"><span class="n">ctx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.QueueManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QueueManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QueueManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pickle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.QueueManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the queue manager class.</p>
 <p>Needs to be at top level of the module so that is pickleable. Do not
 need anything here except to subclass SyncManager.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.QueueServerClient">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">QueueServerClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ThisHost</span></em>, <em class="sig-param"><span class="n">Porter</span></em>, <em class="sig-param"><span class="n">CustomAuth</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.QueueServerClient" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.QueueServerClient">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">QueueServerClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ThisHost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Porter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CustomAuth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.QueueServerClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a client connection a queue.</p>
 <p>The connection is bidirectional and can use this connection for both get
 and put.</p>
@@ -273,27 +272,27 @@ and put.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.SHELL_CAPTURE">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">SHELL_CAPTURE</code><em class="property"> = 'MF6_ShellOut.txt'</em><a class="headerlink" href="#coupledMain.SHELL_CAPTURE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.SHELL_CAPTURE">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">SHELL_CAPTURE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'MF6_ShellOut.txt'</span></em><a class="headerlink" href="#coupledMain.SHELL_CAPTURE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text file name for capturing standard MODFLOW simulation output</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.START_QUEUE_TO">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">START_QUEUE_TO</code><em class="property"> = 300.0</em><a class="headerlink" href="#coupledMain.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.START_QUEUE_TO">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">START_QUEUE_TO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">300.0</span></em><a class="headerlink" href="#coupledMain.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue wait timeout before error in seconds.</p>
 <p>This is for program startup communications.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.TERM_DESCRIPTION">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">TERM_DESCRIPTION</code><em class="property"> = 'Termination Queue Server'</em><a class="headerlink" href="#coupledMain.TERM_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.TERM_DESCRIPTION">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">TERM_DESCRIPTION</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Termination</span> <span class="pre">Queue</span> <span class="pre">Server'</span></em><a class="headerlink" href="#coupledMain.TERM_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue server description for error handling queue.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.WriteQueueCheckToLog">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">WriteQueueCheckToLog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">qHSP2</span></em>, <em class="sig-param"><span class="n">qMF6</span></em>, <em class="sig-param"><span class="n">qTERM</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.WriteQueueCheckToLog">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">WriteQueueCheckToLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qHSP2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qMF6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qTERM</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write queue checks to log file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -313,8 +312,8 @@ and put.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.get_q">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">get_q</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">q</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.get_q" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.get_q">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">get_q</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.get_q" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main level definition of the get function for queue definition.</p>
 <p>This needs to be at this level so that pickle can find it.</p>
 <dl class="field-list simple">
@@ -331,14 +330,14 @@ and put.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.mHSP2_MAIN">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">mHSP2_MAIN</code><em class="property"> = 'locaMain.py'</em><a class="headerlink" href="#coupledMain.mHSP2_MAIN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.mHSP2_MAIN">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">mHSP2_MAIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'locaMain.py'</span></em><a class="headerlink" href="#coupledMain.mHSP2_MAIN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Location of the standalone execution block for mHSP2.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.processEndComm">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">processEndComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">StringList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processEndComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.processEndComm">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">processEndComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processEndComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the end simulation communication with external processes.</p>
 <p>Each external process, mHSP2 or pyMF6 will send an independent end of
 simulation message.</p>
@@ -356,8 +355,8 @@ simulation message.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.processInitComm">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">processInitComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">StringList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processInitComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.processInitComm">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">processInitComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processInitComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the initial communication with external processes.</p>
 <p>The external processes are mHSP2 and pyMF6.</p>
 <dl class="field-list simple">
@@ -374,8 +373,8 @@ simulation message.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="coupledMain.processReadyComm">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">processReadyComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">StringList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processReadyComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.processReadyComm">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">processReadyComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#coupledMain.processReadyComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the ready communication with an external processes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -391,8 +390,8 @@ simulation message.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="coupledMain.pyMF6_MAIN">
-<code class="sig-prename descclassname">coupledMain.</code><code class="sig-name descname">pyMF6_MAIN</code><em class="property"> = 'pyMF6py.py'</em><a class="headerlink" href="#coupledMain.pyMF6_MAIN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="coupledMain.pyMF6_MAIN">
+<span class="sig-prename descclassname"><span class="pre">coupledMain.</span></span><span class="sig-name descname"><span class="pre">pyMF6_MAIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pyMF6py.py'</span></em><a class="headerlink" href="#coupledMain.pyMF6_MAIN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Location of the standalone execution block for pyMF6.</p>
 </dd></dl>
 
@@ -458,8 +457,8 @@ simulation message.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

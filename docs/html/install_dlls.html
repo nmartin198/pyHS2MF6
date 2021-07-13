@@ -3,27 +3,16 @@
 
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177207986-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-177207986-1');
-    </script>
-    <!-- End global site tag-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.2. Install a Compiler and Build DLLs &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>2.2. Install a Compiler and Build DLLs &#8212; pyHS2MF6 0.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Coupled Mode Example Model" href="case_study.html" />
@@ -32,7 +21,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6 0.1.2 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="install_pyint.html" title="2.1. Install and Configure a Python Environment"
              accesskey="P">previous</a> |
@@ -75,9 +64,9 @@ library, <cite>so</cite>, files.</p>
 </div>
 <p>The purpose of the DLL files is two-fold.</p>
 <ol class="arabic simple">
-<li><p>Make MODFLOW 6.2.0 available to Python programs and the Python 3
+<li><p>Make MODFLOW 6.2.1 available to Python programs and the Python 3
 interpreter</p></li>
-<li><p>Incorporate extended types or objects into MODFLOW 6.2.0 to enable
+<li><p>Incorporate extended types or objects into MODFLOW 6.2.1 to enable
 sharing of information between independent HSPF and MODFLOW 6
 processes, or models.</p></li>
 </ol>
@@ -187,20 +176,20 @@ the DLL files.</p>
 code files.</p>
 <ol class="arabic">
 <li><p>Obtain the
-<a class="reference external" href="https://water.usgs.gov/water-resources/software/MODFLOW-6/mf6.2.0.zip">MODFLOW 6, version 6.2.0 distribution</a>
+<a class="reference external" href="https://water.usgs.gov/water-resources/software/MODFLOW-6/mf6.2.1.zip">MODFLOW 6, version 6.2.1 distribution</a>
 including source code from the <a class="reference external" href="https://www.usgs.gov/">USGS</a>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Extract <cite>mf6.2.0</cite> from the zip archive and place it at the root
+<li><p>Extract <cite>mf6.2.1</cite> from the zip archive and place it at the root
 of the <cite>C:\</cite> so that have the MODFLOW 6 root directory of at
-<cite>C:\mf6.2.0</cite>.</p></li>
+<cite>C:\mf6.2.1</cite>.</p></li>
 </ul>
 </div></blockquote>
 </li>
 <li><p>Make a new directory <cite>cp_Modules</cite> within the <cite>make</cite> sub-directory so
-that have <cite>C:\mf6.2.0\make\cp_Modules</cite>.</p></li>
+that have <cite>C:\mf6.2.1\make\cp_Modules</cite>.</p></li>
 <li><p>Copy the five Fortran source code files, listed below, from
-<cite>pyHS2MF6\src\pyMF6</cite> to <cite>C:\mf6.2.0\make\cp_Modules</cite></p>
+<cite>pyHS2MF6\src\pyMF6</cite> to <cite>C:\mf6.2.1\make\cp_Modules</cite></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>f2PWrappers.f90 - <a class="reference internal" href="pyMF6_f2pwrap.html#pymf6-f2pwrap-f"><span class="std std-ref">Module f2pwrap in f2pWrappers.f90</span></a></p></li>
@@ -212,47 +201,47 @@ that have <cite>C:\mf6.2.0\make\cp_Modules</cite>.</p></li>
 </div></blockquote>
 </li>
 <li><p>Copy the modified makefiles, <cite>modmakefile</cite> and <cite>modmakedefaults</cite> from
-<cite>pyHS2MF6\installation</cite> to <cite>C:\mf6.2.0\make</cite></p>
+<cite>pyHS2MF6\installation</cite> to <cite>C:\mf6.2.1\make</cite></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>These are a modified versions of the files <cite>C:\mf6.2.0\make\makefile</cite>
-and <cite>C:\mf6.2.0\make\makedefaults</cite>. The modifications result in a DLL
+<li><p>These are a modified versions of the files <cite>C:\mf6.2.1\make\makefile</cite>
+and <cite>C:\mf6.2.1\make\makedefaults</cite>. The modifications result in a DLL
 instead of an EXE, and the modified makefile uses DOS commands instead of
 UNIX shell commands.</p></li>
 <li><p>If you would like to make a modified makefile for Linux, just
-compare the files: <cite>C:\mf6.2.0\make\makefile</cite> to
-<cite>C:\mf6.2.0\make\modmakefile</cite> and <cite>C:\mf6.2.0\make\makedefaults</cite> to
-<cite>C:\mf6.2.0\make\modmakedefaults</cite>. The required modifications
+compare the files: <cite>C:\mf6.2.1\make\makefile</cite> to
+<cite>C:\mf6.2.1\make\modmakefile</cite> and <cite>C:\mf6.2.1\make\makedefaults</cite> to
+<cite>C:\mf6.2.1\make\modmakedefaults</cite>. The required modifications
 should be identifiable.</p></li>
 </ul>
 </div></blockquote>
 </li>
 <li><p>Open an Anaconda Prompt, activate the pyhs2mf6 environment, and make
-the active directory <cite>C:\mf6.2.0\make</cite>.</p>
+the active directory <cite>C:\mf6.2.1\make</cite>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">pyhs2mf6</span>
 
-<span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cd</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">2.0</span>\<span class="n">make</span>
+<span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cd</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="mf">.2.1</span>\<span class="n">make</span>
 
-<span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">2.0</span>\<span class="n">make</span> <span class="o">&gt;</span>
+<span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="mf">.2.1</span>\<span class="n">make</span> <span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p>Create the DLL file, <cite>C:\mf6.2.0\make\bin\mf6.dll</cite>, using the MODFLOW 6 source
+<li><p>Create the DLL file, <cite>C:\mf6.2.1\make\bin\mf6.dll</cite>, using the MODFLOW 6 source
 code, four of the source code files in <cite>cp_Modules</cite>, and <cite>modmakefile</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">2.0</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">mingw32</span><span class="o">-</span><span class="n">make</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">makefile</span><span class="o">=</span><span class="n">modmakefile</span> <span class="nb">all</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="mf">.2.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">mingw32</span><span class="o">-</span><span class="n">make</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">makefile</span><span class="o">=</span><span class="n">modmakefile</span> <span class="nb">all</span>
 </pre></div>
 </div>
 </li>
-<li><p>Copy <cite>C:\mf6.2.0\make\bin\mf6.dll</cite> to <cite>C:\mf6.2.0\make\mf6.dll</cite></p></li>
-<li><p>Create the PYD file, <cite>C:\mf6.2.0\make\pyMF6.cp38-win_amd64.pyd</cite>, using F2PY
-by linking to <cite>C:\mf6.2.0\make\mf6.dll</cite> and compiling
+<li><p>Copy <cite>C:\mf6.2.1\make\bin\mf6.dll</cite> to <cite>C:\mf6.2.1\make\mf6.dll</cite></p></li>
+<li><p>Create the PYD file, <cite>C:\mf6.2.1\make\pyMF6.cp38-win_amd64.pyd</cite>, using F2PY
+by linking to <cite>C:\mf6.2.1\make\mf6.dll</cite> and compiling
 <cite>cp_Modules\f2PWrappers.f90</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="o">.</span><span class="mf">2.0</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">f2py</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">m</span> <span class="n">pyMF6</span> <span class="o">-</span><span class="n">L</span><span class="o">.</span>\ <span class="o">-</span><span class="n">lmf6</span> <span class="o">-</span><span class="n">I</span><span class="o">.</span>\<span class="n">obj_temp</span>\
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pyhs2mf6</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">mf6</span><span class="mf">.2.1</span>\<span class="n">make</span> <span class="o">&gt;</span> <span class="n">f2py</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">m</span> <span class="n">pyMF6</span> <span class="o">-</span><span class="n">L</span><span class="o">.</span>\ <span class="o">-</span><span class="n">lmf6</span> <span class="o">-</span><span class="n">I</span><span class="o">.</span>\<span class="n">obj_temp</span>\
                                 <span class="o">-</span><span class="n">I</span><span class="o">.</span>\<span class="n">mod_temp</span>\ <span class="o">--</span><span class="n">verbose</span> <span class="o">.</span>\<span class="n">cp_Modules</span>\<span class="n">f2PWrappers</span><span class="o">.</span><span class="n">f90</span>
 </pre></div>
 </div>
 </li>
-<li><p>Copy the DLL and PYD files from <cite>C:\mf6.2.0\make</cite> to <cite>pyHS2MF6\bin\pyMF6</cite>.</p></li>
+<li><p>Copy the DLL and PYD files from <cite>C:\mf6.2.1\make</cite> to <cite>pyHS2MF6\bin\pyMF6</cite>.</p></li>
 </ol>
 </div>
 </div>
@@ -315,8 +304,8 @@ by linking to <cite>C:\mf6.2.0\make\mf6.dll</cite> and compiling
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

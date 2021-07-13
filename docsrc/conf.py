@@ -27,11 +27,11 @@ sys.path.append( pymf6_path )
 # -- Project information -----------------------------------------------------
 
 project = 'pyHS2MF6'
-copyright = '2020, Nick Martin'
+copyright = '2021, Nick Martin'
 author = 'Nick Martin'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1'
+release = '0.1.2'
 
 
 # -- General configuration ---------------------------------------------------

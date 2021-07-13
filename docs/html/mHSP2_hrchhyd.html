@@ -3,27 +3,16 @@
 
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177207986-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-177207986-1');
-    </script>
-    <!-- End global site tag-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2.2. RCHRES Water Movement and Storage &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>4.2.2. RCHRES Water Movement and Storage &#8212; pyHS2MF6 0.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.3. PERLND Water Movement and Storage" href="mHSP2_hyperwat.html" />
@@ -32,7 +21,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6 0.1.2 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2_main.html" title="4.2.1. Main Block"
              accesskey="P">previous</a> |
@@ -75,480 +64,480 @@ are feet and all areas, volumes, and lengths are converted to
 feet for internal calculations and then reconverted back to
 acres and acre-ft for areas and volumes respectively.</p>
 <dl class="py data">
-<dt id="locaHrchhyd.AFACT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AFACT</code><em class="property"> = 43560.0</em><a class="headerlink" href="#locaHrchhyd.AFACT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AFACT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AFACT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">43560.0</span></em><a class="headerlink" href="#locaHrchhyd.AFACT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Acres to square feet conversion</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AFACTA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AFACTA</code><em class="property"> = 2.295684113865932e-05</em><a class="headerlink" href="#locaHrchhyd.AFACTA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AFACTA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AFACTA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2.295684113865932e-05</span></em><a class="headerlink" href="#locaHrchhyd.AFACTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Area conversion factor</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AKAPPA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AKAPPA</code><em class="property"> = 0.4</em><a class="headerlink" href="#locaHrchhyd.AKAPPA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AKAPPA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AKAPPA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.4</span></em><a class="headerlink" href="#locaHrchhyd.AKAPPA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Von Karmann’s constant</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AUX1FG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AUX1FG</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.AUX1FG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AUX1FG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AUX1FG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.AUX1FG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying if certain flow outputs will be calculated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AUX2FG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AUX2FG</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.AUX2FG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AUX2FG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AUX2FG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.AUX2FG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying if certain flow outputs will be calculated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AUX3FG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AUX3FG</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.AUX3FG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AUX3FG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AUX3FG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.AUX3FG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying if certain flow outputs will be calculated</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AVDEP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AVDEP</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.AVDEP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AVDEP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AVDEP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.AVDEP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Average depth in ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.AVVEL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">AVVEL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.AVVEL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.AVVEL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">AVVEL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.AVVEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Average velocity in ft/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.BAD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">BAD_OUTPUT_LIST</code><em class="property"> = ['AVSECT', 'CDFVOL1', 'CDFVOL2', 'CDFVOL3', 'CDFVOL4', 'CDFVOL5', 'CIVOL', 'CO1', 'CO2', 'CO3', 'CO4', 'CO5', 'COVOL1', 'COVOL2', 'COVOL3', 'COVOL4', 'COVOL5', 'CRO', 'CROVOL', 'CVOL', 'RIRDEM', 'RIRSHT']</em><a class="headerlink" href="#locaHrchhyd.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.BAD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">BAD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AVSECT',</span> <span class="pre">'CDFVOL1',</span> <span class="pre">'CDFVOL2',</span> <span class="pre">'CDFVOL3',</span> <span class="pre">'CDFVOL4',</span> <span class="pre">'CDFVOL5',</span> <span class="pre">'CIVOL',</span> <span class="pre">'CO1',</span> <span class="pre">'CO2',</span> <span class="pre">'CO3',</span> <span class="pre">'CO4',</span> <span class="pre">'CO5',</span> <span class="pre">'COVOL1',</span> <span class="pre">'COVOL2',</span> <span class="pre">'COVOL3',</span> <span class="pre">'COVOL4',</span> <span class="pre">'COVOL5',</span> <span class="pre">'CRO',</span> <span class="pre">'CROVOL',</span> <span class="pre">'CVOL',</span> <span class="pre">'RIRDEM',</span> <span class="pre">'RIRSHT']</span></em><a class="headerlink" href="#locaHrchhyd.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Currently unsupported outputs</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIN1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIN1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIN1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIN1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIN1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIN1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of COLIND for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIN2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIN2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIN2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIN2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIN2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIN2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of COLIND for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIN3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIN3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIN3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIN3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIN3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIN3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of COLIND for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIN4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIN4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIN4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIN4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIN4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIN4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of COLIND for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIN5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIN5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIN5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIN5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIN5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIN5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of COLIND for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIND1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIND1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIND1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIND1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIND1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIND1" title="Permalink to this definition">¶</a></dt>
 <dd><p>COLIND external time series index ratio for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIND2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIND2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIND2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIND2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIND2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIND2" title="Permalink to this definition">¶</a></dt>
 <dd><p>COLIND external time series index ratio for exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIND3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIND3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIND3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIND3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIND3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIND3" title="Permalink to this definition">¶</a></dt>
 <dd><p>COLIND external time series index ratio for exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIND4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIND4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIND4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIND4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIND4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIND4" title="Permalink to this definition">¶</a></dt>
 <dd><p>COLIND external time series index ratio for exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.COLIND5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">COLIND5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.COLIND5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.COLIND5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">COLIND5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.COLIND5" title="Permalink to this definition">¶</a></dt>
 <dd><p>COLIND external time series index ratio for exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.DB50">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">DB50</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.DB50" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.DB50">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">DB50</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.DB50" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sediment median grain diameter
 Specified in inches in inputs and converted to feet for calcs</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.DEF_DT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">DEF_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.DEF_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.DEF_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">DEF_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.DEF_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for time series structured array or
 record array</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.DELTH">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">DELTH</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.DELTH" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.DELTH">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">DELTH</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.DELTH" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop in water elevation from upstream to downstream</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.DELTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">DELTS</code><em class="property"> = 0.0</em><a class="headerlink" href="#locaHrchhyd.DELTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.DELTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">DELTS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.0</span></em><a class="headerlink" href="#locaHrchhyd.DELTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>RCHRES calculation time step in seconds</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.DEP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">DEP</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.DEP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.DEP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">DEP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.DEP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dpeth in feet in rchres</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ERRMSG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ERRMSG</code><em class="property"> = ['HYDR: SOLVE equations are indeterminate', 'HYDR: extrapolation of rchtab will take place', 'HYDR: SOLVE trapped with an oscillating condition', 'HYDR: Solve did not converge', 'HYDR: Solve converged to point outside valid range']</em><a class="headerlink" href="#locaHrchhyd.ERRMSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ERRMSG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ERRMSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['HYDR:</span> <span class="pre">SOLVE</span> <span class="pre">equations</span> <span class="pre">are</span> <span class="pre">indeterminate',</span> <span class="pre">'HYDR:</span> <span class="pre">extrapolation</span> <span class="pre">of</span> <span class="pre">rchtab</span> <span class="pre">will</span> <span class="pre">take</span> <span class="pre">place',</span> <span class="pre">'HYDR:</span> <span class="pre">SOLVE</span> <span class="pre">trapped</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">oscillating</span> <span class="pre">condition',</span> <span class="pre">'HYDR:</span> <span class="pre">Solve</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">converge',</span> <span class="pre">'HYDR:</span> <span class="pre">Solve</span> <span class="pre">converged</span> <span class="pre">to</span> <span class="pre">point</span> <span class="pre">outside</span> <span class="pre">valid</span> <span class="pre">range']</span></em><a class="headerlink" href="#locaHrchhyd.ERRMSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defined error messages.</p>
 <p>Used with errorsV for error handling. Currently these errors, if occur,
 are written to the log file.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.EXIVOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">EXIVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.EXIVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.EXIVOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">EXIVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.EXIVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series inflow, acre-feet per time interval</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.EXTERNAL_TS_GOOD">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">EXTERNAL_TS_GOOD</code><em class="property"> = ['PREC', 'POTEV', 'IVOL', 'COLIND', 'OUTDGT']</em><a class="headerlink" href="#locaHrchhyd.EXTERNAL_TS_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.EXTERNAL_TS_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">EXTERNAL_TS_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['PREC',</span> <span class="pre">'POTEV',</span> <span class="pre">'IVOL',</span> <span class="pre">'COLIND',</span> <span class="pre">'OUTDGT']</span></em><a class="headerlink" href="#locaHrchhyd.EXTERNAL_TS_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>All supported external time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.EXTERNAL_TS_UNUSED">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">EXTERNAL_TS_UNUSED</code><em class="property"> = ['COTDGT', 'CIVOL', 'ICON', 'GATMP', 'DEWTMP', 'SOLRAD', 'CLOUD', 'WIND', 'TGRND', 'PHVAL', 'ROC', 'BIO', 'COADFX', 'COADCN', 'GQADFX', 'GQADCN', 'NUADFX', 'NUADCN', 'PLADFX', 'PLADCN']</em><a class="headerlink" href="#locaHrchhyd.EXTERNAL_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.EXTERNAL_TS_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">EXTERNAL_TS_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['COTDGT',</span> <span class="pre">'CIVOL',</span> <span class="pre">'ICON',</span> <span class="pre">'GATMP',</span> <span class="pre">'DEWTMP',</span> <span class="pre">'SOLRAD',</span> <span class="pre">'CLOUD',</span> <span class="pre">'WIND',</span> <span class="pre">'TGRND',</span> <span class="pre">'PHVAL',</span> <span class="pre">'ROC',</span> <span class="pre">'BIO',</span> <span class="pre">'COADFX',</span> <span class="pre">'COADCN',</span> <span class="pre">'GQADFX',</span> <span class="pre">'GQADCN',</span> <span class="pre">'NUADFX',</span> <span class="pre">'NUADCN',</span> <span class="pre">'PLADFX',</span> <span class="pre">'PLADCN']</span></em><a class="headerlink" href="#locaHrchhyd.EXTERNAL_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsupported external time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FLAG_DT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FLAG_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FLAG_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FLAG_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FLAG_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FLAG_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for flag record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FLAG_GOOD">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FLAG_GOOD</code><em class="property"> = ['AUX1FG', 'AUX2FG', 'AUX3FG', 'FUNCT', 'ODFVF', 'ODGTF']</em><a class="headerlink" href="#locaHrchhyd.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FLAG_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FLAG_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AUX1FG',</span> <span class="pre">'AUX2FG',</span> <span class="pre">'AUX3FG',</span> <span class="pre">'FUNCT',</span> <span class="pre">'ODFVF',</span> <span class="pre">'ODGTF']</span></em><a class="headerlink" href="#locaHrchhyd.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that are at least referenced in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FLAG_UNUSED">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FLAG_UNUSED</code><em class="property"> = ['ICAT', 'VCONFG']</em><a class="headerlink" href="#locaHrchhyd.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FLAG_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FLAG_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['ICAT',</span> <span class="pre">'VCONFG']</span></em><a class="headerlink" href="#locaHrchhyd.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unused flags in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FTABNO">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FTABNO</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FTABNO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FTABNO">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FTABNO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FTABNO" title="Permalink to this definition">¶</a></dt>
 <dd><p>FTABLE id for each RCHRES</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FUNCT1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FUNCT1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FUNCT1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FUNCT1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FUNCT1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FUNCT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying functional relationship for combining time and
 vol for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FUNCT2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FUNCT2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FUNCT2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FUNCT2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FUNCT2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FUNCT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying functional relationship for combining time and
 vol for exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FUNCT3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FUNCT3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FUNCT3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FUNCT3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FUNCT3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FUNCT3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying functional relationship for combining time and
 vol for exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FUNCT4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FUNCT4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FUNCT4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FUNCT4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FUNCT4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FUNCT4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying functional relationship for combining time and
 vol for exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.FUNCT5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">FUNCT5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.FUNCT5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.FUNCT5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">FUNCT5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.FUNCT5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying functional relationship for combining time and
 vol for exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.GAM">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">GAM</code><em class="property"> = 62.4</em><a class="headerlink" href="#locaHrchhyd.GAM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.GAM">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">GAM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">62.4</span></em><a class="headerlink" href="#locaHrchhyd.GAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unit weight or density of water in lb/ft3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.GOOD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">GOOD_OUTPUT_LIST</code><em class="property"> = ['AVDEP', 'AVVEL', 'DEP', 'HRAD', 'IVOL', 'O1', 'O2', 'O3', 'O4', 'O5', 'OVOL1', 'OVOL2', 'OVOL3', 'OVOL4', 'OVOL5', 'PRSUPY', 'RO', 'ROVOL', 'SAREA', 'STAGE', 'VOL', 'TAU', 'TWID', 'USTAR', 'VOLEV']</em><a class="headerlink" href="#locaHrchhyd.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.GOOD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">GOOD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AVDEP',</span> <span class="pre">'AVVEL',</span> <span class="pre">'DEP',</span> <span class="pre">'HRAD',</span> <span class="pre">'IVOL',</span> <span class="pre">'O1',</span> <span class="pre">'O2',</span> <span class="pre">'O3',</span> <span class="pre">'O4',</span> <span class="pre">'O5',</span> <span class="pre">'OVOL1',</span> <span class="pre">'OVOL2',</span> <span class="pre">'OVOL3',</span> <span class="pre">'OVOL4',</span> <span class="pre">'OVOL5',</span> <span class="pre">'PRSUPY',</span> <span class="pre">'RO',</span> <span class="pre">'ROVOL',</span> <span class="pre">'SAREA',</span> <span class="pre">'STAGE',</span> <span class="pre">'VOL',</span> <span class="pre">'TAU',</span> <span class="pre">'TWID',</span> <span class="pre">'USTAR',</span> <span class="pre">'VOLEV']</span></em><a class="headerlink" href="#locaHrchhyd.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of currently supported outputs and thus calculated values</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.GRAV">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">GRAV</code><em class="property"> = 32.2</em><a class="headerlink" href="#locaHrchhyd.GRAV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.GRAV">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">GRAV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32.2</span></em><a class="headerlink" href="#locaHrchhyd.GRAV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accleration due to earth’s gravity ft/s2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_OS1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_OS1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_OS1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_OS1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_OS1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_OS1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of OS for exit 1 to hold over</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_OS2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_OS2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_OS2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_OS2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_OS2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_OS2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of OS for exit 1 to hold over</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_OS3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_OS3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_OS3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_OS3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_OS3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_OS3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of OS for exit 1 to hold over</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_OS4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_OS4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_OS4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_OS4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_OS4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_OS4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of OS for exit 1 to hold over</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_OS5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_OS5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_OS5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_OS5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_OS5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_OS5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of OS for exit 1 to hold over</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HOLD_RO">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HOLD_RO</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HOLD_RO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HOLD_RO">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HOLD_RO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HOLD_RO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of RO to cover over between time steps</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.HRAD">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">HRAD</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.HRAD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.HRAD">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">HRAD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.HRAD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hydraulic radius in ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.INIT_PARMS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">INIT_PARMS</code><em class="property"> = ['COLIN', 'OUTDG', 'VOL']</em><a class="headerlink" href="#locaHrchhyd.INIT_PARMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.INIT_PARMS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">INIT_PARMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['COLIN',</span> <span class="pre">'OUTDG',</span> <span class="pre">'VOL']</span></em><a class="headerlink" href="#locaHrchhyd.INIT_PARMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of initial parameters that suppported</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.INIT_PARMS_UNUSED">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">INIT_PARMS_UNUSED</code><em class="property"> = ['CAT', 'ICAT ']</em><a class="headerlink" href="#locaHrchhyd.INIT_PARMS_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.INIT_PARMS_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">INIT_PARMS_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['CAT',</span> <span class="pre">'ICAT</span> <span class="pre">']</span></em><a class="headerlink" href="#locaHrchhyd.INIT_PARMS_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unused initial parameters in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.IVOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">IVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.IVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.IVOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">IVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.IVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inflow to RCHRES, acre-feet per time interval</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.I_VOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">I_VOL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.I_VOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.I_VOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">I_VOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.I_VOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial volume of water in the RCHRES</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.KEY_TS_COLIND">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">KEY_TS_COLIND</code><em class="property"> = 'COLIND'</em><a class="headerlink" href="#locaHrchhyd.KEY_TS_COLIND" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.KEY_TS_COLIND">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_COLIND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'COLIND'</span></em><a class="headerlink" href="#locaHrchhyd.KEY_TS_COLIND" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for COLIND</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.KEY_TS_OUTDGT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">KEY_TS_OUTDGT</code><em class="property"> = 'OUTDGT'</em><a class="headerlink" href="#locaHrchhyd.KEY_TS_OUTDGT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.KEY_TS_OUTDGT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_OUTDGT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'OUTDGT'</span></em><a class="headerlink" href="#locaHrchhyd.KEY_TS_OUTDGT" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for OUTDGT</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.KEY_TS_PET">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">KEY_TS_PET</code><em class="property"> = 'POTEV'</em><a class="headerlink" href="#locaHrchhyd.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.KEY_TS_PET">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'POTEV'</span></em><a class="headerlink" href="#locaHrchhyd.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for PET</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.KEY_TS_PRECIP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">KEY_TS_PRECIP</code><em class="property"> = 'PREC'</em><a class="headerlink" href="#locaHrchhyd.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.KEY_TS_PRECIP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PRECIP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PREC'</span></em><a class="headerlink" href="#locaHrchhyd.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for precipitation</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.KS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">KS</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.KS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.KS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">KS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.KS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weighting factor for hydraulic routing</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.LEN">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">LEN</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.LEN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.LEN">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">LEN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.LEN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length for each RCHRES</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.LFACTA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">LFACTA</code><em class="property"> = 1.0</em><a class="headerlink" href="#locaHrchhyd.LFACTA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.LFACTA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">LFACTA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1.0</span></em><a class="headerlink" href="#locaHrchhyd.LFACTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length conversion factor</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.LKFG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">LKFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.LKFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.LKFG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">LKFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.LKFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lake flag; 0 == stream and 1 == lake</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.MAXLOOPS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">MAXLOOPS</code><em class="property"> = 100</em><a class="headerlink" href="#locaHrchhyd.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.MAXLOOPS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">MAXLOOPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#locaHrchhyd.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton method maximum number of iterations.</p>
 <p>Only used in the auxil function which has been replaced with npAuxil.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.MAX_EXITS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">MAX_EXITS</code><em class="property"> = 5</em><a class="headerlink" href="#locaHrchhyd.MAX_EXITS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.MAX_EXITS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">MAX_EXITS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#locaHrchhyd.MAX_EXITS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of exits for a RCHRES</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.NEXITS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">NEXITS</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.NEXITS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.NEXITS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">NEXITS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.NEXITS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data structure to hold number of exits for each RCHRES</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.O1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">O1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.O1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.O1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">O1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.O1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of outflow through exit 1, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.O2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">O2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.O2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.O2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">O2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.O2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of outflow through exit 2, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.O3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">O3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.O3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.O3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">O3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.O3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of outflow through exit 3, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.O4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">O4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.O4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.O4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">O4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.O4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of outflow through exit 4, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.O5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">O5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.O5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.O5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">O5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.O5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of outflow through exit 5, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODFVFG1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODFVFG1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODFVFG1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODFVFG1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODFVFG1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODFVFG1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying FTAB output for each RCHRES for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODFVFG2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODFVFG2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODFVFG2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODFVFG2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODFVFG2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODFVFG2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying FTAB output for each RCHRES for exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODFVFG3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODFVFG3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODFVFG3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODFVFG3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODFVFG3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODFVFG3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying FTAB output for each RCHRES for exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODFVFG4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODFVFG4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODFVFG4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODFVFG4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODFVFG4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODFVFG4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying FTAB output for each RCHRES for exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODFVFG5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODFVFG5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODFVFG5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODFVFG5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODFVFG5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODFVFG5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying FTAB output for each RCHRES for exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODGTFG1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODGTFG1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODGTFG1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODGTFG1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODGTFG1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODGTFG1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying time series output for each RCHRES for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODGTFG2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODGTFG2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODGTFG2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODGTFG2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODGTFG2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODGTFG2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying time series output for each RCHRES for exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODGTFG3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODGTFG3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODGTFG3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODGTFG3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODGTFG3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODGTFG3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying time series output for each RCHRES for exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODGTFG4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODGTFG4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODGTFG4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODGTFG4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODGTFG4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODGTFG4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying time series output for each RCHRES for exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ODGTFG5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ODGTFG5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ODGTFG5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ODGTFG5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ODGTFG5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ODGTFG5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag identifying time series output for each RCHRES for exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ORG_SSA_CALC">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ORG_SSA_CALC</code><em class="property"> = False</em><a class="headerlink" href="#locaHrchhyd.ORG_SSA_CALC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ORG_SSA_CALC">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ORG_SSA_CALC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#locaHrchhyd.ORG_SSA_CALC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch to determine lookup table calculation metod.</p>
 <p>If true, use the original auxil function to calculate surface area
 and depth from volume. If false use the np array lookup function
@@ -556,166 +545,166 @@ interp.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDG1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDG1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDG1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDG1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDG1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDG1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial demand for time dependenent outflow exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDG2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDG2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDG2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDG2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDG2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDG2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial demand for time dependenent outflow exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDG3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDG3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDG3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDG3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDG3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDG3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial demand for time dependenent outflow exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDG4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDG4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDG4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDG4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDG4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDG4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial demand for time dependenent outflow exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDG5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDG5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDG5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDG5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDG5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDG5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial demand for time dependenent outflow exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDGT1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDGT1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDGT1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDGT1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDGT1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDGT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>OUTDGT time varying external time series for exit 1</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDGT2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDGT2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDGT2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDGT2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDGT2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDGT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>OUTDGT time varying external time series for exit 2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDGT3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDGT3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDGT3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDGT3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDGT3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDGT3" title="Permalink to this definition">¶</a></dt>
 <dd><p>OUTDGT time varying external time series for exit 3</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDGT4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDGT4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDGT4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDGT4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDGT4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDGT4" title="Permalink to this definition">¶</a></dt>
 <dd><p>OUTDGT time varying external time series for exit 4</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTDGT5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTDGT5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTDGT5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTDGT5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTDGT5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTDGT5" title="Permalink to this definition">¶</a></dt>
 <dd><p>OUTDGT time varying external time series for exit 5</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OUTPUT_CONTROL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OUTPUT_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OUTPUT_CONTROL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OUTPUT_CONTROL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control structure telling which time series are to be output</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OVOL1">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OVOL1</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OVOL1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OVOL1">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OVOL1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OVOL1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of outflow through exit 1, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OVOL2">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OVOL2</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OVOL2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OVOL2">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OVOL2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OVOL2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of outflow through exit 2, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OVOL3">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OVOL3</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OVOL3" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OVOL3">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OVOL3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OVOL3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of outflow through exit 3, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OVOL4">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OVOL4</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OVOL4" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OVOL4">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OVOL4</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OVOL4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of outflow through exit 4, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.OVOL5">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">OVOL5</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.OVOL5" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.OVOL5">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">OVOL5</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.OVOL5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of outflow through exit 5, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.PARAM_GOOD">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">PARAM_GOOD</code><em class="property"> = ['DB50', 'DELTH', 'FTBUCI', 'KS', 'LEN', 'STCOR']</em><a class="headerlink" href="#locaHrchhyd.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.PARAM_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">PARAM_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['DB50',</span> <span class="pre">'DELTH',</span> <span class="pre">'FTBUCI',</span> <span class="pre">'KS',</span> <span class="pre">'LEN',</span> <span class="pre">'STCOR']</span></em><a class="headerlink" href="#locaHrchhyd.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input, non-state parameters that are used in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.PARAM_UNUSED">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">PARAM_UNUSED</code><em class="property"> = ['CONVFM', 'FTBW', 'IREXIT', 'IRMINV']</em><a class="headerlink" href="#locaHrchhyd.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.PARAM_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">PARAM_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['CONVFM',</span> <span class="pre">'FTBW',</span> <span class="pre">'IREXIT',</span> <span class="pre">'IRMINV']</span></em><a class="headerlink" href="#locaHrchhyd.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input parameters that unused in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.POTEV">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">POTEV</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.POTEV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.POTEV">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">POTEV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.POTEV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input time series of potential evaporation from reservoir surface,
 inches per interval</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.PREC">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">PREC</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.PREC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.PREC">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">PREC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.PREC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input time series of precipitation to RCHRES, inches per interval</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.PRSUPY">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">PRSUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.PRSUPY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.PRSUPY">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">PRSUPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.PRSUPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water contributed by precipitation to the surface,
 af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.RO">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">RO</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.RO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.RO">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">RO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.RO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total rate of outflow from RCHRES, ft3/s</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.ROVOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">ROVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.ROVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.ROVOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">ROVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.ROVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total volume of outflow from RCHRES, af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.RR_TGRPN_SUPP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">RR_TGRPN_SUPP</code><em class="property"> = 'INFLOW'</em><a class="headerlink" href="#locaHrchhyd.RR_TGRPN_SUPP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.RR_TGRPN_SUPP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">RR_TGRPN_SUPP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'INFLOW'</span></em><a class="headerlink" href="#locaHrchhyd.RR_TGRPN_SUPP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only supported mass link target or destination group name</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.RR_TMEMN_SUPP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">RR_TMEMN_SUPP</code><em class="property"> = 'IVOL'</em><a class="headerlink" href="#locaHrchhyd.RR_TMEMN_SUPP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.RR_TMEMN_SUPP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">RR_TMEMN_SUPP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'IVOL'</span></em><a class="headerlink" href="#locaHrchhyd.RR_TMEMN_SUPP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only supported mass link target destination group member</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.SAREA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">SAREA</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.SAREA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.SAREA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">SAREA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.SAREA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface area of RCHRES in acres</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.SCHEMATIC_MAP">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">SCHEMATIC_MAP</code><em class="property"> = {}</em><a class="headerlink" href="#locaHrchhyd.SCHEMATIC_MAP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.SCHEMATIC_MAP">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">SCHEMATIC_MAP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHrchhyd.SCHEMATIC_MAP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Schematic map for identifying inflow locations to each RCHRES.</p>
 <p>Keys are target IDs and values are list, enumerated below.</p>
 <blockquote>
@@ -731,88 +720,88 @@ af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.SFACTA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">SFACTA</code><em class="property"> = 1.0</em><a class="headerlink" href="#locaHrchhyd.SFACTA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.SFACTA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">SFACTA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1.0</span></em><a class="headerlink" href="#locaHrchhyd.SFACTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Conversion factor</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.SPEC_DT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">SPEC_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.SPEC_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.SPEC_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">SPEC_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.SPEC_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for the calculation and input
 record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.STAGE">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">STAGE</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.STAGE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.STAGE">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">STAGE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.STAGE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stage of RCHRES = DEP + STCOR, ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.STCOR">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">STCOR</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.STCOR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.STCOR">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">STCOR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.STCOR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Correction to RCHRES depth to calculate stage</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.TAU">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">TAU</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.TAU" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.TAU">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">TAU</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.TAU" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bed shear stress</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.TFACTA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">TFACTA</code><em class="property"> = 1.0</em><a class="headerlink" href="#locaHrchhyd.TFACTA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.TFACTA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">TFACTA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1.0</span></em><a class="headerlink" href="#locaHrchhyd.TFACTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Conversion factor</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.TOLERANCE">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">TOLERANCE</code><em class="property"> = 0.001</em><a class="headerlink" href="#locaHrchhyd.TOLERANCE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.TOLERANCE">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">TOLERANCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.001</span></em><a class="headerlink" href="#locaHrchhyd.TOLERANCE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton method convergence closure criterion.</p>
 <p>Only used in the auxil function which has been replaced with npAuxil.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.TWID">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">TWID</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.TWID" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.TWID">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">TWID</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.TWID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stream top width, ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.USTAR">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">USTAR</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.USTAR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.USTAR">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">USTAR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.USTAR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shear velocity</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.VFACT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">VFACT</code><em class="property"> = 43560.0</em><a class="headerlink" href="#locaHrchhyd.VFACT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.VFACT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">VFACT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">43560.0</span></em><a class="headerlink" href="#locaHrchhyd.VFACT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Acre-ft to cubic feet conversion</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.VFACTA">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">VFACTA</code><em class="property"> = 2.295684113865932e-05</em><a class="headerlink" href="#locaHrchhyd.VFACTA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.VFACTA">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">VFACTA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2.295684113865932e-05</span></em><a class="headerlink" href="#locaHrchhyd.VFACTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume conversion factor</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.VOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">VOL</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.VOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.VOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">VOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.VOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water in the RCHRES, af</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.VOLEV">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">VOLEV</code><em class="property"> = None</em><a class="headerlink" href="#locaHrchhyd.VOLEV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.VOLEV">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">VOLEV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHrchhyd.VOLEV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water lost by evaporation, af/day</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.addInflowMap">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">addInflowMap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">sVolType</span></em>, <em class="sig-param"><span class="n">sVolID</span></em>, <em class="sig-param"><span class="n">aFactor</span></em>, <em class="sig-param"><span class="n">massLink</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.addInflowMap" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.addInflowMap">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">addInflowMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sVolType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sVolID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFactor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">massLink</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.addInflowMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an inflow mapping to the schematic map.</p>
 <p>This tells a RCHRES where to collect inflows from that
 are part of the internal routing.</p>
@@ -847,8 +836,8 @@ are part of the internal routing.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.auxil">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">auxil</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">volumeFT</span></em>, <em class="sig-param"><span class="n">depthFT</span></em>, <em class="sig-param"><span class="n">sareaFT</span></em>, <em class="sig-param"><span class="n">indx</span></em>, <em class="sig-param"><span class="n">vol</span></em>, <em class="sig-param"><span class="n">AUX1FG</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.auxil" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.auxil">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">auxil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volumeFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depthFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sareaFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AUX1FG</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.auxil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute depth and surface area</p>
 <p>Modified real number comparisons to be more numerically reliable.</p>
 <dl class="field-list simple">
@@ -879,8 +868,8 @@ are part of the internal routing.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.configExternalTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">configExternalTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">TSMapList</span></em>, <em class="sig-param"><span class="n">AllTSDict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.configExternalTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.configExternalTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">configExternalTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TSMapList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AllTSDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.configExternalTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer external time series from HDF5 input to module data
 structures</p>
 <dl class="field-list simple">
@@ -910,8 +899,8 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.configFlagsParams">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">configFlagsParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">cFlagVals</span></em>, <em class="sig-param"><span class="n">allIndexes</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.configFlagsParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.configFlagsParams">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">configFlagsParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cFlagVals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allIndexes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.configFlagsParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set and configure flags and parameters for RCHRES.</p>
 <p>The new HDF5 file format contains numerous differences in the
 way that various flags and states are represented relative to
@@ -930,8 +919,8 @@ the original.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.createTSIVOL">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">createTSIVOL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.createTSIVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.createTSIVOL">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">createTSIVOL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.createTSIVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the IVOL input to a RCHRES target by simulation time step
 This needs to account for external time series IVOL entries and
 the internal routing between structures.</p>
@@ -952,8 +941,8 @@ the internal routing between structures.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.demand">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">demand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vol</span></em>, <em class="sig-param"><span class="n">rowFT</span></em>, <em class="sig-param"><span class="n">funct</span></em>, <em class="sig-param"><span class="n">nexits</span></em>, <em class="sig-param"><span class="n">delts</span></em>, <em class="sig-param"><span class="n">convf</span></em>, <em class="sig-param"><span class="n">colind</span></em>, <em class="sig-param"><span class="n">outdgt</span></em>, <em class="sig-param"><span class="n">ODGTF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.demand" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.demand">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">demand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdgt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ODGTF</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.demand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate outflow demand for one FTAB row.</p>
 <p>Interpolate the row from the volume and pass as rowFT. Modified real number
 comparisons to be more numerically reliable.</p>
@@ -997,16 +986,16 @@ MAX_EXITS</p></li>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.errorsV">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">errorsV</code><em class="property"> = array([0, 0, 0, 0, 0])</em><a class="headerlink" href="#locaHrchhyd.errorsV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.errorsV">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">errorsV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0])</span></em><a class="headerlink" href="#locaHrchhyd.errorsV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error handling in liftedloop.</p>
 <p>This has been largely replaced but is maintained for backwards
 compatibility/tracing.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.fndrow">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">fndrow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em>, <em class="sig-param"><span class="n">volFT</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.fndrow" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.fndrow">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">fndrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volFT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.fndrow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds highest index in FTable volume column whose volume  &lt; v.</p>
 <p>Modified to use numpy argmax</p>
 <dl class="field-list simple">
@@ -1020,8 +1009,8 @@ compatibility/tracing.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getCOLIND">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getCOLIND</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em>, <em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">odfvf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getCOLIND" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getCOLIND">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getCOLIND</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odfvf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getCOLIND" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the COLIND array for active exits and this time
 interval</p>
 <dl class="field-list simple">
@@ -1043,8 +1032,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getFUNCT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getFUNCT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getFUNCT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getFUNCT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getFUNCT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getFUNCT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the FUNCT flags by exit for a particular target</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1063,8 +1052,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getODFVFG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getODFVFG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getODFVFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getODFVFG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getODFVFG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getODFVFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the ODFVF flags by exit for a particular target</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1083,8 +1072,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getODGTFG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getODGTFG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getODGTFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getODGTFG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getODGTFG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getODGTFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the ODGTF flags by exit for a particular target</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1103,8 +1092,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getOSEffHO">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getOSEffHO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOSEffHO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getOSEffHO">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getOSEffHO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOSEffHO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the oseff hold over array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1123,8 +1112,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getOUTDGT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getOUTDGT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em>, <em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">odgtf</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOUTDGT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getOUTDGT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getOUTDGT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odgtf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOUTDGT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the OUTDGT array for active exits and this time
 interval</p>
 <dl class="field-list simple">
@@ -1146,8 +1135,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.getOVOLbyExit">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">getOVOLbyExit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOVOLbyExit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.getOVOLbyExit">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">getOVOLbyExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nExit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.getOVOLbyExit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the OVOL data structure for a specified exit</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1163,8 +1152,8 @@ interval</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.hydr_liftedloop">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">hydr_liftedloop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">fTabDict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.hydr_liftedloop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.hydr_liftedloop">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">hydr_liftedloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fTabDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.hydr_liftedloop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modified version of liftedloop to do a single time step and
 return to the main time loop.</p>
 <p>Module-wide recarrays are used to store all results and calculation
@@ -1192,8 +1181,8 @@ numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.makeRowFT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">makeRowFT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vol</span></em>, <em class="sig-param"><span class="n">volumeFT</span></em>, <em class="sig-param"><span class="n">depthFT</span></em>, <em class="sig-param"><span class="n">sareaFT</span></em>, <em class="sig-param"><span class="n">dischList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.makeRowFT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.makeRowFT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">makeRowFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumeFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depthFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sareaFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dischList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.makeRowFT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a row array representing the interpolated values
 from the FTAB for this volume</p>
 <dl class="field-list simple">
@@ -1217,8 +1206,8 @@ values</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.makeRowFTbyIndx">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">makeRowFTbyIndx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indx</span></em>, <em class="sig-param"><span class="n">volumeFT</span></em>, <em class="sig-param"><span class="n">depthFT</span></em>, <em class="sig-param"><span class="n">sareaFT</span></em>, <em class="sig-param"><span class="n">dischList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.makeRowFTbyIndx" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.makeRowFTbyIndx">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">makeRowFTbyIndx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumeFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depthFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sareaFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dischList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.makeRowFTbyIndx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a row array representing the extracted values
 from the FTAB for this index</p>
 <dl class="field-list simple">
@@ -1242,50 +1231,50 @@ values</p></li>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nCOLIN_STATE">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nCOLIN_STATE</code><em class="property"> = ['COLIN1', 'COLIN2', 'COLIN3', 'COLIN4', 'COLIN5']</em><a class="headerlink" href="#locaHrchhyd.nCOLIN_STATE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nCOLIN_STATE">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nCOLIN_STATE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['COLIN1',</span> <span class="pre">'COLIN2',</span> <span class="pre">'COLIN3',</span> <span class="pre">'COLIN4',</span> <span class="pre">'COLIN5']</span></em><a class="headerlink" href="#locaHrchhyd.nCOLIN_STATE" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, COLIN state parameters</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nFLAG_GOOD">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nFLAG_GOOD</code><em class="property"> = ['AUX1FG', 'AUX2FG', 'AUX3FG', 'FUNCT1', 'FUNCT2', 'FUNCT3', 'FUNCT4', 'FUNCT5', 'ODFVF1', 'ODFVF2', 'ODFVF3', 'ODFVF4', 'ODFVF5', 'ODGTF1', 'ODGTF2', 'ODGTF3', 'ODGTF4', 'ODGTF5']</em><a class="headerlink" href="#locaHrchhyd.nFLAG_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nFLAG_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nFLAG_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AUX1FG',</span> <span class="pre">'AUX2FG',</span> <span class="pre">'AUX3FG',</span> <span class="pre">'FUNCT1',</span> <span class="pre">'FUNCT2',</span> <span class="pre">'FUNCT3',</span> <span class="pre">'FUNCT4',</span> <span class="pre">'FUNCT5',</span> <span class="pre">'ODFVF1',</span> <span class="pre">'ODFVF2',</span> <span class="pre">'ODFVF3',</span> <span class="pre">'ODFVF4',</span> <span class="pre">'ODFVF5',</span> <span class="pre">'ODGTF1',</span> <span class="pre">'ODGTF2',</span> <span class="pre">'ODGTF3',</span> <span class="pre">'ODGTF4',</span> <span class="pre">'ODGTF5']</span></em><a class="headerlink" href="#locaHrchhyd.nFLAG_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, flags that at least referenced in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nFUNCT_FLAG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nFUNCT_FLAG</code><em class="property"> = ['FUNCT1', 'FUNCT2', 'FUNCT3', 'FUNCT4', 'FUNCT5']</em><a class="headerlink" href="#locaHrchhyd.nFUNCT_FLAG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nFUNCT_FLAG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nFUNCT_FLAG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['FUNCT1',</span> <span class="pre">'FUNCT2',</span> <span class="pre">'FUNCT3',</span> <span class="pre">'FUNCT4',</span> <span class="pre">'FUNCT5']</span></em><a class="headerlink" href="#locaHrchhyd.nFUNCT_FLAG" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, FUNCT flags; One for each exit rather than a column</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nINIT_PARMS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nINIT_PARMS</code><em class="property"> = ['VOL', 'COLIN1', 'COLIN2', 'COLIN3', 'COLIN4', 'COLIN5', 'OUTDG1', 'OUTDG2', 'OUTDG3', 'OUTDG4', 'OUTDG5']</em><a class="headerlink" href="#locaHrchhyd.nINIT_PARMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nINIT_PARMS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nINIT_PARMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['VOL',</span> <span class="pre">'COLIN1',</span> <span class="pre">'COLIN2',</span> <span class="pre">'COLIN3',</span> <span class="pre">'COLIN4',</span> <span class="pre">'COLIN5',</span> <span class="pre">'OUTDG1',</span> <span class="pre">'OUTDG2',</span> <span class="pre">'OUTDG3',</span> <span class="pre">'OUTDG4',</span> <span class="pre">'OUTDG5']</span></em><a class="headerlink" href="#locaHrchhyd.nINIT_PARMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, list of initial parameters that suppported</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nODFVF_FLAG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nODFVF_FLAG</code><em class="property"> = ['ODFVF1', 'ODFVF2', 'ODFVF3', 'ODFVF4', 'ODFVF5']</em><a class="headerlink" href="#locaHrchhyd.nODFVF_FLAG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nODFVF_FLAG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nODFVF_FLAG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['ODFVF1',</span> <span class="pre">'ODFVF2',</span> <span class="pre">'ODFVF3',</span> <span class="pre">'ODFVF4',</span> <span class="pre">'ODFVF5']</span></em><a class="headerlink" href="#locaHrchhyd.nODFVF_FLAG" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, ODFVF flags; One for each exit rather than a column</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nODGTF_FLAG">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nODGTF_FLAG</code><em class="property"> = ['ODGTF1', 'ODGTF2', 'ODGTF3', 'ODGTF4', 'ODGTF5']</em><a class="headerlink" href="#locaHrchhyd.nODGTF_FLAG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nODGTF_FLAG">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nODGTF_FLAG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['ODGTF1',</span> <span class="pre">'ODGTF2',</span> <span class="pre">'ODGTF3',</span> <span class="pre">'ODGTF4',</span> <span class="pre">'ODGTF5']</span></em><a class="headerlink" href="#locaHrchhyd.nODGTF_FLAG" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, ODGTF flags; One for each exit rather than a column</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHrchhyd.nOUTDG_STATE">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">nOUTDG_STATE</code><em class="property"> = ['OUTDG1', 'OUTDG2', 'OUTDG3', 'OUTDG4', 'OUTDG5']</em><a class="headerlink" href="#locaHrchhyd.nOUTDG_STATE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.nOUTDG_STATE">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">nOUTDG_STATE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['OUTDG1',</span> <span class="pre">'OUTDG2',</span> <span class="pre">'OUTDG3',</span> <span class="pre">'OUTDG4',</span> <span class="pre">'OUTDG5']</span></em><a class="headerlink" href="#locaHrchhyd.nOUTDG_STATE" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, COLIN state parameters</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.npAuxil">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">npAuxil</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">volumeFT</span></em>, <em class="sig-param"><span class="n">depthFT</span></em>, <em class="sig-param"><span class="n">sareaFT</span></em>, <em class="sig-param"><span class="n">vol</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.npAuxil" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.npAuxil">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">npAuxil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volumeFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depthFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sareaFT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.npAuxil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute depth and surface area using built in numpy methods</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1313,8 +1302,8 @@ values</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setCOLINDTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setCOLINDTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em>, <em class="sig-param"><span class="n">nExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setCOLINDTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setCOLINDTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setCOLINDTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nExit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setCOLINDTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the COLIND time series from one data set
 to one target and exit number.</p>
 <dl class="field-list simple">
@@ -1330,8 +1319,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setDelT">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setDelT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_delt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setDelT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setDelT">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setDelT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_delt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setDelT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the pervious land delt for calculations.</p>
 <p>The delt is stored as a module wide global. Sets DELTS
 module-wide global.</p>
@@ -1343,8 +1332,8 @@ module-wide global.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setExInTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setExInTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setExInTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setExInTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setExInTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setExInTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the external inflow time series from one data set
 to one target. PET is where pet is stored for calculations. Might be
 adjusted by various activities.</p>
@@ -1360,8 +1349,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setGoodFlag">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setGoodFlag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tFlag</span></em>, <em class="sig-param"><span class="n">tfVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setGoodFlag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setGoodFlag">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setGoodFlag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tFlag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setGoodFlag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified flag structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1375,8 +1364,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setGoodParam">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setGoodParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setGoodParam" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setGoodParam">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setGoodParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setGoodParam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified parameter structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1390,8 +1379,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setInitialParams">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setInitialParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setInitialParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setInitialParams">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setInitialParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setInitialParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified initial values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1405,8 +1394,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setLakeFlag">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setLakeFlag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">lFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setLakeFlag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setLakeFlag">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setLakeFlag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lFlag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setLakeFlag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the lake flag for each RCHRES</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1419,8 +1408,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setNExits">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setNExits</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">numExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setNExits" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setNExits">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setNExits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numExit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setNExits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the number of exits for each RCHRES</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1433,8 +1422,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setOSEffHO">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setOSEffHO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">o</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">nexits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOSEffHO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setOSEffHO">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setOSEffHO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nexits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOSEffHO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the oseff hold over array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1448,8 +1437,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setOUTDGTTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setOUTDGTTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em>, <em class="sig-param"><span class="n">nExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOUTDGTTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setOUTDGTTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setOUTDGTTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nExit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOUTDGTTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the OUTDGT time series from one data set
 to one target and exit number.</p>
 <dl class="field-list simple">
@@ -1465,8 +1454,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setOutputControlFlags">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setOutputControlFlags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">savetable</span></em>, <em class="sig-param"><span class="n">stTypes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setOutputControlFlags">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setOutputControlFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savetable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stTypes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the output control flags</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1486,8 +1475,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setPETTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setPETTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setPETTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setPETTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setPETTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setPETTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the PET time series from one data set
 to one target. PET is where pet is stored for calculations.
 Might be adjusted by various activities.</p>
@@ -1503,8 +1492,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setPrecipTS">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setPrecipTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setPrecipTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setPrecipTS">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setPrecipTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setPrecipTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the precipitation time series from one data set
 to one target. SUPY is where precipitation is stored for calculations</p>
 <dl class="field-list simple">
@@ -1519,8 +1508,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.setUpRecArrays">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">setUpRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.setUpRecArrays">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">setUpRecArrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and initialize pervious land output arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1533,8 +1522,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHrchhyd.writeOutputs">
-<code class="sig-prename descclassname">locaHrchhyd.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHrchhyd.writeOutputs">
+<span class="sig-prename descclassname"><span class="pre">locaHrchhyd.</span></span><span class="sig-name descname"><span class="pre">writeOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHrchhyd.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the outputs to the hdf file at the end of the simulation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1614,8 +1603,8 @@ to create the rec array</p></li>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

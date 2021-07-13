@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.2.4. IMPLND Water Movement and Storage &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.5. Coupling Specific Methods and Data Structures" href="mHSP2_coupling.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2_hyperwat.html" title="4.2.3. PERLND Water Movement and Storage"
              accesskey="P">previous</a> |
@@ -72,342 +71,342 @@ restructuring the storage and memory allocation within HSP2.</p>
 definitions.</p>
 <p>Internal time unit DELT60 is in hours for <strong>IMPLND</strong>.</p>
 <dl class="py data">
-<dt id="locaHimpwat.BAD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">BAD_OUTPUT_LIST</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.BAD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">BAD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#locaHimpwat.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Currently unsupported outputs</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.CSNOFG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">CSNOFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.CSNOFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.CSNOFG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">CSNOFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.CSNOFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch to turn on consideration of snow accumulation and melt.</p>
 <p>SNOW is not currently supported.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.DEF_DT">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">DEF_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.DEF_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.DEF_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">DEF_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.DEF_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for time series structured array or
 record array</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.DELT60">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">DELT60</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.DELT60" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.DELT60">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">DELT60</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.DELT60" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time step in hours to use in calculations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.ERRMSG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">ERRMSG</code><em class="property"> = ['IWATER: IROUTE Newton Method did not converge']</em><a class="headerlink" href="#locaHimpwat.ERRMSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.ERRMSG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">ERRMSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['IWATER:</span> <span class="pre">IROUTE</span> <span class="pre">Newton</span> <span class="pre">Method</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">converge']</span></em><a class="headerlink" href="#locaHimpwat.ERRMSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defined error messages from HSPF.</p>
 <p>Used with errorsV for error handling. Currently, these messages
 written to the log file as errors when encountered.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.FLAG_DT">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.FLAG_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.FLAG_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.FLAG_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for flag record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.FLAG_GOOD">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_GOOD</code><em class="property"> = ['CSNOFG', 'RTLIFG', 'RTOPFG', 'VNNFG', 'VRSFG']</em><a class="headerlink" href="#locaHimpwat.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.FLAG_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['CSNOFG',</span> <span class="pre">'RTLIFG',</span> <span class="pre">'RTOPFG',</span> <span class="pre">'VNNFG',</span> <span class="pre">'VRSFG']</span></em><a class="headerlink" href="#locaHimpwat.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that are at least referenced in mHSP2.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.FLAG_UNUSED">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">FLAG_UNUSED</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.FLAG_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#locaHimpwat.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that are completely unused in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.GOOD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">GOOD_OUTPUT_LIST</code><em class="property"> = ['IMPEV', 'IMPS', 'PET', 'PETADJ', 'RETS', 'SUPY', 'SURI', 'SURO', 'SURS']</em><a class="headerlink" href="#locaHimpwat.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.GOOD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">GOOD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['IMPEV',</span> <span class="pre">'IMPS',</span> <span class="pre">'PET',</span> <span class="pre">'PETADJ',</span> <span class="pre">'RETS',</span> <span class="pre">'SUPY',</span> <span class="pre">'SURI',</span> <span class="pre">'SURO',</span> <span class="pre">'SURS']</span></em><a class="headerlink" href="#locaHimpwat.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of currently supported outputs that can be written to the
 HDF5 file</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.HOLD_DEC">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_DEC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_DEC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.HOLD_DEC">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_DEC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.HOLD_DEC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case simulation is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.HOLD_MSUPY">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_MSUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_MSUPY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.HOLD_MSUPY">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_MSUPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.HOLD_MSUPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of MSUPY to cover over between time steps</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.HOLD_SRC">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HOLD_SRC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HOLD_SRC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.HOLD_SRC">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_SRC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.HOLD_SRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case simulation is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.HR1FG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">HR1FG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.HR1FG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.HR1FG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">HR1FG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.HR1FG" title="Permalink to this definition">¶</a></dt>
 <dd><p>True at 1 am every day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.IMPEV">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">IMPEV</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.IMPEV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.IMPEV">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">IMPEV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.IMPEV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total simulated ET for impervious, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.IMPS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">IMPS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.IMPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.IMPS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">IMPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.IMPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total water stored in impervious lands, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.INFLOW_TS_GOOD">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">INFLOW_TS_GOOD</code><em class="property"> = ['PREC', 'PETINP']</em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.INFLOW_TS_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">INFLOW_TS_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['PREC',</span> <span class="pre">'PETINP']</span></em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>All supported inflow time series in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.INFLOW_TS_UNUSED">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">INFLOW_TS_UNUSED</code><em class="property"> = ['AIRTMP', 'GATMP', 'DTMPG', 'WINMOV', 'SOLRAD', 'CLOUD', 'SLSLD', 'IQADFX', 'IQADCN', 'RAINF', 'SNOCOV', 'WYIELD', 'PACKI']</em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.INFLOW_TS_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">INFLOW_TS_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AIRTMP',</span> <span class="pre">'GATMP',</span> <span class="pre">'DTMPG',</span> <span class="pre">'WINMOV',</span> <span class="pre">'SOLRAD',</span> <span class="pre">'CLOUD',</span> <span class="pre">'SLSLD',</span> <span class="pre">'IQADFX',</span> <span class="pre">'IQADCN',</span> <span class="pre">'RAINF',</span> <span class="pre">'SNOCOV',</span> <span class="pre">'WYIELD',</span> <span class="pre">'PACKI']</span></em><a class="headerlink" href="#locaHimpwat.INFLOW_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsupported inflow time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.I_RETS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">I_RETS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.I_RETS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.I_RETS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">I_RETS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.I_RETS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial retention, or interception, storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.I_SURS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">I_SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.I_SURS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.I_SURS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">I_SURS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.I_SURS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial surface or overland flow storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.KEY_TS_PET">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">KEY_TS_PET</code><em class="property"> = 'PETINP'</em><a class="headerlink" href="#locaHimpwat.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.KEY_TS_PET">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PETINP'</span></em><a class="headerlink" href="#locaHimpwat.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for input PET</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.KEY_TS_PRECIP">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">KEY_TS_PRECIP</code><em class="property"> = 'PREC'</em><a class="headerlink" href="#locaHimpwat.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.KEY_TS_PRECIP">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PRECIP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PREC'</span></em><a class="headerlink" href="#locaHimpwat.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for precipitation</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.LATIN_CONTROL">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LATIN_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.LATIN_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.LATIN_CONTROL">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">LATIN_CONTROL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.LATIN_CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control structure telling which lateral inflows are active</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.LAT_INFLOW_TS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LAT_INFLOW_TS</code><em class="property"> = ['SURLI']</em><a class="headerlink" href="#locaHimpwat.LAT_INFLOW_TS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.LAT_INFLOW_TS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">LAT_INFLOW_TS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['SURLI']</span></em><a class="headerlink" href="#locaHimpwat.LAT_INFLOW_TS" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of possible lateral inflow time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.LSUR">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">LSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.LSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.LSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">LSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.LSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length of the assumed overland flow plane in feet</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.MAXLOOPS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MAXLOOPS</code><em class="property"> = 100</em><a class="headerlink" href="#locaHimpwat.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.MAXLOOPS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">MAXLOOPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#locaHimpwat.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton method max loop iterations.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.MON_FLAGS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MON_FLAGS</code><em class="property"> = ['VNNFG', 'VRSFG']</em><a class="headerlink" href="#locaHimpwat.MON_FLAGS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.MON_FLAGS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">MON_FLAGS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['VNNFG',</span> <span class="pre">'VRSFG']</span></em><a class="headerlink" href="#locaHimpwat.MON_FLAGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag names for monthly flags</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.MON_PARAMS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">MON_PARAMS</code><em class="property"> = ['NSURM', 'RETSCM']</em><a class="headerlink" href="#locaHimpwat.MON_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.MON_PARAMS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">MON_PARAMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['NSURM',</span> <span class="pre">'RETSCM']</span></em><a class="headerlink" href="#locaHimpwat.MON_PARAMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parameter names for values that can be specified as monthly</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.NSUR">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">NSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.NSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.NSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">NSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.NSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Manning’s n for the assumed overland flow plane use English/Standard
 units versions from tables.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.NSURM">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">NSURM</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.NSURM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.NSURM">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">NSURM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.NSURM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly overland flow Manning’s n</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.OUTPUT_CONTROL">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">OUTPUT_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.OUTPUT_CONTROL">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">OUTPUT_CONTROL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control structure telling which time series are to be output</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PARAM_GOOD">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PARAM_GOOD</code><em class="property"> = ['LSUR', 'NSUR', 'PETMAX', 'PETMIN', 'RETSC', 'SLSUR']</em><a class="headerlink" href="#locaHimpwat.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PARAM_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PARAM_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['LSUR',</span> <span class="pre">'NSUR',</span> <span class="pre">'PETMAX',</span> <span class="pre">'PETMIN',</span> <span class="pre">'RETSC',</span> <span class="pre">'SLSUR']</span></em><a class="headerlink" href="#locaHimpwat.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input, non-state parameters that are used in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PARAM_UNUSED">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PARAM_UNUSED</code><em class="property"> = []</em><a class="headerlink" href="#locaHimpwat.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PARAM_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PARAM_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#locaHimpwat.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input parameters that unused in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PET">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PET</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PET">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>Potential evapotranspiration, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PETADJ">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETADJ</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETADJ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PETADJ">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PETADJ</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.PETADJ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjusted PET from air temperature limits, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PETMAX">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETMAX</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETMAX" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PETMAX">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PETMAX</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.PETMAX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Air temperature below which ET will be arbitrarily reduced.</p>
 <p>Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not
 supported so this is not used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.PETMIN">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">PETMIN</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.PETMIN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.PETMIN">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">PETMIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.PETMIN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Air temperature below which ET will be set to zero.</p>
 <p>Only used if CSNOFG == 1. Units are degrees Fahrenheit. SNOW is not
 supported and this is not used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.RETS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.RETS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">RETS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.RETS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retention storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.RETSC">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETSC</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETSC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.RETSC">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">RETSC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.RETSC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retention, or interception, storage capacity of the surface in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.RETSCM">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RETSCM</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RETSCM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.RETSCM">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">RETSCM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.RETSCM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly retention, or interception, storage capacity of the surface
 in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.RTLIFG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RTLIFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RTLIFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.RTLIFG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">RTLIFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.RTLIFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for handling retention storage on lateral surface inflow.</p>
 <p>If == 1, then lateral surface inflow is subject to retention. For 0,
 not subject to retention</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.RTOPFG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">RTOPFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.RTOPFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.RTOPFG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">RTOPFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.RTOPFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag to select algorithm for overland flow.</p>
 <p>RTOPFG == 1 then overland flow done as in predeccesor models - HSPX,
 ARM, and NPS. RTOPFG == 0 then a different algorithm is used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SLSUR">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SLSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SLSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SLSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SLSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SLSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Slope of the assumed overland flow plane, ft/ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SPEC_DT">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SPEC_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SPEC_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SPEC_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SPEC_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SPEC_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for the calculation and input
 record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.STATE_PARMS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">STATE_PARMS</code><em class="property"> = ['RETS', 'SURS']</em><a class="headerlink" href="#locaHimpwat.STATE_PARMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.STATE_PARMS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">STATE_PARMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['RETS',</span> <span class="pre">'SURS']</span></em><a class="headerlink" href="#locaHimpwat.STATE_PARMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of state parameters</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SUPY">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SUPY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SUPY">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SUPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SUPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moisture supplied to the land segment by precipitation, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SURI">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURI</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SURI">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SURI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SURI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SURLI">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SURLI">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SURLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SURLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SURO">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURO</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SURO">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SURO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SURO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage outflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.SURS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.SURS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.SURS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">SURS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.SURS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.TOLERANCE">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">TOLERANCE</code><em class="property"> = 0.01</em><a class="headerlink" href="#locaHimpwat.TOLERANCE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.TOLERANCE">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">TOLERANCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.01</span></em><a class="headerlink" href="#locaHimpwat.TOLERANCE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tolerance for Newton method convergence</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.VNNFG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">VNNFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.VNNFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.VNNFG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">VNNFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.VNNFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for using monthly variation in Manning’s n for overland flow</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.VRSFG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">VRSFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.VRSFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.VRSFG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">VRSFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.VRSFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for using monthly variation in retention storage capacity</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.WS_AREAS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">WS_AREAS</code><em class="property"> = None</em><a class="headerlink" href="#locaHimpwat.WS_AREAS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.WS_AREAS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">WS_AREAS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHimpwat.WS_AREAS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Areas of impervious segments in acres</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.configExternalTS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">configExternalTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">TSMapList</span></em>, <em class="sig-param"><span class="n">AllTSDict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configExternalTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.configExternalTS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">configExternalTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TSMapList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AllTSDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configExternalTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer external time series from HDF5 input to module data
 structures</p>
 <dl class="field-list simple">
@@ -435,8 +434,8 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.configFlagsParams">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">configFlagsParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">cFlagVals</span></em>, <em class="sig-param"><span class="n">allIndexes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configFlagsParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.configFlagsParams">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">configFlagsParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cFlagVals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allIndexes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.configFlagsParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set and configure flags and parameters for PERLND</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -456,14 +455,14 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHimpwat.errorsV">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">errorsV</code><em class="property"> = array([0])</em><a class="headerlink" href="#locaHimpwat.errorsV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.errorsV">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">errorsV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0])</span></em><a class="headerlink" href="#locaHimpwat.errorsV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error tracking in liftedloop</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.getLatInflowByTypeTarget">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getLatInflowByTypeTarget</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">liType</span></em>, <em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getLatInflowByTypeTarget" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.getLatInflowByTypeTarget">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">getLatInflowByTypeTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getLatInflowByTypeTarget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a lateral inflow by type and target</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -477,8 +476,8 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.getSURObyTargTS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getSURObyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getSURObyTargTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.getSURObyTargTS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">getSURObyTargTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getSURObyTargTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the total outflow from impervious land, inches/day</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -497,8 +496,8 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.getWatershedAreabyTarg">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">getWatershedAreabyTarg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getWatershedAreabyTarg" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.getWatershedAreabyTarg">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">getWatershedAreabyTarg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.getWatershedAreabyTarg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get WS_AREA or watershed area by target id</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -514,8 +513,8 @@ metadata for a particular target ID</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.iwater_liftedloop">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">iwater_liftedloop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">mon</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.iwater_liftedloop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.iwater_liftedloop">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">iwater_liftedloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.iwater_liftedloop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modified version of liftedloop to do a single time step and
 return to the main time loop.</p>
 <p>Module-wide recarrays are used to store all results and calculation
@@ -543,8 +542,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setDelT">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setDelT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_delt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setDelT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setDelT">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setDelT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_delt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setDelT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the impervious land delt for calculations.</p>
 <p>The delt is stored as a module wide global</p>
 <dl class="field-list simple">
@@ -555,8 +554,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setGoodFlag">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setGoodFlag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tFlag</span></em>, <em class="sig-param"><span class="n">fVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodFlag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setGoodFlag">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setGoodFlag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tFlag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodFlag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified flag structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -570,8 +569,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setGoodParam">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setGoodParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodParam" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setGoodParam">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setGoodParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setGoodParam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified parameter structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -585,8 +584,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setLatInflowTS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setLatInflowTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">inflowType</span></em>, <em class="sig-param"><span class="n">tsVals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setLatInflowTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setLatInflowTS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setLatInflowTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflowType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tsVals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setLatInflowTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to setup lateral inflow time series</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -601,8 +600,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setMonthlyParams">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setMonthlyParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">monName</span></em>, <em class="sig-param"><span class="n">monTuple</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setMonthlyParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setMonthlyParams">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setMonthlyParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setMonthlyParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified monthly parameter structures</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -616,8 +615,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setOutputControlFlags">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setOutputControlFlags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">savetable</span></em>, <em class="sig-param"><span class="n">stTypes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setOutputControlFlags">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setOutputControlFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savetable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stTypes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the output control flags</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -637,8 +636,8 @@ more numerically reliable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setPETTS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setPETTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPETTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setPETTS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setPETTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPETTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the PET time series from one data set
 to one target.</p>
 <p>PET is where pet is stored for calculations. Might be adjusted
@@ -655,8 +654,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setPrecipTS">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setPrecipTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPrecipTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setPrecipTS">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setPrecipTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setPrecipTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the precipitation time series from one data set
 to one target.</p>
 <p>SUPY is where precipitation is stored for calculations</p>
@@ -672,8 +671,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setStateParams">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setStateParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setStateParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setStateParams">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setStateParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setStateParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified initial state structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -687,8 +686,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setUpRecArrays">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setUpRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setUpRecArrays">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setUpRecArrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and initialize impervious land output arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -701,8 +700,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setWSAreas">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setWSAreas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">area</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setWSAreas" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setWSAreas">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setWSAreas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setWSAreas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the watershed area to the global information structure.</p>
 <p>Area is in acres</p>
 <dl class="field-list simple">
@@ -716,8 +715,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.setupHR1FG">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">setupHR1FG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setupHR1FG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.setupHR1FG">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">setupHR1FG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.setupHR1FG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the module-level global HR1FG</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -727,8 +726,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHimpwat.writeOutputs">
-<code class="sig-prename descclassname">locaHimpwat.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHimpwat.writeOutputs">
+<span class="sig-prename descclassname"><span class="pre">locaHimpwat.</span></span><span class="sig-name descname"><span class="pre">writeOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHimpwat.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the outputs to the hdf file at the end of the simulation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -808,8 +807,8 @@ to create the rec array</p></li>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

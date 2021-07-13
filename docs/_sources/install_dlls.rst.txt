@@ -18,10 +18,10 @@ for use on Linux operating systems.
 
 The purpose of the DLL files is two-fold.
 
-1. Make MODFLOW 6.2.0 available to Python programs and the Python 3 
+1. Make MODFLOW 6.2.1 available to Python programs and the Python 3 
    interpreter
 
-2. Incorporate extended types or objects into MODFLOW 6.2.0 to enable 
+2. Incorporate extended types or objects into MODFLOW 6.2.1 to enable 
    sharing of information between independent HSPF and MODFLOW 6
    processes, or models.
 
@@ -128,18 +128,18 @@ The following steps are required to build the DLL files from the source
 code files.
 
 1. Obtain the 
-   `MODFLOW 6, version 6.2.0 distribution <https://water.usgs.gov/water-resources/software/MODFLOW-6/mf6.2.0.zip>`_ 
+   `MODFLOW 6, version 6.2.1 distribution <https://water.usgs.gov/water-resources/software/MODFLOW-6/mf6.2.1.zip>`_ 
    including source code from the `USGS <https://www.usgs.gov/>`_. 
 
-    * Extract `mf6.2.0` from the zip archive and place it at the root 
+    * Extract `mf6.2.1` from the zip archive and place it at the root 
       of the `C:\\` so that have the MODFLOW 6 root directory of at 
-      `C:\\mf6.2.0`. 
+      `C:\\mf6.2.1`. 
 
 2. Make a new directory `cp_Modules` within the `make` sub-directory so
-   that have `C:\\mf6.2.0\\make\\cp_Modules`. 
+   that have `C:\\mf6.2.1\\make\\cp_Modules`. 
 
 3. Copy the five Fortran source code files, listed below, from 
-   `pyHS2MF6\\src\\pyMF6` to `C:\\mf6.2.0\\make\\cp_Modules`
+   `pyHS2MF6\\src\\pyMF6` to `C:\\mf6.2.1\\make\\cp_Modules`
 
     * f2PWrappers.f90 - :ref:`pyMF6_f2pwrap_f`
 
@@ -152,41 +152,41 @@ code files.
     * cp_gwf3drn8.f90 - :ref:`pyMF6_cphDrnModule_f`
 
 4. Copy the modified makefiles, `modmakefile` and `modmakedefaults` from 
-   `pyHS2MF6\\installation` to `C:\\mf6.2.0\\make`
+   `pyHS2MF6\\installation` to `C:\\mf6.2.1\\make`
 
-    * These are a modified versions of the files `C:\\mf6.2.0\\make\\makefile`
-      and `C:\\mf6.2.0\\make\\makedefaults`. The modifications result in a DLL 
+    * These are a modified versions of the files `C:\\mf6.2.1\\make\\makefile`
+      and `C:\\mf6.2.1\\make\\makedefaults`. The modifications result in a DLL 
       instead of an EXE, and the modified makefile uses DOS commands instead of 
       UNIX shell commands.
 
     * If you would like to make a modified makefile for Linux, just 
-      compare the files: `C:\\mf6.2.0\\make\\makefile` to  
-      `C:\\mf6.2.0\\make\\modmakefile` and `C:\\mf6.2.0\\make\\makedefaults` to  
-      `C:\\mf6.2.0\\make\\modmakedefaults`. The required modifications 
+      compare the files: `C:\\mf6.2.1\\make\\makefile` to  
+      `C:\\mf6.2.1\\make\\modmakefile` and `C:\\mf6.2.1\\make\\makedefaults` to  
+      `C:\\mf6.2.1\\make\\modmakedefaults`. The required modifications 
       should be identifiable.
 
 5. Open an Anaconda Prompt, activate the pyhs2mf6 environment, and make 
-   the active directory `C:\\mf6.2.0\\make`. ::
+   the active directory `C:\\mf6.2.1\\make`. ::
 
     (base) > conda activate pyhs2mf6 
      
-    (pyhs2mf6) > cd C:\mf6.2.0\make 
+    (pyhs2mf6) > cd C:\mf6.2.1\make 
      
-    (pyhs2mf6) C:\mf6.2.0\make >
+    (pyhs2mf6) C:\mf6.2.1\make >
 
-6. Create the DLL file, `C:\\mf6.2.0\\make\\bin\\mf6.dll`, using the MODFLOW 6 source 
+6. Create the DLL file, `C:\\mf6.2.1\\make\\bin\\mf6.dll`, using the MODFLOW 6 source 
    code, four of the source code files in `cp_Modules`, and `modmakefile`. ::
 
-    (pyhs2mf6) C:\mf6.2.0\make > mingw32-make.exe --makefile=modmakefile all 
+    (pyhs2mf6) C:\mf6.2.1\make > mingw32-make.exe --makefile=modmakefile all 
 
-7. Copy `C:\\mf6.2.0\\make\\bin\\mf6.dll` to `C:\\mf6.2.0\\make\\mf6.dll`
+7. Copy `C:\\mf6.2.1\\make\\bin\\mf6.dll` to `C:\\mf6.2.1\\make\\mf6.dll`
 
-8. Create the PYD file, `C:\\mf6.2.0\\make\\pyMF6.cp38-win_amd64.pyd`, using F2PY 
-   by linking to `C:\\mf6.2.0\\make\\mf6.dll` and compiling 
+8. Create the PYD file, `C:\\mf6.2.1\\make\\pyMF6.cp38-win_amd64.pyd`, using F2PY 
+   by linking to `C:\\mf6.2.1\\make\\mf6.dll` and compiling 
    `cp_Modules\\f2PWrappers.f90`. ::
 
-    (pyhs2mf6) C:\mf6.2.0\make > f2py.exe -c -m pyMF6 -L.\ -lmf6 -I.\obj_temp\ 
+    (pyhs2mf6) C:\mf6.2.1\make > f2py.exe -c -m pyMF6 -L.\ -lmf6 -I.\obj_temp\ 
                                     -I.\mod_temp\ --verbose .\cp_Modules\f2PWrappers.f90 
 
-9. Copy the DLL and PYD files from `C:\\mf6.2.0\\make` to `pyHS2MF6\\bin\\pyMF6`.
+9. Copy the DLL and PYD files from `C:\\mf6.2.1\\make` to `pyHS2MF6\\bin\\pyMF6`.
 

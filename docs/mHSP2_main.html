@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.2.1. Main Block &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.2. RCHRES Water Movement and Storage" href="mHSP2_hrchhyd.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2.html" title="4.2. mHSP2"
              accesskey="P">previous</a> |
@@ -81,8 +80,8 @@ execution is requested. Also the main block (<code class="docutils literal notra
 in this module is what is launcehd to start the independent process,
 spawned by the coupled controller and queue manager.</p>
 <dl class="py data">
-<dt id="locaMain.AUTHKEY">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">AUTHKEY</code><em class="property"> = b'authkey'</em><a class="headerlink" href="#locaMain.AUTHKEY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.AUTHKEY">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">AUTHKEY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">b'authkey'</span></em><a class="headerlink" href="#locaMain.AUTHKEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authorization key for queue access.</p>
 <p>This is not currently setup in a secure manner. If you plan on using
 pyHS2MF6 across a public or partially public network, then you should
@@ -91,35 +90,35 @@ AUTHKEY needs to be encoded to a byte string.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.CLIENTHOST">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">CLIENTHOST</code><em class="property"> = '127.0.0.1'</em><a class="headerlink" href="#locaMain.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.CLIENTHOST">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">CLIENTHOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'127.0.0.1'</span></em><a class="headerlink" href="#locaMain.CLIENTHOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue clients.</p>
 <p>Clients are on the same ‘machine’ as the queue server when local
 descriptors like ‘localhost’ or ‘127.0.0.1’ are used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.DAILY_DELT_STR">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">DAILY_DELT_STR</code><em class="property"> = '1440'</em><a class="headerlink" href="#locaMain.DAILY_DELT_STR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.DAILY_DELT_STR">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">DAILY_DELT_STR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'1440'</span></em><a class="headerlink" href="#locaMain.DAILY_DELT_STR" title="Permalink to this definition">¶</a></dt>
 <dd><p>DELT string representing daily, 24 hours * 60 minutes</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.GFTAB_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">GFTAB_DICT</code><em class="property"> = {}</em><a class="headerlink" href="#locaMain.GFTAB_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.GFTAB_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">GFTAB_DICT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaMain.GFTAB_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global FTABLE dictionary that stores the FTABLEs by FTABLE number</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.GTS_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">GTS_DICT</code><em class="property"> = {}</em><a class="headerlink" href="#locaMain.GTS_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.GTS_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">GTS_DICT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaMain.GTS_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global time series dictionary that stores the time series by SVOLNO
 key</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.HOST">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">HOST</code><em class="property"> = 'localhost'</em><a class="headerlink" href="#locaMain.HOST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.HOST">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">HOST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'localhost'</span></em><a class="headerlink" href="#locaMain.HOST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host machine for queue server.</p>
 <p>Localhost means that the process are set-up to be on all the same
 machine. The queue server and the clients are in different processes
@@ -127,45 +126,45 @@ on the same ‘machine’.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.KEY_ACT_IWAT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">KEY_ACT_IWAT</code><em class="property"> = 'IWATFG'</em><a class="headerlink" href="#locaMain.KEY_ACT_IWAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.KEY_ACT_IWAT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">KEY_ACT_IWAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'IWATFG'</span></em><a class="headerlink" href="#locaMain.KEY_ACT_IWAT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for simulating standard impervious water runoff</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.KEY_ACT_PWAT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">KEY_ACT_PWAT</code><em class="property"> = 'PWATFG'</em><a class="headerlink" href="#locaMain.KEY_ACT_PWAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.KEY_ACT_PWAT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">KEY_ACT_PWAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PWATFG'</span></em><a class="headerlink" href="#locaMain.KEY_ACT_PWAT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for simulating standard pervious water runoff</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.KEY_ACT_RRHYD">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">KEY_ACT_RRHYD</code><em class="property"> = 'HYDRFG'</em><a class="headerlink" href="#locaMain.KEY_ACT_RRHYD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.KEY_ACT_RRHYD">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">KEY_ACT_RRHYD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'HYDRFG'</span></em><a class="headerlink" href="#locaMain.KEY_ACT_RRHYD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for simulating HYDR portion of reach reservoirs</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.KEY_TS_PET">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">KEY_TS_PET</code><em class="property"> = 'PETINP'</em><a class="headerlink" href="#locaMain.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.KEY_TS_PET">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PETINP'</span></em><a class="headerlink" href="#locaMain.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for input PET</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.KEY_TS_PRECIP">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">KEY_TS_PRECIP</code><em class="property"> = 'PREC'</em><a class="headerlink" href="#locaMain.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.KEY_TS_PRECIP">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PRECIP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PREC'</span></em><a class="headerlink" href="#locaMain.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for precipitation</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.MAP_TS_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">MAP_TS_DICT</code><em class="property"> = {}</em><a class="headerlink" href="#locaMain.MAP_TS_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.MAP_TS_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">MAP_TS_DICT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaMain.MAP_TS_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary to map solution structure to time series.</p>
 <p>Keys, tuple of (solution type, ID), and values [ SVOLNO, TMEMN, TVOLNO]</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.PORT0">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">PORT0</code><em class="property"> = 45492</em><a class="headerlink" href="#locaMain.PORT0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.PORT0">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">PORT0</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45492</span></em><a class="headerlink" href="#locaMain.PORT0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the HSP2 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -173,8 +172,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.PORT1">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">PORT1</code><em class="property"> = 45493</em><a class="headerlink" href="#locaMain.PORT1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.PORT1">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">PORT1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45493</span></em><a class="headerlink" href="#locaMain.PORT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for the MODFLOW 6 queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -182,8 +181,8 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.PORT2">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">PORT2</code><em class="property"> = 45494</em><a class="headerlink" href="#locaMain.PORT2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.PORT2">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">PORT2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">45494</span></em><a class="headerlink" href="#locaMain.PORT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Port number for global error handling and communications queue.</p>
 <p>Port numbers for queues need to be the same for each independent process
 for connection. Additionally, ports need to be opened in any firewall
@@ -191,48 +190,48 @@ software even for local simulation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.QEND_MSG">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QEND_MSG</code><em class="property"> = ['End']</em><a class="headerlink" href="#locaMain.QEND_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QEND_MSG">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QEND_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['End']</span></em><a class="headerlink" href="#locaMain.QEND_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>End of simulation message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.QINIT_MSG">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QINIT_MSG</code><em class="property"> = ['Hello']</em><a class="headerlink" href="#locaMain.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QINIT_MSG">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QINIT_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Hello']</span></em><a class="headerlink" href="#locaMain.QINIT_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue intialization and checkin message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.QREADY_MSG">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QREADY_MSG</code><em class="property"> = ['Ready']</em><a class="headerlink" href="#locaMain.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QREADY_MSG">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QREADY_MSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Ready']</span></em><a class="headerlink" href="#locaMain.QREADY_MSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue intialization and checkin message</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.QUEUE_ERROR">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QUEUE_ERROR</code><em class="property"> = ['Error']</em><a class="headerlink" href="#locaMain.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QUEUE_ERROR">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QUEUE_ERROR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['Error']</span></em><a class="headerlink" href="#locaMain.QUEUE_ERROR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message to put on queues for program termination</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.QUEUE_TIMEOUT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QUEUE_TIMEOUT</code><em class="property"> = 300.0</em><a class="headerlink" href="#locaMain.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QUEUE_TIMEOUT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QUEUE_TIMEOUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">300.0</span></em><a class="headerlink" href="#locaMain.QUEUE_TIMEOUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue wait timeout before error in seconds.</p>
 <p>This is for the from pyMF6 queue and determines the mHSP2 wait time
 for receipt from MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="locaMain.QueueManager">
-<em class="property">class </em><code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QueueManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">authkey</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">serializer</span><span class="o">=</span><span class="default_value">'pickle'</span></em>, <em class="sig-param"><span class="n">ctx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.QueueManager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QueueManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QueueManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pickle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.QueueManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the queue manager class.</p>
 <p>Needs to be at top level of the module so that is pickleable. Do not
 need anything here except to subclass SyncManager.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.QueueServerClient">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">QueueServerClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ThisHost</span></em>, <em class="sig-param"><span class="n">Porter</span></em>, <em class="sig-param"><span class="n">CustomAuth</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.QueueServerClient" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.QueueServerClient">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">QueueServerClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ThisHost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Porter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CustomAuth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.QueueServerClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a client connection a queue.</p>
 <p>The connection is bidirectional and can use this connection for both get
 and put.</p>
@@ -254,8 +253,8 @@ and put.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.SEQUENCE_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">SEQUENCE_DICT</code><em class="property"> = {'IMPLND': [[100, 'ATMPFG'], [200, 'SNOWFG'], [300, ['IWATFG', 'IWATER']]], 'PERLND': [[100, 'AIRTFG'], [200, 'SNOWFG'], [300, ['PWATFG', 'PWATER']]], 'RCHRES': [[100, ['HYDRFG', 'HYDR']]]}</em><a class="headerlink" href="#locaMain.SEQUENCE_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.SEQUENCE_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">SEQUENCE_DICT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'IMPLND':</span> <span class="pre">[[100,</span> <span class="pre">'ATMPFG'],</span> <span class="pre">[200,</span> <span class="pre">'SNOWFG'],</span> <span class="pre">[300,</span> <span class="pre">['IWATFG',</span> <span class="pre">'IWATER']]],</span> <span class="pre">'PERLND':</span> <span class="pre">[[100,</span> <span class="pre">'AIRTFG'],</span> <span class="pre">[200,</span> <span class="pre">'SNOWFG'],</span> <span class="pre">[300,</span> <span class="pre">['PWATFG',</span> <span class="pre">'PWATER']]],</span> <span class="pre">'RCHRES':</span> <span class="pre">[[100,</span> <span class="pre">['HYDRFG',</span> <span class="pre">'HYDR']]]}</span></em><a class="headerlink" href="#locaMain.SEQUENCE_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Holds the required calculation sequence by supported target type.</p>
 <p>In HSPsquared, this is read in from the HDF5 file. Anyone can change
 edit the HDF5 file which opens the possibility of unintentional
@@ -265,52 +264,52 @@ modify this sequence successfully, the code needs to be modified.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.SIMTIME_INDEXES">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">SIMTIME_INDEXES</code><em class="property"> = {}</em><a class="headerlink" href="#locaMain.SIMTIME_INDEXES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.SIMTIME_INDEXES">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">SIMTIME_INDEXES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaMain.SIMTIME_INDEXES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary that holds simulation time indexes in case they happen
 to be different</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.START_QUEUE_TO">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">START_QUEUE_TO</code><em class="property"> = 300.0</em><a class="headerlink" href="#locaMain.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.START_QUEUE_TO">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">START_QUEUE_TO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">300.0</span></em><a class="headerlink" href="#locaMain.START_QUEUE_TO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Queue wait timeout before error in seconds.</p>
 <p>This is for program startup communications.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.SUPPORTED_ACTIVITIES">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">SUPPORTED_ACTIVITIES</code><em class="property"> = {'IMPLND': [['IWATFG'], ['IWATER']], 'PERLND': [['PWATFG'], ['PWATER']], 'RCHRES': [['HYDRFG'], ['HYDR']]}</em><a class="headerlink" href="#locaMain.SUPPORTED_ACTIVITIES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.SUPPORTED_ACTIVITIES">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">SUPPORTED_ACTIVITIES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'IMPLND':</span> <span class="pre">[['IWATFG'],</span> <span class="pre">['IWATER']],</span> <span class="pre">'PERLND':</span> <span class="pre">[['PWATFG'],</span> <span class="pre">['PWATER']],</span> <span class="pre">'RCHRES':</span> <span class="pre">[['HYDRFG'],</span> <span class="pre">['HYDR']]}</span></em><a class="headerlink" href="#locaMain.SUPPORTED_ACTIVITIES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of supported activities</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.TARG_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">TARG_DICT</code><em class="property"> = {}</em><a class="headerlink" href="#locaMain.TARG_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.TARG_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">TARG_DICT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaMain.TARG_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary with target types as keys and list of target ids as values</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.TARG_IMPLND">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">TARG_IMPLND</code><em class="property"> = 'IMPLND'</em><a class="headerlink" href="#locaMain.TARG_IMPLND" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.TARG_IMPLND">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">TARG_IMPLND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'IMPLND'</span></em><a class="headerlink" href="#locaMain.TARG_IMPLND" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for impervious land targets</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.TARG_PERVLND">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">TARG_PERVLND</code><em class="property"> = 'PERLND'</em><a class="headerlink" href="#locaMain.TARG_PERVLND" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.TARG_PERVLND">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">TARG_PERVLND</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PERLND'</span></em><a class="headerlink" href="#locaMain.TARG_PERVLND" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for pervious land targets</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.TARG_RCHRES">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">TARG_RCHRES</code><em class="property"> = 'RCHRES'</em><a class="headerlink" href="#locaMain.TARG_RCHRES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.TARG_RCHRES">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">TARG_RCHRES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'RCHRES'</span></em><a class="headerlink" href="#locaMain.TARG_RCHRES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key value for reach/reservoir targets</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.WriteQueueCheckToLog">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">WriteQueueCheckToLog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">qMF6</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.WriteQueueCheckToLog">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">WriteQueueCheckToLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qMF6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.WriteQueueCheckToLog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write queue checks to log file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -326,8 +325,8 @@ to be different</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.checkOpsSpec">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">checkOpsSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">allops</span></em>, <em class="sig-param"><span class="n">ucs</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.checkOpsSpec" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.checkOpsSpec">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">checkOpsSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ucs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.checkOpsSpec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the activities and operations desired and creates lists of
 target types.</p>
 <p>Currently only PWATFG for PERLND, IWATFG for IMPLND, and HYDR
@@ -351,8 +350,8 @@ operations loops warn the user that only these will be implemented</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.getDailySimTimeIndex">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">getDailySimTimeIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.getDailySimTimeIndex" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.getDailySimTimeIndex">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">getDailySimTimeIndex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.getDailySimTimeIndex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the daily simulation time index from the SIMTIME_INDEXES
 dictionary.</p>
 <p>Must be called after setSimTimeIndexes</p>
@@ -367,8 +366,8 @@ dictionary.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.getTARG_DICT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">getTARG_DICT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.getTARG_DICT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.getTARG_DICT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">getTARG_DICT</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.getTARG_DICT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the global target dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -381,8 +380,8 @@ dictionary.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.initAllocTargStructures">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">initAllocTargStructures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.initAllocTargStructures" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.initAllocTargStructures">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">initAllocTargStructures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.initAllocTargStructures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize all target structures including time series,
 flags, parameters, and initial values.</p>
 <p>This takes care of initializing or allocating the simulation
@@ -401,8 +400,8 @@ memory by creating np.recarrays of the simulation length.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.mainTL">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">mainTL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">tIndex</span></em>, <em class="sig-param"><span class="n">qHSP2</span></em>, <em class="sig-param"><span class="n">qMF6</span></em>, <em class="sig-param"><span class="n">hdfTyper</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.mainTL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.mainTL">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">mainTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qHSP2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qMF6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfTyper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.mainTL" title="Permalink to this definition">¶</a></dt>
 <dd><p>The main time loop for mHSP2 in the coupled program.</p>
 <p>Currently only 1440.0 minutes, or daily, is supported for
 sim_delt or a daily time step.</p>
@@ -427,8 +426,8 @@ sim_delt or a daily time step.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.metaChecks">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">metaChecks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_dt</span></em>, <em class="sig-param"><span class="n">end_dt</span></em>, <em class="sig-param"><span class="n">num_pl</span></em>, <em class="sig-param"><span class="n">num_il</span></em>, <em class="sig-param"><span class="n">num_rr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.metaChecks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.metaChecks">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">metaChecks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_pl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_il</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_rr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.metaChecks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the remaining meta data items passed from the queue
 server as part of initial setup of a coupled simulation.</p>
 <p>Requires that the input HDF5 file has already been read
@@ -453,29 +452,29 @@ and processed into program structures.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.nKEY_ACT_IWAT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">nKEY_ACT_IWAT</code><em class="property"> = 'IWATER'</em><a class="headerlink" href="#locaMain.nKEY_ACT_IWAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.nKEY_ACT_IWAT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">nKEY_ACT_IWAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'IWATER'</span></em><a class="headerlink" href="#locaMain.nKEY_ACT_IWAT" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, key value for simulating standard impervious
 water runoff</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.nKEY_ACT_PWAT">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">nKEY_ACT_PWAT</code><em class="property"> = 'PWATER'</em><a class="headerlink" href="#locaMain.nKEY_ACT_PWAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.nKEY_ACT_PWAT">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">nKEY_ACT_PWAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PWATER'</span></em><a class="headerlink" href="#locaMain.nKEY_ACT_PWAT" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, key value for simulating standard pervious
 water runoff</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaMain.nKEY_ACT_RRHYD">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">nKEY_ACT_RRHYD</code><em class="property"> = 'HYDR'</em><a class="headerlink" href="#locaMain.nKEY_ACT_RRHYD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.nKEY_ACT_RRHYD">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">nKEY_ACT_RRHYD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'HYDR'</span></em><a class="headerlink" href="#locaMain.nKEY_ACT_RRHYD" title="Permalink to this definition">¶</a></dt>
 <dd><p>New HDF5 format, key value for simulating HYDR portion of reach
 reservoirs</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.processArrayComm">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">processArrayComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">NpArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processArrayComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.processArrayComm">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">processArrayComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NpArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processArrayComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the array communication from MODFLOW 6.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -495,8 +494,8 @@ MODFLOW 6</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.processInitMeta">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">processInitMeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">PassList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processInitMeta" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.processInitMeta">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">processInitMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">PassList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processInitMeta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the initial metadata communication received from the
 queue server.</p>
 <p>Call the various routines as required to read in all of the HDF5
@@ -542,8 +541,8 @@ string for error.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.processReadyComm">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">processReadyComm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">StringList</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processReadyComm" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.processReadyComm">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">processReadyComm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.processReadyComm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the ready communication with external processes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -559,8 +558,8 @@ string for error.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.salocaMain">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">salocaMain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simdir</span></em>, <em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">saveall</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reloadkeys</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.salocaMain" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.salocaMain">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">salocaMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reloadkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.salocaMain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs main HSP2 program in standalone mode.</p>
 <p>Rewrite of original to make one main time loop</p>
 <dl class="field-list simple">
@@ -582,8 +581,8 @@ string for error.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setFlowLinks">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setFlowLinks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkdd</span></em>, <em class="sig-param"><span class="n">mldd</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setFlowLinks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setFlowLinks">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setFlowLinks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linkdd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mldd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setFlowLinks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup the link structues, or routing, among targets.</p>
 <p>This requires a combination of the defined mass links
 and schematic defined in the UCI file and ported to the
@@ -607,8 +606,8 @@ targets</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setHRUAreas">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setHRUAreas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">linkdd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setHRUAreas" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setHRUAreas">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setHRUAreas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linkdd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setHRUAreas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the HRU surface areas and store for post-processing.</p>
 <p>This involves setting the areas for PERLND and IMPLND. These
 are only stored in the SCHEMATIC and LINKS sections of the
@@ -628,8 +627,8 @@ this linkdd which is ordered by reach to extract these values</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setOutputSave">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setOutputSave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ucs</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setOutputSave" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setOutputSave">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setOutputSave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ucs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setOutputSave" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the save specifications from the hdf5 storage structures
 and send to the target modules.</p>
 <dl class="field-list simple">
@@ -650,8 +649,8 @@ and send to the target modules.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setParmsFlagsUCS">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setParmsFlagsUCS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_delt</span></em>, <em class="sig-param"><span class="n">ucs</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setParmsFlagsUCS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setParmsFlagsUCS">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setParmsFlagsUCS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_delt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ucs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setParmsFlagsUCS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer the parameter values and flags from the hdf file to
 our target modules.</p>
 <p>Currently only “PWATFG”, “IWATFG”, and “HYDRFG” are supported. Note
@@ -676,8 +675,8 @@ and both naming conventions are supported.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setSimTimeIndexes">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setSimTimeIndexes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">allops</span></em>, <em class="sig-param"><span class="n">general</span></em>, <em class="sig-param"><span class="n">hdfType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setSimTimeIndexes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setSimTimeIndexes">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setSimTimeIndexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">general</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setSimTimeIndexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the simulation time indexes from operational sequence in the
 hdf5 file.</p>
 <p>At this time are only excepting daily time steps so this is all that
@@ -701,8 +700,8 @@ operational sequence, then an error will be thrown.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setTargDataTS">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setTargDataTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setTargDataTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setTargDataTS">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setTargDataTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setTargDataTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the input time series into the target structures.</p>
 <p><strong>Note</strong> that this only works with daily simulation time steps
 Time steps are stored in minutes so this should always be
@@ -721,8 +720,8 @@ Time steps are stored in minutes so this should always be
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.setUPPreTL">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">setUPPreTL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">saveall</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">reloadkeys</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setUPPreTL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.setUPPreTL">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">setUPPreTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reloadkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.setUPPreTL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does all of the main mHSP2 setup for a coupled simulation.</p>
 <p>Called prior to starting the main, time, loop.</p>
 <dl class="field-list simple">
@@ -748,8 +747,8 @@ function means that either 0 or 1 is returned.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaMain.writeOutputs">
-<code class="sig-prename descclassname">locaMain.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">tIndex</span></em>, <em class="sig-param"><span class="n">hdfType</span></em>, <em class="sig-param"><span class="n">IsCoupled</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaMain.writeOutputs">
+<span class="sig-prename descclassname"><span class="pre">locaMain.</span></span><span class="sig-name descname"><span class="pre">writeOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdfType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IsCoupled</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaMain.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write out the outputs at the end of the simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -832,8 +831,8 @@ function means that either 0 or 1 is returned.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

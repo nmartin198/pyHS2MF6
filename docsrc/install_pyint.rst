@@ -20,29 +20,29 @@ the requirements, listed in :ref:`install_pyreqs`, are fulfilled.
 Python Requirements 
 ---------------------
 
-**pyHS2MF6** has only been used and tested with Python 3.8.5. Consequently,
-it is recommended to use Python 3.8.5.
+**pyHS2MF6** has only been used and tested with Python 3.8. The current
+recommned version is 3.8.10.
 
-In addition to Python 3.8.5, a number of add-on Python libraries or 
+In addition to Python 3.8.10, a number of add-on Python libraries or 
 packages are required by **pyHS2MF6**. These packages are listed below.
 
-    * `NumPy <https://numpy.org/>`_ 19.0.2
+    * `NumPy <https://numpy.org/>`_ 1.20.2
 
-    * `pandas <https://pandas.pydata.org/>`_ 1.1.3
+    * `pandas <https://pandas.pydata.org/>`_ 1.2.5
 
     * `h5py <https://www.h5py.org/>`_ 2.10.0
 
     * `PyTables <https://www.pytables.org/usersguide/tutorials.html>`_ 3.6.1
 
-    * `FloPy <https://modflowpy.github.io/flopydoc/>`_ 3.3.2
+    * `FloPy <https://modflowpy.github.io/flopydoc/>`_ 3.3.3
 
 
 The following packages are not strictly required by **pyHS2MF6** but are 
 used for pre- and post-processing in the example models.
 
-    * `Jupyter notebooks <https://jupyter.org/>`_ jupyterlab 2.2.6
+    * `Jupyter notebooks <https://jupyter.org/>`_ jupyterlab 3.0.14
 
-    * `matplotlib <https://matplotlib.org/>`_ 3.3.2
+    * `matplotlib <https://matplotlib.org/>`_ 3.3.4
 
     * `GeoPandas <https://geopandas.org/>`_ 0.6.1
 

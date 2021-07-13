@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.2.5. Coupling Specific Methods and Data Structures &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.6. HDF5 File Methods and Data Structures" href="mHSP2_HDF5.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2_himpwat.html" title="4.2.4. IMPLND Water Movement and Storage"
              accesskey="P">previous</a> |
@@ -69,102 +68,102 @@ coupling.</p>
 <p><strong>Note</strong> queue communications and handling are by necessity in the main
 block or module for each process.</p>
 <dl class="py data">
-<dt id="locaCoupling.GWILZONE">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWILZONE</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWILZONE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWILZONE">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWILZONE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWILZONE" title="Permalink to this definition">¶</a></dt>
 <dd><p>MODFLOW discharge assigned to the lower zone in inches.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWIOVOL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIOVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWIOVOL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWIOVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWIOVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>MODFLOW discharge that becomes runoff and goes directly to a RCHRES in
 acre-ft.</p>
 <p>Includes spring discharge from DRN boundaries in MODFLOW 6</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWITOTAL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTAL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWITOTAL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWITOTAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWITOTAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total inflow from MODFLOW discharge to HSPF in af/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWITOTPL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTPL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTPL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWITOTPL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWITOTPL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWITOTPL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total inflow from MODFLOW discharge in af/day by pervious HRU</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWITOTRR">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWITOTRR</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWITOTRR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWITOTRR">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWITOTRR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWITOTRR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total inflow from MODFLOW discharge in af/day by RCHRES.</p>
 <p>Does not include runoff from MODFLOW discharge to pervious lands.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWIUATOTAL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIUATOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIUATOTAL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWIUATOTAL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWIUATOTAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWIUATOTAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total inflow from MODFLOW discharge that is outside of HSPF
 area in af/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWIUZONE">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIUZONE</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIUZONE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWIUZONE">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWIUZONE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWIUZONE" title="Permalink to this definition">¶</a></dt>
 <dd><p>MODFLOW discharge assigned to the upper zone in inches.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWIVOL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWIVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWIVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWIVOL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWIVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWIVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water coming into each RCHRES directly from MODFLOW 6 in af/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWOTOTAL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWOTOTAL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWOTOTAL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWOTOTAL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWOTOTAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWOTOTAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total outflow to MODFLOW UZF in af/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.GWOVOL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">GWOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.GWOVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.GWOVOL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">GWOVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.GWOVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water sent to MODFLOW 6 as losses to groundwater for each
 RCHRES in af/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.IGWOVOL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">IGWOVOL</code><em class="property"> = None</em><a class="headerlink" href="#locaCoupling.IGWOVOL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.IGWOVOL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">IGWOVOL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaCoupling.IGWOVOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Volume of water sent to MODFLOW 6 as inflow to inactive groundwater
 for each PERLND in af/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.NUM_CPL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_CPL</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_CPL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.NUM_CPL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">NUM_CPL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#locaCoupling.NUM_CPL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of MODFLOW 6 cells in a layer.</p>
 <p>Provides the array size for receiving from MODFLOW 6</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.NUM_SPRINGS">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_SPRINGS</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_SPRINGS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.NUM_SPRINGS">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">NUM_SPRINGS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#locaCoupling.NUM_SPRINGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of spring locations that are represented by MODFLOW 6 drain
 cells in the model.</p>
 <p>Used to route discharge to ground surface appropriately.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.NUM_UZF">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">NUM_UZF</code><em class="property"> = 0</em><a class="headerlink" href="#locaCoupling.NUM_UZF" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.NUM_UZF">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">NUM_UZF</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#locaCoupling.NUM_UZF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of UZF MODFLOW 6 cells in the model.</p>
 <p>Provides the array size for passing discharges to MODFLOW 6</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.PL_GW_MAPPING">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">PL_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.PL_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.PL_GW_MAPPING">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">PL_GW_MAPPING</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaCoupling.PL_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of mappings for PERLND areas to GW model cells.</p>
 <p>Keys are TargID, e.g. ‘P001’, and values are a list that is
 enumerated below.</p>
@@ -195,8 +194,8 @@ enumerated below.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.RR_GW_MAPPING">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">RR_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.RR_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.RR_GW_MAPPING">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">RR_GW_MAPPING</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaCoupling.RR_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of mappings for RCHRES segments to GW model cells.</p>
 <p>Keys are TargID, e.g. ‘R001’, and values are a list whose members
 are enumerated below.</p>
@@ -234,8 +233,8 @@ are enumerated below.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaCoupling.SP_GW_MAPPING">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">SP_GW_MAPPING</code><em class="property"> = {}</em><a class="headerlink" href="#locaCoupling.SP_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.SP_GW_MAPPING">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">SP_GW_MAPPING</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaCoupling.SP_GW_MAPPING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of mappings for defined springs in the area
 covered by the HSPF model.</p>
 <p>Keys are a spring index and values are a list of descriptive values.</p>
@@ -249,8 +248,8 @@ covered by the HSPF model.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.adjustPervWStorage">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">adjustPervWStorage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">totVolafd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.adjustPervWStorage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.adjustPervWStorage">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">adjustPervWStorage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">totVolafd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.adjustPervWStorage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust the pervious water storage to account for groundwater
 discharged to the land surface in MODFLOW 6.</p>
 <p>The adjustment is implemented between time steps and so the
@@ -278,8 +277,8 @@ to the specified PERLND target</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.calcSendArray">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">calcSendArray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.calcSendArray" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.calcSendArray">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">calcSendArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.calcSendArray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the numpy array to send to MODFLOW 6.</p>
 <p>This array is 1D and has size/length == NUM_UZF. It provides
 the specified inflow/recharge rate for that day (day == iI) in
@@ -304,8 +303,8 @@ PERLND mappings for each cell.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getGWIOVOLbyTargTS">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getGWIOVOLbyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIOVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getGWIOVOLbyTargTS">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getGWIOVOLbyTargTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIOVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the excess groundwater discharge from MODFLOW 6 that is routed
 to stream segments.</p>
 <p>This value returned in acre-ft/day</p>
@@ -326,8 +325,8 @@ to stream segments.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getGWIVOLbyTargTS">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getGWIVOLbyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getGWIVOLbyTargTS">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getGWIVOLbyTargTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getGWIVOLbyTargTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value for groundwater inflow to RCHRES by target ID and
 by time step index.</p>
 <dl class="field-list simple">
@@ -347,8 +346,8 @@ by time step index.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getIGWIbyTS">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getIGWIbyTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getIGWIbyTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getIGWIbyTS">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getIGWIbyTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getIGWIbyTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get inflow to inactive groundwater (IGWI) to pass to MODFLOW 6.</p>
 <p>Inflow to inactivate groundwater is stored in inches per
 interval. Convert this to acre-ft per day before returning</p>
@@ -374,8 +373,8 @@ less the calculated Lower Zone inflow.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getNUM_CPL">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getNUM_CPL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_CPL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getNUM_CPL">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getNUM_CPL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_CPL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the module level global NUM_CPL</p>
 <p>Requires that mapSetup has already been called</p>
 <dl class="field-list simple">
@@ -389,8 +388,8 @@ less the calculated Lower Zone inflow.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getNUM_UZF">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getNUM_UZF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_UZF" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getNUM_UZF">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getNUM_UZF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getNUM_UZF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the module level global NUM_UZF</p>
 <p>Requires that mapSetup has already been called</p>
 <dl class="field-list simple">
@@ -404,8 +403,8 @@ less the calculated Lower Zone inflow.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.getOVOLbyExitandTime">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">getOVOLbyExitandTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">gwExit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getOVOLbyExitandTime" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.getOVOLbyExitandTime">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">getOVOLbyExitandTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gwExit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.getOVOLbyExitandTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the calculated OVOL for day, iI, and exit, gwExit</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -425,8 +424,8 @@ less the calculated Lower Zone inflow.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.mapSetup">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">mapSetup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tDict</span></em>, <em class="sig-param"><span class="n">ncpl</span></em>, <em class="sig-param"><span class="n">nuzf</span></em>, <em class="sig-param"><span class="n">rr_file</span></em>, <em class="sig-param"><span class="n">pl_file</span></em>, <em class="sig-param"><span class="n">sp_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.mapSetup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.mapSetup">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">mapSetup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuzf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.mapSetup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create our mapping setup and check the passed information.</p>
 <p>Mapping files are passed in as paths to pickle files that contain
 a mapping dictionary. There are three mapping dictionaries.</p>
@@ -605,8 +604,8 @@ keys and a list of values.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.processReceivedArray">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">processReceivedArray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tDict</span></em>, <em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">fromGWArray</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.processReceivedArray" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.processReceivedArray">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">processReceivedArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fromGWArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.processReceivedArray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process the array of received, rejected infiltration and
 discharge to the ground surface.</p>
 <p>Assumes that the received array is in m3/day.</p>
@@ -629,8 +628,8 @@ dimension should be NCPL</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.setIVOLfromGW">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setIVOLfromGW</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">volAFpd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setIVOLfromGW" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.setIVOLfromGW">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">setIVOLfromGW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volAFpd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setIVOLfromGW" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the external inflow volume value for inflow from
 MODFLOW 6.</p>
 <dl class="field-list simple">
@@ -645,8 +644,8 @@ MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.setUpPLRecArrays">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setUpPLRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpPLRecArrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.setUpPLRecArrays">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">setUpPLRecArrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpPLRecArrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and initialize pervious land, coupling tracking arrays.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -659,8 +658,8 @@ MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.setUpRRRecArrays">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">setUpRRRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpRRRecArrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.setUpRRRecArrays">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">setUpRRRecArrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.setUpRRRecArrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and initialize RCHRES coupling tracking arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -673,8 +672,8 @@ MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaCoupling.writeOutputs">
-<code class="sig-prename descclassname">locaCoupling.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaCoupling.writeOutputs">
+<span class="sig-prename descclassname"><span class="pre">locaCoupling.</span></span><span class="sig-name descname"><span class="pre">writeOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaCoupling.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the outputs to the hdf file at the end of the simulation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -754,8 +753,8 @@ MODFLOW 6.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

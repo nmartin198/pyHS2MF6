@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.2.3. PERLND Water Movement and Storage &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.4. IMPLND Water Movement and Storage" href="mHSP2_himpwat.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2_hrchhyd.html" title="4.2.2. RCHRES Water Movement and Storage"
              accesskey="P">previous</a> |
@@ -72,39 +71,39 @@ restructuring the storage and memory allocation within HSP2.</p>
 definitions.</p>
 <p>Internal time unit, DELT60, is in hours for <strong>PERLND</strong>.</p>
 <dl class="py data">
-<dt id="locaHyperwat.AGWET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWET" title="Permalink to this definition">¶</a></dt>
 <dd><p>AET from active groundwater, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWETP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWETP</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWETP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWETP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWETP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWETP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of remaining potential ET which can be satistifed from
 active groundwater storage if enough is available.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Active groundwater inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWLI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWLI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Active groundwater lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWO">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWO</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWO">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Active groundwater outflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWRC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWRC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWRC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWRC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWRC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic groundwater recession rate if KVARY is 0 and there is
 no inflow to groundwater.</p>
 <p>Defined as the rate of flow today divided by the rate of flow
@@ -112,71 +111,71 @@ yesterday. Units are 1/day.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.AGWS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">AGWS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.AGWS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.AGWS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">AGWS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.AGWS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Active groundwater storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.BAD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">BAD_OUTPUT_LIST</code><em class="property"> = ['GWEL', 'IRDRAW', 'IRRAPP', 'IRRDEM', 'IRSHRT', 'RZWS', 'SURET']</em><a class="headerlink" href="#locaHyperwat.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.BAD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">BAD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['GWEL',</span> <span class="pre">'IRDRAW',</span> <span class="pre">'IRRAPP',</span> <span class="pre">'IRRDEM',</span> <span class="pre">'IRSHRT',</span> <span class="pre">'RZWS',</span> <span class="pre">'SURET']</span></em><a class="headerlink" href="#locaHyperwat.BAD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Currently unsupported outputs</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.BASET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">BASET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.BASET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.BASET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">BASET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.BASET" title="Permalink to this definition">¶</a></dt>
 <dd><p>AET from baseflow, inches/invld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.BASETP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">BASETP</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.BASETP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.BASETP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">BASETP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.BASETP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of remaining potential ET which can be satisfied from baseflow
 or groundwater outflow.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.CEPE">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">CEPE</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.CEPE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.CEPE">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">CEPE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.CEPE" title="Permalink to this definition">¶</a></dt>
 <dd><p>AET from interception storage, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.CEPS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">CEPS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.CEPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.CEPS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">CEPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.CEPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interception storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.CEPSC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">CEPSC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.CEPSC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.CEPSC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">CEPSC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.CEPSC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interception storage capacity in inches.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.CEPSCM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">CEPSCM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.CEPSCM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.CEPSCM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">CEPSCM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.CEPSCM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly interception storage ET parameter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.CSNOFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">CSNOFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.CSNOFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.CSNOFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">CSNOFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.CSNOFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch to turn on consideration of snow accumulation and melt.</p>
 <p>SNOW calculations are currently unsupported and so this switch is
 hard coded to off.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.DAYFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">DAYFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.DAYFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.DAYFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">DAYFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.DAYFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculation control to determine when day starts/ends</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.DEEPFR">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">DEEPFR</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.DEEPFR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.DEEPFR">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">DEEPFR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.DEEPFR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of groundwater inflow which will enter deep and inactive
 groundwater.</p>
 <p>This water is lost from the HSPF representation and is a model outflow.
@@ -185,46 +184,46 @@ infiltration to the unsaturated zone flow (UZF) package in MODFLOW 6.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.DEF_DT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">DEF_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.DEF_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.DEF_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">DEF_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.DEF_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for time series structured array or record array</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.DELT60">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">DELT60</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.DELT60" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.DELT60">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">DELT60</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.DELT60" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time step in hours to use in calculations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.ERRMSG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">ERRMSG</code><em class="property"> = ['PWATER: Sum of irrtgt is not one', 'PWATER: UZRAA exceeds UZRA array bounds', 'PWATER: INTGB exceeds INTGRL array bounds', 'PWATER: Reduced AGWO value to available', 'PWATER: Reduced GWVS to AGWS', 'PWATER: GWVS &lt; -0.02, set to zero', 'PWATER: Proute runoff did not converge', 'PWATER: UZI highly negative', 'PWATER: Reset AGWS to zero']</em><a class="headerlink" href="#locaHyperwat.ERRMSG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.ERRMSG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">ERRMSG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['PWATER:</span> <span class="pre">Sum</span> <span class="pre">of</span> <span class="pre">irrtgt</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">one',</span> <span class="pre">'PWATER:</span> <span class="pre">UZRAA</span> <span class="pre">exceeds</span> <span class="pre">UZRA</span> <span class="pre">array</span> <span class="pre">bounds',</span> <span class="pre">'PWATER:</span> <span class="pre">INTGB</span> <span class="pre">exceeds</span> <span class="pre">INTGRL</span> <span class="pre">array</span> <span class="pre">bounds',</span> <span class="pre">'PWATER:</span> <span class="pre">Reduced</span> <span class="pre">AGWO</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">available',</span> <span class="pre">'PWATER:</span> <span class="pre">Reduced</span> <span class="pre">GWVS</span> <span class="pre">to</span> <span class="pre">AGWS',</span> <span class="pre">'PWATER:</span> <span class="pre">GWVS</span> <span class="pre">&lt;</span> <span class="pre">-0.02,</span> <span class="pre">set</span> <span class="pre">to</span> <span class="pre">zero',</span> <span class="pre">'PWATER:</span> <span class="pre">Proute</span> <span class="pre">runoff</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">converge',</span> <span class="pre">'PWATER:</span> <span class="pre">UZI</span> <span class="pre">highly</span> <span class="pre">negative',</span> <span class="pre">'PWATER:</span> <span class="pre">Reset</span> <span class="pre">AGWS</span> <span class="pre">to</span> <span class="pre">zero']</span></em><a class="headerlink" href="#locaHyperwat.ERRMSG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defined error messages - can be used with errorsV for error handling.</p>
 <p>Currently, these messages written to the log file as errors when
 encountered.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FLAG_DT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FLAG_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.FLAG_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FLAG_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.FLAG_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for flag record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FLAG_GOOD">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FLAG_GOOD</code><em class="property"> = ['CSNOFG', 'ICEFG', 'RTOPFG', 'UZFG', 'VCSFG', 'VIFWFG', 'VIRCFG', 'VLEFG', 'VNNFG', 'VUZFG']</em><a class="headerlink" href="#locaHyperwat.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FLAG_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['CSNOFG',</span> <span class="pre">'ICEFG',</span> <span class="pre">'RTOPFG',</span> <span class="pre">'UZFG',</span> <span class="pre">'VCSFG',</span> <span class="pre">'VIFWFG',</span> <span class="pre">'VIRCFG',</span> <span class="pre">'VLEFG',</span> <span class="pre">'VNNFG',</span> <span class="pre">'VUZFG']</span></em><a class="headerlink" href="#locaHyperwat.FLAG_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that are at least referenced in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FLAG_UNUSED">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FLAG_UNUSED</code><em class="property"> = ['HWTFG', 'IFFCFG', 'IFRDFG', 'IRRGFG']</em><a class="headerlink" href="#locaHyperwat.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FLAG_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FLAG_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['HWTFG',</span> <span class="pre">'IFFCFG',</span> <span class="pre">'IFRDFG',</span> <span class="pre">'IRRGFG']</span></em><a class="headerlink" href="#locaHyperwat.FLAG_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags that are completely unused and unsupported in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FOREST">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FOREST</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.FOREST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FOREST">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FOREST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.FOREST" title="Permalink to this definition">¶</a></dt>
 <dd><p>FOREST is the fraction of the PERLND which is covered by forest.</p>
 <p>This is only relevant if CSNOFG == 1 and then forest fraction will
 continue to transpire in winter. As SNOW is not supported, this is
@@ -232,8 +231,8 @@ never relevant in the current mHSP2 implementation.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FZG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FZG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.FZG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FZG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FZG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.FZG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parameter that adjusts for the effect of ice in the snow pack on
 infiltration when IFFCFG is 1.</p>
 <p>It is not used if IFFCFG is 2. Units are 1/inch. Not used in this
@@ -241,8 +240,8 @@ implementation because SNOW is not supported.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.FZGL">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">FZGL</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.FZGL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.FZGL">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">FZGL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.FZGL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower limit of INFFAC as adjusted by ice in the snow pack when IFFCFG
 is 1.</p>
 <p>If IFFCFG is 2, FZGL is the value of INFFAC when the lower layer temperature
@@ -251,487 +250,487 @@ implementation because SNOW is not supported.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.GOOD_OUTPUT_LIST">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">GOOD_OUTPUT_LIST</code><em class="property"> = ['AGWET', 'AGWI', 'AGWO', 'AGWS', 'BASET', 'CEPE', 'CEPS', 'GWVS', 'IFWI', 'IFWO', 'IFWS', 'IGWI', 'INFFAC', 'INFIL', 'LZET', 'LZI', 'LZS', 'RPARM', 'PERC', 'PERO', 'PERS', 'PET', 'PETADJ', 'SUPY', 'SURI', 'SURO', 'SURS', 'TAET', 'TGWS', 'UZET', 'UZI', 'UZS']</em><a class="headerlink" href="#locaHyperwat.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.GOOD_OUTPUT_LIST">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">GOOD_OUTPUT_LIST</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AGWET',</span> <span class="pre">'AGWI',</span> <span class="pre">'AGWO',</span> <span class="pre">'AGWS',</span> <span class="pre">'BASET',</span> <span class="pre">'CEPE',</span> <span class="pre">'CEPS',</span> <span class="pre">'GWVS',</span> <span class="pre">'IFWI',</span> <span class="pre">'IFWO',</span> <span class="pre">'IFWS',</span> <span class="pre">'IGWI',</span> <span class="pre">'INFFAC',</span> <span class="pre">'INFIL',</span> <span class="pre">'LZET',</span> <span class="pre">'LZI',</span> <span class="pre">'LZS',</span> <span class="pre">'RPARM',</span> <span class="pre">'PERC',</span> <span class="pre">'PERO',</span> <span class="pre">'PERS',</span> <span class="pre">'PET',</span> <span class="pre">'PETADJ',</span> <span class="pre">'SUPY',</span> <span class="pre">'SURI',</span> <span class="pre">'SURO',</span> <span class="pre">'SURS',</span> <span class="pre">'TAET',</span> <span class="pre">'TGWS',</span> <span class="pre">'UZET',</span> <span class="pre">'UZI',</span> <span class="pre">'UZS']</span></em><a class="headerlink" href="#locaHyperwat.GOOD_OUTPUT_LIST" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of currently supported time series outputs.</p>
 <p>These can be written to the HDF5 file at the end of simulation time.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.GWVS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">GWVS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.GWVS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.GWVS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">GWVS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.GWVS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Index to available groundwater slope, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_DEC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_DEC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_DEC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_DEC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_DEC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_DEC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_IFWK1">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_IFWK1</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_IFWK1" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_IFWK1">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_IFWK1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_IFWK1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_IFWK2">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_IFWK2</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_IFWK2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_IFWK2">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_IFWK2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_IFWK2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_LZFRAC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_LZFRAC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_LZFRAC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_LZFRAC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_LZFRAC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_LZFRAC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry overs between calculations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_MSUPY">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_MSUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_MSUPY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_MSUPY">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_MSUPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_MSUPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of MSUPY to cover over between time steps</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_RLZRAT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_RLZRAT</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_RLZRAT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_RLZRAT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_RLZRAT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_RLZRAT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry overs between calculations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.HOLD_SRC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">HOLD_SRC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.HOLD_SRC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.HOLD_SRC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">HOLD_SRC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.HOLD_SRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Carry over calculation variable in case is not daily</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IFWI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IFWI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IFWI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IFWI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IFWI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IFWI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IFWLI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IFWLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IFWLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IFWLI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IFWLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IFWLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IFWO">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IFWO</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IFWO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IFWO">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IFWO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IFWO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow outflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IFWS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IFWS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IFWS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IFWS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IFWS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IFWS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IGWI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IGWI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IGWI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IGWI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IGWI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IGWI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inflow to inactive groundwater, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFEXP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFEXP</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INFEXP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFEXP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFEXP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INFEXP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exponent in infiltration equation, dimensionless.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFFAC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFFAC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INFFAC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFFAC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFFAC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INFFAC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Factor to account for frozen ground.</p>
 <p>Not currently implemented because SNOW is not implemented and always
 set to 1.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFIL">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFIL</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INFIL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFIL">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFIL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INFIL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Infiltration to soil, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFILD">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFILD</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INFILD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFILD">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFILD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INFILD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ratio between maximum and mean infiltration capacities, dimensionless</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFILT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFILT</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INFILT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFILT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFILT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INFILT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Index to infiltration capacity of the soil, inches/invl</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFLOW_TS_GOOD">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFLOW_TS_GOOD</code><em class="property"> = ['PREC', 'PETINP', 'AGWLI', 'IFWLI', 'LZLI', 'SURLI', 'UZLI']</em><a class="headerlink" href="#locaHyperwat.INFLOW_TS_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFLOW_TS_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFLOW_TS_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['PREC',</span> <span class="pre">'PETINP',</span> <span class="pre">'AGWLI',</span> <span class="pre">'IFWLI',</span> <span class="pre">'LZLI',</span> <span class="pre">'SURLI',</span> <span class="pre">'UZLI']</span></em><a class="headerlink" href="#locaHyperwat.INFLOW_TS_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>All supported inflow time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INFLOW_TS_UNUSED">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INFLOW_TS_UNUSED</code><em class="property"> = ['GATMP', 'DTMPG', 'WINMOV', 'SOLRAD', 'CLOUD', 'SLSED', 'PQADFX', 'PQADCN', 'PEADFX', 'PEADCN', 'NIADFX', 'NIADCN', 'PHADFX', 'PHADCN', 'TRADFX', 'TRADCN', 'RAINF', 'SNOCOV', 'WYIELD', 'PACKI', 'LGTMP']</em><a class="headerlink" href="#locaHyperwat.INFLOW_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INFLOW_TS_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INFLOW_TS_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['GATMP',</span> <span class="pre">'DTMPG',</span> <span class="pre">'WINMOV',</span> <span class="pre">'SOLRAD',</span> <span class="pre">'CLOUD',</span> <span class="pre">'SLSED',</span> <span class="pre">'PQADFX',</span> <span class="pre">'PQADCN',</span> <span class="pre">'PEADFX',</span> <span class="pre">'PEADCN',</span> <span class="pre">'NIADFX',</span> <span class="pre">'NIADCN',</span> <span class="pre">'PHADFX',</span> <span class="pre">'PHADCN',</span> <span class="pre">'TRADFX',</span> <span class="pre">'TRADCN',</span> <span class="pre">'RAINF',</span> <span class="pre">'SNOCOV',</span> <span class="pre">'WYIELD',</span> <span class="pre">'PACKI',</span> <span class="pre">'LGTMP']</span></em><a class="headerlink" href="#locaHyperwat.INFLOW_TS_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsupported inflow time series names</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INTFW">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INTFW</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INTFW" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INTFW">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INTFW</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INTFW" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow inflow parameter, dimensionless.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INTFWM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INTFWM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.INTFWM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INTFWM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INTFWM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.INTFWM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly interflow inflow parameter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.INTGRL">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">INTGRL</code><em class="property"> = array([0.000e+00, 1.290e+00, 1.580e+00, 1.920e+00, 2.360e+00, 2.810e+00,        3.410e+00, 3.800e+00, 7.100e+00, 3.478e+03])</em><a class="headerlink" href="#locaHyperwat.INTGRL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.INTGRL">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">INTGRL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0.000e+00,</span> <span class="pre">1.290e+00,</span> <span class="pre">1.580e+00,</span> <span class="pre">1.920e+00,</span> <span class="pre">2.360e+00,</span> <span class="pre">2.810e+00,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3.410e+00,</span> <span class="pre">3.800e+00,</span> <span class="pre">7.100e+00,</span> <span class="pre">3.478e+03])</span></em><a class="headerlink" href="#locaHyperwat.INTGRL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function coordinates for evaluating upper zone behavior</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IRC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IRC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IRC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IRC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IRC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interflow recession parameter.</p>
 <p>Under zero inflow, the ratio of todays interflow outflow rate to
 yesterday’s rate. Units are 1/day</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IRCM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IRCM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.IRCM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IRCM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IRCM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.IRCM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly interflow recession parameter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IRRAPPV">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IRRAPPV</code><em class="property"> = array([0., 0., 0., 0., 0., 0., 0.])</em><a class="headerlink" href="#locaHyperwat.IRRAPPV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IRRAPPV">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IRRAPPV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></em><a class="headerlink" href="#locaHyperwat.IRRAPPV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Irrigation paramater? - set to zeros so does not matter for logic.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.IRRCEP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">IRRCEP</code><em class="property"> = 0.0</em><a class="headerlink" href="#locaHyperwat.IRRCEP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.IRRCEP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">IRRCEP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.0</span></em><a class="headerlink" href="#locaHyperwat.IRRCEP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unknonwn parameter - set to zero so does not matter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_AGWS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_AGWS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_AGWS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_AGWS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_AGWS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_AGWS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial active groundwater storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_CEPS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_CEPS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_CEPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_CEPS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_CEPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_CEPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial interception storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_GWVS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_GWVS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_GWVS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_GWVS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_GWVS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_GWVS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial index to groundwater slope in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_IFWS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_IFWS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_IFWS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_IFWS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_IFWS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_IFWS" title="Permalink to this definition">¶</a></dt>
 <dd><p>initial interflow storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_LZS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_LZS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_LZS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_LZS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_LZS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_LZS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial lower zone storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_SURS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_SURS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_SURS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_SURS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_SURS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial surface or overland flow storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.I_UZS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">I_UZS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.I_UZS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.I_UZS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">I_UZS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.I_UZS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial upper zone storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.KEY_TS_PET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">KEY_TS_PET</code><em class="property"> = 'PETINP'</em><a class="headerlink" href="#locaHyperwat.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.KEY_TS_PET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PETINP'</span></em><a class="headerlink" href="#locaHyperwat.KEY_TS_PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for input PET</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.KEY_TS_PRECIP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">KEY_TS_PRECIP</code><em class="property"> = 'PREC'</em><a class="headerlink" href="#locaHyperwat.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.KEY_TS_PRECIP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">KEY_TS_PRECIP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'PREC'</span></em><a class="headerlink" href="#locaHyperwat.KEY_TS_PRECIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>External time series key for precipitation</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.KGWV">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">KGWV</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.KGWV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.KGWV">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">KGWV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.KGWV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Groundwater outflow recession parameter 1/day.</p>
 <p>Calculated internally from AGWRC.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.KVARY">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">KVARY</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.KVARY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.KVARY">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">KVARY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.KVARY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parameter that affects behavior of groundwater recession flow.</p>
 <p>Purpose is to allow recession flow to be non-exponential in its
 decay time. Units are 1/in.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LATIN_CONTROL">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LATIN_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LATIN_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LATIN_CONTROL">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LATIN_CONTROL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LATIN_CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control structure telling which lateral inflows are active</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LAT_INFLOW_TS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LAT_INFLOW_TS</code><em class="property"> = ['AGWLI', 'IFWLI', 'LZLI', 'SURLI', 'UZLI']</em><a class="headerlink" href="#locaHyperwat.LAT_INFLOW_TS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LAT_INFLOW_TS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LAT_INFLOW_TS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AGWLI',</span> <span class="pre">'IFWLI',</span> <span class="pre">'LZLI',</span> <span class="pre">'SURLI',</span> <span class="pre">'UZLI']</span></em><a class="headerlink" href="#locaHyperwat.LAT_INFLOW_TS" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of possible lateral inflow time series</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LSUR">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length of the assumed overland flow plane in feet</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZEPTM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZEPTM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZEPTM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZEPTM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZEPTM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZEPTM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly lower zone ET parameter</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZET" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower soil zone AET, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZETP">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZETP</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZETP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZETP">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZETP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZETP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower zone ET parameter.</p>
 <p>Index to the density of deep-rooted vegetation, dimensionless.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower soil zone inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZLI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZLI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower soil zone lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower soil zone storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.LZSN">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">LZSN</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.LZSN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.LZSN">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">LZSN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.LZSN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower soil zone nominal storage depth in inches.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.MAXLOOPS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">MAXLOOPS</code><em class="property"> = 100</em><a class="headerlink" href="#locaHyperwat.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.MAXLOOPS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">MAXLOOPS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#locaHyperwat.MAXLOOPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton method max loops</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.MON_FLAGS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">MON_FLAGS</code><em class="property"> = ['VLEFG', 'VCSFG', 'VIFWFG', 'VIRCFG', 'VNNFG', 'VUZFG']</em><a class="headerlink" href="#locaHyperwat.MON_FLAGS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.MON_FLAGS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">MON_FLAGS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['VLEFG',</span> <span class="pre">'VCSFG',</span> <span class="pre">'VIFWFG',</span> <span class="pre">'VIRCFG',</span> <span class="pre">'VNNFG',</span> <span class="pre">'VUZFG']</span></em><a class="headerlink" href="#locaHyperwat.MON_FLAGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag names for monthly flags</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.MON_PARAMS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">MON_PARAMS</code><em class="property"> = ['LZETPM', 'CEPSCM', 'INTFWM', 'IRCM', 'NSURM', 'UZSNM']</em><a class="headerlink" href="#locaHyperwat.MON_PARAMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.MON_PARAMS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">MON_PARAMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['LZETPM',</span> <span class="pre">'CEPSCM',</span> <span class="pre">'INTFWM',</span> <span class="pre">'IRCM',</span> <span class="pre">'NSURM',</span> <span class="pre">'UZSNM']</span></em><a class="headerlink" href="#locaHyperwat.MON_PARAMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parameter names for values that can be specified as monthly</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.NSUR">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">NSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.NSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.NSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">NSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.NSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Manning’s n for the assumed overland flow plane.</p>
 <p>Use English/Standard units versions from tables.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.NSURM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">NSURM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.NSURM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.NSURM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">NSURM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.NSURM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly overland flow Manning’s n</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.OUTPUT_CONTROL">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">OUTPUT_CONTROL</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.OUTPUT_CONTROL">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">OUTPUT_CONTROL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.OUTPUT_CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control structure telling which time series are to be output</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PARAM_GOOD">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PARAM_GOOD</code><em class="property"> = ['AGWETP', 'AGWRC', 'BASETP', 'CEPSC', 'DEEPFR', 'FOREST', 'FZG', 'FZGL', 'INFEXP', 'INFILD', 'INFILT', 'INTFW', 'IRC', 'KVARY', 'LSUR', 'LZETP', 'LZSN', 'NSUR', 'PETMAX', 'PETMIN', 'SLSUR', 'UZSN']</em><a class="headerlink" href="#locaHyperwat.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PARAM_GOOD">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PARAM_GOOD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['AGWETP',</span> <span class="pre">'AGWRC',</span> <span class="pre">'BASETP',</span> <span class="pre">'CEPSC',</span> <span class="pre">'DEEPFR',</span> <span class="pre">'FOREST',</span> <span class="pre">'FZG',</span> <span class="pre">'FZGL',</span> <span class="pre">'INFEXP',</span> <span class="pre">'INFILD',</span> <span class="pre">'INFILT',</span> <span class="pre">'INTFW',</span> <span class="pre">'IRC',</span> <span class="pre">'KVARY',</span> <span class="pre">'LSUR',</span> <span class="pre">'LZETP',</span> <span class="pre">'LZSN',</span> <span class="pre">'NSUR',</span> <span class="pre">'PETMAX',</span> <span class="pre">'PETMIN',</span> <span class="pre">'SLSUR',</span> <span class="pre">'UZSN']</span></em><a class="headerlink" href="#locaHyperwat.PARAM_GOOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input, non-state parameters that are used in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PARAM_UNUSED">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PARAM_UNUSED</code><em class="property"> = ['BELV', 'DELTA', 'GWDATM', 'IFWSC', 'LELFAC', 'MELEV', 'PCW', 'PGW', 'SREXP', 'SRRC', 'STABNO', 'UELFAC', 'UPGW']</em><a class="headerlink" href="#locaHyperwat.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PARAM_UNUSED">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PARAM_UNUSED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['BELV',</span> <span class="pre">'DELTA',</span> <span class="pre">'GWDATM',</span> <span class="pre">'IFWSC',</span> <span class="pre">'LELFAC',</span> <span class="pre">'MELEV',</span> <span class="pre">'PCW',</span> <span class="pre">'PGW',</span> <span class="pre">'SREXP',</span> <span class="pre">'SRRC',</span> <span class="pre">'STABNO',</span> <span class="pre">'UELFAC',</span> <span class="pre">'UPGW']</span></em><a class="headerlink" href="#locaHyperwat.PARAM_UNUSED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input parameters that are unused or unsupported in mHSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PERC">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PERC</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PERC" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PERC">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PERC</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PERC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Percolation from upper to lower soil zones, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PERO">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PERO</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PERO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PERO">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PERO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PERO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total outflow from pervious land, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PERS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PERS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PERS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PERS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PERS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PERS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total water stored in pervious land, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PET" title="Permalink to this definition">¶</a></dt>
 <dd><p>Potential evapotranspiration, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PETADJ">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PETADJ</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PETADJ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PETADJ">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PETADJ</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PETADJ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjusted PET for temperature restrictions, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PETMAX">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PETMAX</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PETMAX" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PETMAX">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PETMAX</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PETMAX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Air temperature below which ET will be arbitrarily reduced.</p>
 <p>Only used if CSNOFG == 1. Units are degrees Fahrenheit. Not
 supported in this implementation because SNOW is not available.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.PETMIN">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">PETMIN</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.PETMIN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.PETMIN">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">PETMIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.PETMIN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Air temperature below which ET will be set to zero.</p>
 <p>Only used if CSNOFG == 1. Units are degrees Fahrenheit.
 Not supported in this implementation because SNOW is not available.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.RPARM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">RPARM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.RPARM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.RPARM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">RPARM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.RPARM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum ET opportunity, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.RTOPFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">RTOPFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.RTOPFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.RTOPFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">RTOPFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.RTOPFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag to select the algorithm for overland flow.</p>
 <p>RTOPFG == 1 then overland flow done as in predeccesor models - HSPX,
 ARM, and NPS. RTOPFG == 0 then a different algorithm is used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SLSUR">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SLSUR</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SLSUR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SLSUR">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SLSUR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SLSUR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Slope of the assumed overland flow plane, ft/ft</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SPEC_DT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SPEC_DT</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SPEC_DT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SPEC_DT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SPEC_DT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SPEC_DT" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data type specification for the calculation and input record arrays</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.STATE_PARMS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">STATE_PARMS</code><em class="property"> = ['CEPS', 'SURS', 'UZS', 'IFWS', 'LZS', 'AGWS', 'GWVS']</em><a class="headerlink" href="#locaHyperwat.STATE_PARMS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.STATE_PARMS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">STATE_PARMS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['CEPS',</span> <span class="pre">'SURS',</span> <span class="pre">'UZS',</span> <span class="pre">'IFWS',</span> <span class="pre">'LZS',</span> <span class="pre">'AGWS',</span> <span class="pre">'GWVS']</span></em><a class="headerlink" href="#locaHyperwat.STATE_PARMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of state parameters</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SUPY">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SUPY</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SUPY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SUPY">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SUPY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SUPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moisture supplied to the land segment by precipitation, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SURI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SURI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SURI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SURI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SURI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SURI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SURLI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SURLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SURLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SURLI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SURLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SURLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SURO">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SURO</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SURO" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SURO">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SURO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SURO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage outflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.SURS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">SURS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.SURS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.SURS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">SURS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.SURS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surface storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.TAET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">TAET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.TAET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.TAET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">TAET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.TAET" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total PERLND AET, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.TGWS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">TGWS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.TGWS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.TGWS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">TGWS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.TGWS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total groundwater storage, should be equal to active groundwater
 storage prior to ET, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZET">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZET</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZET">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZET</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZET" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper soil zone AET, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>UZFG selects the method for computing inflow to the upper zone.</p>
 <p>If UZFG is 1, upper zone inflow is computed in the same way as in
 the predecessor models HSPX, ARM and NPS. A value of 0 results in
@@ -740,87 +739,87 @@ in DELT</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper soil zone inflow, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZLI">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZLI</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZLI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZLI">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZLI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZLI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper soil zone lateral inflow external time series, inches/ivld</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZRA">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZRA</code><em class="property"> = array([0.  , 1.25, 1.5 , 1.75, 2.  , 2.1 , 2.2 , 2.25, 2.5 , 4.  ])</em><a class="headerlink" href="#locaHyperwat.UZRA" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZRA">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZRA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0.</span>&#160; <span class="pre">,</span> <span class="pre">1.25,</span> <span class="pre">1.5</span> <span class="pre">,</span> <span class="pre">1.75,</span> <span class="pre">2.</span>&#160; <span class="pre">,</span> <span class="pre">2.1</span> <span class="pre">,</span> <span class="pre">2.2</span> <span class="pre">,</span> <span class="pre">2.25,</span> <span class="pre">2.5</span> <span class="pre">,</span> <span class="pre">4.</span>&#160; <span class="pre">])</span></em><a class="headerlink" href="#locaHyperwat.UZRA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function coordinates for evaluating upper zone behavior</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper soil zone storage, inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZSN">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZSN</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZSN" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZSN">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZSN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZSN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper zone nominal storage in inches</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.UZSNM">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">UZSNM</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.UZSNM" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.UZSNM">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">UZSNM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.UZSNM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monthly upper soil zone nominal storage</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VCSFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VCSFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VCSFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VCSFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VCSFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VCSFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in interception storage capacity.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VIFWFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VIFWFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VIFWFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VIFWFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VIFWFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VIFWFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in interflow inflow parameter.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VIRCFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VIRCFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VIRCFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VIRCFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VIRCFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VIRCFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in interflow recession paramater.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VLEFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VLEFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VLEFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VLEFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VLEFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VLEFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in lower zone ET parameter.</p>
 <p>If 1 then the flag is on.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VNNFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VNNFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VNNFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VNNFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VNNFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VNNFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in Manning’s n for overland flow.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.VUZFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">VUZFG</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.VUZFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.VUZFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">VUZFG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.VUZFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for monthly variation in upper zone nominal storage.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.WS_AREAS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">WS_AREAS</code><em class="property"> = None</em><a class="headerlink" href="#locaHyperwat.WS_AREAS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.WS_AREAS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">WS_AREAS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHyperwat.WS_AREAS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Watershed areas for pervious segments in acres</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.configExternalTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">configExternalTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">TSMapList</span></em>, <em class="sig-param"><span class="n">AllTSDict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.configExternalTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.configExternalTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">configExternalTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TSMapList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AllTSDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.configExternalTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer external time series from HDF5 input to module data
 structures.</p>
 <dl class="field-list simple">
@@ -847,8 +846,8 @@ structures.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.configFlagsParams">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">configFlagsParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">cFlagVals</span></em>, <em class="sig-param"><span class="n">allIndexes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.configFlagsParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.configFlagsParams">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">configFlagsParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cFlagVals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allIndexes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.configFlagsParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set and configure flags and parameters for PERLND</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -868,14 +867,14 @@ structures.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHyperwat.errorsV">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">errorsV</code><em class="property"> = array([0, 0, 0, 0, 0, 0, 0, 0, 0])</em><a class="headerlink" href="#locaHyperwat.errorsV" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.errorsV">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">errorsV</span></span><em class="property"> <span class="pre">=</span> <span class="pre">array([0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0])</span></em><a class="headerlink" href="#locaHyperwat.errorsV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error handling in liftedloop from original HSPF formulation.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getCurrentStorages">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getCurrentStorages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getCurrentStorages" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getCurrentStorages">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getCurrentStorages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getCurrentStorages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current storage values for this watershed in
 inches.</p>
 <dl class="field-list simple">
@@ -896,8 +895,8 @@ float: lzs, lower zone currernt storage in inches</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getIGWIbyTargTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getIGWIbyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getIGWIbyTargTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getIGWIbyTargTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getIGWIbyTargTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getIGWIbyTargTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get IGWI, outflow to inactive groundwater for a specified target
 and time step index.</p>
 <dl class="field-list simple">
@@ -917,8 +916,8 @@ and time step index.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getLatInflowByTypeTarget">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getLatInflowByTypeTarget</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">liType</span></em>, <em class="sig-param"><span class="n">iI</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getLatInflowByTypeTarget" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getLatInflowByTypeTarget">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getLatInflowByTypeTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iI</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getLatInflowByTypeTarget" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a lateral inflow by type and target for the specified time
 interval.</p>
 <dl class="field-list simple">
@@ -939,8 +938,8 @@ interval.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getNominalStorages">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getNominalStorages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getNominalStorages" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getNominalStorages">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getNominalStorages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getNominalStorages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the nominal storage values for this watershed in
 inches</p>
 <dl class="field-list simple">
@@ -958,8 +957,8 @@ float: lzsn, lower zone nominal storage in inches</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getPERObyTargTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getPERObyTargTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getPERObyTargTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getPERObyTargTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getPERObyTargTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getPERObyTargTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the total outflow from pervious land, inches/day</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -978,8 +977,8 @@ float: lzsn, lower zone nominal storage in inches</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.getWatershedAreabyTarg">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">getWatershedAreabyTarg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getWatershedAreabyTarg" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.getWatershedAreabyTarg">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">getWatershedAreabyTarg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.getWatershedAreabyTarg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get WS_AREA or watershed area by target id</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -995,8 +994,8 @@ float: lzsn, lower zone nominal storage in inches</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.proute">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">proute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">psur</span></em>, <em class="sig-param"><span class="n">rtopfg</span></em>, <em class="sig-param"><span class="n">delt60</span></em>, <em class="sig-param"><span class="n">dec</span></em>, <em class="sig-param"><span class="n">src</span></em>, <em class="sig-param"><span class="n">surs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.proute" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.proute">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">proute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psur</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtopfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delt60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.proute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine how much potential surface detention (PSUR)
 runs off in one simulation interval.</p>
 <p>Modified real number comparisons to be more numerically reliable.</p>
@@ -1030,8 +1029,8 @@ runs off in one simulation interval.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.pwater_liftedloop">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">pwater_liftedloop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">mon</span></em>, <em class="sig-param"><span class="n">targID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.pwater_liftedloop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.pwater_liftedloop">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">pwater_liftedloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.pwater_liftedloop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modified version of liftedloop to do a single time step and
 return to the main time loop.</p>
 <p>Module-wide recarrays are used to store all results and calculation
@@ -1118,8 +1117,8 @@ outflow rates and spread the outflow over time.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setCurrentStorages">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setCurrentStorages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iI</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">uzs</span></em>, <em class="sig-param"><span class="n">lzs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setCurrentStorages" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setCurrentStorages">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setCurrentStorages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iI</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uzs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lzs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setCurrentStorages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the current storage values for this watershed in
 inches.</p>
 <dl class="field-list simple">
@@ -1135,8 +1134,8 @@ inches.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setDelT">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setDelT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_delt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setDelT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setDelT">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setDelT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_delt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setDelT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the pervious land delt for calculations.</p>
 <p>The delt is stored as a module wide global. Also sets DELT60
 module-wide global. Once have this adjust the other module-wides
@@ -1149,8 +1148,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setGoodFlag">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setGoodFlag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tFlag</span></em>, <em class="sig-param"><span class="n">fVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setGoodFlag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setGoodFlag">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setGoodFlag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tFlag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setGoodFlag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified flag structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1164,8 +1163,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setGoodParam">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setGoodParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setGoodParam" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setGoodParam">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setGoodParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setGoodParam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified parameter structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1179,8 +1178,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setLatInflowTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setLatInflowTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sim_len</span></em>, <em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">inflowType</span></em>, <em class="sig-param"><span class="n">tsVals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setLatInflowTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setLatInflowTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setLatInflowTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflowType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tsVals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setLatInflowTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to setup lateral inflow time series</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1195,8 +1194,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setMonthlyParams">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setMonthlyParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">monName</span></em>, <em class="sig-param"><span class="n">monTuple</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setMonthlyParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setMonthlyParams">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setMonthlyParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setMonthlyParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified monthly parameter structures</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1210,8 +1209,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setOutputControlFlags">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setOutputControlFlags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">savetable</span></em>, <em class="sig-param"><span class="n">stTypes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setOutputControlFlags">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setOutputControlFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savetable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stTypes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setOutputControlFlags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the output control flags</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1231,8 +1230,8 @@ that depend on this value to go to internal units</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setPETTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setPETTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setPETTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setPETTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setPETTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setPETTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the PET time series from one data set to one target.</p>
 <p>PET is where pet is stored for calculations. Might be adjusted
 by various activities.</p>
@@ -1248,8 +1247,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setPrecipTS">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setPrecipTS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">npTS</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setPrecipTS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setPrecipTS">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setPrecipTS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setPrecipTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the precipitation time series from one data set
 to one target.</p>
 <p>SUPY is where precipitation is stored for calculations</p>
@@ -1265,8 +1264,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setStateParams">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setStateParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">tParam</span></em>, <em class="sig-param"><span class="n">pVal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setStateParams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setStateParams">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setStateParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pVal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setStateParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value for the specified initial state structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1280,8 +1279,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setUpRecArrays">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setUpRecArrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pwList</span></em>, <em class="sig-param"><span class="n">sim_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setUpRecArrays">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setUpRecArrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setUpRecArrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and initialize pervious land output arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1294,8 +1293,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setWSAreas">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setWSAreas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">targID</span></em>, <em class="sig-param"><span class="n">area</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setWSAreas" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setWSAreas">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setWSAreas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setWSAreas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the watershed area to the global information structure.</p>
 <p>Area is in acres</p>
 <dl class="field-list simple">
@@ -1309,8 +1308,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.setupDAYFG">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">setupDAYFG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setupDAYFG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.setupDAYFG">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">setupDAYFG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.setupDAYFG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the module-level global DAYFG</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1320,8 +1319,8 @@ to create the rec array</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHyperwat.writeOutputs">
-<code class="sig-prename descclassname">locaHyperwat.</code><code class="sig-name descname">writeOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">store</span></em>, <em class="sig-param"><span class="n">tIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.writeOutputs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHyperwat.writeOutputs">
+<span class="sig-prename descclassname"><span class="pre">locaHyperwat.</span></span><span class="sig-name descname"><span class="pre">writeOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHyperwat.writeOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the outputs to the hdf file at the end of the simulation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1401,8 +1400,8 @@ to create the rec array</p></li>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

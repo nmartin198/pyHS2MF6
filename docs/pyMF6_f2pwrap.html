@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.3.2.1. Module f2pwrap in f2pWrappers.f90 &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.3.2.2. Extended MODFLOW 6 Types" href="pyMF6_mf6types.html" />
@@ -32,7 +31,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="pyMF6_fortran.html" title="4.3.2. Customized Fortran Modules"
              accesskey="P">previous</a> |
@@ -63,9 +62,9 @@ for array passing logic. The array passing provides for dynamic
 coupling between MODFLOW 6 and HSPF as information is exchanged for
 each simulation day.</p>
 <p><strong>Module</strong> <a class="reference internal" href="#f/f2pwrap" title="f/f2pwrap: Python version of MODFLOW 6 main program block"><code class="xref f f-mod docutils literal notranslate"><span class="pre">f2pwrap</span></code></a></p>
-<span class="target" id="f/f2pwrap"></span><dl class="subroutine">
-<dt id="f/f2pwrap/setup">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/setup" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="f/f2pwrap"></span><dl>
+<dt class="sig sig-object f" id="f/f2pwrap/setup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does all of the set-up things for MODFLOW 6 prior to object allocation
 and creation.</p>
 <dl class="field-list simple">
@@ -82,9 +81,9 @@ and creation.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphsetup">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphsetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphsetup" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphsetup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphsetup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphsetup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does all of the set-up things for MODFLOW 6 prior to object allocation
 and creation. This particular version is for running the coupled
 model and so use the simulation create from the special coupled model
@@ -103,9 +102,9 @@ type.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/objsetup">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">objsetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/objsetup" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/objsetup">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">objsetup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/objsetup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup the objects of various types for the main time loop</p>
 <dl class="field-list simple">
 <dt class="field-odd">Called from</dt>
@@ -125,9 +124,9 @@ type.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/innertimeloop">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">innertimeloop</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/innertimeloop" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/innertimeloop">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">innertimeloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ioutlocal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/innertimeloop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides all of the within time step logic for a standalone simulation.
 Directly employs the subroutines in the <em>mfcore.f90</em> file.</p>
 <dl class="field-list simple">
@@ -148,9 +147,9 @@ Directly employs the subroutines in the <em>mfcore.f90</em> file.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/finalproc">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">finalproc</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/finalproc" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/finalproc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">finalproc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ioutlocal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/finalproc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calls the required processing, deallocation and messaging, after the
 main time loop is over. Standalone simulation only. Custom extended
 types are not used in standalone simulation so that the standard
@@ -168,9 +167,9 @@ MODFLOW 6 deallocation and wrap-up routines can be used.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphfinalproc">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphfinalproc</code><span class="sig-paren">(</span><em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinalproc" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphfinalproc">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphfinalproc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ioutlocal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinalproc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calls the required final model, exchange, and solution processing
 after the main time loop is over. Coupled simulation only. The
 coupled version is more involved than the standalone because
@@ -187,9 +186,9 @@ individual pieces of larger routines.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphdeallocall">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphdeallocall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphdeallocall" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphdeallocall">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphdeallocall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphdeallocall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deallocation subroutine needed for coupled mode. Custom deallocation
 had to be added to include dealloc for the extended types.</p>
 <dl class="field-list simple">
@@ -211,9 +210,9 @@ had to be added to include dealloc for the extended types.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphfinal_message">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphfinal_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinal_message" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphfinal_message">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphfinal_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphfinal_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Override of the final message output functionality so that <strong>stop</strong>
 is not called within MODFLOW and control returns to <strong>pyMF6</strong> for
 normal program termination.</p>
@@ -231,9 +230,9 @@ normal program termination.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphprint_final_message">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphprint_final_message</code><span class="sig-paren">(</span><em class="sig-param">stopmess</em>, <em class="sig-param">ioutlocal</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphprint_final_message" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphprint_final_message">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphprint_final_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">stopmess</span></em>, <em class="sig-param"><span class="pre">ioutlocal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphprint_final_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Override of the print_final_message() because this is where the <strong>stop</strong>
 is called within MODFLOW. This routine called by cphfinal_message(),
 and the purpose of this routine is to allow control to return
@@ -258,9 +257,9 @@ base.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphconverge_check">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphconverge_check</code><span class="sig-paren">(</span><em class="sig-param">iexLoop</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphconverge_check" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphconverge_check">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphconverge_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iexLoop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphconverge_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coupled model convergence check. Designed to be called independently
 at the end of the inner time loop logic in coupled simulation. This
 routine had to split out so that custom array passing logic could be
@@ -278,9 +277,9 @@ used to couple the programs.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/gettotim">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">gettotim</code><span class="sig-paren">(</span><em class="sig-param">mftotim</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotim" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/gettotim">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">gettotim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mftotim</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the MODFLOW 6 public totim which holds the total elapsed
 simulation time.</p>
 <dl class="field-list simple">
@@ -300,9 +299,9 @@ simulation time.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/gettotalsimtime">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">gettotalsimtime</code><span class="sig-paren">(</span><em class="sig-param">mftotsim</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotalsimtime" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/gettotalsimtime">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">gettotalsimtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mftotsim</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/gettotalsimtime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the MODFLOW 6 public totalsimtime which holds the total
 simulation time.</p>
 <dl class="field-list simple">
@@ -322,9 +321,9 @@ simulation time.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/f2pwrap/cphinnertimeloop">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">f2pwrap/</code><code class="sig-name descname">cphinnertimeloop</code><span class="sig-paren">(</span><em class="sig-param">finf</em>, <em class="sig-param">iuzno</em>, <em class="sig-param">ncpl</em>, <em class="sig-param">surfdis</em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphinnertimeloop" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/f2pwrap/cphinnertimeloop">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">f2pwrap/</span></span><span class="sig-name descname"><span class="pre">cphinnertimeloop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">finf</span></em>, <em class="sig-param"><span class="pre">iuzno</span></em>, <em class="sig-param"><span class="pre">ncpl</span></em>, <em class="sig-param"><span class="pre">surfdis</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/f2pwrap/cphinnertimeloop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Within simulation time step logic for coupled model simulation.
 Provides for receipt of a one-dimensional array of <strong>iuzno</strong>
 length that has infiltration for the UZF package from HSPF. Also
@@ -459,8 +458,8 @@ each computational cell</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

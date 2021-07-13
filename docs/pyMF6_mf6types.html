@@ -16,14 +16,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4.3.2.2. Extended MODFLOW 6 Types &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="4.3.2.1. Module f2pwrap in f2pWrappers.f90" href="pyMF6_f2pwrap.html" /> 
@@ -31,7 +30,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="pyMF6_f2pwrap.html" title="4.3.2.1. Module f2pwrap in f2pWrappers.f90"
              accesskey="P">previous</a> |
@@ -90,9 +89,9 @@ only three modifications or extensions to this module.</p>
 </ol>
 </div></blockquote>
 <p><strong>Module</strong> <a class="reference internal" href="#f/cphSimulationCreateModule" title="f/cphSimulationCreateModule: Provides a modified simulation creation module that utilizes the new type extensions"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphSimulationCreateModule</span></code></a></p>
-<span class="target" id="f/cphSimulationCreateModule"></span><dl class="subroutine">
-<dt id="f/cphSimulationCreateModule/cphsimulation_cr">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">cphsimulation_cr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_cr" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="f/cphSimulationCreateModule"></span><dl>
+<dt class="sig sig-object f" id="f/cphSimulationCreateModule/cphsimulation_cr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphSimulationCreateModule/</span></span><span class="sig-name descname"><span class="pre">cphsimulation_cr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_cr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the simulation name file and initializes the models and exchanges.
 Only the name has changed and no functionality altered.</p>
 <dl class="field-list simple">
@@ -111,9 +110,9 @@ Only the name has changed and no functionality altered.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphSimulationCreateModule/cphsimulation_da">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">cphsimulation_da</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_da" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphSimulationCreateModule/cphsimulation_da">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphSimulationCreateModule/</span></span><span class="sig-name descname"><span class="pre">cphsimulation_da</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/cphsimulation_da" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deallocates simulation variables. Only the name is changed and no
 functionality altered.</p>
 <dl class="field-list simple">
@@ -123,9 +122,9 @@ functionality altered.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphSimulationCreateModule/models_create">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphSimulationCreateModule/</code><code class="sig-name descname">models_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/models_create" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphSimulationCreateModule/models_create">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphSimulationCreateModule/</span></span><span class="sig-name descname"><span class="pre">models_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#f/cphSimulationCreateModule/models_create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create model objects for the simulation. Only modification is to use
 cphgwf_cr from cphGwfModule for groundwater flow model (GWF) creation.</p>
 <dl class="field-list simple">
@@ -185,18 +184,18 @@ infiltration.</p>
 </ol>
 </div></blockquote>
 <p><strong>Module</strong> <a class="reference internal" href="#f/cphGwfModule" title="f/cphGwfModule: Provides a modified GWF type that can receive and send arrays to external processes"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphGwfModule</span></code></a></p>
-<span class="target" id="f/cphGwfModule"></span><dl class="type">
-<dt id="f/cphGwfModule/cphGwfModelType">
-<em class="property">type  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphGwfModelType</code><a class="headerlink" href="#f/cphGwfModule/cphGwfModelType" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="f/cphGwfModule"></span><dl>
+<dt class="sig sig-object f" id="f/cphGwfModule/cphGwfModelType">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphGwfModule/</span></span><span class="sig-name descname"><span class="pre">cphGwfModelType</span></span><a class="headerlink" href="#f/cphGwfModule/cphGwfModelType" title="Permalink to this definition">¶</a></dt>
 <dd><p>GWF model type that extended to provide for receiving an array of
 infiltration at the start of each simulation day and returning an
 array of groundwater discharge to the surface at the end of each
 simulation day.</p>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphGwfModule/cphgwf_cr">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphgwf_cr</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">id</em>, <em class="sig-param">modelname</em>, <em class="sig-param">smr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphgwf_cr" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphGwfModule/cphgwf_cr">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphGwfModule/</span></span><span class="sig-name descname"><span class="pre">cphgwf_cr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">id</span></em>, <em class="sig-param"><span class="pre">modelname</span></em>, <em class="sig-param"><span class="pre">smr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphgwf_cr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new groundwater flow model object and add it to the internal
 list of models. Also assign the values for this model object. This
 routine is unchanged, just renamed.</p>
@@ -218,9 +217,9 @@ routine is unchanged, just renamed.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphGwfModule/package_create">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">package_create</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">filtyp</em>, <em class="sig-param">ipakid</em>, <em class="sig-param">ipaknum</em>, <em class="sig-param">pakname</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/package_create" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphGwfModule/package_create">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphGwfModule/</span></span><span class="sig-name descname"><span class="pre">package_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">filtyp</span></em>, <em class="sig-param"><span class="pre">ipakid</span></em>, <em class="sig-param"><span class="pre">ipaknum</span></em>, <em class="sig-param"><span class="pre">pakname</span></em>, <em class="sig-param"><span class="pre">inunit</span></em>, <em class="sig-param"><span class="pre">iout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/package_create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create boundary condition packages for the GWF model. Uses the same
 parameters and is unchanged except for creation of
 <a class="reference internal" href="#f/cphUzfModule/cphUzfType" title="f/cphUzfModule/cphUzfType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphUzfModule/cphUzfType</span></code></a> and <a class="reference internal" href="#f/cphDrnModule/cphDrnType" title="f/cphDrnModule/cphDrnType"><code class="xref f f-type docutils literal notranslate"><span class="pre">cphDrnModule/cphDrnType</span></code></a>
@@ -239,9 +238,9 @@ packages.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphGwfModule/gwf_chprp">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">gwf_chprp</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">cpinalen</em>, <em class="sig-param">cpinarr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/gwf_chprp" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphGwfModule/gwf_chprp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphGwfModule/</span></span><span class="sig-name descname"><span class="pre">gwf_chprp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">cpinalen</span></em>, <em class="sig-param"><span class="pre">cpinarr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/gwf_chprp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modified GroundWater Flow Model (GWF) read and prepare which calls
 package read and prepare routines. Main modification is to receive
 an array from HSPF and a length for this array and then pass the
@@ -263,9 +262,9 @@ array to the modified UZF package.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphGwfModule/cphsurfdis">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphGwfModule/</code><code class="sig-name descname">cphsurfdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphsurfdis" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphGwfModule/cphsurfdis">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphGwfModule/</span></span><span class="sig-name descname"><span class="pre">cphsurfdis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">surfd</span></em>, <em class="sig-param"><span class="pre">numnodes2d</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphGwfModule/cphsurfdis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract all simulated discharges to the ground surface and compile
 these to an array representing a layer surface. This array is returned
 to the calling program for passing to an external process. The array
@@ -331,18 +330,18 @@ seepage to surface and UZF rejected infiltration.</p>
 </ol>
 </div></blockquote>
 <p><strong>Module</strong> <a class="reference internal" href="#f/cphUzfModule" title="f/cphUzfModule: Provides a modified UZF package that can receive infiltration from HSPF and send groundwater discharge to HSPF"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphUzfModule</span></code></a></p>
-<span class="target" id="f/cphUzfModule"></span><dl class="type">
-<dt id="f/cphUzfModule/cphUzfType">
-<em class="property">type  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphUzfType</code><a class="headerlink" href="#f/cphUzfModule/cphUzfType" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="f/cphUzfModule"></span><dl>
+<dt class="sig sig-object f" id="f/cphUzfModule/cphUzfType">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphUzfModule/</span></span><span class="sig-name descname"><span class="pre">cphUzfType</span></span><a class="headerlink" href="#f/cphUzfModule/cphUzfType" title="Permalink to this definition">¶</a></dt>
 <dd><p>UZF package type that extended to provide for receiving an array of
 infiltration at the start of each simulation day and returning an
 array of groundwater discharge to the surface at the end of each
 simulation day.</p>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphUzfModule/cphuzf_create">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_create</code><span class="sig-paren">(</span><em class="sig-param">packobj</em>, <em class="sig-param">id</em>, <em class="sig-param">ibcnum</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em>, <em class="sig-param">namemodel</em>, <em class="sig-param">pakname</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_create" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphUzfModule/cphuzf_create">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphUzfModule/</span></span><span class="sig-name descname"><span class="pre">cphuzf_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">packobj</span></em>, <em class="sig-param"><span class="pre">id</span></em>, <em class="sig-param"><span class="pre">ibcnum</span></em>, <em class="sig-param"><span class="pre">inunit</span></em>, <em class="sig-param"><span class="pre">iout</span></em>, <em class="sig-param"><span class="pre">namemodel</span></em>, <em class="sig-param"><span class="pre">pakname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new UZF boundary forcing package for the GWF model at the start
 of the simulation. The subroutine is unchanged, including parameters, but is
 extended to use the coupled model UZF type.</p>
@@ -353,9 +352,9 @@ extended to use the coupled model UZF type.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphUzfModule/cphuzf_rp">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_rp</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">cpinalen</em>, <em class="sig-param">cpinarr</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_rp" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphUzfModule/cphuzf_rp">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphUzfModule/</span></span><span class="sig-name descname"><span class="pre">cphuzf_rp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">cpinalen</span></em>, <em class="sig-param"><span class="pre">cpinarr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_rp" title="Permalink to this definition">¶</a></dt>
 <dd><p>New subroutine based on uzf_rp that puts the infiltration from HSPF
 into the sinf values location so that will be incorporated into the
 time step solution for the current day. Does this every simulation day.</p>
@@ -373,9 +372,9 @@ time step solution for the current day. Does this every simulation day.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphUzfModule/cphuzf_exsdis">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphUzfModule/</code><code class="sig-name descname">cphuzf_exsdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_exsdis" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphUzfModule/cphuzf_exsdis">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphUzfModule/</span></span><span class="sig-name descname"><span class="pre">cphuzf_exsdis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">surfd</span></em>, <em class="sig-param"><span class="pre">numnodes2d</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphUzfModule/cphuzf_exsdis" title="Permalink to this definition">¶</a></dt>
 <dd><p>New subroutine for coupling to HSPF. It provides an extension to
 extract surface discharges. Both groundwater seepage discharge and
 rejected infiltration are collated from the UZF solution for the current
@@ -424,17 +423,17 @@ three modifications or extensions.</p>
 </ol>
 </div></blockquote>
 <p><strong>Module</strong> <a class="reference internal" href="#f/cphDrnModule" title="f/cphDrnModule: Provides a modified DRN package that send groundwater discharge to HSPF"><code class="xref f f-mod docutils literal notranslate"><span class="pre">cphDrnModule</span></code></a></p>
-<span class="target" id="f/cphDrnModule"></span><dl class="type">
-<dt id="f/cphDrnModule/cphDrnType">
-<em class="property">type  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphDrnType</code><a class="headerlink" href="#f/cphDrnModule/cphDrnType" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="f/cphDrnModule"></span><dl>
+<dt class="sig sig-object f" id="f/cphDrnModule/cphDrnType">
+<em class="property"><span class="pre">type</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphDrnModule/</span></span><span class="sig-name descname"><span class="pre">cphDrnType</span></span><a class="headerlink" href="#f/cphDrnModule/cphDrnType" title="Permalink to this definition">¶</a></dt>
 <dd><p>DRN package type that extended to provide for returning an
 array of groundwater discharge to the surface at the end of each
 simulation day.</p>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphDrnModule/cphdrn_create">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphdrn_create</code><span class="sig-paren">(</span><em class="sig-param">packobj</em>, <em class="sig-param">id</em>, <em class="sig-param">ibcnum</em>, <em class="sig-param">inunit</em>, <em class="sig-param">iout</em>, <em class="sig-param">namemodel</em>, <em class="sig-param">pakname</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_create" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphDrnModule/cphdrn_create">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphDrnModule/</span></span><span class="sig-name descname"><span class="pre">cphdrn_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">packobj</span></em>, <em class="sig-param"><span class="pre">id</span></em>, <em class="sig-param"><span class="pre">ibcnum</span></em>, <em class="sig-param"><span class="pre">inunit</span></em>, <em class="sig-param"><span class="pre">iout</span></em>, <em class="sig-param"><span class="pre">namemodel</span></em>, <em class="sig-param"><span class="pre">pakname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new DRN boundary forcing package for the GWF model at the start
 of the simulation. The subroutine is unchanged, including parameters, but is
 extended to use the coupled model DRN type.</p>
@@ -445,9 +444,9 @@ extended to use the coupled model DRN type.</p>
 </dl>
 </dd></dl>
 
-<dl class="subroutine">
-<dt id="f/cphDrnModule/cphdrn_exsdis">
-<em class="property">subroutine  </em><code class="sig-prename descclassname">cphDrnModule/</code><code class="sig-name descname">cphdrn_exsdis</code><span class="sig-paren">(</span><em class="sig-param">this</em>, <em class="sig-param">surfd</em>, <em class="sig-param">numnodes2d</em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_exsdis" title="Permalink to this definition">¶</a></dt>
+<dl>
+<dt class="sig sig-object f" id="f/cphDrnModule/cphdrn_exsdis">
+<em class="property"><span class="pre">subroutine</span>&#160; </em><span class="sig-prename descclassname"><span class="pre">cphDrnModule/</span></span><span class="sig-name descname"><span class="pre">cphdrn_exsdis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">this</span></em>, <em class="sig-param"><span class="pre">surfd</span></em>, <em class="sig-param"><span class="pre">numnodes2d</span></em><span class="sig-paren">)</span><a class="headerlink" href="#f/cphDrnModule/cphdrn_exsdis" title="Permalink to this definition">¶</a></dt>
 <dd><p>New subroutine for coupling to HSPF. It provides an extension to
 extract surface discharges. DRN package discharge is added to the
 array that returned to the external process.</p>
@@ -530,8 +529,8 @@ array that returned to the external process.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>

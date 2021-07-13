@@ -3,27 +3,16 @@
 
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177207986-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-177207986-1');
-    </script>
-    <!-- End global site tag-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2.6. HDF5 File Methods and Data Structures &#8212; pyHS2MF6</title>
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>4.2.6. HDF5 File Methods and Data Structures &#8212; pyHS2MF6 0.1.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.2.7. mHSP2 Log File" href="mHSP2_logger.html" />
@@ -32,7 +21,7 @@
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">pyHS2MF6 0.1.1 documentation</a></div>
+          href="index.html">pyHS2MF6 0.1.2 documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="mHSP2_coupling.html" title="4.2.5. Coupling Specific Methods and Data Structures"
              accesskey="P">previous</a> |
@@ -80,51 +69,51 @@ version that was the primary <em>HSPsquared</em> version prior to March 2020.
 A 3.6+ version of <em>HSPsquared</em> was released in March-April 2020. This
 updated version has different HDF5 file format.</p>
 <dl class="py data">
-<dt id="locaHSP2HDF5.ALLOPSEQ">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">ALLOPSEQ</code><em class="property"> = None</em><a class="headerlink" href="#locaHSP2HDF5.ALLOPSEQ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.ALLOPSEQ">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">ALLOPSEQ</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#locaHSP2HDF5.ALLOPSEQ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Structured array or recarray to hold the operational sequence.</p>
 <p>This is set off of the HDF5 file in locaHSP2HDF5.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.AOS_DTYPE">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">AOS_DTYPE</code><em class="property"> = dtype([('TARGET', '&lt;U6'), ('ID', '&lt;U4'), ('SDELT', '&lt;U4'), ('DELT', '&lt;f4')])</em><a class="headerlink" href="#locaHSP2HDF5.AOS_DTYPE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.AOS_DTYPE">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">AOS_DTYPE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">dtype([('TARGET',</span> <span class="pre">'&lt;U6'),</span> <span class="pre">('ID',</span> <span class="pre">'&lt;U4'),</span> <span class="pre">('SDELT',</span> <span class="pre">'&lt;U4'),</span> <span class="pre">('DELT',</span> <span class="pre">'&lt;f4')])</span></em><a class="headerlink" href="#locaHSP2HDF5.AOS_DTYPE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Structured array specification type.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.DFCOL_OPSEQ_DELT">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">DFCOL_OPSEQ_DELT</code><em class="property"> = 'DELT'</em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_DELT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.DFCOL_OPSEQ_DELT">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">DFCOL_OPSEQ_DELT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'DELT'</span></em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_DELT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column name for time step in operational sequence DataFrame</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.DFCOL_OPSEQ_ID">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">DFCOL_OPSEQ_ID</code><em class="property"> = 'ID'</em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_ID" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.DFCOL_OPSEQ_ID">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">DFCOL_OPSEQ_ID</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'ID'</span></em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_ID" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column name for ID in operational sequence DataFrame</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.DFCOL_OPSEQ_SDELT">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">DFCOL_OPSEQ_SDELT</code><em class="property"> = 'SDELT'</em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_SDELT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.DFCOL_OPSEQ_SDELT">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">DFCOL_OPSEQ_SDELT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'SDELT'</span></em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_SDELT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column name for string time step in operational sequence DataFrame</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.DFCOL_OPSEQ_TARG">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">DFCOL_OPSEQ_TARG</code><em class="property"> = 'TARGET'</em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_TARG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.DFCOL_OPSEQ_TARG">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">DFCOL_OPSEQ_TARG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'TARGET'</span></em><a class="headerlink" href="#locaHSP2HDF5.DFCOL_OPSEQ_TARG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column name for TARGET in operational sequence DataFrame</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.GENERAL">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">GENERAL</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.GENERAL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.GENERAL">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">GENERAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.GENERAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces general in original HSPsquared formulations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.HDF_FMT">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">HDF_FMT</code><em class="property"> = 0</em><a class="headerlink" href="#locaHSP2HDF5.HDF_FMT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.HDF_FMT">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">HDF_FMT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#locaHSP2HDF5.HDF_FMT" title="Permalink to this definition">¶</a></dt>
 <dd><p>HDF file format to read.</p>
 <p>HSPsquared changed the HDF5 file format in 2020 with the release that
 was Python 3 compatible. Unfortunately, neither format is well
@@ -133,81 +122,81 @@ If &gt; 0, then read in the new format.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.HSP2_TIME_FMT">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">HSP2_TIME_FMT</code><em class="property"> = '%Y-%m-%d %H:%M'</em><a class="headerlink" href="#locaHSP2HDF5.HSP2_TIME_FMT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.HSP2_TIME_FMT">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">HSP2_TIME_FMT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'%Y-%m-%d</span> <span class="pre">%H:%M'</span></em><a class="headerlink" href="#locaHSP2HDF5.HSP2_TIME_FMT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time format for extraction from HSP2</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.KEY_GEN_END">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">KEY_GEN_END</code><em class="property"> = 'sim_end'</em><a class="headerlink" href="#locaHSP2HDF5.KEY_GEN_END" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.KEY_GEN_END">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">KEY_GEN_END</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'sim_end'</span></em><a class="headerlink" href="#locaHSP2HDF5.KEY_GEN_END" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key for simulation end time, in GENERAL dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.KEY_GEN_START">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">KEY_GEN_START</code><em class="property"> = 'sim_start'</em><a class="headerlink" href="#locaHSP2HDF5.KEY_GEN_START" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.KEY_GEN_START">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">KEY_GEN_START</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'sim_start'</span></em><a class="headerlink" href="#locaHSP2HDF5.KEY_GEN_START" title="Permalink to this definition">¶</a></dt>
 <dd><p>Key for simulation start time, in GENERAL dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.LINKDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">LINKDD</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.LINKDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.LINKDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">LINKDD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.LINKDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces linkdd which is the links database.</p>
 <p>Data for LINK (combined NETWORK &amp; SCHEMATIC) and MASSLINK information</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.LOOKUP">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">LOOKUP</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.LOOKUP" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.LOOKUP">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">LOOKUP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.LOOKUP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces lookup.</p>
 <p>Also not really used.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.MLDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">MLDD</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.MLDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.MLDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">MLDD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.MLDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces mldd or the mass links.</p>
 <p>Data for mass links.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.MONTHLYS">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">MONTHLYS</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.MONTHLYS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.MONTHLYS">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">MONTHLYS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.MONTHLYS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces monthlys, which are the dictionary of monthly tables.</p>
 <p>Example: monthlys[‘PERLND’, ‘P001’][‘CEPSCM’]</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.SEQUENCE">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">SEQUENCE</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.SEQUENCE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.SEQUENCE">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">SEQUENCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.SEQUENCE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces sequence in original HSPsquared formulations</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.TSDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">TSDD</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.TSDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.TSDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">TSDD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.TSDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces tsdd which is the time series data structure.</p>
 <p>Time series info default dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.UCS">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">UCS</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.UCS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.UCS">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">UCS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.UCS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces ucs or user control.</p>
 <p>Holds all default user control info in a dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.XFLOWDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">XFLOWDD</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.XFLOWDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.XFLOWDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">XFLOWDD</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.XFLOWDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces xflowdd.</p>
 <p>This is not really used here.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.detHDF5Format">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">detHDF5Format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.detHDF5Format" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.detHDF5Format">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">detHDF5Format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.detHDF5Format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine the HDF5 format.</p>
 <p>Need to know this to correctly read in the necessary values.</p>
 <dl class="field-list simple">
@@ -224,8 +213,8 @@ If &gt; 0, then read in the new format.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getALLOPS">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getALLOPS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getALLOPS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getALLOPS">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getALLOPS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getALLOPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the module level global ALLOPSEQ</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -238,14 +227,14 @@ If &gt; 0, then read in the new format.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getGENERAL">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getGENERAL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getGENERAL" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getGENERAL">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getGENERAL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getGENERAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the module level global GENERAL</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getHDFFormat">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getHDFFormat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getHDFFormat" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getHDFFormat">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getHDFFormat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getHDFFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the integer format ID for this HDF5 file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -258,20 +247,20 @@ If &gt; 0, then read in the new format.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getLINKDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getLINKDD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getLINKDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getLINKDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getLINKDD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getLINKDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the module level global LINKDD</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getMLDD">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getMLDD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getMLDD" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getMLDD">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getMLDD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getMLDD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the module level global MLDD</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getMONTHLYs">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getMONTHLYs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getMONTHLYs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getMONTHLYs">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getMONTHLYs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getMONTHLYs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dictionary of monthly values for the original or old
 HDF5 file format.</p>
 <dl class="field-list simple">
@@ -291,20 +280,20 @@ that are a tuple of size 12.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getSEQUENCE">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getSEQUENCE</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getSEQUENCE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getSEQUENCE">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getSEQUENCE</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getSEQUENCE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to get the module level global SEQUENCE</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getUCS">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getUCS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getUCS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getUCS">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getUCS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getUCS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the module level global UCS</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getUNITS">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getUNITS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getUNITS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getUNITS">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getUNITS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getUNITS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the units from the GENERAL dictionary.</p>
 <p>Only works for the old format HDF5 file. Also, the units always
 have to be 1 because metric are not supported.</p>
@@ -323,8 +312,8 @@ have to be 1 because metric are not supported.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.getnUCI">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">getnUCI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getnUCI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.getnUCI">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">getnUCI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.getnUCI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the nUCI dictionary. For new format HDF5 files this replaces
 the UCS dictionary.</p>
 <dl class="field-list simple">
@@ -338,8 +327,8 @@ the UCS dictionary.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.initialHDFRead">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">initialHDFRead</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">reloadkeys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.initialHDFRead" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.initialHDFRead">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">initialHDFRead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reloadkeys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.initialHDFRead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine the HDF5 file format and then call the method to read
 that format.</p>
 <dl class="field-list simple">
@@ -359,27 +348,27 @@ that format.</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.nKEY_END">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">nKEY_END</code><em class="property"> = 'Stop'</em><a class="headerlink" href="#locaHSP2HDF5.nKEY_END" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.nKEY_END">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">nKEY_END</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Stop'</span></em><a class="headerlink" href="#locaHSP2HDF5.nKEY_END" title="Permalink to this definition">¶</a></dt>
 <dd><p>New format key for simulation end time, in GENERAL dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.nKEY_START">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">nKEY_START</code><em class="property"> = 'Start'</em><a class="headerlink" href="#locaHSP2HDF5.nKEY_START" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.nKEY_START">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">nKEY_START</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Start'</span></em><a class="headerlink" href="#locaHSP2HDF5.nKEY_START" title="Permalink to this definition">¶</a></dt>
 <dd><p>New format key for simulation start time, in GENERAL dictionary</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="locaHSP2HDF5.nUCI">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">nUCI</code><em class="property"> = {}</em><a class="headerlink" href="#locaHSP2HDF5.nUCI" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.nUCI">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">nUCI</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#locaHSP2HDF5.nUCI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces uci in new format HDF5 file.</p>
 <p>Holds all default user control info in a dictionary</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.newHDFRead">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">newHDFRead</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.newHDFRead" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.newHDFRead">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">newHDFRead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.newHDFRead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logic to read the new format HDF file.</p>
 <p>Extraction from main to read everything that needed from
 HDF5 file. Stores these main items now in module globals
@@ -398,8 +387,8 @@ rather than keeping the file open.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.origHDFRead">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">origHDFRead</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">reloadkeys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.origHDFRead" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.origHDFRead">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">origHDFRead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reloadkeys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.origHDFRead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logic to read the original HDF file format.</p>
 <p>Extraction from main to read everything that needed from
 HDF5 file. Stores these main items now in module globals
@@ -421,8 +410,8 @@ rather than keeping the file open.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.setGFTabDict">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">setGFTabDict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">tdict</span></em>, <em class="sig-param"><span class="n">gftab</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.setGFTabDict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.setGFTabDict">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">setGFTabDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gftab</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.setGFTabDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set our global FTABLE dictionary which contains each defined FTABLE
 in the HDF5 file.</p>
 <p>The keys are the FTAB name which is SVOLNO.</p>
@@ -449,8 +438,8 @@ in the HDF5 file.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.setGTSDict">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">setGTSDict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hdfname</span></em>, <em class="sig-param"><span class="n">simtimeinds</span></em>, <em class="sig-param"><span class="n">map_dict</span></em>, <em class="sig-param"><span class="n">gts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.setGTSDict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.setGTSDict">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">setGTSDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdfname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simtimeinds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.setGTSDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set our global time series dictionary which contains each defined time series
 in the HDF5 file.</p>
 <p>The keys of the dictionary are the ts name which is SVOLNO.</p>
@@ -480,8 +469,8 @@ also be modified here.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="locaHSP2HDF5.transform">
-<code class="sig-prename descclassname">locaHSP2HDF5.</code><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts</span></em>, <em class="sig-param"><span class="n">tindex</span></em>, <em class="sig-param"><span class="n">how</span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.transform" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="locaHSP2HDF5.transform">
+<span class="sig-prename descclassname"><span class="pre">locaHSP2HDF5.</span></span><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tindex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">how</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#locaHSP2HDF5.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy of transform method from HSP2squared.</p>
 <p>Because we include this function do not need to import the package</p>
 <dl class="field-list simple">
@@ -563,8 +552,8 @@ also be modified here.</p></li>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Nick Martin.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+        &#169; Copyright 2021, Nick Martin.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
         </div>
         <div class="clearer"></div>
