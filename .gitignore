@@ -2,6 +2,7 @@
 *.pyo
 *.o
 *~
+*.ini
 *.code-workspace
 src/.vscode/*
 src/__pycache__/*

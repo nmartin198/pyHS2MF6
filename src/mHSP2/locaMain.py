@@ -1051,15 +1051,15 @@ def setFlowLinks( linkdd, mldd, hdfType ):
         # process the 1 link
         linkList = bigLList[0]
         addLink = True
-        cSMLNO = linkList.MLNO 
+        cSMLNO = linkList.MLNO
         cSVol = linkList.SVOL
-        cSGrpn = linkList.SGRPN 
-        cSMemn = linkList.SMEMN 
-        cTVol = linkList.TVOL  
+        cSGrpn = linkList.SGRPN
+        cSMemn = linkList.SMEMN
+        cTVol = linkList.TVOL
         cTMemn = linkList.TMEMN
         cMFactor = linkList.MFACTOR
-        cSMemsb = linkList.SMEMSB
         if hdfType == 0:
+            # this is the original format. Add cSMemsB here because it is now changed.
             cTGrpn = linkList.TGRPN
             # get the mass link num as an integer
             try:
@@ -1070,7 +1070,33 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         ( cSMLNO, strInd )
                 CL.LOGR.error( errMsg )
                 return badReturn
+            # end try
+            # now do cSMemsb
+            cSMemsb = linkList.SMEMSB
+            # parse the exits and categories
+            if cSMemsb:
+                exitList = list()
+                if len( cSMemsb ) > 0:
+                    strLister = cSMemsb.split(" ")
+                    for sL in strLister:
+                        try:
+                            intSL = int( sL )
+                        except:
+                            # this is an error
+                            errMsg = "Could not convert exit and/or " \
+                                        "category string %s to integers!!!" % \
+                                        cSMemsb
+                            CL.LOGR.error( errMsg )
+                            return badReturn
+                        # if made it here then add to our list
+                        exitList.append( intSL )
+                    # end for exit and category
+                # end if
+            else:
+                exitList = [ 1 ]
+            # end if
         else:
+            # this is the new format case
             cTGrpn = RR_TGRPN_SUPP
             # get the mass link num as an integer
             try:
@@ -1081,6 +1107,37 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         ( cSMLNO, strInd )
                 CL.LOGR.error( errMsg )
                 return badReturn
+            # end try
+            # do cSMemsb; in the newest format have
+            cSMemsb1 = linkList.SMEMSB1
+            cSMemsb2 = linkList.SMEMSB2
+            exitList = list()
+            if cSMemsb1:
+                try:
+                    intSL1 = int( cSMemsb1 )
+                except:
+                    # this is an error
+                    errMsg = "Could not convert exit id %s from SMEMSB1" \
+                             % cSMemsb1
+                    CL.LOGR.error( errMsg )
+                    return badReturn
+                # end try
+                exitList.append( intSL1 )
+            else:
+                exitList.append( 1 )
+            # end if
+            if cSMemsb2:
+                try:
+                    intSL2 = int( cSMemsb2 )
+                except:
+                    # this is an error
+                    errMsg = "Could not convert exit id %s from SMEMSB2" \
+                              % cSMemsb2
+                    CL.LOGR.error( errMsg )
+                    return badReturn
+                # end try
+                exitList.append( intSL2 )
+            # end if
         # end if
         # now do our checks
         if not cSVol in SuppTargs:
@@ -1090,7 +1147,7 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         "will be ignored!!!" % ( cSVol, intInd )
             CL.LOGR.warning( warnMsg )
             #print("%s" % warnMsg)
-            addLink = False 
+            addLink = False
         if not ( cTVol == TARG_RCHRES ):
             # warn that not supported
             warnMsg = "Only target type %s is supported for mass link " \
@@ -1099,7 +1156,7 @@ def setFlowLinks( linkdd, mldd, hdfType ):
                         ( TARG_RCHRES, intInd, cTVol )
             CL.LOGR.warning( warnMsg )
             #print("%s" % warnMsg)
-            addLink = False 
+            addLink = False
         if ( addLink and ( not ( cTGrpn == RR_TGRPN_SUPP ) ) ):
             # warn that not supported
             warnMsg = "Only mass link flow group %s is supported for " \
@@ -1109,7 +1166,7 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             CL.LOGR.warning( warnMsg )
             #print("%s" % warnMsg)
             addLink = False 
-        if ( addLink and ( cTGrpn == RR_TGRPN_SUPP ) and 
+        if ( addLink and ( cTGrpn == RR_TGRPN_SUPP ) and
             ( not ( cTMemn == RR_TMEMN_SUPP )  )):
             # warn that not supported
             warnMsg = "Only flow group member %s is supported for " \
@@ -1120,7 +1177,7 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             CL.LOGR.warning( warnMsg )
             #print("%s" % warnMsg)
             cTMemn = RR_TMEMN_SUPP
-        if ( addLink and ( cSVol == TARG_PERVLND ) and 
+        if ( addLink and ( cSVol == TARG_PERVLND ) and
                 ( not ( cSMemn == "PERO" ) ) ):
             warnMsg = "Only outflow group member PERO is supported for " \
                       "source type %s.\nCurrent outflow is specified as %s." \
@@ -1129,7 +1186,7 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             CL.LOGR.warning( warnMsg )
             #print("%s" % warnMsg )
             addLink = False
-        if ( addLink and ( cSVol == TARG_IMPLND ) and 
+        if ( addLink and ( cSVol == TARG_IMPLND ) and
                 ( not ( cSMemn == "SURO" ) ) ):
             warnMsg = "Only outflow group member SURO is supported for " \
                       "source type %s.\nCurrent outflow is specified as %s." \
@@ -1146,36 +1203,15 @@ def setFlowLinks( linkdd, mldd, hdfType ):
             cFFactor = float( cMFactor )
         except:
             errMsg = "Could not convert string factor %s to float!!!" % \
-                        cMFactor 
+                        cMFactor
             CL.LOGR.error( errMsg )
             return badReturn
-        # finally try to parse the exits and categories
-        if cSMemsb:
-            exitList = list()
-            if len( cSMemsb ) > 0:
-                strLister = cSMemsb.split(" ")
-                for sL in strLister:
-                    try:
-                        intSL = int( sL )
-                    except:
-                        # this is an error
-                        errMsg = "Could not convert exit and/or " \
-                                    "category string %s to integers!!!" % \
-                                    cSMemsb
-                        CL.LOGR.error( errMsg )
-                        return badReturn
-                    # if made it here then add to our list
-                    exitList.append( intSL )
-                # end for exit and category
-            # end if
-        else:
-            exitList = [ 1 ]
-        # end if
+        # end try
         # add our values to our custom list
-        massLinkD[intInd] = [ cTVol, cTGrpn, cTMemn, cFFactor, cSVol, 
+        massLinkD[intInd] = [ cTVol, cTGrpn, cTMemn, cFFactor, cSVol,
                               cSGrpn, cSMemn, exitList ]
     # end for mldd
-    # currently only supported destination is RCHRES. 
+    # currently only supported destination is RCHRES.
     # check the link dictionary
     lKeyList = list( linkdd.keys() )
     targTList = [ x[0] for x in lKeyList ]
