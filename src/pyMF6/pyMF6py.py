@@ -914,9 +914,9 @@ def processInitMeta( PassList ):
     # finally create our simulation time indices
     SIM_DAYS = ( end_dt - start_dt ).days
     SIM_DAYS_SERIES = pd.date_range( start=start_dt, end=end_dt, 
-                                     freq='D', closed='left' )
+                                     freq='D', inclusive='left' )
     SIM_MONTH_SERIES = pd.date_range( start=start_dt, end=end_dt,
-                                      freq='MS', closed='left' )
+                                      freq='MS', inclusive='left' )
     SIM_MONTHS = len( SIM_MONTH_SERIES )
     # set-up the tracking rec.arrays. Not checked at this time but if
     #  run into issues with initialization then will need to add 

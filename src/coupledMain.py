@@ -143,7 +143,7 @@ TERM_DESCRIPTION = 'Termination Queue Server'
 # addtional queu
 QINIT_MSG = [ "Hello" ]
 """Queue intialization and check in message"""
-QUEUE_TIMEOUT = ( 60.0 * ( 1.0 * 60.0 ) )
+QUEUE_TIMEOUT = ( 60.0 * ( 10.0 * 60.0 ) )
 """End of simulation wait time in seconds """
 START_QUEUE_TO = ( 60.0 * 5.0 )
 """Queue wait timeout before error in seconds.

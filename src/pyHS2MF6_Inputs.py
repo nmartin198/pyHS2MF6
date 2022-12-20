@@ -9,7 +9,7 @@ input values obtained from the input file..
 """
 # Copyright and License
 """
-Copyright 2020 Southwest Research Institute
+Copyright 2021 Southwest Research Institute
 
 Module Author: Nick Martin <nick.martin@stanfordalumni.org>
 
@@ -134,11 +134,11 @@ SP_MAP_GW_PFILE = None
 """Pickle file with dictionary for mapping MODFLOW 6 springs.
 
 Springs must be represented with drain (DRN) package boundary conditions.
-This dictionary has a required format. The dictionary keys are the 
-labels/names for the springs as represented in the .drn and .drn.obs 
-files in MODFLOW 6. The values are lists with the following items.
+This dictionary has a required format. The dictionary keys are now the
+the HSPF RRID for the destination stream segment. The values are lists 
+with the following items.
 
-0. (str): target ID for the HSPF location
+0. (str): drn boundary ID in the drn and drn.obs files
 1. (int): 2D cell Id, 1-based, for the cell where the drain is
           placed
 2. (int): top active layer, 1-based, for the cell where the drain
