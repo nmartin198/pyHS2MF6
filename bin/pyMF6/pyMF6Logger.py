@@ -1,15 +1,33 @@
 """
-.. module:: pyMF6Logger.py
-   :platform: Windows, Linux
-   :synopsis: pyMF6 custom logger
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+pyMF6 custom logger leveraging Python logging
 
 Provides specification and configuration of Python's logging API to use for
 debugging and informational purposes.
 
 A log file, specified with LOGNAME, is used for receipt of log statements.
 Logging level is set with LOG_LEVEL.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 import logging
@@ -35,7 +53,7 @@ FORMATTER = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 
 
 def loggerStart(  LFPath  ):
-    """Start the logger to use for the entire program
+    """Start the logger to use for pyMF6
     """
     # local imports
     import datetime as dt
@@ -50,12 +68,12 @@ def loggerStart(  LFPath  ):
     LOGR.addHandler( FH )
     # write the first entry
     START_TIME = dt.datetime.now()
-    LOGR.info( "Start MODFLOW6 model at %s\n" % 
+    LOGR.info( "Start pyMF6 model at %s\n" % 
                   START_TIME.strftime( "%Y-%m-%d %H:%M:%S" ) )
 
 
 def loggerEnd():
-    """End the program-wide logger
+    """End the pyMF6 logger
     """
     # imports
     import datetime as dt
@@ -65,7 +83,7 @@ def loggerEnd():
     END_TIME = dt.datetime.now()
     eTimerS = ( END_TIME - START_TIME ).total_seconds()
     eTimerM = eTimerS/60.0
-    LOGR.info( "End of MODFLOW6 mods at %s - elapsed time - %10.2f min\n" % 
+    LOGR.info( "End of pyMF6 model at %s - elapsed time - %10.2f min\n" % 
                ( END_TIME.strftime( "%Y-%m-%d %H:%M:%S" ), eTimerM ) )
 
 

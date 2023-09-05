@@ -1,29 +1,65 @@
-""".. module:: pyMF6py.py
-   :platform: Windows, Linux
-   :synopsis: Module containing Python-wrapped, MODFLOW implementation
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+#!/usr/bin/python3
+"""
+pyMF6, python-wrapped, MODFLOW 6 implementation.
 
 This module provides the main entry point for running MODFLOW 6 and the
-main time loop through Python.
+main time loop through Python. To dynamically couple MODFLOW 6 to HSPF, 
+need to be able to break into the time loop at the beginning of each 
+day.
+
+This Python module provides replacement functionality for the Fortran 
+main program block of MODFLOW 6. There are two main program versions 
+within this module. The user controls which version is run by
+executing ``..\coupledMain.py`` or ``..\standaloneMain.py.`` Both "mains" 
+use functions within this module. Function *saMF6TimeLoop* is for standalone 
+execution, and function *MF6TimeLoop* is for coupled (to HSPF) execution.
+
+The message passing queue functions included in this module are only used 
+when coupled mode execution is requested. Also the main block 
+(``if __name__ == main():``) in this module is what is launcehd to start 
+the independent process, spawned by the coupled controller and queue 
+manager.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 import os
 import sys
+# code block to make sure that all required modules are in path at
+# run time
 OUR_MODULE_PATH = os.path.abspath( __file__ )
-"""Current module path"""
 OUR_PACKAGE_PATH = os.path.abspath( os.path.join( OUR_MODULE_PATH, '..' ) )
-"""Current package path"""
 PATH_LIST = sys.path
-"""All environment paths"""
 if ( not OUR_PACKAGE_PATH in PATH_LIST ):
     sys.path.append( OUR_PACKAGE_PATH )
+# end if
+# other imports
 from multiprocessing import Queue
 from multiprocessing.managers import SyncManager
 from queue import Empty
 import datetime as dt
 import numpy as np
-# custom package imports 
+# pyHS2MF6 package imports 
 import pyMF6Logger as CL
 
 
@@ -46,47 +82,75 @@ SIM_DAYS_SERIES = None
 SIM_MONTH_SERIES = None
 """Pandas date range series of months in date form to be simulated"""
 TRACK_UZF_IN = None
-"""Recarray with dimensions NUM_UZF, SIM_MONTHS for tracking the UZF
+"""Numpy recarray with dimensions NUM_UZF, SIM_MONTHS for tracking the UZF
 inflows passed from HSPF"""
 TRACK_DIS_OUT = None
-"""Recarray with dimension NUM_CPL, SIM_MONTHS for tracking the 
-discharge to ground surface sent to HSPF
+"""Numpy recarray with dimension NUM_CPL, SIM_MONTHS for tracking the 
+discharge to ground surface sent to HSPF.
 """
 TRACK_REJI_OUT = None
-"""Recarray with dimension NUM_CPL, SIM_MONTHS for tracking the 
-rejected infiltration sent to HSPF
+"""Numpy recarray with dimension NUM_CPL, SIM_MONTHS for tracking the 
+rejected infiltration sent to HSPF.
 """
 # ---------------------------------------------------------------------
 # Queue definition and management items
 HOST = 'localhost'
-"""Localhost means that the process are set-up to be on all the same 
+"""Host machine for queue server.
+
+Localhost means that the process are set-up to be on all the same 
 machine. The queue server and the clients are in different processes
-on the same 'machine' """
+on the same 'machine'.
+"""
 CLIENTHOST = '127.0.0.1'
-"""Clients are on the same 'machine' as the queue server
+"""Host machine for queue clients.
+
+Clients are on the same 'machine' as the queue server when local 
+descriptors like 'localhost' or '127.0.0.1' are used.
 """
 PORT0 = 45492
-"""Port number for the HSP2 queue.  Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the HSP2 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT1 = 45493
-"""Port number for the MODFLOW 6 queue. Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the MODFLOW 6 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT2 = 45494
-"""Port number for global error handling and communications queue"""
+"""Port number for global error handling and communications queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 AUTHKEY = "authkey".encode()
-"""The authorization key for connecting to a queue. This can 
-be changed, on the queue server and on each process. It is 
-not intended at this point to provide a minimal layer of
-security but can be customized for that purpose."""
+"""Authorization key for queue access.
+
+This is not currently setup in a secure manner. If you plan on using 
+pyHS2MF6 across a public or partially public network, then you should
+give some thought to the AUTHKEY and a means of securing this value.
+AUTHKEY needs to be encoded to a byte string.
+"""
 QUEUE_TIMEOUT = ( 60.0 * 2.0 )
-"""Queue wait timeout before error in seconds """
+"""Queue wait timeout before error in seconds
+
+This is for the from pyMF6 queue and determines the mHSP2 wait time
+for receipt from MODFLOW 6.
+"""
 QUEUE_ERROR = [ "Error" ]
 """Error message to put on queues for program termination """
 QINIT_MSG = [ "Hello" ]
 """Queue intialization and checkin message"""
 START_QUEUE_TO = ( 60.0 * 5.0 )
-"""Queue wait timeout before error in seconds. This is for the
-startup communications """
+"""Queue wait timeout before error in seconds.
+
+This is for program startup communications.
+"""
 QREADY_MSG = [ "Ready" ]
 """Queue intialization and checkin message"""
 QEND_MSG = [ "End" ]
@@ -99,30 +163,28 @@ QEND_MSG = [ "End" ]
 # needs to be at the top level so that is pickleable. Do not need to do
 # anything here just subclass SyncManager
 class QueueManager(SyncManager):
-    """Subclass of multiprocessing.managers.SyncManager. Just sub class
-    don't need to add any custom functionality or overloads. The class 
-    definition needs to be at the top level of the module so that it is
-    pickleable.
+    """Create the queue manager class.
+
+    Needs to be at top level of the module so that is pickleable. Do not
+    need anything here except to subclass SyncManager.
+
     """
     pass
 
 
 def QueueServerClient(ThisHost, Porter, CustomAuth):
-    """Get a client connection to the queue. Can use this connection for
-    both get and put.
+    """Get a client connection a queue.
     
-    See:
-        https://docs.python.org/2.7/library/multiprocessing.html#using-a-remote-manager
-        http://stackoverflow.com/questions/11532654/python-multiprocessing-remotemanager-under-a-multiprocessing-process
-        http://stackoverflow.com/questions/25631266/cant-pickle-class-main-jobqueuemanager
-        
+    The connection is bidirectional and can use this connection for both get 
+    and put.
+            
     Args:
-        ThisHost(str): host name. Should be '127.0.0.1' for the same machine
-        Porter(int): the port number to listen on
-        CustomAuth(str): the custom authorization string
+        ThisHost (str): host name. Should be '127.0.0.1' for the same machine
+        Porter (int): the port number to listen on
+        CustomAuth (str): the custom authorization string
     
-    Return:
-        manager(QueueManager): the client connection
+    Returns:
+        pyMF6py.QueueManager: the client connection
         
     """
     QueueManager.register('get_queue')
@@ -137,8 +199,11 @@ def WriteQueueCheckToLog( qMF6 ):
     """Write queue checks to log file
     
     Args:
-        qMF6(Queue): the from MODFLOW6 queue
-        
+        qMF6(pyMF6py.Queue): the from MODFLOW6 queue
+    
+    Returns:
+        int: function status; 0 == success
+    
     """
     # imports
     # globals
@@ -167,8 +232,9 @@ def WriteQueueCheckToLog( qMF6 ):
 
 def setupRecarrays( ncpl, nuzf, nmonths ):
     """Three recarrays are used to track communications between HSPF and
-    MODFLOW on a grid basis. These recarrays are instantiated and 
-    initialized here
+    MODFLOW on a grid basis.
+    
+    These recarrays are instantiated and initialized here
 
     Args:
         ncpl (int): number of computational cells in a layer, NCPL
@@ -176,7 +242,7 @@ def setupRecarrays( ncpl, nuzf, nmonths ):
         nmonths (int): number of months to be simulated
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
     """
     # imports
     # globals
@@ -202,7 +268,7 @@ def setupRecarrays( ncpl, nuzf, nmonths ):
 
 
 def updateUZFRAs( curpTS, rArray ):
-    """Update the rec array that tracks inputs from HSPF
+    """Update the rec array that tracks inputs from HSPF.
 
     Args:
         curpTS (pd.Timestamp): current simulation time/day
@@ -210,8 +276,8 @@ def updateUZFRAs( curpTS, rArray ):
                                       checking
     
     Returns:
-        retStat (int): 0 == good; currently only 0 returned
-
+        int: function status; 0 == success
+    
     """
     # imports
     # globals
@@ -243,7 +309,7 @@ def updateDischargeRAs( curpTS, tArray ):
                                             at the end of every time step
     
     Returns:
-        retStat (int): 0 == good; currently only 0 returned
+        int: function status; 0 == success
 
     """
     # imports
@@ -270,19 +336,28 @@ def updateDischargeRAs( curpTS, tArray ):
 
 def outputTracking():
     """Output all of our tracking collections so that these can be
-    post-processed if desired. Output to four pickle files.
+    post-processed if desired.
+    
+    Output to four pickle files.
 
-    Pickle file 1 'IndexDict.pickle', dictionary, DI, with indexes
-        DI['ncpl'] = NUM_CPL
-        DI['nuzf'] = NUM_UZF
-        DI['sim_day_index'] = SIM_DAYS_SERIES
-        DI['sim_month_index'] = SIM_MONTH_SERIES
+    1. 'IndexDict.pickle', dictionary, DI, with keys
+    
+        * 'ncpl' = NUM_CPL
+        
+        * 'nuzf' = NUM_UZF
 
-    Pickle file 2, 'UZF_from_HSPF.pickle', TRACK_UZF_IN
+        * 'sim_day_index' = SIM_DAYS_SERIES
+        
+        * 'sim_month_index' = SIM_MONTH_SERIES
 
-    Pickle file 3, 'GSURF_from_MF6.pickle', TRACK_DIS_OUT 
+    2. 'UZF_from_HSPF.pickle', TRACK_UZF_IN
 
-    Pickle file 4, 'REJINF_from_MF6.pickle', TRACK_REJI_OUT 
+    3. 'GSURF_from_MF6.pickle', TRACK_DIS_OUT 
+
+    4. 'REJINF_from_MF6.pickle', TRACK_REJI_OUT 
+
+    Returns:
+        int: function status; 0 == success
 
     """
     # imports
@@ -318,13 +393,13 @@ def outputTracking():
 
 
 def saMF6TimeLoop( simdir ):
-    """Main MODFLOW 6 time loop and all model setup for standalone
+    """Main MODFLOW 6 time loop and all model setup for standalone simulation.
 
     Args:
         simdir(str): directory with simulation inputs
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -366,16 +441,17 @@ def saMF6TimeLoop( simdir ):
 
 
 def MF6TimeLoop( qMF6, qHSP2 ):
-    """Main MODFLOW6 time loop and all model setup
+    """Main MODFLOW6 time loop and all model setup for coupled simulation.
+
     Currently have to run the simulation from the current directory and 
     need to have all of the custom Python files in that directory as well.
 
     Args:
-        qMF6 (Queue client): queue for information from MODFLOW 6
-        qHSP2 (Queue client): queue for information from HSP2
+        qMF6 (pyMF6py.Queue client): queue for information from MODFLOW 6
+        qHSP2 (pyMF6py.Queue client): queue for information from HSP2
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -459,19 +535,11 @@ def MF6TimeLoop( qMF6, qHSP2 ):
     # end while
     # done with time loop so deallocate and close up
     # final processing
-    logmsg = "Finished main time loop"
-    CL.LOGR.info( logmsg )
     retStat1 = mf6.f2pwrap.cphfinalproc()
-    logmsg = "Finished cphfinalproc, status %d" % retStat1 
-    CL.LOGR.info( logmsg )
     # deallocate
     mf6.f2pwrap.cphdeallocall()
-    logmsg = "Finished cphdeallocall"
-    CL.LOGR.info( logmsg )
     # output our rec.arrays and indexes to pickle files
     retStat3 = outputTracking( )
-    logmsg = "Finished outputTracking, status %d" % retStat3
-    CL.LOGR.info( logmsg )
     # get our return value
     retStat = goodReturn + mf6Stat + retStat1 + retStat3
     # return
@@ -480,9 +548,10 @@ def MF6TimeLoop( qMF6, qHSP2 ):
 
 def metaChecks( mf6root, cwd, start_dt, end_dt, num_lay, num_cpl, 
                 num_vert, num_uzf ):
-    """Check the remaining meta data items pass from the queue
-    server as part of initial setup. Uses flopy to implement
-    these checks.
+    """Check meta data items passed from the queue server as part of 
+    initial setup.
+    
+    Uses flopy to implement these checks.
 
     Args:
         mf6root (str): MODFLOW 6 model root name
@@ -495,7 +564,7 @@ def metaChecks( mf6root, cwd, start_dt, end_dt, num_lay, num_cpl,
         num_uzf (int): number of UZF cells in the model
 
     Returns:
-        retStat (int): 0 == success
+        int: function status; 0 == success
 
     """
     # imports
@@ -710,26 +779,33 @@ def metaChecks( mf6root, cwd, start_dt, end_dt, num_lay, num_cpl,
 # Queue processing methods
 def processInitMeta( PassList ):
     """Process the initial metadata communication received from the
-    queue server. Call the various routines as required to read 
-    in all of the HDF5 information as required to completely set
-    up the model and check start time, end time, number of 
-    pervious, number of impervious, and number of reach res
+    queue server.
+    
+    Call the various routines as required to check start 
+    time, end time, and grid specifications.
 
     Args:
-        PassList (list): list, L, of items - these are pickled and 
-                                unpickled and following formats are
-                                required.
-                        L[0] (str): model directory
-                        L[1] (dt.datetime): start time
-                        L[2] (dt.datetime): end time
-                        L[3] (int): number of layers
-                        L[4] (int): number of cells per layer
-                        L[5] (int): number of vertices per layer
-                        L[6] (str): MODFLOW 6 root file name
-                        L[7] (int): number of uzf cells
+        PassList (list): list of metadata items - these are pickled and 
+            unpickled and following formats are required.
+                
+            0. (str): model directory
 
-    Return:
-        cwd (str): FQDN path for MODFLOW 6 simulation files
+            1. (dt.datetime): start time
+
+            2. (dt.datetime): end time
+
+            3. (int): number of layers
+
+            4. (int): number of cells per layer
+
+            5. (int): number of vertices per layer
+
+            6. (str): MODFLOW 6 root file name
+
+            7. (int): number of uzf cells
+
+    Returns:
+        str: FQDN path for MODFLOW 6 simulation files
 
     """
     # imports
@@ -838,9 +914,9 @@ def processInitMeta( PassList ):
     # finally create our simulation time indices
     SIM_DAYS = ( end_dt - start_dt ).days
     SIM_DAYS_SERIES = pd.date_range( start=start_dt, end=end_dt, 
-                                     freq='D', closed='left' )
+                                     freq='D', inclusive='left' )
     SIM_MONTH_SERIES = pd.date_range( start=start_dt, end=end_dt,
-                                      freq='MS', closed='left' )
+                                      freq='MS', inclusive='left' )
     SIM_MONTHS = len( SIM_MONTH_SERIES )
     # set-up the tracking rec.arrays. Not checked at this time but if
     #  run into issues with initialization then will need to add 
@@ -856,8 +932,8 @@ def processReadyComm( StringList ):
     Args:
         StringList (list): list of string items
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status; success == 0
 
     """
     # imports
@@ -907,8 +983,8 @@ def processArrayComm( NpArray ):
         NpArray (np.array): the array of discharge to the surface from 
                             MODFLOW 6
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status; success == 0
 
     """
     # imports

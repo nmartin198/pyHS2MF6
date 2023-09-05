@@ -444,11 +444,11 @@ def mapSetup( tDict, ncpl, nuzf, rr_file, pl_file, sp_file ):
 
     3. **SPRING** dictionary, in sp_file, provides locations of the springs within
     the HSPF model that could be discharging to the ground surface. The 
-    dictionary keys are the labels/names for the springs as represented in 
-    the .drn and .drn.obs files. The values are lists, described below.
+    dictionary keys are the destination RCHRES TargId The values are nested lists, 
+    described below.
 
-        0. (str): target ID for the HSPF location
-
+        0. (str): drn label in .drn and .drn.obs
+        
         1. (int): 2D cell Id, 1-based, for the cell where the drain is placed
 
         2. (int): top active layer, 1-based, for the cell where the drain
@@ -746,17 +746,18 @@ def mapSetup( tDict, ncpl, nuzf, rr_file, pl_file, sp_file ):
     springKeys = sorted( SP_Dict.keys() )
     iCnt = 1
     for sKey in springKeys:
-        dVals = SP_Dict[ sKey ]
-        if dVals[0] == OUT_WS:
+        if sKey == OUT_WS:
             continue
         # end if
-        dVals.append( sKey )
-        SP_GW_MAPPING[iCnt] = dVals
-        iCnt += 1
+        outerList = SP_Dict[ sKey ]
+        for innList in outerList:
+            SP_GW_MAPPING[iCnt] = [sKey, innList[1], innList[2], innList[3], innList[0]]
+            iCnt += 1
+        # end for
     # end for
     # do some checks
     nsprings = len( SP_GW_MAPPING )
-    if len( SP_GW_MAPPING ) < 1:
+    if nsprings < 1:
         # no springs passed !!!
         warnMsg = "No spring locations extracted from %s !!!" % sp_file
         CL.LOGR.warning( warnMsg )
@@ -847,7 +848,7 @@ def setIVOLfromGW( iI, targID, volAFpd ):
     # globals
     global GWIVOL
     # set
-    GWIVOL[targID][iI] = volAFpd
+    GWIVOL[targID][iI] += volAFpd
     # return
     return
 

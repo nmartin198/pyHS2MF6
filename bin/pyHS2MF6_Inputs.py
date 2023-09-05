@@ -1,13 +1,32 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: pyHS2MF6_Inputs.py
-   :platform: Windows, Linux
-   :synopsis: Module containing methods related to input files
+Module containing methods and attributes related to pyHS2MF6 input files.
 
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+This module provides the main text input file reading methods for 
+a coupled model simulation. It also provides persistent storage of these 
+input values obtained from the input file..
 
-This module provides input file reading methods for a coupled model.
-Also provides a module for persistent storage of these input values.
+"""
+# Copyright and License
+"""
+Copyright 2021 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -31,7 +50,7 @@ START_DT = None
 END_DT = None
 """Simulation end time """
 MF6_DIR = None
-"""MODFLOW 6 model directory. *.sim file must be here"""
+"""MODFLOW 6 model directory. .sim file must be here"""
 HSP2_NUM_RR = None
 """Total number of RCHRES objects/targets in the HSP2 model"""
 HSP2_NUM_PL = None
@@ -48,60 +67,88 @@ MF6_IUZFN = None
 """Number of UZF cells defined in the MODFLOW 6 model"""
 MF6_ROOT = None
 """Root name for the MODFLOW 6 model to run """
+
 RR_MAP_GW_PFILE = None
 """Pickle file with dictionary for mapping RCHRES locations to groundwater
-model cells. This dictionary has a required format. The dictionary keys
+model cells.
+
+This dictionary has a required format. The dictionary keys
 are the HSPF target Id, i.e., 'R001'. The values are a list, L, with
 3 items.
-    L[0] (int): HSPF RCHRES exit that goes to groundwater. Must be > 1 and
-                <= 5.
-    L[1] (float): total UZF cell area in this target ID
-    L[2] (pd.DataFrame): DataFrame that describes the UZF cell specifications
-                         within this target ID. The DataFrame index is
-                         the 2D Cell ID, 1-based. The DataFrame has four
-                         columns.
-        - "iuzno" (int): UZF cell ID, 1-based
-        - "TopActive" (int): the top active layer for this model cell, 
-                             1-based
-        - "SArea_m2" (float): surface area of this cell within the 
-                              HSPF target ID in m2
-        - "Weight" (float): dimensionless weight for allocating flows from
-                            HSPF to this cell. Should be > 0 and <= 100.0
+
+0. (int): HSPF RCHRES exit that goes to groundwater. Must be > 1 and <= 5.
+
+1. (float): total UZF cell area in this target ID
+
+2. (pd.DataFrame): DataFrame that describes the UZF cell specifications
+within this target ID. The DataFrame index is the 2D Cell ID, 
+1-based. The DataFrame has four columns.
+
+    * "iuzno" (int): UZF cell ID, 1-based
+
+    * "TopActive" (int): the top active layer for this model cell, 
+                         1-based
+
+    * "SArea_m2" (float): surface area of this cell within the 
+                          HSPF target ID in m2
+
+    * "Weight" (float): dimensionless weight for allocating flow
+
+        - Flow from HSPF to this cell
+
+        - Should be > 0 and <= 100.0
+
 """
+
 PL_MAP_GW_PFILE = None
 """Pickle file with dictionary for mapping PERLND areas to groundwater
-model cells. This dictionary has a required format. The dictionary keys
+model cells.
+
+This dictionary has a required format. The dictionary keys
 are the HSPF target Id, i.e., 'P001'. The values are a list, L, with
 2 items.
-    L[0] (float): total UZF cell area in this target ID
-    L[1] (pd.DataFrame): DataFrame that describes the UZF cell specifications
-                         within this target ID. The DataFrame index is
-                         the 2D Cell ID, 1-based. The DataFrame has four
-                         columns.
-        - "iuzno" (int): UZF cell ID, 1-based
-        - "TopActive" (int): the top active layer for this model cell, 
-                             1-based
-        - "SArea_m2" (float): surface area of this cell within the 
-                              HSPF target ID in m2
-        - "Weight" (float): dimensionless weight for allocating flows from
-                            HSPF to this cell. Should be > 0 and <= 100.0
-"""
-SP_MAP_GW_PFILE = None
-"""Pickle file with dictionary for mapping MODFLOW 6 springs that are 
-represented as drain boundaries to HSPF targets. This dictionary has
-a required format. The dictionary keys are the labels/names for the 
-springs as represented in the *.drn and *.drn.obs files. The values
-are lists, L, where:
-    L[0] (str): target ID for the HSPF location
-    L[1] (int): 2D cell Id, 1-based, for the cell where the drain is
-                placed
-    L[2] (int): top active layer, 1-based, for the cell where the drain
-                is placed
-    L[3] (float): surface area for the cell where the drain is located
 
-*Note: the combination (top active layer, 2D Cell ID) fully specifies the 
-drain location for MODFLOW 6 using DISV
+0. (float): total UZF cell area in this target ID
+
+1. (pd.DataFrame): DataFrame that describes the UZF cell specifications 
+for the target ID key. The DataFrame index is the 2D Cell ID, 
+1-based. The DataFrame has four columns.
+
+    * "iuzno" (int): UZF cell ID, 1-based
+
+    * "TopActive" (int): the top active layer for this model cell, 
+                         1-based
+
+    * "SArea_m2" (float): surface area of this cell within the 
+                          HSPF target ID in m2
+
+    * "Weight" (float): dimensionless weight for allocating flow
+
+        - Flow from HSPF to this cell
+
+        - Should be > 0 and <= 100.0
+
 """
+
+SP_MAP_GW_PFILE = None
+"""Pickle file with dictionary for mapping MODFLOW 6 springs.
+
+Springs must be represented with drain (DRN) package boundary conditions.
+This dictionary has a required format. The dictionary keys are now the
+the HSPF RRID for the destination stream segment. The values are lists 
+with the following items.
+
+0. (str): drn boundary ID in the drn and drn.obs files
+1. (int): 2D cell Id, 1-based, for the cell where the drain is
+          placed
+2. (int): top active layer, 1-based, for the cell where the drain
+          is placed
+3. (float): surface area for the cell where the drain is located
+
+**Note**: the combination (top active layer, 2D Cell ID) fully specifies the 
+drain location for MODFLOW 6 cell using DISV grid style.
+"""
+
 FULL_RR_MAP = None
 """FQDN path and file name for RR mapping - assumes that in same directory 
 as input file"""
@@ -115,15 +162,17 @@ as input file"""
 
 def readInputFile( FileName, DirPath ):
     """Read the input file and store to the module-wide globals.
+
     Reads designated key words from lines that do not start with '#' and that
-    have the designated key word separated from its value by and '='
+    have the designated key word separated from its value by an '='. In 
+    other words '#' at the line start denotes a comment.
     
     Args:
         FileName (str): name for the input file
         DirPath (str): FQDN filepath for the directory with the input file
         
     Returns:
-        retStat (int): return status 0 means success
+        int: 0 means success; != 0 means failure
         
     """
     # imports

@@ -1,26 +1,51 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3
 """
-.. module:: standaloneMain.py
-   :platform: Windows, Linux
-   :synopsis: pyHS2MF6 main for running either MODFLOW6 or HSP2 in standalone mode
+pyHS2MF6 main block for running either pyMF6 or mHSP2 in standalone mode.
 
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+Provides standalone access to MODFLOW 6 or HSPF under the assumption that the
+user will want to do some pre-coupling, independent model verification prior to
+running a coupled model. Uses argparse to accept and parse three command line
+arguments.
 
-Purpose:
+Command line argument options
 
-Provides standalone access to MODFLOW 6 or HSP2 under the assumption that will
-need to do some pre-coupling, independent model calibration prior to trying to
-run a coupled model.
+    * *modelType* (str): identifier for which model to run in standalone mode;
+                         must be HSP2 or MF6
+    * *modelDir* (str): path for model directory with input files
+    * *inFile* (str): main input file name for the program that was specified
+                      modelType
 
-Example command line entry for running HSP2 standalone
+Typical usage examples
 
-python ..\..\LOCA\standaloneMain.py HSP2 C:\\Users\\nmartin\\Documents\\LOCA\\Test_Models\\HSP2 -f DC_Subs.h5 
+    **mHSP2**
+        ``python ..\..\LOCA\standaloneMain.py HSP2 C:\\Users\\nmartin\\Documents\\LOCA\\Test_Models\\HSP2 -f DC_Subs.h5``
 
-Example command line entry for running MODFLOW 6 standalone
-
-python ..\..\LOCA\standaloneMain.py MF6 C:\\Users\\nmartin\\Documents\\LOCA\\Test_Models\\MF6 -f mfsim.nam 
+    **pyMF6**
+        ``python ..\..\LOCA\standaloneMain.py MF6 C:\\Users\\nmartin\\Documents\\LOCA\\Test_Models\\MF6 -f mfsim.nam``
  
-""" 
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
+
+"""
 # imports
 import sys
 import os

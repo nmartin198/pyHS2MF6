@@ -1,12 +1,6 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3
 """
-.. module:: coupledMain.py
-   :platform: Windows, Linux
-   :synopsis: pyHS2MF6 main for coupled MODFLOW6 and HSP2
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
-
-Purpose:
+pyHS2MF6 main block for running coupled simulations.
 
 Provides custom multiprocessing, message passing interface queue manager or
 queue server. This needs to be executed as an independent process and then
@@ -26,36 +20,63 @@ To run the coupled program, open an Anaconda prompt
 2. cd to the model main directory where the coupled input file is located
 3. python {path to this file} {coupled input file} 
 4. python {path to this file} -h 
-    - will provide command line help
+    * will provide command line help
 
-python ..\LOCA\coupledMain.py LOCA_In.dat
+Typical usage example
+
+    ``python ..\LOCA\coupledMain.py LOCA_In.dat``
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 import sys
 import os
+# code block to make sure that all required modules are in path at
+# run time
 OUR_MODULE_PATH = os.path.abspath( __file__ )
-"""Current module path"""
 OUR_PACKAGE_PATH = os.path.abspath( os.path.join( OUR_MODULE_PATH, '..' ) )
-"""Current package path"""
 PATH_LIST = sys.path
 if ( not OUR_PACKAGE_PATH in PATH_LIST ):
     sys.path.append( OUR_PACKAGE_PATH )
+# end if
+# other imports
 import argparse
 from subprocess import Popen, STDOUT
 from multiprocessing import Queue
 from queue import Empty
 from multiprocessing.managers import SyncManager
 from functools import partial
+# pyHS2MF6 package imports
 import custLogger as CL
 import pyHS2MF6_Inputs as LI
 
-# globals
-CUR_ENV = os.environ
+# module globals
+_CUR_ENV = os.environ
 """The environment for running the subprocesses"""
 mHSP2_MAIN = "locaMain.py"
-"""Location of the standalone execution block for HSP2"""
+"""Location of the standalone execution block for mHSP2."""
 pyMF6_MAIN = "pyMF6py.py"
-"""Location of the standalone execution block for MODFLOW 6"""
+"""Location of the standalone execution block for pyMF6."""
 
 # -----------------------------------------------------------
 # queue definitions. Python multiprocessing queues with remote manager 
@@ -64,37 +85,71 @@ pyMF6_MAIN = "pyMF6py.py"
 # line in this case.
 # queue stuff
 HOST = 'localhost'
-"""Localhost means that the process are set-up to be on all the same 
+"""Host machine for queue server.
+
+Localhost means that the process are set-up to be on all the same 
 machine. The queue server and the clients are in different processes
-on the same 'machine' """
+on the same 'machine'.
+"""
 CLIENTHOST = '127.0.0.1'
-"""Clients are on the same 'machine' as the queue server
+"""Host machine for queue clients.
+
+Clients are on the same 'machine' as the queue server when local 
+descriptors like 'localhost' or '127.0.0.1' are used.
 """
 PORT0 = 45492
-"""Port number for the HSP2 queue.  Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the HSP2 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT1 = 45493
-"""Port number for the MODFLOW 6 queue. Port numbers for queues
-need to be the same for each independent process for connection"""
+"""Port number for the MODFLOW 6 queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 PORT2 = 45494
-"""Port number for global error handling and communications queue"""
+"""Port number for global error handling and communications queue.
+
+Port numbers for queues need to be the same for each independent process 
+for connection. Additionally, ports need to be opened in any firewall
+software even for local simulation.
+"""
 AUTHKEY = "authkey".encode()
-"""Authorization key, needs to be encoded"""
+"""Authorization key for queue access.
+
+This is not currently setup in a secure manner. If you plan on using 
+pyHS2MF6 across a public or partially public network, then you should
+give some thought to the AUTHKEY and a means of securing this value.
+AUTHKEY needs to be encoded to a byte string.
+"""
 # queue names
 NAME_FROM_HSPF = 'qmHSP2'
+"""Queue name for the from mHSP2 queue."""
 NAME_FROM_MF6 = 'qmMF6'
+"""Queue name for the from pyMF6 queue."""
 NAME_FROM_TERM = 'qmTERM'
+"""Queue name for the error handling queue."""
 # the queue server description
 HSP2_DESCRIPTION = 'HSP2 Queue Server'
+"""Queue server description for from mHSP2 queue."""
 MF6_DESCRIPTION = 'MODFLOW 6 Queue Server'
+"""Queue server description for from pyMF6 queue."""
 TERM_DESCRIPTION = 'Termination Queue Server'
+"""Queue server description for error handling queue."""
+# addtional queu
 QINIT_MSG = [ "Hello" ]
 """Queue intialization and check in message"""
-QUEUE_TIMEOUT = ( 60.0 * ( 1.0 * 60.0 ) )
+QUEUE_TIMEOUT = ( 60.0 * ( 10.0 * 60.0 ) )
 """End of simulation wait time in seconds """
 START_QUEUE_TO = ( 60.0 * 5.0 )
-"""Queue wait timeout before error in seconds. This is for the
-startup communications """
+"""Queue wait timeout before error in seconds.
+
+This is for program startup communications.
+"""
 QUEUE_ERROR = [ "Error" ]
 """Error message to put on queues for program termination """
 QREADY_MSG = [ "Ready" ]
@@ -102,52 +157,58 @@ QREADY_MSG = [ "Ready" ]
 QEND_MSG = [ "End" ]
 """End of simulation message"""
 SHELL_CAPTURE = "MF6_ShellOut.txt"
-"""Capture the standard MODFLOW simulation output to text file"""
+"""Text file name for capturing standard MODFLOW simulation output"""
 
 #---------------------------------------------------------
 # Remote queue multi-processing stuff. Much needs to be at the top level
 # so that can be pickled for the queues
 def get_q(q):
-    """Main level definition of the get function for queue definition. This
-    needs to be at this level so that pickle can find it.
+    """Main level definition of the get function for queue definition.
+    
+    This needs to be at this level so that pickle can find it.
     
     Args:
         q(Queue): queue to be returned
             
-    Return:
-        q(Queue): return the queue reference (i.e. return itself)
+    Returns:
+        Queue: queue reference (i.e. return itself)
     """
     return q
 
 
-# create the queue manager class
-# needs to be at the top level so that is pickleable. Do not need to do
-# anything here just subclass SyncManager
 class QueueManager(SyncManager):
+    """Create the queue manager class.
+
+    Needs to be at top level of the module so that is pickleable. Do not
+    need anything here except to subclass SyncManager.
+
+    """
     pass
 
 
 def CreateQueueServer( ThisHost, Porter, CustomAuth, name = None, 
                        description = None):
     """
-    This is where we actually create and start the queues. Needs to be called
-    2 times, one for each queue. The "register" settings provide the 
-    basic method structure for our queues.
+    Create and start the message passing queues.
     
-    See:
-        https://docs.python.org/2.7/library/multiprocessing.html#using-a-remote-manager
-        http://stackoverflow.com/questions/11532654/python-multiprocessing-remotemanager-under-a-multiprocessing-process
-        http://stackoverflow.com/questions/25631266/cant-pickle-class-main-jobqueuemanager
+    Needs to be called 2 times, one for each queue. The "register" 
+    settings provide the basic method structure for our queues.
+    
+    See the following links for more information.
+
+    * `Python Docs <https://docs.python.org/3.7/library/multiprocessing.html#using-a-remote-manager>`_ 
+    * `Remote Manager <http://stackoverflow.com/questions/11532654/python-multiprocessing-remotemanager-under-a-multiprocessing-process>`_
+    * `Pickle Issues <http://stackoverflow.com/questions/25631266/cant-pickle-class-main-jobqueuemanager>`_
     
     Args:
-        ThisHost(str): host name. Should be 'localhost' for the same machine
-        Porter(int): the port number to listen on
-        CustomAuth(str): the custom authorization string
-        name(str): the queue name
-        description(str): the queue description
+        ThisHost (str): host name. Should be 'localhost' for the same machine
+        Porter (int): the port number to listen on
+        CustomAuth (str): the custom authorization string
+        name (str): the queue name
+        description (str): the queue description
         
-    Return:
-        manager(QueueManager): return the reference to the queue manager
+    Returns:
+        coupledMain.QueueManager: reference to the queue manager
         
     """
     name = name
@@ -165,21 +226,18 @@ def CreateQueueServer( ThisHost, Porter, CustomAuth, name = None,
 
 
 def QueueServerClient(ThisHost, Porter, CustomAuth):
-    """Get a client connection to the queue. Can use this connection for
-    both get and put.
+    """Get a client connection a queue.
     
-    See:
-        https://docs.python.org/2.7/library/multiprocessing.html#using-a-remote-manager
-        http://stackoverflow.com/questions/11532654/python-multiprocessing-remotemanager-under-a-multiprocessing-process
-        http://stackoverflow.com/questions/25631266/cant-pickle-class-main-jobqueuemanager
-        
+    The connection is bidirectional and can use this connection for both get 
+    and put.
+            
     Args:
-        ThisHost(str): host name. Should be '127.0.0.1' for the same machine
-        Porter(int): the port number to listen on
-        CustomAuth(str): the custom authorization string
+        ThisHost (str): host name. Should be '127.0.0.1' for the same machine
+        Porter (int): the port number to listen on
+        CustomAuth (str): the custom authorization string
     
-    Return:
-        manager(QueueManager): the client connection
+    Returns:
+        coupledMain.QueueManager: the client connection
         
     """
     QueueManager.register('get_queue')
@@ -191,15 +249,16 @@ def QueueServerClient(ThisHost, Porter, CustomAuth):
 
 
 def WriteQueueCheckToLog( qHSP2, qMF6, qTERM ):
-    """Write queue checks to log file
+    """Write queue checks to log file.
     
     Args:
-        qHSP2(Queue): the from HSP2 queue
-        qMF6(Queue): the from MODFLOW 6 queue
-        qTERM(Queue): error handling queue
+        qHSP2 (Queue): the from HSP2 queue
+        qMF6 (Queue): the from MODFLOW 6 queue
+        qTERM (Queue): error handling queue
     
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status, success == 0
+    
     """
     # imports
     from sys import exc_info
@@ -230,13 +289,15 @@ def WriteQueueCheckToLog( qHSP2, qMF6, qTERM ):
 
 
 def processInitComm( StringList ):
-    """Process the initial communication with external processes
+    """Process the initial communication with external processes.
+
+    The external processes are mHSP2 and pyMF6.
 
     Args:
         StringList (list): list of string items
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status, success == 0
 
     """
     # imports
@@ -280,13 +341,13 @@ def processInitComm( StringList ):
 
 
 def processReadyComm( StringList ):
-    """Process the ready communication with external processes
+    """Process the ready communication with an external processes.
 
     Args:
         StringList (list): list of string items
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status, success == 0
 
     """
     # imports
@@ -330,13 +391,16 @@ def processReadyComm( StringList ):
 
 
 def processEndComm( StringList ):
-    """Process the end simulation communication with external processes
+    """Process the end simulation communication with external processes.
+
+    Each external process, mHSP2 or pyMF6 will send an independent end of
+    simulation message.
 
     Args:
         StringList (list): list of string items
 
-    Return:
-        retStat (int): success == 0
+    Returns:
+        int: function status, success == 0
 
     """
     # imports
@@ -427,7 +491,7 @@ if __name__ == "__main__":
     locaPath = os.path.normpath( os.path.join( OUR_PACKAGE_PATH, "mHSP2", mHSP2_MAIN ) )
     mf6Path = os.path.normpath( os.path.join( OUR_PACKAGE_PATH, "pyMF6", pyMF6_MAIN ) )
     # start HSP2 first
-    hspf_proc = Popen( ["python", locaPath ], env=CUR_ENV )
+    hspf_proc = Popen( ["python", locaPath ], env=_CUR_ENV )
     hspf_pid = hspf_proc.pid
     # now are going to wait for the initial check in message
     try:
@@ -499,9 +563,9 @@ if __name__ == "__main__":
     # end if
     # ready to start MODFLOW 6
     mCaptID = open( SHELL_CAPTURE, 'w' )
-    mf6_proc = Popen( ["python", mf6Path ], env=CUR_ENV, 
+    mf6_proc = Popen( ["python", mf6Path ], env=_CUR_ENV, 
                       stdout=mCaptID )
-    #mf6_proc = Popen( ["python", mf6Path ], env=CUR_ENV )
+    #mf6_proc = Popen( ["python", mf6Path ], env=_CUR_ENV )
     mf6_pid = mf6_proc.pid
     # do init checking and setup
     try:

@@ -16,9 +16,9 @@ Internal time unit DELT60 is in hours for **IMPLND**.
 """
 # Copyright and License
 """
-Copyright 2020 Southwest Research Institute
+Copyright 2022 Southwest Research Institute
 
-Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+Module Author: Nick Martin <nick.martin@alumni.stanford.edu>
 
 This file is part of pyHS2MF6.
 
@@ -819,10 +819,10 @@ def getLatInflowByTypeTarget( targID, liType, iI ):
 
 def iwater_liftedloop( iI, mon, targID ):
     """Modified version of liftedloop to do a single time step and
-    return to the main time loop. 
+    return to the main time loop.
     
     Module-wide recarrays are used to store all results and calculation
-    variables between calls. Modified real number comparisons to be 
+    variables between calls. Modified real number comparisons to be
     more numerically reliable.
 
     Args:
@@ -940,163 +940,140 @@ def iwater_liftedloop( iI, mon, targID ):
     # set retiV
     if fl_rtlifg == 1:
         retiV = ts_supy + lits_surli
-    else:
-        retiV = ts_supy 
-    # end if
-    # the next few are calculated no matter which routing method used
-    # RETN
-    rets = rets + retiV
-    # if rets > retsc
-    if ( ( rets - retsc ) >= smallVal ):
-        reto = rets - retsc
-    else:
-        reto = 0.0
-    # end if
-    rets = min( rets, retsc )
-    # IWATER
-    if fl_rtlifg == 1:
+        # RETN
+        rets = rets + retiV
+        # if rets > retsc
+        if ( ( rets - retsc ) > smallVal ):
+            reto = rets - retsc
+            rets = retsc
+        else:
+            reto = 0.0
+        # end if
         suri = reto
     else:
+        retiV = ts_supy
+        # RETN
+        rets = rets + retiV
+        # if rets > retsc
+        if ( ( rets - retsc ) > smallVal ):
+            reto = rets - retsc
+            rets = retsc
+        else:
+            reto = 0.0
+        # end if
         suri = reto + lits_surli
-    # end if 
+    # end if
     msupy = suri + surs
-    surs = 0.0
     suro = 0.0
-    # start with RTOPFG true
-    if fl_rtopfg == 1:
-        #if msupy > 0.0:
-        if ( ( msupy - 0.0 ) >= smallVal ):
+    # 2021 sometime, the structure of this calculation has changed as HSP2 has
+    #  evolved. Modify this to follow the new structure.
+    if ( ( msupy - 0.0002 ) > smallVal ):
+        if fl_rtopfg == 1:
             # IROUTE for RTOPFG==True, the way it is done in arm, nps, and hspx
-            #if oldmsupy == 0.0 or hr1fg:
             if ( abs( oldmsupy - 0.0 ) < smallVal ) or hr1fg:
                 # Time to recompute
                 dummy  = nsur * lsur
                 dec = 0.00982 * pow( ( dummy / sqrt( slsur ) ), 0.6 )
                 src = 1020.0 * ( sqrt( slsur ) / dummy )
             # end if
-            #if msupy <= 0.0002:
-            if ( ( 0.0002 - msupy ) > ( -1.0 * smallVal ) ):
+            sursm = ( surs + msupy ) * 0.5
+            dummy = sursm * 1.6
+            if ( ( suri - 0.0 ) > smallVal ):
+                d = dec * pow( suri, 0.6 )
+                #if d > sursm:
+                if ( ( d - sursm ) > smallVal ):
+                    surse = d
+                    dummy = sursm * ( 1.0 + 0.6 * 
+                                        pow( (sursm / surse), 3.0 ) )
+                # end inner if
+            # end outer if
+            tsuro = DELT60 * src * pow( dummy, 1.67 )
+            if ( ( tsuro - msupy ) > smallVal ):
                 suro = msupy
                 surs = 0.0
             else:
-                sursm = ( surs + msupy ) * 0.5
-                dummy = sursm * 1.6
-                #if suri > 0.0:
-                if ( ( suri - 0.0 ) >= smallVal ):
-                    d = dec * pow( suri, 0.6 )
-                    #if d > sursm:
-                    if ( ( d - sursm ) >= smallVal ):
-                        surse = d
-                        dummy = sursm * ( 1.0 + 0.6 * 
-                                          pow( (sursm / surse), 3.0 ) )
-                    # end inner if
-                # end if
-                tsuro = DELT60 * src * pow( dummy, 1.67 )
-                # if tsuro > msupy
-                if ( ( tsuro - msupy ) >= smallVal ):
-                    suro = msupy
-                    surs = 0.0
-                else:
-                    suro = tsuro
-                    surs = msupy - suro
-                # end if
-            # end if msupy < 0.0002
-        # end if msupy > 0.0
-        # EVRETN
-        #if rets > 0.0:
-        if ( ( rets - 0.0 ) >= smallVal ):
-            # if pet > rets
-            if ( ( ts_pet - rets ) >= 0.0 ):
-                impev = rets
-                rets = 0.0 
-            else:
-                impev = ts_pet
-                rets = rets - impev 
-            # end inner if
+                suro = tsuro
+                surs = msupy - suro
+            # end if
         else:
-            rets = 0.0 
-        # end if rets
-    else:
-        # IROUTE for RTOPFG==False
-        #if msupy > 0.0:
-        if ( ( msupy - 0.0 ) >= smallVal ):
+            # IROUTE for RTOPFG==False
             #if oldmsupy == 0.0 or HR1FG[loop]:
-            if ( abs( oldmsupy - 0.0 ) < smallVal ) or hr1fg:
+            if ( abs( oldmsupy - 0.0 ) <= smallVal ) or hr1fg:
                 # Time to recompute
                 dummy = nsur * lsur
                 dec = 0.00982 * pow( ( dummy / sqrt(slsur) ), 0.6 )
                 src = 1020.0 * sqrt( slsur ) / dummy
-            #if msupy <= 0.0002:
-            if ( ( 0.0002 - msupy ) > (-1.0 * smallVal ) ):
-                suro = msupy
-                surs = 0.0
-            else:
-                ssupr  = suri / DELT60
-                # if ssupr > 0.0
-                if ( ( ssupr - 0.0 ) >= smallVal ):
-                    surse = dec * pow( ssupr, 0.6 )
-                else:
-                    surse = 0.0
-                # end if
-                sursnw = msupy 
-                suro = 0.0
-                # now loop
-                for count in range(MAXLOOPS):
-                    # if ssupr > 0.0:
-                    if ( ( ssupr - 0.0 ) >= smallVal ):
-                        ratio = sursnw / surse
-                        # if ratio <= 1.0
-                        if ( ( 1.0 - ratio ) > ( -1.0 * smallVal ) ):
-                            fact = 1.0 + 0.6 * pow( ratio, 3.0 )
-                        else:
-                            fact = 1.6
-                        # end inner if
-                    else:
-                        fact  = 1.6
-                        ratio = 1e30
-                    # end if
-                    ffact  = ( ( DELT60 * src * pow( fact, 1.667 ) ) * 
-                                    pow( sursnw, 1.667 ) )
-                    fsuro  = ffact - suro
-                    dfact  = -1.667 * ffact
-                    dfsuro = ( dfact / sursnw ) - 1.0
-                    #if ratio <= 1.0:
-                    if ( ( 1.0 - ratio ) > ( -1.0 * smallVal ) ):
-                        dfsuro += ( ( dfact / ( fact * surse ) ) * 1.8 * 
-                                        pow( ratio, 2.0 ) )
-                    # end if
-                    dsuro = fsuro / dfsuro 
-                    suro = suro - dsuro
-                    sursnw = msupy - suro
-                    # check if meet tolerance
-                    #if abs(dsuro / suro) < TOLERANCE:
-                    if ( abs( dsuro / suro ) < TOLERANCE ):
-                        break
-                else:
-                    # IROUTE did not converge
-                    errorsV[0] = errorsV[0] + 1
-                    errorCnt += 1
-                    errMsg = "iwater_liftedloop - %s " % ERRMSG[0]
-                    CL.LOGR.error( errMsg )
-                # end for else
-                surs = sursnw
             # end if
-        # end if 
-        # this section replaces EVRETN
-        #if rets > 0.0:
-        if ( ( rets - 0.0 ) >= smallVal ):
-            # if pet > rets
-            if ( ( ts_pet - rets ) >= 0.0 ):
-                impev = rets
-                rets = 0.0 
+            ssupr  = suri / DELT60
+            # if ssupr > 0.0
+            if ( ( ssupr - 0.0 ) > smallVal ):
+                surse = dec * pow( ssupr, 0.6 )
             else:
-                impev = ts_pet
-                rets = rets - impev 
-            # end inner if
+                surse = 0.0
+            # end if
+            sursnw = msupy
+            suro = 0.0
+            # now loop
+            for count in range(MAXLOOPS):
+                # if ssupr > 0.0:
+                if ( ( ssupr - 0.0 ) > smallVal ):
+                    ratio = sursnw / surse
+                    # if ratio <= 1.0
+                    if ( ( 1.0 - ratio ) > ( -1.0 * smallVal) ):
+                        fact = 1.0 + 0.6 * pow( ratio, 3.0 )
+                    else:
+                        fact = 1.6
+                    # end inner if
+                else:
+                    fact  = 1.6
+                    ratio = 1e30
+                # end if
+                ffact  = ( ( DELT60 * src * pow( fact, 1.667 ) ) * 
+                                pow( sursnw, 1.667 ) )
+                fsuro  = ffact - suro
+                dfact  = -1.667 * ffact
+                dfsuro = ( dfact / sursnw ) - 1.0
+                #if ratio <= 1.0:
+                if ( ( 1.0 - ratio ) > ( -1.0 * smallVal ) ):
+                    dfsuro += ( ( dfact / ( fact * surse ) ) * 1.8 * 
+                                    pow( ratio, 2.0 ) )
+                # end if
+                dsuro = fsuro / dfsuro
+                suro = suro - dsuro
+                sursnw = msupy - suro
+                # check if meet tolerance
+                #if abs(dsuro / suro) < TOLERANCE:
+                if ( abs( dsuro / suro ) < TOLERANCE ):
+                    break
+                # end if
+            else:
+                # IROUTE did not converge
+                errorsV[0] = errorsV[0] + 1
+                errorCnt += 1
+                errMsg = "iwater_liftedloop - %s " % ERRMSG[0]
+                CL.LOGR.error( errMsg )
+            # end for else
+        # end routing method if
+    else:
+        # msupy essentially zero
+        suro = msupy
+        surs = 0.0
+    # end if
+    # this section replaces EVRETN
+    #if rets > 0.0:
+    if ( ( rets - 0.0 ) > smallVal ):
+        # if pet > rets
+        if ( ( ts_pet - rets ) > smallVal ):
+            impev = rets
+            rets = 0.0
         else:
-            rets = 0.0 
-        # end if rets
-    # end of main if rtopfg
+            impev = ts_pet
+            rets = rets - impev
+        # end inner if
+    else:
+        impev = 0.0
+        rets = 0.0
+    # end if rets
     #save results
     # update the carry overs
     HOLD_MSUPY[targID][0] = msupy

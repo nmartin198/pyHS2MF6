@@ -1,13 +1,31 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: custLogger.py
-   :platform: Windows, Linux
-   :synopsis: Coupled model logger
-
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+pyHS2MF6 custom logger leveraging Python logging
 
 Provides specification and configuration of Python's logging API to use for
 debugging and informational purposes.
+
+"""
+# Copyright and License
+"""
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+
+This file is part of pyHS2MF6.
+
+pyHS2MF6 is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pyHS2MF6 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with pyHS2MF6.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 # imports
@@ -34,8 +52,7 @@ FORMATTER = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 
 
 def loggerStart( LFPath ):
-    """Start the logger to use for the entire program
-
+    """Start the logger to use for pyHS2MF6
     Args:
         LFPath (str): FQDN path for the log file
     """
@@ -52,14 +69,14 @@ def loggerStart( LFPath ):
     LOGR.addHandler( FH )
     # now write the first entry
     START_TIME = dt.datetime.now()
-    LOGR.info( "Start Coupled HSP2 and MODFLOW6 at %s\n" % 
+    LOGR.info( "Start pyHS2MF6, coupled HSPF and MODFLOW 6, at %s\n" % 
                   START_TIME.strftime( "%Y-%m-%d %H:%M:%S" ) )
     # return
     return
 
 
 def loggerEnd():
-    """End the program-wide logger
+    """End the pyHS2MF6 log file output
     """
     # imports
     import datetime as dt
@@ -69,7 +86,7 @@ def loggerEnd():
     END_TIME = dt.datetime.now()
     eTimerS = ( END_TIME - START_TIME ).total_seconds()
     eTimerM = eTimerS/60.0
-    LOGR.info( "End Coupled HSP2 and MODFLOW6 at %s - elapsed time " \
+    LOGR.info( "End pyHS2MF6, coupled HSPF and MODFLOW 6 at %s - elapsed time " \
                "- %10.2f min\n" % \
                ( END_TIME.strftime( "%Y-%m-%d %H:%M:%S" ), eTimerM ) )
     # return

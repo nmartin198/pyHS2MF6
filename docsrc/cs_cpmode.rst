@@ -200,7 +200,7 @@ Two examples of the creation of these three files are provided.
    <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/pyHS2MF6_Create_Spatial_Mapping.ipynb>`_.
 
 2. Jupyter Notebook `Create_Coupled_Model_Mapping 
-   <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/Create_Coupled_Model_Mapping.ipynb>`_.
+   <https://github.com/nmartin198/pyHS2MF6/blob/master/example_models/jupyter_notebooks/Create_Coupled_Model_Mapping.ipynb>`: the format for **SP_MAP_GW_PFILE** is this notebook is now out of date_.
 
 
 These Jupyter Notebooks also provide definition of the Python objects that 
@@ -390,7 +390,7 @@ directory `C:\\Models`.
 
 3. Run the model ::
 
-      (pyhs2mf6) > python C:\pyHS2MF6\bin\standaloneMain.py LOCA_In.dat 
+      (pyhs2mf6) > python C:\pyHS2MF6\bin\coupledMain.py LOCA_In.dat 
 
 
 The coupled model will create four log files that record general 
