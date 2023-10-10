@@ -27,7 +27,7 @@ spawned by the coupled controller and queue manager.
 """
 Copyright 2020 Southwest Research Institute
 
-Module Author: Nick Martin <nick.martin@stanfordalumni.org>
+Module Author: Nick Martin <nick.martin@alumni.stanford.edu>
 
 This file is part of pyHS2MF6.
 

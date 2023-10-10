@@ -11,7 +11,9 @@ block or module for each process.
 """
 # Copyright and License
 """
-Copyright 2020 Nick Martin, Paul Southard, Stuart Stothoff
+Copyright 2020 Southwest Research Institute
+
+Module Author: Nick Martin <nick.martin@alumni.stanford.edu>
 
 This file is part of pyHS2MF6.
 

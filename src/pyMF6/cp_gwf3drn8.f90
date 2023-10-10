@@ -2,7 +2,7 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Copyright 2021 Southwest Research Institute
 ! 
-! Modifications Author: Nick Martin <nick.martin@alumni.stanford.org>
+! Modifications Author: Nick Martin <nick.martin@alumni.stanford.edu>
 ! 
 ! This file is part of pyHS2MF6.
 ! 

@@ -23,9 +23,7 @@ The general procedure for contributing is as follows.
 
 ## Authors
 
-* **Nick Martin** nmartin@swri.org
-* **Paul Southard** psouthard@swri.org
-* **Stuart Stothoff** sstothoff@swri.org
+* **Nick Martin** nick.martin@alumni.stanford.edu
 
 ## License
 

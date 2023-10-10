@@ -3,7 +3,7 @@
    :platform: Windows, Linux
    :synopsis: Default package creation file
 
-.. moduleauthor:: Nick Martin <nmartin@swri.org>
+.. moduleauthor:: Nick Martin <nick.martin@alumni.stanford.edu>
 
 Only a version number at this point
 
