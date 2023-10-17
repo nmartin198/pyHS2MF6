@@ -1,6 +1,7 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.ts linguist-vendored
 *.bsv linguist-vendored
+*.ipynb linguist-documentation
 docs/* linguist-documentation
 docsrc/* linguist-documentation
 example_models/* linguist-vendored
