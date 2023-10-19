@@ -7,4 +7,8 @@ docsrc/* linguist-documentation
 example_models/* linguist-vendored
 installation/* linguist-vendored
 bin/* linguist-vendored
-src/pyMF6/Original_MF6/* linguist-vendored
+src/pyMF6/Original_MF6/* linguist-vendored 
+src/pyMF6/Original_MF6/mf6_1_0/* linguist-vendored 
+src/pyMF6/Original_MF6/mf6_1_1/* linguist-vendored 
+src/pyMF6/Original_MF6/mf6_2_0/* linguist-vendored 
+src/pyMF6/Original_MF6/mf6_2_1/* linguist-vendored 
