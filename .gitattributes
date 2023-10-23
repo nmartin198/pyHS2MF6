@@ -1,4 +1,10 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.ic filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.npf filter=lfs diff=lfs merge=lfs -text
+*.sto filter=lfs diff=lfs merge=lfs -text
+*.disv filter=lfs diff=lfs merge=lfs -text
 *.ts linguist-vendored
 *.bsv linguist-vendored
 *.ipynb linguist-documentation
@@ -13,9 +19,10 @@ src/pyMF6/Original_MF6/mf6_1_1/* linguist-vendored
 src/pyMF6/Original_MF6/mf6_2_0/* linguist-vendored 
 src/pyMF6/Original_MF6/mf6_2_1/* linguist-vendored 
 example_models/braat/* linguist-vendored 
-*.h5 filter=lfs diff=lfs merge=lfs -text
-*.ic filter=lfs diff=lfs merge=lfs -text
-*.pdf filter=lfs diff=lfs merge=lfs -text
-*.npf filter=lfs diff=lfs merge=lfs -text
-*.sto filter=lfs diff=lfs merge=lfs -text
-*.disv filter=lfs diff=lfs merge=lfs -text
+example_models/braat/calibration/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_bspr/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_S1/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_S2/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_S3/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_S4/* linguist-vendored 
+example_models/braat/final_models/iES_InitCP_S5/* linguist-vendored 

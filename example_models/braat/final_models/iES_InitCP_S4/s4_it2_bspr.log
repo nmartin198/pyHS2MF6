@@ -1,0 +1,18 @@
+time,elapsed_seconds,message
+13:36:05,7.93e-05,PEST++ performance logger started
+13:36:05,0.0008893,starting to process control file
+13:36:06,0.239187,finished processing control file
+13:36:06,0.165739,starting basic model IO error checking
+13:36:06,0.0663099,finished basic model IO error checking
+13:36:06,0.0226501,initializing
+13:36:06,0.0048971,'noptmax'=0, running control file parameter values and quitting
+13:36:06,0.0046525,saving control file parameter ensemble to  s4_it2_bspr.base.par.csv
+13:36:06,0.0177683,initializing prior parameter covariance matrix
+13:36:06,0.0001041,initializing parcov
+13:36:06,0.013124,parcov loaded  from parameter bounds, using par_sigma_range 6
+13:36:06,0.0114278,running control file parameter values
+13:36:06,0.0004424,queuing 1 runs
+13:36:06,0.0266019,making runs
+20:27:03,24657.2,processing runs
+20:27:03,0.017057,saving results from control file parameter value run to  s4_it2_bspr.base.obs.csv
+20:27:03,0.0931536,control file parameter phi report:

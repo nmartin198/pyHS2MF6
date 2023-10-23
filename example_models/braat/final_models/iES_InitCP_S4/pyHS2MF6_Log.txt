@@ -1,0 +1,20 @@
+2023-03-16 09:53:34,858 - COUPLED - INFO - Start pyHS2MF6, coupled HSPF and MODFLOW 6, at 2023-03-16 09:53:34
+
+2023-03-16 09:53:35,391 - COUPLED - INFO - GS queue size is 0, FE queue size is 0, TERM queue size is 0 
+
+2023-03-16 09:53:36,350 - COUPLED - INFO - Successfully initialized and communicated with queue client.
+
+2023-03-16 09:53:47,543 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
+
+2023-03-16 09:53:47,909 - COUPLED - INFO - Successfully initialized and communicated with queue client.
+
+2023-03-16 09:55:09,440 - COUPLED - INFO - Successfully passed metadata to queue client queue client.
+
+2023-03-16 15:10:50,939 - COUPLED - INFO - Successfully received end of simulation message from queue client.
+
+2023-03-16 15:10:50,939 - COUPLED - INFO - Received successful end message 1!!!
+2023-03-16 15:10:54,560 - COUPLED - INFO - Successfully received end of simulation message from queue client.
+
+2023-03-16 15:10:54,560 - COUPLED - INFO - Received successful end message 2!!!
+2023-03-16 15:10:54,575 - COUPLED - INFO - End pyHS2MF6, coupled HSPF and MODFLOW 6 at 2023-03-16 15:10:54 - elapsed time -     317.33 min
+

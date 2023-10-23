@@ -1,0 +1,16 @@
+# load the two list files; both are clists
+cl_pts = read_list_file( id_type='integer', dimensions=2, file='Horst_Clist.dat',    &
+                         skiplines=1, )
+cl_pp = read_list_file( id_type='integer', dimensions=2, file='Horst_PPVals_Clist.dat', &
+                        skiplines=1, plist='p1';column=12, )
+
+# create the output plist
+pm_1=new_plist(reference_clist=cl_pts,value=10.0)
+
+# now krige
+pm_1 = p1.krige_using_file( file='Horst_kfacs_bsc.dat';form='text', transform='log',    &
+                            upper_limit=60.0, lower_limit=1.0 )
+
+# output
+write_column_data_file( header='yes', file='x60071.csv';delim="comma", &
+                        plist=pm_1, )

@@ -1,0 +1,36 @@
+# Inputs for LOCA coupling of HSPsquared and MODFLOW6
+
+# HSP2 model directory
+HSP2_DIR = "C:\Temp\BRAATWURST\NumModels\Coupled\iES_InitCP_S4\mHSP2"
+# HSP2 HDF5 file
+HSP2_HDF5 = "BRAAT_cp.h5"
+# Simulation start time "%Y-%m-%d" format
+START_DT = 2015-01-01
+# Simulation end time "%Y-%m-%d" format
+END_DT = 2022-01-01
+# MODFLOW 6 model directory
+MF6_DIR = "C:\Temp\BRAATWURST\NumModels\Coupled\iES_InitCP_S4\pyMF6"
+# HSP2 number of RCHRES
+HSP2_NUM_RR = 24
+# HSP2 number of PERLND
+HSP2_NUM_PL = 77
+# HSP2 number of IMPLND
+HSP2_NUM_IL = 26
+# MF6 number of layers
+MF6_NLAY = 38
+# MF6 number of cells per layers
+MF6_NCPL = 144029
+# MF6 number of vertices
+MF6_NVERT = 146827
+# MF6 number of UZF cells defined
+MF6_IUZFN = 15164
+# MF6 root simulation name
+MF6_ROOT = "MF6TBraat_cp"
+# Map RCHRES segments to GW cells
+RR_MAP_GW_PFILE = "cpWS_Rchres.pickle"
+# Map PERLND segments to GW cells
+PL_MAP_GW_PFILE = "cpWS_Perlnd.pickle"
+# Map springs in MF6 to HSPF targets
+SP_MAP_GW_PFILE = "cpWS_Springs.pickle"
+
+#EOF
