@@ -1,0 +1,26 @@
+pcf version=2
+* control data keyword
+pestmode                                 estimation
+noptmax                                 0
+svdmode                                 1
+maxsing                          10000000
+eigthresh                           1e-06
+eigwrite                                1
+ies_num_reals                  300
+ies_save_rescov                true
+ies_autoadaloc                 true
+par_sigma_range                6.0
+ies_drop_conflicts             true
+ies_subset_size                -10
+* parameter groups external
+s3_it2_bspr.pargp_data.csv
+* parameter data external
+s3_it2_bspr.par_data.csv
+* observation data external
+s3_it2_bspr.obs_data.csv
+* model command line
+python run_h2mf6_cvs.py
+* model input external
+s3_it2_bspr.tplfile_data.csv
+* model output external
+s3_it2_bspr.insfile_data.csv

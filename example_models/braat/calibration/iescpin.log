@@ -1,0 +1,424 @@
+time,elapsed_seconds,message
+13:39:11,6.28e-05,PEST++ performance logger started
+13:39:11,0.001342,starting to process control file
+13:39:11,0.257896,finished processing control file
+13:39:12,0.157383,initializing
+13:39:12,0.0022253,using glm algorithm
+13:39:12,0.0002524,using REDSVD for truncated svd solve
+13:39:12,0.0002594,maxsing: 10000000
+13:39:12,0.0002651,eigthresh:  1e-06
+13:39:12,0.0002564,initializing localizer
+13:39:12,0.0002552,using automatic adaptive localization
+13:39:12,1.59e-05,with autoadaloc_sigma_dist  1
+13:39:12,0.0002453,using lambda multipliers: 
+13:39:12,0.0002496,using lambda scaling factors: 
+13:39:12,0.000261,acceptable phi factor:  1.05
+13:39:12,0.0002548,lambda increase factor:  10
+13:39:12,0.0002579,lambda decrease factor:  0.75
+13:39:12,0.0002498,max run fail:  1
+13:39:12,0.0026808,initializing prior parameter covariance matrix
+13:39:12,1.47e-05,initializing parcov
+13:39:12,0.0081118,parcov loaded  from parameter bounds, using par_sigma_range 6
+13:39:12,0.0048416,initializing observation noise covariance matrix
+13:39:12,0.200929,obscov loaded  from observation weights
+13:39:12,0.0129568,using reg_factor:  0
+13:39:12,0.0002803,drawing parameter realizations:  300
+13:39:12,0.0091079,parameters not grouped by parameter groups, reordering par ensemble
+13:39:12,0.0080582,making standard normal draws
+13:39:12,0.044195,scaling by std
+13:39:12,0.0010202,checking realization for invalid values
+13:39:12,0.0149113,resizing reals matrix
+13:39:12,0.0020106,filling reals matrix and adding mean values
+13:39:12,0.0259004,not using prior parameter covariance matrix scaling
+13:39:12,0.0003871,drawing observation noise realizations:  300
+13:39:12,0.020241,making standard normal draws
+13:39:12,0.0561023,scaling by std
+13:39:12,0.0012582,checking realization for invalid values
+13:39:12,0.017723,resizing reals matrix
+13:39:12,0.002466,filling reals matrix and adding mean values
+13:39:12,0.0808548,adding 'base' parameter values to ensemble
+13:39:12,0.0167585,adding 'base' observation values to ensemble
+13:39:12,0.0411544,checking for denormal values in pe
+13:39:14,1.8127,saved initial parameter ensemble to  iescpin.0.par.csv
+13:39:14,2.8e-05,checking for denormal values in obs + noise ensemble
+13:39:25,11.2814,saved obs+noise observation ensemble (obsval + noise realizations) to  iescpin.obs+noise.csv
+13:39:25,0.0011206,setting weights ensemble from control file weights
+13:39:25,0.0088906,checking for denormal values in weights ensemble
+13:39:25,0.0069098,using subset in lambda testing, percentage of realizations used in subset testing:  10
+13:39:25,0.0003894,subset how:  RANDOM
+13:39:25,0.0258241,centering on ensemble mean vector
+13:39:25,2.63e-05,running initial ensemble
+13:39:25,0.0003054,running initial ensemble of size 300
+13:39:25,1.81e-05,queuing 300 runs
+13:39:25,0.254229,making runs
+14:06:22,174416,processing runs
+14:06:23,1.18493,the following par:obs realization runs failed: 28:28,29:29,39:39,48:48,55:55,61:61,73:73,74:74,77:77,83:83,85:85,96:96,99:99,106:106,110:110,115:115,153:153,159:159,167:167,170:170,183:183,220:220,221:221,222:222,234:234,242:242,246:246,251:251,265:265,275:275,277:277,283:283,289:289,291:291,
+14:06:23,3.72e-05,dropping failed realizations
+14:06:23,0.0311776,the following 34 par:obs realization runs failed during evaluation of the initial parameter ensemble:
+28:28
+29:29
+39:39
+48:48
+55:55
+61:61
+73:73
+74:74
+77:77
+83:83
+85:85
+96:96
+99:99
+106:106
+110:110
+115:115
+153:153
+159:159
+167:167
+170:170
+183:183
+220:220
+221:221
+222:222
+234:234
+242:242
+246:246
+251:251
+265:265
+275:275
+277:277
+283:283
+289:289
+291:291
+
+14:06:33,9.73884,saved initial obs ensemble to iescpin.0.obs.csv
+14:06:33,0.367834,calc pre-drop phi
+14:06:33,0.14696,pre-drop initial phi summary
+14:06:33,0.0545909,checking for prior-data conflict...
+14:06:33,0.030888,WARNING: 457 non-zero weighted observations are in conflict with the prior simulated ensemble.
+
+14:06:33,0.0017652,dropping conflicted observations
+14:06:33,0.0368941,number of non-zero weighted observations reduced from 6086 to 5629
+
+14:06:33,0.0798194,updated observation data information written to file  iescpin.adjusted.obs_data.csv
+14:06:33,0.044132,calc initial phi
+14:06:34,0.101048,initial phi summary
+14:08:51,137.241,current lambda: 100
+14:08:51,0.0006548,initialization complete
+14:08:51,0.0005462,starting solve for iteration: 1
+14:08:51,2.96e-05,starting solve for iteration: 1
+14:08:51,0.0002068,current lambda:  100
+14:08:51,3.03e-05,subset defined as a percentage of ensemble size, using 26 realizations for subset
+
+14:08:51,1e-05,reordering variables in pe
+14:08:51,0.0195643,autoadaloc: checking for compat with par and obs ensembles
+14:08:51,3.14e-05,autoadaloc: calculating correlation coefficients
+14:13:16,264.683,autoadaloc iter 1 progress: 5000 of 5210 parameters done
+14:34:14,1258.27,autoadaloc iter 1 progress: 4000 of 5210 parameters done
+14:55:05,1251.42,autoadaloc iter 1 progress: 3000 of 5210 parameters done
+15:15:57,1251.89,autoadaloc iter 1 progress: 2000 of 5210 parameters done
+15:36:51,1254.21,autoadaloc iter 1 progress: 1000 of 5210 parameters done
+15:57:44,1253,autoadaloc thread: 0 processed 5210 parameters 
+15:57:45,0.394267,instantiating localizer matrix from triplets
+15:57:45,0.204746,autoadaloc matrix constructed with 6011208 non-zero elements
+15:57:47,1.59505,preparing EnsembleSolver
+15:57:47,0.0243432,preparing fast-look containers for threaded localization solve
+15:57:47,0.138233,starting calcs for glm factor 10
+15:57:47,2.99e-05,see .log file for more details
+15:57:47,0.0191177,upgrade thread progress: 0 of 5210 parts done
+16:03:34,346.875,upgrade thread progress: 1000 of 5210 parts done
+16:09:17,343.861,upgrade thread progress: 2000 of 5210 parts done
+16:15:04,346.123,upgrade thread progress: 3000 of 5210 parts done
+16:20:48,344.142,upgrade thread progress: 4000 of 5210 parts done
+16:26:32,344.526,upgrade thread progress: 5000 of 5210 parts done
+16:27:45,72.4082,finished calcs for: 10
+16:27:45,0.0004122,starting calcs for glm factor 100
+16:27:45,1.47e-05,see .log file for more details
+16:27:45,0.0156065,upgrade thread progress: 0 of 5210 parts done
+16:33:32,347.556,upgrade thread progress: 1000 of 5210 parts done
+16:39:17,344.626,upgrade thread progress: 2000 of 5210 parts done
+16:45:01,344.557,upgrade thread progress: 3000 of 5210 parts done
+16:50:43,341.473,upgrade thread progress: 4000 of 5210 parts done
+16:56:26,343.194,upgrade thread progress: 5000 of 5210 parts done
+16:57:38,71.5557,finished calcs for: 100
+16:57:38,0.0004682,starting calcs for glm factor 1000
+16:57:38,2.12e-05,see .log file for more details
+16:57:38,0.0152228,upgrade thread progress: 0 of 5210 parts done
+17:03:23,345.466,upgrade thread progress: 1000 of 5210 parts done
+17:09:07,343.644,upgrade thread progress: 2000 of 5210 parts done
+17:14:51,344.559,upgrade thread progress: 3000 of 5210 parts done
+17:20:34,343.101,upgrade thread progress: 4000 of 5210 parts done
+17:26:22,347.361,upgrade thread progress: 5000 of 5210 parts done
+17:27:35,73.2255,finished calcs for: 1000
+17:27:35,8.76e-05,running upgrade ensembles
+17:27:35,1.97e-05,queuing 9 ensembles
+17:27:35,0.0169847,subset idx:pe real name:  3:3, 17:17, 31:33, 40:43, 52:57, 62:68, 65:71, 90:103, 110:126, 136:152, 149:168, 161:181, 162:182, 168:189, 179:200, 188:209, 194:215, 197:218, 206:230, 217:243, 220:247, 230:258, 245:274, 248:279, 261:295, 265:BASE, 
+17:27:35,9.51e-05,subset idx:oe real name:  3:3, 17:17, 31:33, 40:43, 52:57, 62:68, 65:71, 90:103, 110:126, 136:152, 149:168, 161:181, 162:182, 168:189, 179:200, 188:209, 194:215, 197:218, 206:230, 217:243, 220:247, 230:258, 245:274, 248:279, 261:295, 265:BASE, 
+17:27:35,0.194833,making runs
+19:14:49,92833.9,processing runs
+19:14:49,0.0733522,the following par:obs realization runs failed for lambda,scale 10,0.75-->3:3,17:17,33:33,71:71,103:103,126:126,168:168,182:182,200:200,215:215,218:218,243:243,247:247,258:258,BASE:BASE,
+19:14:49,2.24e-05,dropping failed realizations
+19:14:49,0.0769452,the following par:obs realization runs failed for lambda,scale 10,1-->3:3,17:17,33:33,71:71,103:103,126:126,168:168,182:182,189:189,200:200,215:215,218:218,243:243,247:247,258:258,BASE:BASE,
+19:14:49,2.48e-05,dropping failed realizations
+19:14:49,0.0824704,the following par:obs realization runs failed for lambda,scale 10,1.1-->3:3,17:17,33:33,71:71,103:103,126:126,168:168,182:182,189:189,200:200,215:215,218:218,243:243,247:247,258:258,BASE:BASE,
+19:14:49,2.2e-05,dropping failed realizations
+19:14:49,0.127653,the following par:obs realization runs failed for lambda,scale 100,0.75-->3:3,71:71,103:103,182:182,200:200,258:258,
+19:14:49,2.4e-05,dropping failed realizations
+19:14:50,0.124834,the following par:obs realization runs failed for lambda,scale 100,1-->3:3,17:17,71:71,103:103,126:126,182:182,200:200,215:215,243:243,258:258,BASE:BASE,
+19:14:50,2.45e-05,dropping failed realizations
+19:14:50,0.11651,the following par:obs realization runs failed for lambda,scale 100,1.1-->3:3,17:17,71:71,103:103,126:126,152:152,182:182,200:200,215:215,218:218,243:243,258:258,BASE:BASE,
+19:14:50,2.13e-05,dropping failed realizations
+19:14:50,0.136033,the following par:obs realization runs failed for lambda,scale 1000,0.75-->3:3,71:71,
+19:14:50,2.48e-05,dropping failed realizations
+19:14:50,0.165322,the following par:obs realization runs failed for lambda,scale 1000,1-->3:3,33:33,71:71,182:182,
+19:14:50,2.42e-05,dropping failed realizations
+19:14:50,0.122445,the following par:obs realization runs failed for lambda,scale 1000,1.1-->3:3,71:71,182:182,
+19:14:50,2.44e-05,dropping failed realizations
+19:14:50,0.0137792,evaluting upgrade ensembles
+19:14:50,0.0002066,last mean:  1.01224e+07
+19:14:50,0.0001933,last stdev:  1.14621e+06
+19:14:50,0.0620069,phi summary for lambda, scale fac:
+19:14:50,0.0589127,phi summary for lambda, scale fac:
+19:14:50,0.0561969,phi summary for lambda, scale fac:
+19:14:50,0.0622026,phi summary for lambda, scale fac:
+19:14:50,0.0612713,phi summary for lambda, scale fac:
+19:14:50,0.0605676,phi summary for lambda, scale fac:
+19:14:50,0.0633459,phi summary for lambda, scale fac:
+19:14:51,0.0664822,phi summary for lambda, scale fac:
+19:14:51,0.0690548,phi summary for lambda, scale fac:
+19:14:51,0.0288467,phi summary for best lambda, scale fac: 
+19:14:51,0.0568077,running remaining realizations for best lambda, scale:
+19:14:51,1.9e-05,dropping subset idxs from remaining_pe_lam
+19:14:51,0.0061231,dropping subset idxs from remaining_oe_lam
+19:14:51,0.0207644,queuing 240 runs
+19:14:51,0.201037,making runs
+04:28:05,119594,processing runs
+04:28:06,0.939132,the following par:obs realization runs failed: 23:23,34:34,35:35,46:46,49:49,59:59,79:79,121:121,138:138,141:141,142:142,146:146,155:155,158:158,185:185,195:195,199:199,228:228,236:236,238:238,240:240,253:253,271:271,284:284,
+04:28:06,3.92e-05,dropping failed realizations
+04:28:06,0.0268948,the following par:obs realizations failed during evaluation of the remaining ensemble: 23:23 , 34:34 , 35:35 , 46:46 , 49:49 , 59:59 , 79:79 , 121:121 , 138:138 , 141:141 , 142:142 , 146:146 , 155:155 , 158:158 , 185:185 , 195:195 , 199:199 , 228:228 , 236:236 , 238:238 , 240:240 , 253:253 , 271:271 , 284:284 , 
+04:28:06,0.0238914,assembling ensembles
+04:28:06,0.0787905,updating phi
+04:28:06,0.0888119,phi summary for entire ensemble using lambda,scale_fac 
+04:28:06,0.0967641,last best mean phi * acceptable phi factor:  1.06285e+07
+04:28:06,0.0003148,current best mean phi:  9.98719e+06
+04:28:06,0.000421,updating parameter ensemble
+04:28:06,9e-06,updating parameter ensemble
+04:28:06,0.0136066,updating lambda to  750
+04:30:31,144.73,phi-based termination criteria check
+04:30:31,0.0001796,phiredstp:  0.01
+04:30:31,0.0001834,nphistp:  3
+04:30:31,0.0001885,nphinored (also used for consecutive bad lambda cycles):  3
+04:30:31,0.0002378,best mean phi sequence: 
+04:30:31,0.0002515,best phi yet:  9.98719e+06
+04:30:31,0.0001933,number of consecutive bad lambda testing cycles:  0
+04:30:31,0.0001871,number of iterations satisfying phiredstp criteria:  1
+04:30:31,0.0001861,number of iterations since best yet mean phi:  0
+04:30:31,0.0003276,starting solve for iteration: 2
+04:30:31,1.56e-05,starting solve for iteration: 2
+04:30:31,0.0001666,current lambda:  750
+04:30:31,2.11e-05,subset defined as a percentage of ensemble size, using 23 realizations for subset
+
+04:30:31,8.7e-06,reordering variables in pe
+04:30:31,0.0200261,autoadaloc: checking for compat with par and obs ensembles
+04:30:31,2.39e-05,autoadaloc: calculating correlation coefficients
+04:34:02,211.375,autoadaloc iter 2 progress: 5000 of 5210 parameters done
+04:50:44,1001.36,autoadaloc iter 2 progress: 4000 of 5210 parameters done
+05:07:24,1000.77,autoadaloc iter 2 progress: 3000 of 5210 parameters done
+05:24:05,1000.31,autoadaloc iter 2 progress: 2000 of 5210 parameters done
+05:40:44,999.499,autoadaloc iter 2 progress: 1000 of 5210 parameters done
+05:57:33,1008.67,autoadaloc thread: 0 processed 5210 parameters 
+05:57:33,0.432338,instantiating localizer matrix from triplets
+05:57:34,0.262895,autoadaloc matrix constructed with 7042263 non-zero elements
+05:57:35,1.85312,preparing EnsembleSolver
+05:57:35,0.0256034,preparing fast-look containers for threaded localization solve
+05:57:36,0.119871,starting calcs for glm factor 75
+05:57:36,2.64e-05,see .log file for more details
+05:57:36,0.0184849,upgrade thread progress: 0 of 5210 parts done
+06:02:17,281.82,upgrade thread progress: 1000 of 5210 parts done
+06:06:55,277.672,upgrade thread progress: 2000 of 5210 parts done
+06:11:36,281.186,upgrade thread progress: 3000 of 5210 parts done
+06:16:14,277.52,upgrade thread progress: 4000 of 5210 parts done
+06:20:54,280.053,upgrade thread progress: 5000 of 5210 parts done
+06:21:52,58.6854,finished calcs for: 75
+06:21:52,0.0004186,starting calcs for glm factor 750
+06:21:52,2.55e-05,see .log file for more details
+06:21:53,0.0152362,upgrade thread progress: 0 of 5210 parts done
+06:26:33,280.278,upgrade thread progress: 1000 of 5210 parts done
+06:31:12,279.711,upgrade thread progress: 2000 of 5210 parts done
+06:35:53,280.543,upgrade thread progress: 3000 of 5210 parts done
+06:40:32,278.774,upgrade thread progress: 4000 of 5210 parts done
+06:45:13,280.78,upgrade thread progress: 5000 of 5210 parts done
+06:46:12,59.1236,finished calcs for: 750
+06:46:12,0.0004246,starting calcs for glm factor 7500
+06:46:12,1.83e-05,see .log file for more details
+06:46:12,0.0140323,upgrade thread progress: 0 of 5210 parts done
+06:51:00,287.878,upgrade thread progress: 1000 of 5210 parts done
+06:55:43,283.482,upgrade thread progress: 2000 of 5210 parts done
+07:00:28,284.997,upgrade thread progress: 3000 of 5210 parts done
+07:05:12,283.592,upgrade thread progress: 4000 of 5210 parts done
+07:09:54,282.266,upgrade thread progress: 5000 of 5210 parts done
+07:10:53,59.4486,finished calcs for: 7500
+07:10:53,0.0005966,running upgrade ensembles
+07:10:53,2.15e-05,queuing 9 ensembles
+07:10:53,0.0152914,subset idx:pe real name:  1:43, 4:103, 15:243, 21:BASE, 24:2, 25:4, 32:11, 59:50, 68:63, 84:87, 93:97, 101:108, 104:112, 110:119, 128:140, 131:145, 134:149, 141:161, 160:187, 168:197, 175:206, 189:226, 194:233, 
+07:10:53,0.0004322,subset idx:oe real name:  1:43, 4:103, 15:243, 21:BASE, 24:2, 25:4, 32:11, 59:50, 68:63, 84:87, 93:97, 101:108, 104:112, 110:119, 128:140, 131:145, 134:149, 141:161, 160:187, 168:197, 175:206, 189:226, 194:233, 
+07:10:54,0.173277,making runs
+09:45:51,95697.3,processing runs
+09:45:51,0.102089,the following par:obs realization runs failed for lambda,scale 75,0.75-->112:112,140:140,149:149,233:233,
+09:45:51,2.42e-05,dropping failed realizations
+09:45:51,0.118284,the following par:obs realization runs failed for lambda,scale 75,1-->112:112,149:149,233:233,
+09:45:51,2.43e-05,dropping failed realizations
+09:45:51,0.131607,the following par:obs realization runs failed for lambda,scale 75,1.1-->112:112,149:149,233:233,
+09:45:51,2.47e-05,dropping failed realizations
+09:45:51,0.126588,the following par:obs realization runs failed for lambda,scale 750,0.75-->63:63,112:112,149:149,
+09:45:51,2.38e-05,dropping failed realizations
+09:45:52,0.141348,the following par:obs realization runs failed for lambda,scale 750,1-->63:63,112:112,149:149,
+09:45:52,2.15e-05,dropping failed realizations
+09:45:52,0.146062,the following par:obs realization runs failed for lambda,scale 750,1.1-->63:63,112:112,149:149,
+09:45:52,2.36e-05,dropping failed realizations
+09:45:52,0.123585,the following par:obs realization runs failed for lambda,scale 7500,0.75-->112:112,
+09:45:52,2.24e-05,dropping failed realizations
+09:45:52,0.150978,the following par:obs realization runs failed for lambda,scale 7500,1-->63:63,112:112,
+09:45:52,2.42e-05,dropping failed realizations
+09:45:52,0.114547,the following par:obs realization runs failed for lambda,scale 7500,1.1-->63:63,112:112,
+09:45:52,2.55e-05,dropping failed realizations
+09:45:52,0.0119636,evaluting upgrade ensembles
+09:45:52,0.0001692,last mean:  9.98719e+06
+09:45:52,0.0001861,last stdev:  1.14071e+06
+09:45:52,0.0605691,phi summary for lambda, scale fac:
+09:45:52,0.0684598,phi summary for lambda, scale fac:
+09:45:52,0.0574548,phi summary for lambda, scale fac:
+09:45:52,0.0577798,phi summary for lambda, scale fac:
+09:45:52,0.0568686,phi summary for lambda, scale fac:
+09:45:52,0.0647729,phi summary for lambda, scale fac:
+09:45:53,0.0617,phi summary for lambda, scale fac:
+09:45:53,0.0689388,phi summary for lambda, scale fac:
+09:45:53,0.0612862,phi summary for lambda, scale fac:
+09:45:53,0.0262186,phi summary for best lambda, scale fac: 
+09:45:53,0.0486972,running remaining realizations for best lambda, scale:
+09:45:53,1.9e-05,dropping subset idxs from remaining_pe_lam
+09:45:53,0.0055696,dropping subset idxs from remaining_oe_lam
+09:45:53,0.0213177,queuing 215 runs
+09:45:53,0.194651,making runs
+18:51:56,119163,processing runs
+18:51:57,0.93309,the following par:obs realization runs failed: 41:41,47:47,54:54,56:56,66:66,113:113,165:165,169:169,207:207,
+18:51:57,3.87e-05,dropping failed realizations
+18:51:57,0.0304564,the following par:obs realizations failed during evaluation of the remaining ensemble: 41:41 , 47:47 , 54:54 , 56:56 , 66:66 , 113:113 , 165:165 , 169:169 , 207:207 , 
+18:51:57,0.0238504,assembling ensembles
+18:51:57,0.0914511,updating phi
+18:51:57,0.111627,phi summary for entire ensemble using lambda,scale_fac 
+18:51:57,0.102791,last best mean phi * acceptable phi factor:  1.04865e+07
+18:51:57,0.0003014,current best mean phi:  9.98613e+06
+18:51:57,0.0004664,updating parameter ensemble
+18:51:57,1.04e-05,updating parameter ensemble
+18:51:57,0.0132593,updating lambda to  5625
+18:54:24,146.973,phi-based termination criteria check
+18:54:24,0.0002312,phiredstp:  0.01
+18:54:24,0.0002237,nphistp:  3
+18:54:24,0.0002245,nphinored (also used for consecutive bad lambda cycles):  3
+18:54:24,0.0002761,best mean phi sequence: 
+18:54:24,0.000222,best phi yet:  9.98613e+06
+18:54:24,0.0002216,number of consecutive bad lambda testing cycles:  0
+18:54:24,0.0002645,number of iterations satisfying phiredstp criteria:  2
+18:54:24,0.0002452,number of iterations since best yet mean phi:  0
+18:54:24,0.0004089,starting solve for iteration: 3
+18:54:24,1.29e-05,starting solve for iteration: 3
+18:54:24,0.0002021,current lambda:  5625
+18:54:24,1.91e-05,subset defined as a percentage of ensemble size, using 22 realizations for subset
+
+18:54:24,7.3e-06,reordering variables in pe
+18:54:24,0.0220498,autoadaloc: checking for compat with par and obs ensembles
+18:54:24,4.24e-05,autoadaloc: calculating correlation coefficients
+18:57:38,193.533,autoadaloc iter 3 progress: 5000 of 5210 parameters done
+19:13:06,927.7,autoadaloc iter 3 progress: 4000 of 5210 parameters done
+19:28:33,927.26,autoadaloc iter 3 progress: 3000 of 5210 parameters done
+19:43:51,918.488,autoadaloc iter 3 progress: 2000 of 5210 parameters done
+19:59:08,916.431,autoadaloc iter 3 progress: 1000 of 5210 parameters done
+20:14:28,919.88,autoadaloc thread: 0 processed 5210 parameters 
+20:14:28,0.556533,instantiating localizer matrix from triplets
+20:14:29,0.293881,autoadaloc matrix constructed with 7573994 non-zero elements
+20:14:31,2.02771,preparing EnsembleSolver
+20:14:31,0.0220557,preparing fast-look containers for threaded localization solve
+20:14:31,0.130972,starting calcs for glm factor 562.5
+20:14:31,3.29e-05,see .log file for more details
+20:14:31,0.0172925,upgrade thread progress: 0 of 5210 parts done
+20:18:56,265.591,upgrade thread progress: 1000 of 5210 parts done
+20:23:20,263.918,upgrade thread progress: 2000 of 5210 parts done
+20:27:47,267.073,upgrade thread progress: 3000 of 5210 parts done
+20:32:13,265.672,upgrade thread progress: 4000 of 5210 parts done
+20:36:40,266.997,upgrade thread progress: 5000 of 5210 parts done
+20:37:36,55.5282,finished calcs for: 562.5
+20:37:36,0.0004011,starting calcs for glm factor 5625
+20:37:36,1.91e-05,see .log file for more details
+20:37:36,0.0164582,upgrade thread progress: 0 of 5210 parts done
+20:42:03,267.1,upgrade thread progress: 1000 of 5210 parts done
+20:46:28,265.117,upgrade thread progress: 2000 of 5210 parts done
+20:50:53,265.178,upgrade thread progress: 3000 of 5210 parts done
+20:55:18,264.671,upgrade thread progress: 4000 of 5210 parts done
+20:59:46,267.854,upgrade thread progress: 5000 of 5210 parts done
+21:00:41,55.6217,finished calcs for: 5625
+21:00:41,0.0004315,starting calcs for glm factor 56250
+21:00:41,2.3e-05,see .log file for more details
+21:00:41,0.0167158,upgrade thread progress: 0 of 5210 parts done
+21:05:12,270.406,upgrade thread progress: 1000 of 5210 parts done
+21:09:41,269.369,upgrade thread progress: 2000 of 5210 parts done
+21:14:10,268.617,upgrade thread progress: 3000 of 5210 parts done
+21:18:35,265.375,upgrade thread progress: 4000 of 5210 parts done
+21:23:02,266.733,upgrade thread progress: 5000 of 5210 parts done
+21:23:58,55.992,finished calcs for: 56250
+21:23:58,0.0005556,running upgrade ensembles
+21:23:58,1.84e-05,queuing 9 ensembles
+21:23:58,0.0153873,subset idx:pe real name:  1:103, 3:BASE, 10:97, 21:233, 31:209, 38:279, 41:1, 44:7, 45:8, 48:12, 52:16, 67:38, 68:40, 71:45, 74:53, 89:82, 97:93, 115:123, 138:157, 194:252, 203:263, 226:297, 
+21:23:58,0.0004041,subset idx:oe real name:  1:103, 3:BASE, 10:97, 21:233, 31:209, 38:279, 41:1, 44:7, 45:8, 48:12, 52:16, 67:38, 68:40, 71:45, 74:53, 89:82, 97:93, 115:123, 138:157, 194:252, 203:263, 226:297, 
+21:23:58,0.196366,making runs
+06:00:35,117397,processing runs
+06:00:35,0.10879,the following par:obs realization runs failed for lambda,scale 562.5,0.75-->12:12,
+06:00:35,2.07e-05,dropping failed realizations
+06:00:35,0.13406,the following par:obs realization runs failed for lambda,scale 562.5,1-->1:1,
+06:00:35,2.11e-05,dropping failed realizations
+06:00:35,0.127269,the following par:obs realization runs failed for lambda,scale 562.5,1.1-->1:1,
+06:00:35,2.54e-05,dropping failed realizations
+06:00:35,0.277953,the following par:obs realization runs failed for lambda,scale 5625,1-->1:1,
+06:00:35,2.48e-05,dropping failed realizations
+06:00:35,0.264997,the following par:obs realization runs failed for lambda,scale 56250,0.75-->38:38,
+06:00:35,2.14e-05,dropping failed realizations
+06:00:36,0.298951,evaluting upgrade ensembles
+06:00:36,0.0001638,last mean:  9.98613e+06
+06:00:36,0.0001756,last stdev:  1.14961e+06
+06:00:36,0.0726341,phi summary for lambda, scale fac:
+06:00:36,0.0669235,phi summary for lambda, scale fac:
+06:00:36,0.0623369,phi summary for lambda, scale fac:
+06:00:36,0.0629023,phi summary for lambda, scale fac:
+06:00:36,0.0641818,phi summary for lambda, scale fac:
+06:00:36,0.0662619,phi summary for lambda, scale fac:
+06:00:36,0.0659357,phi summary for lambda, scale fac:
+06:00:36,0.0647674,phi summary for lambda, scale fac:
+06:00:36,0.0652168,phi summary for lambda, scale fac:
+06:00:36,0.0288002,phi summary for best lambda, scale fac: 
+06:00:36,0.0661633,running remaining realizations for best lambda, scale:
+06:00:36,1.85e-05,dropping subset idxs from remaining_pe_lam
+06:00:36,0.0064508,dropping subset idxs from remaining_oe_lam
+06:00:36,0.0206176,queuing 206 runs
+06:00:37,0.202028,making runs
+14:30:13,116976,processing runs
+14:30:13,0.840793,the following par:obs realization runs failed: 2:2,63:63,181:181,90:90,114:114,212:212,235:235,237:237,249:249,280:280,
+14:30:13,3.92e-05,dropping failed realizations
+14:30:13,0.0284587,the following par:obs realizations failed during evaluation of the remaining ensemble: 2:2 , 63:63 , 181:181 , 90:90 , 114:114 , 212:212 , 235:235 , 237:237 , 249:249 , 280:280 , 
+14:30:13,0.0244146,assembling ensembles
+14:30:14,0.0957515,updating phi
+14:30:14,0.111195,phi summary for entire ensemble using lambda,scale_fac 
+14:30:14,0.116708,last best mean phi * acceptable phi factor:  1.04854e+07
+14:30:14,0.0002637,current best mean phi:  9.9794e+06
+14:30:14,0.00034,updating parameter ensemble
+14:30:14,1.25e-05,updating parameter ensemble
+14:30:14,0.0136829,updating lambda to  4218.75
+14:32:44,150.223,phi-based termination criteria check
+14:32:44,0.0008132,phiredstp:  0.01
+14:32:44,9.42e-05,nphistp:  3
+14:32:44,0.0002817,nphinored (also used for consecutive bad lambda cycles):  3
+14:32:44,0.0002667,best mean phi sequence: 
+14:32:44,0.000248,best phi yet:  9.9794e+06
+14:32:44,0.0002742,number of consecutive bad lambda testing cycles:  0
+14:32:44,0.0002438,number of iterations satisfying phiredstp criteria:  3
+14:32:44,0.0002528,number iterations satisfying phiredstp criteria > nphistp
+14:32:44,0.0002629,number of iterations since best yet mean phi:  0
+14:32:44,0.0003601,phi-based termination criteria satisfied, all done

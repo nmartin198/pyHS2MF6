@@ -1,0 +1,9 @@
+pargpnme,inctyp,derinc,derinclb,forcen,derincmul,dermthd,splitthresh,splitreldiff,splitaction
+zb006,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb004,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb005,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb003,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb002,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb001,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb007,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+zb008,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
