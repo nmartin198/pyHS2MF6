@@ -13,3 +13,9 @@ src/pyMF6/Original_MF6/mf6_1_1/* linguist-vendored
 src/pyMF6/Original_MF6/mf6_2_0/* linguist-vendored 
 src/pyMF6/Original_MF6/mf6_2_1/* linguist-vendored 
 example_models/braat/* linguist-vendored 
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.ic filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.npf filter=lfs diff=lfs merge=lfs -text
+*.sto filter=lfs diff=lfs merge=lfs -text
+*.disv filter=lfs diff=lfs merge=lfs -text
