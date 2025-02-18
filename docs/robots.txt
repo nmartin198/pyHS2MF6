@@ -1,0 +1,15 @@
+# robots.txt
+User-agent: Googlebot
+Disallow: /doctrees/
+Disallow: /_static/
+Disallow: /_sources/
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: *
+Disallow: /doctrees/
+Disallow: /_static/
+Disallow: /_sources/
+
+Sitemap: https://nmartin198.github.io/pyHS2MF6/sitemap.xml
